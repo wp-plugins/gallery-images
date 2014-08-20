@@ -21,23 +21,23 @@ The features of the Image Gallery
 
 ### 5 Views Options 
 
-**Gallery / content-popup**
+**Gallery / content-popup  -  Image Gallery**
 
 In this Image gallery each post with the picture , title under text open in popup and make them larger. The button “View more” is under the text also inside the popup, it opens more information about the content. to close the popup press “cross” button and go back to the tape. 
 
-**Content slider** 
+**Content slider  -  Image Gallery** 
 
 In this view you can see your images with the text, title and “ViewMore” button in slider. Just click onthe arrows in the upper corners and slide the content.
 
-**Ligthtbox - gallery**
+**Ligthtbox gallery  -  Image Gallery**
 
 In this gallery view you can add only the images of images without text. The title comes up from the bottom of the image as you hover the mouse on it. Images become larger with the lightbox and you can slide to watch them.
 
-**Slider**
+**Slider  -  Image Gallery**
 
 If you have seen Huge-IT Slider you will see this view is the same, your picture with its title and description on the image, moves with many beautiful effects as you click on arrows.
 
-**Thumbnails View**
+**Thumbnails View  -  Image Gallery**
 
 This view shows your images like thumbnail. As you click  they open in lightbox, and you can scroll them. there is not any text with it, only it’s title.
 
