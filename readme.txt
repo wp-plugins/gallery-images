@@ -8,13 +8,13 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Huge-IT Gallery images is perfect for using for creating various portfolios within various views. 
+Huge-IT Gallery images is perfect for using for creating various galeries within various views. 
 
 == Description ==
 
 ### Wordpress Image Gallery
 
-**Huge-IT Gallery images** is perfect for using for creating various portfolios within various views. to creating various sliders with plenty of styles, beautiful lightboxes with it's option for any taste. The product allows adding descriptions and titles for each view of the Image Gallery. It is rather useful wherever using with various pages and posts, as well as within custom location.
+**Huge-IT Gallery images** is perfect for using for creating various galeries within various views. to creating various sliders with plenty of styles, beautiful lightboxes with it's option for any taste. The product allows adding descriptions and titles for each view of the Image Gallery. It is rather useful wherever using with various pages and posts, as well as within custom location.
 It uses 5 views options and can be customized using the General Options. Almost all kind of texts are customizable in terms of text and color.
 
 The features of the Image Gallery
@@ -74,7 +74,7 @@ Step 2. **General Options of Image Gallery**
 
 In this section you can modify your Image Gallery in more details. That will change the features of each view you choose.
 
-2.1 **Gallery / content-popup**
+2.1 **Gallery / content-popup  -  Image Gallery**
 
 Element Styles
 
@@ -155,7 +155,7 @@ Link Button Background Color. Set background color of Image Gallery link button 
 
 Link Button Background Hover Color. Set background color of Image Gallery link as you hover on it.
 
-2.2 **Content slider**
+2.2 **Content slider  -  Image Gallery**
 
 Slider
 
@@ -199,7 +199,7 @@ Description Font Size. Set Image Gallery font size of description
 
 Description Font Color. Set Image Gallery color of font in description
 
-2.3 **Ligthtbox - gallery**
+2.3 **Ligthtbox gallery  -  Image Gallery**
 
 Image
 
@@ -223,7 +223,7 @@ Title Background Color. Choose title background color
 
 Title Background Transparency. Choose Image Gallery level of title background transparancy 
 
-2.4 **Huge-IT Slider**
+2.4 **Slider  -  Image Gallery**
 
 Title
 
@@ -293,7 +293,7 @@ Navigation Dots Color. choose Image Gallery color for navigation dots.
 
 Navigation Active Dot Color. Choose Image Gallery color of moving dots up.
 
-2.5 **Thumbnails View**
+2.5 **Thumbnails View  -  Image Gallery**
 
 Image
 
