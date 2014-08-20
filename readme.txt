@@ -1,7 +1,7 @@
 === Image Gallery ===
 Contributors: Huge-IT
 Donate link: http://huge-it.com/gallery-gallery/
-Tags: gallery, image gallery, gallery, gallery image, content slider, widget gallerym lightbox gallery, website gallery, gallery lightbox, image, images, post, posts, content gallery, galleries, wordpress gallery,
+Tags: gallery, image gallery, gallery, gallery image, content slider, widget gallerym lightbox gallery, website gallery, gallery lightbox, image, images, post, posts, content gallery, galleries, wordpress gallery, Picture Gallery, nextgen, nextgen gallery, photo gallery, galeria,
 Requires at least: 3.0.1
 Tested up to: 3.9.1
 Stable tag: 1.0.0
