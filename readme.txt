@@ -115,21 +115,21 @@ Description Font Color. Change Image Gallery color of description text
 
 Element Title
 
-Element Title Font Size. Change the size of title font 
+Element Title Font Size. Change Image Gallery size of title font 
 
-Element Title Background Color. Choose the color of title background
+Element Title Background Color. Choose Image Gallery color of title background
 
-Element Title Font Color. Change the color of title
+Element Title Font Color. Change Image Gallery color of title
 
 Element Link Button
 
-Show Link Button On Element. Tick to show “View More” button on the image
+Show Link Button On Element. Tick to show “View More” button on Image Gallery image
 
-Link Button Text. Change content of the “View More” text
+Link Button Text. Change content of Image Gallery “View More” text
 
-Link Button Font Size.change the size of link button
+Link Button Font Size.change Image Gallery size of link button
 
-Link Button Font Color. Change the color of link font
+Link Button Font Color. Change Image Gallery color of link font
 
 Link Button Background Color. choose color for link background
 
@@ -143,7 +143,7 @@ Popup Link Button
 
 Show Link Button. Tick to show link button in popup
 
-Link Button Text. Change the text of link button in popup 
+Link Button Text. Change Image Gallery text of link button in popup 
 
 Link Button Font Size. Change font size of link button in popup
 
@@ -151,147 +151,147 @@ Link Button Font Color. Change color of link button in popup
 
 Link Button Font Hover Color. Choose color of link button when hover on it
 
-Link Button Background Color. Set background color of the link button in popup 
+Link Button Background Color. Set background color of Image Gallery link button in popup 
 
-Link Button Background Hover Color. Set background color of the link as you hover on it.
+Link Button Background Hover Color. Set background color of Image Gallery link as you hover on it.
 
 2.2 **Content slider**
 
 Slider
 
-Slider Background Color. Set the color of background. 
+Slider Background Color. Set Image Gallery color of background. 
 
 Arrow Icons Style. Set black or white color of arrows in slider.	
  				
-Show Separator Lines. Click to show the lines between text, title, and link.
+Show Separator Lines. Click to show Image Gallery lines between text, title, and link.
 
 Title
 
-Title Font Size. Set the font size of the title
+Title Font Size. Set Image Gallery font size of the title
 
-Title Font Color. Set the color of the font
+Title Font Color. Set Image Gallery color of the font
 
 Link Button
 
-Show Link Button. Click to show the link button
+Show Link Button. Click to show Image Gallery link button
 
-Link Button Text. Change the text on link button.
+Link Button Text. Change Image Gallery text on link button.
 
-Link Button Font Size. Change the font size of the link text 
+Link Button Font Size. Change Image Gallery font size of the link text 
 
-Link Button Font Color. Change the color or the link text
+Link Button Font Color. Change Image Gallery color or the link text
 
-Link Button Font Hover Color. Change the color of the link text while hovering on it
+Link Button Font Hover Color. Change Image Gallery color of the link text while hovering on it
 
-Link Button Background Color. Choose the color of link background
+Link Button Background Color. Choose Image Gallery color of link background
 
-Link Button Background Hover Color. Choose the color of link background while hovering on it
+Link Button Background Hover Color. Choose Image Gallery color of link background while hovering on it
 
 Images
 
-Main Image Width. Set the size of the image 
+Main Image Width. Set Image Gallery size of the image 
 
 Description
 
-Show Description. Click to show the description of the text
+Show Description. Click to show Image Gallery description of the text
 
-Description Font Size. Set the font size of description 
+Description Font Size. Set Image Gallery font size of description 
 
-Description Font Color. Set the color of font in description
+Description Font Color. Set Image Gallery color of font in description
 
 2.3 **Ligthtbox - gallery**
 
 Image
 
-Image Width. Set the size of the image
+Image Width. Set Image Gallery size of the image
 
-Image Border Width. Set the width of borders 
+Image Border Width. Set Image Gallery width of borders 
 
-Image Border Color. Choose the color for border
+Image Border Color. Choose Image Gallery color for border
 
-Border Radius. Choose the radius of border corners
+Border Radius. Choose Image Gallery radius of border corners
 
 Title
 
-Title Font Size. Set the font size of the title
+Title Font Size. Set Image Gallery font size of the title
 
-Title Font Color. Set the color of the title
+Title Font Color. Set Image Gallery color of the title
 
-Title Font Hover Color. Set the color of the title while hovering on it
+Title Font Hover Color. Set Image Gallery color of the title while hovering on it
 
 Title Background Color. Choose title background color
 
-Title Background Transparency. Choose the level of title background transparancy 
+Title Background Transparency. Choose Image Gallery level of title background transparancy 
 
 2.4 **Huge-IT Slider**
 
 Title
 
-Title Width. Choose the width for title box
+Title Width. Choose Image Gallery width for title box
 
-Title Has Margin. Click if you need the title to have
+Title Has Margin. Click if you need Image Gallery title to have
 
-Title Font Size. Set the font size of the title 
+Title Font Size. Set Image Gallery font size of the title 
 
-Title Text Color. Set the color of the title
+Title Text Color. Set Image Gallery color of the title
 
-Title Text Align. Set the location of the title in the box 	
+Title Text Align. Set Image Gallery location of the title in the box 	
 					  
-Title Background Transparency. Set the level of background transparency 
+Title Background Transparency. Set Image Gallery level of background transparency 
 
-Title Background Color. Choose the color of title background 
+Title Background Color. Choose Image Gallery color of title background 
 
-Title Border Size. Set the size of the title border 
+Title Border Size. Set Image Gallery size of the title border 
 
-Title Border Color. Choose the color for the title border
+Title Border Color. Choose Image Gallery color for the title border
 
-Title Border Radius. Set the radius for border corners 
+Title Border Radius. Set Image Gallery radius for border corners 
 
-Title Position. Choose the position for the title.
+Title Position. Choose Image Gallery position for the title.
 
 Slideshow
 
-Image Behaviour. Choose resized if you need your images have the size of the slider
+Image Behaviour. Choose resized if you need your images have Image Gallery size of the slider
 	
-Slider Background Color. Choose the color of background while images has its natural size
+Slider Background Color. Choose Image Gallery color of background while images has its natural size
 
-Slideshow Border Size. Set the size of the slider border.
+Slideshow Border Size. Set Image Gallery size of the slider border.
 
-Slideshow Border Color. Choose the color for the slider border
+Slideshow Border Color. Choose Image Gallery color for the slider border
 
-Slideshow Border radius Choose the radius for slider border
+Slideshow Border radius Choose Image Gallery radius for slider border
 
 Description
 
 Description Has Margin. Choose if description need to have margin
 
-Description Font Size. Set the font size for description
+Description Font Size. Set Image Gallery font size for description
 
 Description Text Color. Set text color for description
 
-Description Text Align. Set the location of the description in the box
+Description Text Align. Set Image Gallery location of the description in the box
 
-Description Background Transparency. Set the level of transparency for background of description.
+Description Background Transparency. Set Image Gallery level of transparency for background of description.
 
-Description Background Color. Choose the color for description background.
+Description Background Color. Choose Image Gallery color for description background.
 
-Description Border Size. Set the size for the border in description
+Description Border Size. Set Image Gallery size for the border in description
 
-Description Border Color. Set the color of description border
+Description Border Color. Set Image Gallery color of description border
 
-Description Border Radius . Set the radius of the description box corners.
+Description Border Radius . Set Image Gallery radius of the description box corners.
 
-Description Position. Set the position of description on image
+Description Position. Set Image Gallery position of description on image
 
 Navigation
 
 Show Navigation Arrows. Click to show navigation arrows
 
-Navigation Dots Position / Hide Dots. Choose the location for dots, or choose to remove them
+Navigation Dots Position / Hide Dots. Choose Image Gallery location for dots, or choose to remove them
 
-Navigation Dots Color. choose the color for navigation dots.
+Navigation Dots Color. choose Image Gallery color for navigation dots.
 
-Navigation Active Dot Color. Choose the color of moving dots up.
+Navigation Active Dot Color. Choose Image Gallery color of moving dots up.
 
 2.5 **Thumbnails View**
 
