@@ -12,14 +12,16 @@ Huge-IT Gallery images is perfect for using for creating various portfolios with
 
 == Description ==
 
-Huge-IT Gallery images is perfect for using for creating various portfolios within various views. to creating various sliders with plenty of styles, beautiful lightboxes with it's option for any taste. The product allows adding descriptions and titles for each view of the Image Gallery. It is rather useful wherever using with various pages and posts, as well as within custom location.
+### Wordpress Image Gallery
+
+**Huge-IT Gallery images** is perfect for using for creating various portfolios within various views. to creating various sliders with plenty of styles, beautiful lightboxes with it's option for any taste. The product allows adding descriptions and titles for each view of the Image Gallery. It is rather useful wherever using with various pages and posts, as well as within custom location.
 It uses 5 views options and can be customized using the General Options. Almost all kind of texts are customizable in terms of text and color.
 
 The features of the Image Gallery
 
 ### 5 Views Options 
 
-Gallery/content-popup
+**Gallery/content-popup**
 In this gallery each post with the picture , title under text open in popup and make them larger. The button “View more” is under the text also inside the popup, it opens more information about the content. to close the popup press “cross” button and go back to the tape. 
 
 Content slider 
