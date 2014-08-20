@@ -21,15 +21,15 @@ The features of the Image Gallery
 
 ### 5 Views Options 
 
-**Gallery/content-popup**
+**Gallery / content-popup**
 
-In this gallery each post with the picture , title under text open in popup and make them larger. The button “View more” is under the text also inside the popup, it opens more information about the content. to close the popup press “cross” button and go back to the tape. 
+In this Image gallery each post with the picture , title under text open in popup and make them larger. The button “View more” is under the text also inside the popup, it opens more information about the content. to close the popup press “cross” button and go back to the tape. 
 
 **Content slider** 
 
 In this view you can see your images with the text, title and “ViewMore” button in slider. Just click onthe arrows in the upper corners and slide the content.
 
-**Ligthtbox-gallery**
+**Ligthtbox - gallery**
 
 In this gallery view you can add only the images of images without text. The title comes up from the bottom of the image as you hover the mouse on it. Images become larger with the lightbox and you can slide to watch them.
 
@@ -63,53 +63,54 @@ Now you can set your Image Gallery options, images and use our Image Gallery.
 
 ==Step 1. Adding a Image Gallery==
 
-Huge-IT Image Gallery > Add New Gallery
+Huge-IT Image Gallery > Add New Image Gallery
 
 Add Images. Use the standard WordPress Image uploader to add an image from media library or upload from computer.
 Title. Add a title to your image
 Description. give some information or describe the topic
 URL. Provide some link of your post. Click to open in new tab or don’t click to open in the same tab
 
-Step 2. General Options of Portfolio
-In this section you can modify your portfolio in more details. That will change the features of each view you choose.
+Step 2. **General Options of Image Gallery**
 
-2.1 **Gallery/content-popup**
+In this section you can modify your Image Gallery in more details. That will change the features of each view you choose.
+
+2.1 **Gallery / content-popup**
 
 Element Styles
 
-Element Width. Sets the width of posted image 
+Element Width. Sets Image Gallery width of posted image 
 
-Element Height. Sets the high of posted image
+Element Height. Sets Image Gallery high of posted image
 
-Element Border Width. Set the border with of the element
+Element Border Width. Set Image Gallery border with of the element
 
-Element Border Color. Choose the color for the border
+Element Border Color. Choose Image Gallery color for the border
 
-Element's Image Overlay Color. Choose a color for the overlay on the image while hovering
+Element's Image Overlay Color. Choose a color for Image Gallery overlay on the image while hovering
 
-Element's Image Overlay Transparency. Set the level of transparency of the image overlay 
+Element's Image Overlay Transparency. Set Image Gallery level of transparency of the image overlay 
 
-Zoom Image Style. Changes the color of zoom icon
+Zoom Image Style. Changes Image Gallery color of zoom icon
 
 Popup Styles
 
-Popup Background Color. Change the background color of popup
+Popup Background Color. Change Image Gallery background color of popup
 
-Popup Overlay Color.Choose. the color for popup overlay
+Popup Overlay Color.Choose. Image Gallery color for popup overlay
 
-Popup Overlay Transparency. Set the level of background transparency
+Popup Overlay Transparency. Set Image Gallery level of background transparency
 
-Popup Close Button Style. Change the color of “X” icon
+Popup Close Button Style. Change Image Gallery color of “X” icon
 				
 Show Separator Lines. tick to show separation lines between title and text.
 
 Popup Description
 
-Show Description. Tick to show the description of the image
+Show Description. Tick to show Image Gallery description of the image
 
-Description Font Size. Choose the size of description font
+Description Font Size. Choose Image Gallery size of description font
 
-Description Font Color. Change the color of description text
+Description Font Color. Change Image Gallery color of description text
 
 
 Element Title
@@ -198,7 +199,7 @@ Description Font Size. Set the font size of description
 
 Description Font Color. Set the color of font in description
 
-2.3 **Ligthtbox-gallery**
+2.3 **Ligthtbox - gallery**
 
 Image
 
