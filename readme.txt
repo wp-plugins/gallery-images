@@ -8,14 +8,14 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Huge-IT Gallery images is perfect for using for creating various galeries within various views. 
+Huge-IT Image Gallery is the best plugin to use if you want to be original with your website.
 
 == Description ==
 
 ### Wordpress Image Gallery
 
-**Huge-IT Gallery images** is perfect for using for creating various galeries within various views. to creating various sliders with plenty of styles, beautiful lightboxes with it's option for any taste. The product allows adding descriptions and titles for each view of the Image Gallery. It is rather useful wherever using with various pages and posts, as well as within custom location.
-It uses 5 views options and can be customized using the General Options. Almost all kind of texts are customizable in terms of text and color.
+**Huge-IT Image Gallery** is the best plugin to use if you want to be original with your website. It has specially made to allow it’s users create a lot of of way of representing their images and information. Just add image, wright descriptions and titles for each view of the Gallery and choose one from 5 unrepeatable views. Each view has unique customizable options in “ General Options “ section to make them fit your taste. 
+Almost every type of text can be change from the standpoint of text and color.
 
 The features of the Image Gallery
 
@@ -23,19 +23,19 @@ The features of the Image Gallery
 
 **Gallery / content-popup  -  Image Gallery**
 
-In this Image gallery each post with the picture , title under text open in popup and make them larger. The button “View more” is under the text also inside the popup, it opens more information about the content. to close the popup press “cross” button and go back to the tape. 
+This type of view Image Gallery view shows each post with it’s picture, title under text open in popup and make them larger. The button “View More” is under the text also inside the popup, it opens more information about the content. to close the popup press “cross” button and get back to the tape.
 
 **Content slider  -  Image Gallery** 
 
-In this view you can see your images with the text, title and “ViewMore” button in slider. Just click onthe arrows in the upper corners and slide the content.
+In this view you can see your images with it’s text it’s title and “View More” button inside the slider. Just click on the arrows on the corners and move to the next.
 
 **Ligthtbox gallery  -  Image Gallery**
 
-In this gallery view you can add only the images of images without text. The title comes up from the bottom of the image as you hover the mouse on it. Images become larger with the lightbox and you can slide to watch them.
+This view of Image Gallery allows you to add your images without text. The title comes up in the bottom of the image as you hover on it. Images make larger with the lightbox and you can slide to watch them.
 
 **Slider  -  Image Gallery**
 
-If you have seen Huge-IT Slider you will see this view is the same, your picture with its title and description on the image, moves with many beautiful effects as you click on arrows.
+If you know Slider and like it, you will be glad to set this view, because it is almost the same. Your picture with its title and description on the image, moves with many wonderful effects as you click on arrows.
 
 **Thumbnails View  -  Image Gallery**
 
@@ -76,84 +76,85 @@ In this section you can modify your Image Gallery in more details. That will cha
 
 2.1 **Gallery / content-popup  -  Image Gallery**
 
-Element Styles
+**Element Styles of Image Gallery**
 
-Element Width. Sets Image Gallery width of posted image 
+Element Width. Sets the width of posted image in “ Image Gallery “
 
-Element Height. Sets Image Gallery high of posted image
+Element Height. Sets the high of posted image in “ Image Gallery “
 
-Element Border Width. Set Image Gallery border with of the element
+Element Border Width. Set the border with of the element in “ Image Gallery “
 
-Element Border Color. Choose Image Gallery color for the border
+Element Border Color. Choose the color for the border in “ Image Gallery “
 
-Element's Image Overlay Color. Choose a color for Image Gallery overlay on the image while hovering
+Element's Image Overlay Color. Choose a color for the overlay on the image while hovering on it in Image Gallery
 
-Element's Image Overlay Transparency. Set Image Gallery level of transparency of the image overlay 
+Element's Image Overlay Transparency. Set the level of transparency of the image overlay in “ Image Gallery “
 
-Zoom Image Style. Changes Image Gallery color of zoom icon
+Zoom Image Style. Changes the color of zoom icon in Image Gallery
 
-Popup Styles
+**Popup Styles of Image Gallery**
 
-Popup Background Color. Change Image Gallery background color of popup
+Popup Background Color. Change the background color of popup in your “ Image Gallery “
 
-Popup Overlay Color.Choose. Image Gallery color for popup overlay
+Popup Overlay Color.Choose the color for popup overlay in your “ Image Gallery “
 
-Popup Overlay Transparency. Set Image Gallery level of background transparency
+Popup Overlay Transparency. Set the level of background transparency in your “ Image Gallery “
 
-Popup Close Button Style. Change Image Gallery color of “X” icon
-				
-Show Separator Lines. tick to show separation lines between title and text.
+Popup Close Button Style. Change the color of “X” icon. Image Gallery				
 
-Popup Description
+Show Separator Lines. Tick to show separation lines between title and text in popup of “ Image Gallery “
 
-Show Description. Tick to show Image Gallery description of the image
+**Popup Description of Image Gallery**
 
-Description Font Size. Choose Image Gallery size of description font
+Show Description. Tick to show the description of the image in your “ Image Gallery “
 
-Description Font Color. Change Image Gallery color of description text
+Description Font Size. Choose the size of description font in your “ Image Gallery “
+
+Description Font Color. Change the color of description text in your “ Image Gallery “
+
+**Element Title of Image Gallery**
+
+Element Title Font Size. Change the size of title font in “ Image Gallery “
+
+Element Title Background Color. Choose the color of title background in “ Image Gallery “
+
+Element Title Font Color. Change the color of title in “ Image Gallery “
+
+**Element Link Button of Image Gallery**
+
+Show Link Button On Element. Tick to show “View More” button on the image. Image Gallery
+
+Link Button Text. Change content of the “View More” text in “ Image Gallery “
+
+Link Button Font Size. Change the size of link button in “ Image Gallery “
+
+Link Button Font Color. Change the color of link font in “ Image Gallery “
+
+Link Button Background Color. choose color for link background in “ Image Gallery “
 
 
-Element Title
+**Popup Title of Image Gallery**
 
-Element Title Font Size. Change Image Gallery size of title font 
+Popup Title Font Size. Choose title font size in your “ Image Gallery “ popup
 
-Element Title Background Color. Choose Image Gallery color of title background
+Popup Title Font Color. Choose Title font color in popup. Image Gallery
 
-Element Title Font Color. Change Image Gallery color of title
+**Popup Link Button of Image Gallery**
 
-Element Link Button
+Show Link Button. Tick to show link button in popup of “ Image Gallery “
 
-Show Link Button On Element. Tick to show “View More” button on Image Gallery image
+Link Button Text. Change the text of link button in popup of “ Image Gallery “
 
-Link Button Text. Change content of Image Gallery “View More” text
+Link Button Font Size. Change font size of link button in popup of “ Image Gallery “
 
-Link Button Font Size.change Image Gallery size of link button
+Link Button Font Color. Change color of link button in popup. Image Gallery
 
-Link Button Font Color. Change Image Gallery color of link font
+Link Button Font Hover Color. Choose color of link button when hover on it of “ Image Gallery “
 
-Link Button Background Color. choose color for link background
+Link Button Background Color. Set background color of the link button in popup of “ Image Gallery “
 
-Popup Title
+Link Button Background Hover Color. Set background color of the link as you hover on it. Image Gallery
 
-Popup Title Font Size. Choose title font size in popup
-
-Popup Title Font Color. Choose Title font color in popup
-
-Popup Link Button
-
-Show Link Button. Tick to show link button in popup
-
-Link Button Text. Change Image Gallery text of link button in popup 
-
-Link Button Font Size. Change font size of link button in popup
-
-Link Button Font Color. Change color of link button in popup
-
-Link Button Font Hover Color. Choose color of link button when hover on it
-
-Link Button Background Color. Set background color of Image Gallery link button in popup 
-
-Link Button Background Hover Color. Set background color of Image Gallery link as you hover on it.
 
 2.2 **Content slider  -  Image Gallery**
 
