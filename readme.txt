@@ -158,156 +158,177 @@ Link Button Background Hover Color. Set background color of the link as you hove
 
 2.2 **Content slider  -  Image Gallery**
 
-Slider
+**Slider of Image Gallery**
 
-Slider Background Color. Set Image Gallery color of background. 
+Slider Background Color. Set the color of background in “ Image Gallery “
 
-Arrow Icons Style. Set black or white color of arrows in slider.	
- 				
-Show Separator Lines. Click to show Image Gallery lines between text, title, and link.
+Arrow Icons Style. Set black or white color of arrows in slider of “ Image Gallery “	
+ 		
+Show Separator Lines. Click to show the lines between text, title, and link in “ Image Gallery “
 
-Title
+**Title  -  Image Gallery**
 
-Title Font Size. Set Image Gallery font size of the title
+Title Font Size. Set the font size of the title in “ Image Gallery “
 
-Title Font Color. Set Image Gallery color of the font
+Title Font Color. Set the color of the font in “ Image Gallery “
 
-Link Button
+**Link Button  -  Image Gallery**
 
-Show Link Button. Click to show Image Gallery link button
+Show Link Button. Click to show the link button in “ Image Gallery “
 
-Link Button Text. Change Image Gallery text on link button.
+Link Button Text. Change the text on link button in “ Image Gallery “
 
-Link Button Font Size. Change Image Gallery font size of the link text 
+Link Button Font Size. Change the font size of the link text in “ Image Gallery “
 
-Link Button Font Color. Change Image Gallery color or the link text
+Link Button Font Color. Change the color or the link text in “Image Gallery “
 
-Link Button Font Hover Color. Change Image Gallery color of the link text while hovering on it
+Link Button Font Hover Color. Change the color of the link text while hovering on it. Image Gallery
 
-Link Button Background Color. Choose Image Gallery color of link background
+Link Button Background Color. Choose the color of link background in “ Image Gallery “
 
-Link Button Background Hover Color. Choose Image Gallery color of link background while hovering on it
+Link Button Background Hover Color. Choose the color of link background while hovering on it. Image Gallery
 
-Images
+**Images  -  Image Gallery**
 
-Main Image Width. Set Image Gallery size of the image 
+Main Image Width. Set the size of the image in “ Image Gallery “
 
-Description
+**Description  -  Image Gallery**
 
-Show Description. Click to show Image Gallery description of the text
+Show Description. Click to show the description of the text in “ Image Gallery “
 
-Description Font Size. Set Image Gallery font size of description 
+Description Font Size. Set the font size of description in “ Image Gallery “
 
-Description Font Color. Set Image Gallery color of font in description
+Description Font Color. Set the color of font in description of “ Image Gallery “
+
 
 2.3 **Ligthtbox gallery  -  Image Gallery**
 
-Image
+**Image  -  Image Gallery**
 
-Image Width. Set Image Gallery size of the image
+Image Width. Set the size of the image in “ Image Gallery “
 
-Image Border Width. Set Image Gallery width of borders 
+Image Border Width. Set the width of borders  in “ Image Gallery “
 
-Image Border Color. Choose Image Gallery color for border
+Image Border Color. Choose the color for border in “ Image Gallery “
 
-Border Radius. Choose Image Gallery radius of border corners
+Border Radius. Choose the radius of border corners in “ Image Gallery “
 
-Title
+**Title  -  Image Gallery**
 
-Title Font Size. Set Image Gallery font size of the title
+Title Font Size. Set the font size of the title in “ Image Gallery “
 
-Title Font Color. Set Image Gallery color of the title
+Title Font Color. Set the color of the title in “ Image Gallery “
 
-Title Font Hover Color. Set Image Gallery color of the title while hovering on it
+Title Font Hover Color. Set the color of the title while hovering on it . Image Gallery
 
-Title Background Color. Choose title background color
+Title Background Color. Choose title background color in “ Image Gallery “
 
-Title Background Transparency. Choose Image Gallery level of title background transparancy 
-
+Title Background Transparency. Choose the level of title background transparency in “ Image Gallery “ 
+ 
 2.4 **Slider  -  Image Gallery**
 
-Title
+**Title  -  Image Gallery**
 
-Title Width. Choose Image Gallery width for title box
+Title Width. Choose the width for title box in “ Image Gallery “
 
-Title Has Margin. Click if you need Image Gallery title to have
+Title Has Margin. Click if you need the title to have margin in your “ Image Gallery “
 
-Title Font Size. Set Image Gallery font size of the title 
+Title Font Size. Set the font size of the title in “ Image Gallery “
 
-Title Text Color. Set Image Gallery color of the title
+Title Text Color. Set the color of the title in “ Image Gallery “
 
-Title Text Align. Set Image Gallery location of the title in the box 	
-					  
-Title Background Transparency. Set Image Gallery level of background transparency 
+Title Text Align. Set the location of the title in the box in “ Image Gallery “			
 
-Title Background Color. Choose Image Gallery color of title background 
+Title Background Transparency. Set the level of background transparency in “ Image Gallery “
 
-Title Border Size. Set Image Gallery size of the title border 
+Title Background Color. Choose the color of title background in “ Image Gallery “
 
-Title Border Color. Choose Image Gallery color for the title border
+Title Border Size. Set the size of the title border in “ Image Gallery “
 
-Title Border Radius. Set Image Gallery radius for border corners 
+Title Border Color. Choose the color for the title border in “ Image Gallery “
 
-Title Position. Choose Image Gallery position for the title.
+Title Border Radius. Set the radius for border corners in “ Image Gallery “
 
-Slideshow
+Title Position. Choose the position for the title in “ Image Gallery “
 
-Image Behaviour. Choose resized if you need your images have Image Gallery size of the slider
-	
-Slider Background Color. Choose Image Gallery color of background while images has its natural size
+**Slideshow  -  Image Gallery**
 
-Slideshow Border Size. Set Image Gallery size of the slider border.
+Image Behaviour. Choose resized if you need your images have the size of the slider in “ Image Gallery “
 
-Slideshow Border Color. Choose Image Gallery color for the slider border
+Slider Background Color. Choose the color of background while images has its natural size. Image Gallery
 
-Slideshow Border radius Choose Image Gallery radius for slider border
+Slideshow Border Size. Set the size of the slider border in “ Image Gallery “
 
-Description
+Slideshow Border Color. Choose the color for the slider border in “ Image Gallery “
 
-Description Has Margin. Choose if description need to have margin
+Slideshow Border radius Choose the radius for slider border in “ Image Gallery “
 
-Description Font Size. Set Image Gallery font size for description
+**Description  -  Image Gallery**
 
-Description Text Color. Set text color for description
+Description Has Margin. Choose if description need to have margin  “ Image Gallery “
 
-Description Text Align. Set Image Gallery location of the description in the box
+Description Font Size. Set the font size for description in “ Image Gallery “
 
-Description Background Transparency. Set Image Gallery level of transparency for background of description.
+Description Text Color. Set text color for description in “ Image Gallery “
 
-Description Background Color. Choose Image Gallery color for description background.
+Description Text Align. Set the location of the description in the box	 of “ Image Gallery “	
 
-Description Border Size. Set Image Gallery size for the border in description
+Description Background Transparency. Set the level of transparency for background of description. Image Gallery
 
-Description Border Color. Set Image Gallery color of description border
+Description Background Color. Choose the color for description background in “ Image Gallery “
 
-Description Border Radius . Set Image Gallery radius of the description box corners.
+Description Border Size. Set the size for the border in description of “ Image Gallery “
 
-Description Position. Set Image Gallery position of description on image
+Description Border Color. Set the color of description border in “ Image Gallery “
 
-Navigation
+Description Border Radius . Set the radius of the description box corners in “ Image Gallery “
 
-Show Navigation Arrows. Click to show navigation arrows
+Description Position. Set the position of description on image. Image Gallery
 
-Navigation Dots Position / Hide Dots. Choose Image Gallery location for dots, or choose to remove them
+**Navigation  -  Image Gallery**
 
-Navigation Dots Color. choose Image Gallery color for navigation dots.
+Show Navigation Arrows. Click to show navigation arrows in “ Image Gallery “ slider
 
-Navigation Active Dot Color. Choose Image Gallery color of moving dots up.
+Navigation Dots Position / Hide Dots. Choose the location for dots, or choose to remove them. Image Gallery
+
+Navigation Dots Color. choose the color for navigation dots in “ Image Gallery “ slider
+
+Navigation Active Dot Color. Choose the color of moving dots in “ Image Gallery “ slider
 
 2.5 **Thumbnails View  -  Image Gallery**
 
-Image
+**Image  -  Image Gallery**
 
-Image Behavior.
+Image Behavior. Click to give your images a behavior in your “ Image Gallery “
 
-Image Width px
+Image Width. Set the width of thumbs in “ Image Gallery “
 
-Image Height px
+Image Height. Set the height of thumbs in “ Image Gallery “
 
-Image Border Width px
+Image Border Width. Set the width of the border between thumbs in “ Image Gallery “
 
-Image Border Color
+Image Border Color. Set the color of the border between thumbs in “ Image Gallery “
 
-Border Radius px
+Border Radius. Set the radius of the border in “ Image Gallery “
 
-Margin Image
+Margin Image. Set the distance between each thumb in “ Image Gallery “
+
+**Title  -  Image Gallery**
+
+Title Font Size. Set the size of the text font in “ Image Gallery “
+
+Title Font Color. Choose the color of text in “ Image Gallery “
+
+Overlay Background Color. Choose the overlay color of the title in “ Image Gallery “
+
+Title Background Transparency. Set the level of background transparency in “ Image Gallery “
+
+**Box style  -  Image Gallery**
+
+Box Has background. Click to have background for thumbs in “ Image Gallery “
+
+Box background. Set the Color of surrounded box in “ Image Gallery “
+
+Box Use shadow. Click if you need to have shadows in the box of “ Image Gallery “
+
+Box padding. Set the distance between the box and images in “ Image Gallery “
