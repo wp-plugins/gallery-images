@@ -76,7 +76,7 @@ Title. Add a title to your image
 Description. give some information or describe the topic
 URL. Provide some link of your post. Click to open in new tab or don’t click to open in the same tab
 
-**Inserting Created Image Gallery**
+**Inserting Created Image Gallery** 
 
 When you finish creating your Image Gallery. Find on the right site 3 blocks
 
