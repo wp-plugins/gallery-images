@@ -14,6 +14,9 @@ Huge-IT Image Gallery is the best plugin to use if you want to be original with 
 
 ### Wordpress Image Gallery
 
+[Demo Image Gallery](http://huge-it.com/wordpress-plugins-gallery-demo/)   
+[User Image Gallery Manual](http://huge-it.com/wordpress-plugins-gallery-user-manual/)  
+
 **Huge-IT Image Gallery** is the best plugin to use if you want to be original with your website. It has specially made to allow it’s users create a lot of of way of representing their images and information. Just add image, wright descriptions and titles for each view of the Gallery and choose one from 5 unrepeatable views. Each view has unique customizable options in “ General Options “ section to make them fit your taste. 
 Almost every type of text can be change from the standpoint of text and color.
 
