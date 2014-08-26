@@ -37,8 +37,8 @@ jQuery(document).ready(function () {
 	<?php $path_site = plugins_url("../images", __FILE__); ?>
 	<div class="slider-options-head">
 		<div style="float: left;">
-			<div><a href="http://huge-it.com/wordpress-plugins-image-gallery-user-manual/" target="_blank">User Manual</a></div>
-			<div>This section allows you to configure the Image Gallery options. <a href="http://huge-it.com/wordpress-plugins-image-gallery-user-manual/" target="_blank">More...</a></div>
+			<div><a href="http://huge-it.com/wordpress-plugins-gallery-user-manual/" target="_blank">User Manual</a></div>
+			<div>This section allows you to configure the Image Gallery options. <a href="http://huge-it.com/wordpress-plugins-gallery-user-manual/" target="_blank">More...</a></div>
 		</div>
 		<div style="float: right;">
 			<a class="header-logo-text" href="http://huge-it.com/wordpress-gallery/" target="_blank">
