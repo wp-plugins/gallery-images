@@ -20,6 +20,9 @@ Huge-IT Image Gallery is the best plugin to use if you want to be original with 
 **Huge-IT Image Gallery** is the best plugin to use if you want to be original with your website. It has specially made to allow it’s users create a lot of of way of representing their images and information. Just add image, wright descriptions and titles for each view of the Gallery and choose one from 5 unrepeatable views. Each view has unique customizable options in “ General Options “ section to make them fit your taste. 
 Almost every type of text can be change from the standpoint of text and color.
 
+**Huge-IT Image Gallery** is the best plugin to use if you want to be original with your website. Image gallery  has specially made to allow it’s users create a lot of ways to represent their images and information. Just add image, wright descriptions and titles for each view of the Image gallery and choose one from 5 unrepeatable views. Each view has unique customizable options in “ General Options “ section to make them fit your taste. Almost every type of text can be change from the standpoint of text and color. Also there are a lot of features relative as to Image gallery and thumbnails as to it's lightbox. Talking about Lightbox, notice, that Image gallery plugin has separate options page, where you can choose one from 5 lightbox views, and customize it. And that way to create desirable style of your website. Show your image in it's best way! Image gallery plugin offers you, being already easy to use and friendly admin panel, where you can add several images at a time and immediately give them a title, description and link, goes to any page, and set the way it opens. With our Image Gallery you can realize your most original ideas. 5 views of the Image Gallery gives you 5 ways to be the best! 
+Considering the large number of galleries in WordPress, Huge-IT company day by day will improve and enhance the functionality of Image gallery, and keep on adhering to the first position among WordPress Gallery plugins. So We are sure our Image gallery will always satisfy you. Now just Install & Enjoy.
+
 The features of the Image Gallery
 
 ### 5 Views Options 
@@ -72,6 +75,17 @@ Add Images. Use the standard WordPress Image uploader to add an image from media
 Title. Add a title to your image
 Description. give some information or describe the topic
 URL. Provide some link of your post. Click to open in new tab or don’t click to open in the same tab
+
+**Inserting Created Image Gallery**
+
+When you finish creating your Image Gallery. Find on the right site 3 blocks
+
+Views. Here, among 5 views, mentioned above, chose the view for your Image Gallery. 
+
+Usage. Here you can find a shortcode of your Image Gallery. You can Copy&Paste this shortcode wherever you need in your posts or page, where you want your Image Gallery be. Or you can add this code automatically, when posting your Image Gallery there is a button to add Image Gallery, pressing on it the shortcode inserts into your post.
+
+Template Include. This code made to be inserted into your template, it makes the inserting Image Gallery easy for using in custom location within theme.
+
 
 Step 2. **General Options of Image Gallery**
 
