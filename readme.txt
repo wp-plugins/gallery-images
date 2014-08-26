@@ -1,7 +1,7 @@
 === Image Gallery ===
 Contributors: Huge-IT
 Donate link: http://huge-it.com/gallery-gallery/
-Tags: gallery, image gallery, gallery image, content slider, widget gallery, lightbox gallery, website gallery, gallery lightbox, image, images, post, posts, content gallery, galleries, wordpress gallery, Picture Gallery, nextgen, nextgen gallery, photo gallery, galeria, gallery, best gallery, thumbnail view, content gallery, popup gallery, media gallery, easy gallery, picture, gallery plugin, plugin gallery, add gallery, add image, add picture, add photo, galery, add images, add pictures, gallery wordpress, widget, wp gallery, thumbnail, thumbnails, gallery slider, Galleria, simple gallery, img,
+Tags: gallery, image gallery, gallery image, content slider, widget gallery, lightbox gallery, website gallery, gallery lightbox, image, images, post, posts, content gallery, galleries, wordpress gallery, Picture Gallery, nextgen, nextgen gallery, photo gallery, galeria, gallery, best gallery, thumbnail view, content gallery, popup gallery, media gallery, easy gallery, picture, gallery plugin, plugin gallery, add gallery, add image, add picture, add photo, galery, add images, add pictures, gallery wordpress, widget, wp gallery, thumbnail, thumbnails, gallery slider, Galleria, simple gallery, img, admin,
 Requires at least: 3.0.1
 Tested up to: 3.9.1
 Stable tag: 1.0.0
