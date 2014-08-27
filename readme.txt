@@ -67,7 +67,7 @@ Now you can set your Image Gallery options, images and use our Image Gallery.
 
 ==Step 1. Adding a Image Gallery==
 
-## Image Gallery
+##Image Gallery
 
 Huge-IT Image Gallery > Add New Image Gallery
 
