@@ -67,6 +67,8 @@ Now you can set your Image Gallery options, images and use our Image Gallery.
 
 ==Step 1. Adding a Image Gallery==
 
+## Image Gallery
+
 Huge-IT Image Gallery > Add New Image Gallery
 
 Add Images. Use the standard WordPress Image uploader to add an image from media library or upload from computer.
@@ -84,8 +86,9 @@ Usage. Here you can find a shortcode of your Image Gallery. You can Copy&Paste t
 
 Template Include. This code made to be inserted into your template, it makes the inserting Image Gallery easy for using in custom location within theme.
 
+### Upgrade to [WordPress Image Gallery Pro](http://huge-it.com/wordpress-gallery/) to add some features:
 
-Step 2. **General Options of Image Gallery**
+##Step 2. General Options of Image Gallery
 
 In this section you can modify your Image Gallery in more details. That will change the features of each view you choose.
 
