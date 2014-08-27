@@ -67,8 +67,6 @@ Now you can set your Image Gallery options, images and use our Image Gallery.
 
 ==Step 1. Adding a Image Gallery==
 
-### Image Gallery
-
 Huge-IT Image Gallery > Add New Image Gallery
 
 Add Images. Use the standard WordPress Image uploader to add an image from media library or upload from computer.
