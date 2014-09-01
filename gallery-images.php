@@ -1,10 +1,10 @@
 <?php
 
 /*
-Plugin Name: Image Gallery
+Plugin Name: Huge IT Image Gallery
 Plugin URI: http://huge-it.com/wordpress-gallery/
 Description: Huge-IT Gallery images is perfect for using for creating various portfolios within various views. 
-Version: 1.0.0
+Version: 1.0.1
 Author: http://huge-it.com/
 License: GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
 */
@@ -536,7 +536,7 @@ CREATE TABLE IF NOT EXISTS `" . $wpdb->prefix . "huge_itgallery_params`(
   `description` text CHARACTER SET utf8 NOT NULL,
   `value` varchar(200) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=200 ";
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ";
 
 
     $sql_huge_itgallery_images = "
@@ -773,6 +773,7 @@ INSERT INTO `$table_name` (`name`, `title`,`description`, `value`) VALUES
 ('thumb_box_use_shadow', 'Box use shadow', 'Box use shadow', 'on'),
 ('thumb_box_has_background', 'Box has background', 'Box has background', 'on');
 
+
 query1;
 
     $table_name = $wpdb->prefix . "huge_itgallery_images";
@@ -815,6 +816,19 @@ INSERT INTO `$table_name` (`id`, `name`, `sl_height`, `sl_width`, `pause_on_hove
     if (!$wpdb->get_var("select count(*) from " . $wpdb->prefix . "huge_itgallery_gallerys")) {
       $wpdb->query($sql_3);
     }
+	
+	    $table_name = $wpdb->prefix . "huge_itgallery_params";
+	    $sql_update_g1 = <<<query1
+INSERT INTO `$table_name` (`name`, `title`,`description`, `value`) VALUES
+('thumb_view_text', 'View Image Text', 'View Image Text', 'View Picture');
+
+query1;
+	
+	$query="SELECT name FROM ".$wpdb->prefix."huge_itgallery_params";
+	$update_p1=$wpdb->get_results($query);
+	if(end($update_p1)->name=='thumb_box_has_background'){
+		$wpdb->query($sql_update_g1);
+	}	
 }
 
 register_activation_hook(__FILE__, 'huge_it_gallery_activate');

@@ -4,7 +4,7 @@ Donate link: http://huge-it.com/wordpress-gallery/
 Tags: gallery, image gallery, gallery image, content slider, widget gallery, lightbox gallery, website gallery, gallery lightbox, image, images, post, posts, content gallery, galleries, wordpress gallery, Picture Gallery, nextgen, nextgen gallery, photo gallery, galeria, gallery, best gallery, thumbnail view, content gallery, popup gallery, media gallery, easy gallery, picture, gallery plugin, plugin gallery, add gallery, add image, add picture, add photo, galery, add images, add pictures, gallery wordpress, widget, wp gallery, thumbnail, thumbnails, gallery slider, Galleria, simple gallery, img, admin, wordpress gallery plugin, thumbs, media,
 Requires at least: 3.0.1
 Tested up to: 3.9.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,8 +16,6 @@ Huge-IT Image Gallery is the best plugin to use if you want to be original with 
 
 [Demo Image Gallery](http://huge-it.com/wordpress-plugins-gallery-demo/)   
 [User Image Gallery Manual](http://huge-it.com/wordpress-plugins-gallery-user-manual/)  
-
-https://www.youtube.com/watch?v=fNz0hW01k3k
 
 **Huge-IT Image Gallery** is the best plugin to use if you want to be original with your website. Image gallery  has specially made to allow it’s users create a lot of ways to represent their images and information. Just add image, wright descriptions and titles for each view of the Image gallery and choose one from 5 unrepeatable views. Each view has unique customizable options in “ General Options “ section to make them fit your taste. Almost every type of text can be change from the standpoint of text and color. Also there are a lot of features relative as to Image gallery and thumbnails as to it's lightbox. Talking about Lightbox, notice, that Image gallery plugin has separate options page, where you can choose one from 5 lightbox views, and customize it. And that way to create desirable style of your website. Show your image in it's best way! Image gallery plugin offers you, being already easy to use and friendly admin panel, where you can add several images at a time and immediately give them a title, description and link, goes to any page, and set the way it opens. With our Image Gallery you can realize your most original ideas. 5 views of the Image Gallery gives you 5 ways to be the best!
 

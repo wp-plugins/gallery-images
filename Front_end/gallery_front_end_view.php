@@ -321,6 +321,7 @@ jQuery(document).ready(function(){
 	jQuery('.element .image-block .image-overlay a').on('click',function(){
 		var strid = jQuery(this).attr('href').replace('#','');
 		jQuery('body').append('<div id="huge-popup-overlay"></div>');
+		jQuery('#huge_it_gallery_popup_list').insertBefore('#huge-popup-overlay');
 		var height = jQuery(window).height();
 		var width=jQuery(window).width();
 		if(width<=767){
@@ -2702,6 +2703,7 @@ break;
 		<?php
 		break;
 		
+		/* ########## VIEW 4 Thumbnails ##########*/
 		case 4:
 		
 		?>
@@ -2713,35 +2715,37 @@ break;
 		<style>
 			section #huge_it_gallery {
 				padding: 0px !important;
+				min-width: 100%;
+				width: 100%;
+				min-height: 100%;
+				text-align: center;
+				margin-bottom: 30px;
+				<?php if($paramssld["thumb_box_has_background"] == 'on'){ ?>  background-color: #<?php echo $paramssld["thumb_box_background"]; ?>; <?php } ?>
+				<?php if($paramssld["thumb_box_use_shadow"] == 'on'){ echo 'box-shadow: 0 0 10px;'; } ?>
 			}
-			
-			#huge_it_gallery li {
-				overflow:hidden;
-			}
-			
-			#huge_it_gallery li img {
-				width: <?php echo $paramssld["thumb_image_width"]; ?>px;	
-			<?php if($paramssld["thumb_image_behavior"]=='on'){?>
-				height: <?php echo $paramssld["thumb_image_height"]; ?>px;
-			<?php } ?>
-				border: <?php echo $paramssld["thumb_image_border_width"]; ?>px solid #<?php echo $paramssld["thumb_image_border_color"]; ?>;
-				border-radius: <?php echo $paramssld["thumb_image_border_radius"]; ?>px;
-			}
+				
+
 			#huge_it_gallery .huge_it_big_li {
+				overflow:hidden;
 				width: <?php echo $paramssld["thumb_image_width"]; ?>px;	
 				height: <?php echo $paramssld["thumb_image_height"]; ?>px;
-				margin: <?php echo $paramssld["thumb_margin_image"]; ?>px;
+				margin: <?php echo $paramssld["thumb_margin_image"]; ?>px !important;
+				border-radius: <?php echo $paramssld["thumb_image_border_radius"]; ?>px;
+				padding:0px !important
 			}
-			section li .overLayer ul li h2,
-			section li .infoLayer ul li h2 {
+			
+			section #huge_it_gallery li .overLayer ul li h2,
+			section #huge_it_gallery li .infoLayer ul li h2 {
 				font-size: <?php echo $paramssld["thumb_title_font_size"]; ?>px;
 				color: #<?php echo $paramssld["thumb_title_font_color"]; ?>;
 			}
-			section li .infoLayer ul li p {
+			
+			section #huge_it_gallery li .infoLayer ul li p {
 				color: #<?php echo $paramssld["thumb_title_font_color"]; ?>;
 			}
-			section li .overLayer,
-			section li .infoLayer {
+			
+			section #huge_it_gallery li .overLayer,
+			section #huge_it_gallery li .infoLayer {
 				-webkit-transition: opacity 0.3s linear;
 				-moz-transition: opacity 0.3s linear;
 				-ms-transition: opacity 0.3s linear;
@@ -2752,30 +2756,34 @@ break;
 				position: absolute;
 				text-align: center;
 				opacity: 0;
-				top: 10px;
+				top: 0px;
 				left: 0;
 				z-index: 4;
 			}
-			section li a {
+			
+			section #huge_it_gallery li a {
+				position: absolute;
 				display: block;
 				width: <?php echo $paramssld["thumb_image_width"]; ?>px;
 				height: <?php echo $paramssld["thumb_image_height"]; ?>px;
-				position: absolute;
-				top: 10px;
-				left: 0;
+				top: 0px;
+				left: 0px;
 				z-index: 6; 
+				border-radius: <?php echo $paramssld["thumb_image_border_radius"]; ?>px;
 			}
-			section {
-				min-width: 100%;
-				width: 100%;
-				min-height: 100%;
-				text-align: center;
-				padding: <?php echo $paramssld["thumb_box_padding"]; ?>px;
-				margin-bottom: 30px;
-				<?php if($paramssld["thumb_box_has_background"] == 'on'){ ?>  background-color: #<?php echo $paramssld["thumb_box_background"]; ?>; <?php } ?>
-				<?php if($paramssld["thumb_box_use_shadow"] == 'on'){ echo 'box-shadow: 0 0 10px;'; } ?>
+			
+			#huge_it_gallery li img {
+				width: <?php echo $paramssld["thumb_image_width"]; ?>px;	
+			<?php if($paramssld["thumb_image_behavior"]=='on'){?>
+				height: <?php echo $paramssld["thumb_image_height"]; ?>px;
+			<?php } ?>
+				border: <?php echo $paramssld["thumb_image_border_width"]; ?>px solid #<?php echo $paramssld["thumb_image_border_color"]; ?>;
+				border-radius: <?php echo $paramssld["thumb_image_border_radius"]; ?>px;
+				margin:0px !important;
 			}
-			section li:hover .overLayer {
+			
+			
+			section #huge_it_gallery li:hover .overLayer {
 				-webkit-transition: opacity 0.3s linear;
 				-moz-transition: opacity 0.3s linear;
 				-ms-transition: opacity 0.3s linear;
@@ -2785,7 +2793,7 @@ break;
 				display: block;
 				background: #<?php echo $paramssld["thumb_title_background_color"]; ?>; 
 			}
-			section li:hover .infoLayer {
+			section #huge_it_gallery li:hover .infoLayer {
 				-webkit-transition: opacity 0.3s linear;
 				-moz-transition: opacity 0.3s linear;
 				ms-transition: opacity 0.3s linear;
@@ -2794,6 +2802,8 @@ break;
 				opacity: 1;
 				display: block; 
 			}
+			
+			section #huge_it_gallery p {text-align:center;}
 		</style>
 		
 		
@@ -2817,7 +2827,7 @@ break;
 							</li>
 							<li>
 								<p>
-									View Picture
+									<?php echo $paramssld["thumb_view_text"]; ?>
 								</p>
 							</li>
 						</ul>
