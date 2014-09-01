@@ -708,6 +708,28 @@ jQuery(document).ready(function () {
 				</li>
 				<li data-id="gallery-view-options-4">
 					<div>
+						<h3>Container Style</h3>
+						<div class="has-background">
+							<label for="thumb_box_padding">Box padding</label>
+							<input type="text" name="params[thumb_box_padding]" id="thumb_box_padding" value="<?php echo $param_values['thumb_box_padding']; ?>" class="text" />
+							<span>px</span>
+						</div>
+						<div>
+							<label for="thumb_box_background">Box background</label>
+							<input name="params[thumb_box_background]" type="text" class="color" id="thumb_box_background" value="#<?php echo $param_values['thumb_box_background']; ?>" size="10" />
+						</div>
+						<div class="has-background">
+							<label for="thumb_box_use_shadow">Box Use shadow</label>
+							<input type="hidden" value="off" name="params[thumb_box_use_shadow]" />
+							<input type="checkbox" id="thumb_box_use_shadow"  <?php if($param_values['thumb_box_use_shadow']  == 'on'){ echo 'checked="checked"'; } ?>  name="params[thumb_box_use_shadow]" value="on" />
+						</div>
+						<div>
+							<label for="thumb_box_has_background">Box Has background</label>
+							<input type="hidden" value="off" name="params[thumb_box_has_background]" />
+							<input type="checkbox" id="thumb_box_has_background"  <?php if($param_values['thumb_box_has_background']  == 'on'){ echo 'checked="checked"'; } ?>  name="params[thumb_box_has_background]" value="on" />
+						</div>
+					</div>
+					<div>
 						<h3>Image</h3>
 						<div class="has-background">
 							<label for="thumb_image_behavior">Image Behavior</label>
@@ -743,7 +765,7 @@ jQuery(document).ready(function () {
 							<input type="text" name="params[thumb_margin_image]" id="thumb_margin_image" value="<?php echo $param_values['thumb_margin_image']; ?>" class="text" />
 						</div>
 					</div>
-					<div>
+					<div style="margin-top:-110px">
 						<h3>Title</h3>
 						<div class="has-background">
 							<label for="thumb_title_font_size">Title Font Size</label>
@@ -765,29 +787,10 @@ jQuery(document).ready(function () {
 								<span><?php echo $param_values['thumb_title_background_transparency']; ?>%</span>
 							</div>
 						</div>
-					</div>
-					<div>
-						<h3>Box style</h3>
 						<div class="has-background">
-							<label for="thumb_box_padding">Box padding</label>
-							<input type="text" name="params[thumb_box_padding]" id="thumb_box_padding" value="<?php echo $param_values['thumb_box_padding']; ?>" class="text" />
-							<span>px</span>
+							<label for="thumb_view_text">Link Text</label>
+							<input name="params[thumb_view_text]" type="text" id="thumb_view_text" value="<?php echo $param_values['thumb_view_text']; ?>"  />
 						</div>
-						<div>
-							<label for="thumb_box_background">Box background</label>
-							<input name="params[thumb_box_background]" type="text" class="color" id="thumb_box_background" value="#<?php echo $param_values['thumb_box_background']; ?>" size="10" />
-						</div>
-						<div class="has-background">
-							<label for="thumb_box_use_shadow">Box Use shadow</label>
-							<input type="hidden" value="off" name="params[thumb_box_use_shadow]" />
-							<input type="checkbox" id="thumb_box_use_shadow"  <?php if($param_values['thumb_box_use_shadow']  == 'on'){ echo 'checked="checked"'; } ?>  name="params[thumb_box_use_shadow]" value="on" />
-						</div>
-						<div>
-							<label for="thumb_box_has_background">Box Has background</label>
-							<input type="hidden" value="off" name="params[thumb_box_has_background]" />
-							<input type="checkbox" id="thumb_box_has_background"  <?php if($param_values['thumb_box_has_background']  == 'on'){ echo 'checked="checked"'; } ?>  name="params[thumb_box_has_background]" value="on" />
-						</div>
-
 					</div>
 				</li>
 			</ul>
