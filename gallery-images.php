@@ -4,7 +4,7 @@
 Plugin Name: Huge IT Image Gallery
 Plugin URI: http://huge-it.com/wordpress-gallery/
 Description: Huge-IT Gallery images is perfect for using for creating various portfolios within various views. 
-Version: 1.0.1
+Version: 1.0.2
 Author: http://huge-it.com/
 License: GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
 */
@@ -212,11 +212,20 @@ function huge_it_gallery_options_panel()
     $page_option = add_submenu_page('gallerys_huge_it_gallery', 'General Options', 'General Options', 'manage_options', 'Options_gallery_styles', 'Options_gallery_styles');
     $lightbox_options = add_submenu_page('gallerys_huge_it_gallery', 'Lightbox Options', 'Lightbox Options', 'manage_options', 'Options_gallery_lightbox_styles', 'Options_gallery_lightbox_styles');
 	add_submenu_page('gallerys_huge_it_gallery', 'Licensing', 'Licensing', 'manage_options', 'huge_it_imagegallery_Licensing', 'huge_it_imagegallery_Licensing');
-
+	add_submenu_page('gallerys_huge_it_gallery', 'Featured Plugins', 'Featured Plugins', 'manage_options', 'huge_it__gallery_featured_plugins', 'huge_it__gallery_featured_plugins');
 
 	add_action('admin_print_styles-' . $page_cat, 'huge_it_gallery_admin_script');
     add_action('admin_print_styles-' . $page_option, 'huge_it_gallery_option_admin_script');
     add_action('admin_print_styles-' . $lightbox_options, 'huge_it_gallery_option_admin_script');
+}
+
+function huge_it__gallery_featured_plugins()
+{
+	switch ($_GET['task']) {
+	default:
+		include_once("admin/huge_it_featured_plugins.php");
+		break;
+	}
 }
 
 function huge_it_imagegallery_Licensing(){

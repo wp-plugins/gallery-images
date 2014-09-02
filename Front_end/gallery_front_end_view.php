@@ -480,8 +480,10 @@ jQuery(document).ready(function(){
 	width:80%;
 	top:7%;
 	left:7%;
+	margin:0px !important;
+	padding:0px !important;
 	list-style:none;
-	z-index:200;
+	z-index:2000;
 	display:none;
 	height:90%;
 }
@@ -508,7 +510,7 @@ jQuery(document).ready(function(){
 	height:40px;
 	top:0px;
 	left:0px;
-	z-index:201;
+	z-index:2001;
 	background:url('<?php echo  plugins_url( '../images/divider.line.png' , __FILE__ ); ?>') center bottom repeat-x;
 }
 

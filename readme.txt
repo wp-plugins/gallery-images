@@ -12,6 +12,8 @@ Huge-IT Image Gallery is the best plugin to use if you want to be original with 
 
 == Description ==
 
+https://www.youtube.com/watch?v=fNz0hW01k3k&
+
 ### Wordpress Image Gallery
 
 [Demo Image Gallery](http://huge-it.com/wordpress-plugins-gallery-demo/)   
@@ -64,6 +66,11 @@ Now you can set your Image Gallery options, images and use our Image Gallery.
 
 == Changelog ==
 
+= 1.0.2 =
+*  Bug fixed.
+
+= 1.0.1 =
+*  Bug fixed.
 
 ==Step 1. Adding a Image Gallery==
 
