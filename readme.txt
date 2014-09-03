@@ -64,6 +64,11 @@ Now you can set your Image Gallery options, images and use our Image Gallery.
 
 == Screenshots ==
     
+1.  WordPress Image Gallery view 1 - Gallery / Content Popup
+2.  WordPress Image Gallery view 2 - Content Slider
+3.  WordPress Image Gallery view 3 - Lightbox Gallery
+4.  WordPress Image Gallery view 4 - Slider
+5.  WordPress Image Gallery view 5 - Thumbnails
 
 == Changelog ==
 
