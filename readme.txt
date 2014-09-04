@@ -72,6 +72,7 @@ Now you can set your Image Gallery options, images and use our Image Gallery.
 6.  [WordPress Image Gallery](http://wordpress.org/plugins/gallery-images/) - Image Gallery admin page  
 7.  [WordPress Image Gallery](http://wordpress.org/plugins/gallery-images/) - Image Gallery uploader
 8.  [WordPress Image Gallery](http://wordpress.org/plugins/gallery-images/) - Image Gallery General options
+9.  [WordPress Image Gallery](http://wordpress.org/plugins/gallery-images/) - Image Gallery add widget
 
 
 == Changelog ==
