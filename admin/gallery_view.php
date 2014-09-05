@@ -347,7 +347,10 @@ jQuery(document).ready(function($){
 						<div class="huge-it-newuploader uploader button button-primary add-new-image">
 						<input type="button" class="button wp-media-buttons-icon" name="_unique_name_button" id="_unique_name_button" value="Add Image" />
 						</div>
-						
+												
+						<a href="admin.php?page=gallerys_huge_it_gallery&task=gallery_video&id=<?php echo $_GET['id']; ?>&TB_iframe=1" class="button button-primary add-video-slide thickbox"  id="slideup3s" value="iframepop">
+							<span class="wp-media-buttons-icon"></span>Add Video Slide
+						</a>
 
 
 					
@@ -355,6 +358,14 @@ jQuery(document).ready(function($){
 					</div>
 					<ul id="images-list">
 					<?php
+					
+					function get_youtube_id_from_url($url){
+						if (stristr($url,'youtu.be/'))
+							{ preg_match('/(https:|http:|)(\/\/www\.|\/\/|)(.*?)\/(.{11})/i', $url, $final_ID); return $final_ID[4]; }
+						else 
+							{ preg_match('/(https:|http:|):(\/\/www\.|\/\/|)(.*?)\/(embed\/|watch\?v=|(.*?)&v=|v\/|e\/|.+\/|watch.*v=|)([a-z_A-Z0-9]{11})/i', $url, $IDD); return $IDD[6]; }
+					}
+					
 					$i=2;
 					foreach ($rowim as $key=>$rowimages){ ?>
 					<?php if($rowimages->sl_type == ''){$rowimages->sl_type = 'image';}
@@ -503,6 +514,82 @@ jQuery(document).ready(function($){
 						<div class="clear"></div>
 						</li>
 						<?php
+						break;
+						
+						case 'video':
+						?>
+							
+							<li <?php if($i%2==0){echo "class='has-background'";}$i++; ?>  >
+							<input class="order_by" type="hidden" name="order_by_<?php echo $rowimages->id; ?>" value="<?php echo $rowimages->ordering; ?>" />
+								<?php 	if(strpos($rowimages->image_url,'youtube') !== false) {
+											$liclass="youtube";
+											$video_thumb_url=get_youtube_id_from_url($rowimages->image_url);
+											$thumburl='<img src="http://img.youtube.com/vi/'.$video_thumb_url.'/mqdefault.jpg" alt="" />';
+										}else if (strpos($rowimages->image_url,'vimeo') !== false) {	
+											$liclass="vimeo";
+											$vimeo = $rowimages->image_url;
+											$imgid =  end(explode( "/", $vimeo ));
+											$hash = unserialize(file_get_contents("http://vimeo.com/api/v2/video/".$imgid.".php"));
+											$imgsrc=$hash[0]['thumbnail_large'];
+											$thumburl ='<img src="'.$imgsrc.'" alt="" />';
+										}
+										?> 
+									<div class="image-container">	
+										<?php echo $thumburl; ?>
+										<div class="play-icon <?php echo $liclass; ?>"></div>
+										
+										<div>
+											<script>
+													jQuery(document).ready(function ($) {
+															
+															jQuery("#slideup<?php echo $key; ?>").click(function () {
+																window.parent.uploadID = jQuery(this).prev('input');
+																formfield = jQuery('.upload').attr('name');
+																tb_show('', 'media-upload.php?type=image&amp;TB_iframe=true');
+																
+																return false;
+															});
+															window.send_to_editor = function (html) {
+																imgurl = jQuery('img', html).attr('src');
+																window.parent.uploadID.val(imgurl);
+																
+																tb_remove();
+																$("#save-buttom").click();
+															};
+														});
+															
+											</script>
+											<input type="hidden" name="imagess<?php echo $rowimages->id; ?>" value="<?php echo $rowimages->image_url; ?>" />
+										</div>
+									</div>
+									<div class="image-options">
+								<div>
+									<label for="titleimage<?php echo $rowimages->id; ?>">Title:</label>
+									<input  class="text_area" type="text" id="titleimage<?php echo $rowimages->id; ?>" name="titleimage<?php echo $rowimages->id; ?>" id="titleimage<?php echo $rowimages->id; ?>"  value="<?php echo $rowimages->name; ?>">
+								</div>
+								<div class="description-block">
+									<label for="im_description<?php echo $rowimages->id; ?>">Description:</label>
+									<textarea id="im_description<?php echo $rowimages->id; ?>" name="im_description<?php echo $rowimages->id; ?>" ><?php echo $rowimages->description; ?></textarea>
+								</div>
+								<div class="link-block">
+									<label for="sl_url<?php echo $rowimages->id; ?>">URL:</label>
+									<input class="text_area url-input" type="text" id="sl_url<?php echo $rowimages->id; ?>" name="sl_url<?php echo $rowimages->id; ?>"  value="<?php echo $rowimages->sl_url; ?>" >
+									<label class="long" for="sl_link_target<?php echo $rowimages->id; ?>">
+										<span>Open in new tab</span>
+										<input type="hidden" name="sl_link_target<?php echo $rowimages->id; ?>" value="" />
+										<input  <?php if($rowimages->link_target == 'on'){ echo 'checked="checked"'; } ?>  class="link_target" type="checkbox" id="sl_link_target<?php echo $rowimages->id; ?>" name="sl_link_target<?php echo $rowimages->id; ?>" />
+									</label>
+									
+									
+							
+								</div>
+								<div class="remove-image-container">
+									<a class="button remove-image" href="admin.php?page=gallerys_huge_it_gallery&task=edit_cat&id=<?php echo $row->id; ?>&removeslide=<?php echo $rowimages->id; ?>">Remove Image</a>
+								</div>
+							</div>
+							<div class="clear"></div>
+							</li>
+					<?php 
 						break;
 						} ?>
 					<?php } ?>
@@ -796,14 +883,105 @@ else
 						
 					</div>
 				</div>		
-			
-
 	<?php
-	
-	
-	
-	
 }
 ?>
+<?php
+function html_gallery_video(){
+	global $wpdb;
 
+?>
+	<style>
+		html.wp-toolbar {
+			padding:0px !important;
+		}
+		#wpadminbar,#adminmenuback,#screen-meta, .update-nag,#dolly {
+			display:none;
+		}
+		#wpbody-content {
+			padding-bottom:30px;
+		}
+		#adminmenuwrap {display:none !important;}
+		.auto-fold #wpcontent, .auto-fold #wpfooter {
+			margin-left: 0px;
+		}
+		#wpfooter {display:none;}
+		iframe {height:250px !important;}
+		#TB_window {height:250px !important;}
+	</style>
+	<script type="text/javascript">
+		jQuery(document).ready(function() {		
 
+				jQuery('.huge-it-insert-video-button').click(function(){
+					alert("Image Gallery Settings are disabled in free version. If you need those functionalityes, you need to buy the commercial version.");
+					return false;
+				});
+
+			jQuery('.huge-it-insert-post-button').on('click', function() {
+				var ID1 = jQuery('#huge_it_add_video_input').val();
+				if(ID1==""){alert("Please copy and past url form Youtobe or Vimeo to insert into slider.");return false;}
+				
+				window.parent.uploadID.val(ID1);
+				
+				tb_remove();
+				$("#save-buttom").click();
+			});
+			
+			jQuery('#huge_it_add_video_input').change(function(){
+				
+				if (jQuery(this).val().indexOf("youtube") >= 0){
+					jQuery('#add-video-popup-options > div').removeClass('active');
+					jQuery('#add-video-popup-options  .youtube').addClass('active');
+				}else if (jQuery(this).val().indexOf("vimeo") >= 0){
+					jQuery('#add-video-popup-options > div').removeClass('active');
+					jQuery('#add-video-popup-options  .vimeo').addClass('active');
+				}else {
+					jQuery('#add-video-popup-options > div').removeClass('active');
+					jQuery('#add-video-popup-options  .error-message').addClass('active');
+				}
+			})
+					
+			jQuery('.updated').css({"display":"none"});
+		<?php	if($_GET["closepop"] == 1){ ?>
+			$("#closepopup").click();
+			self.parent.location.reload();
+		<?php	} ?>
+		
+		});
+		
+	</script>
+	<a id="closepopup"  onclick=" parent.eval('tb_remove()')" style="display:none;" > [X] </a>
+
+	<div id="huge_it_slider_add_videos">
+		<div id="huge_it_slider_add_videos_wrap">
+			<span class="buy-pro">This feature is disabled in free version. <br>If you need this functionality, you need to <a href="http://huge-it.com/wordpress-gallery/" target="_blank">buy the commercial version</a>.</span>
+			<h2>Add Video URL From Youtobe or Vimeo</h2>
+			<div class="control-panel">
+				<form method="post" action="" >
+					<input type="text" id="huge_it_add_video_input" name="huge_it_add_video_input" />
+					<button class='save-slider-options button-primary huge-it-insert-video-button' id='huge-it-insert-video-button'>Insert Video Slide</button>
+					<div id="add-video-popup-options">
+						<div>
+							<div>
+								<label for="show_title">Title:</label>	
+								<div>
+									<input name="show_title" value="" type="text" />
+								</div>
+							</div>
+							<div>
+								<label for="show_description">Description:</label>
+								<textarea id="show_description" name="show_description"></textarea>
+							</div>
+							<div>
+								<label for="show_url">Url:</label>
+								<input type="text" name="show_url" value="" />	
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>	
+	</div>
+<?php
+}
+?>

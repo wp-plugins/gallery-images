@@ -313,178 +313,18 @@ INSERT INTO
 	
 }
 
-function popup_posts($id)
+
+
+
+function gallery_video($id)
 {
 	  global $wpdb;
-	 
-	     if(isset($_GET["removeslide"])){
-	     if($_GET["removeslide"] != ''){
-	
-
-	  $wpdb->query("DELETE FROM ".$wpdb->prefix."huge_itgallery_images  WHERE id = ".$_GET["removeslide"]." ");
-
-
-	
-	   }
-	   }
-
-	   $query=$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."huge_itgallery_gallerys WHERE id= %d",$id);
-	   $row=$wpdb->get_row($query);
-	   if(!isset($row->gallery_list_effects_s))
-	   return 'id not found';
-       $images=explode(";;;",$row->gallery_list_effects_s);
-	   $par=explode('	',$row->param);
-	   $count_ord=count($images);
-	   $cat_row=$wpdb->get_results("SELECT * FROM ".$wpdb->prefix."huge_itgallery_gallerys WHERE id!=" .$id." and sl_width=0");
-       $cat_row=open_cat_in_tree($cat_row);
-	   	  $query=$wpdb->prepare("SELECT name,ordering FROM ".$wpdb->prefix."huge_itgallery_gallerys WHERE sl_width=%d  ORDER BY `ordering` ",$row->sl_width);
-	   $ord_elem=$wpdb->get_results($query);
-	   
-	    $query=$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."huge_itgallery_images where gallery_id = %d order by id ASC  ",$row->id);
-			   $rowim=$wpdb->get_results($query);
-			   
-			   if(isset($_GET["addslide"])){
-			   if($_GET["addslide"] == 1){
-	
-$table_name = $wpdb->prefix . "huge_itgallery_images";
-    $sql_2 = "
-INSERT INTO 
-
-`" . $table_name . "` ( `name`, `gallery_id`, `description`, `image_url`, `sl_url`, `ordering`, `published`, `published_in_sl_width`) VALUES
-( '', '".$row->id."', '', '', '', 'par_TV', 2, '1' )";
-
-    $wpdb->query($sql_huge_itgallery_images);
-	
-
-      $wpdb->query($sql_2);
-	
-	   }
-	   }
-	
-	   
-	   $query="SELECT * FROM ".$wpdb->prefix."huge_itgallery_gallerys order by id ASC";
-			   $rowsld=$wpdb->get_results($query);
-			  
-			    $query = "SELECT *  from " . $wpdb->prefix . "huge_itgallery_params ";
-
-    $rowspar = $wpdb->get_results($query);
-
-    $paramssld = array();
-    foreach ($rowspar as $rowpar) {
-        $key = $rowpar->name;
-        $value = $rowpar->value;
-        $paramssld[$key] = $value;
-    }
-	
-	 $query="SELECT * FROM ".$wpdb->prefix."posts where post_type = 'post' and post_status = 'publish' order by id ASC";
-			   $rowsposts=$wpdb->get_results($query);
-			   
-			   $categories = get_categories(  );
-		if(isset($_POST["iframecatid"])){
-		$iframecatid = $_POST["iframecatid"];
-		}
-		else
-		{
-		$iframecatid = $categories[0]->cat_ID;
-		}
-	 
-	 	  $query=$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."term_relationships where term_taxonomy_id = %d order by object_id ASC",$iframecatid);
-		$rowsposts8=$wpdb->get_results($query);
 
 
 	 
-
-			   foreach($rowsposts8 as $rowsposts13){
-	 $query=$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."posts where post_type = 'post' and post_status = 'publish' and ID = %d  order by ID ASC",$rowsposts13->object_id);
-			   $rowsposts1=$wpdb->get_results($query);
-			   
-			   $postsbycat = $rowsposts1;
-			   
-	 }
-
-	  if(isset($_GET["closepop"])){
-	  if($_GET["closepop"] == 1){
-
-	      if($_POST["popupposts"] != 'none' and $_POST["popupposts"] != ''){
-		  
-		/*  	echo $_GET["closepop"].'sdasdasdsad';
-	echo $_POST["popupposts"].'dddddddd';*/
-
-$popuppostsposts = explode(";", $_POST["popupposts"]);
-
-array_pop($popuppostsposts);
-
-		foreach($popuppostsposts as $popuppostsposts1){
-		$my_id = $popuppostsposts1;
-		
-$post_id_1 = get_post($my_id); 
-
-
-
-			   $post_image = wp_get_attachment_url( get_post_thumbnail_id($popuppostsposts1) );
-		$posturl=get_permalink($popuppostsposts1);
-$table_name = $wpdb->prefix . "huge_itgallery_images";
-
-$descnohtmlnoq=strip_tags($post_id_1->post_content);
-$descnohtmlnoq1 = html_entity_decode($descnohtmlnoq);
-$descnohtmlnoq1 = htmlentities($descnohtmlnoq1, ENT_QUOTES, "UTF-8");
-
-
-    $sql_posts = "
-INSERT INTO 
-
-`" . $table_name . "` ( `name`, `gallery_id`, `description`, `image_url`, `sl_url`, `sl_type`, `link_target`, `ordering`, `published`, `published_in_sl_width`, `huge_it_sl_effects`) VALUES
-( '".$post_id_1->post_title."', '".$row->id."', '".$descnohtmlnoq1."', '".$post_image ."', '".$posturl."', 'image', 'on', '0', '2', '1', '4' )";
-
-
-
-      $wpdb->query($sql_posts);
-	  
-	
-
-		}
-		
-	}
-	if(!($_POST["lastposts"])){
-	 $wpdb->query("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET published = '".$_POST["posthuge-it-description-length"]."' WHERE id = '".$_GET['id']."' ");
-	 }
-	  }
-	  }
-
-if(isset($_POST["lastposts"])){
-$query=$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."posts where post_type = 'post' and post_status = 'publish' order by id DESC LIMIT 0, ".$_POST["lastposts"]."");
-			   $rowspostslast=$wpdb->get_results($query);
-			   foreach($rowspostslast as $rowspostslastfor){
-			   
-			   		$my_id = $rowspostslastfor;
-$post_id_1 = get_post($my_id); 
-
-
-
-			   $post_image = wp_get_attachment_url( get_post_thumbnail_id($rowspostslastfor) );
-		$posturl=get_permalink($rowspostslastfor);
-$table_name = $wpdb->prefix . "huge_itgallery_images";
-$descnohtmlno=strip_tags($post_id_1->post_content);
-$descnohtmlno1 = html_entity_decode($descnohtmlno);
-$lengthtextpost = '300';
-$descnohtmlno2 = substr_replace($descnohtmlno1, "", $lengthtextpost);
-$descnohtmlno3 = htmlentities($descnohtmlno2, ENT_QUOTES, "UTF-8");
-$posttitle = htmlentities($post_id_1->post_title, ENT_QUOTES, "UTF-8");
-$posturl2 = htmlentities($posturl, ENT_QUOTES, "UTF-8");
-
-			   
-			       $sql_lastposts = "INSERT INTO 
-`" . $table_name . "` ( `name`, `gallery_id`, `description`, `image_url`, `sl_url`, `ordering`, `published`, `published_in_sl_width`, `huge_it_sl_effects`) VALUES
-( '".$posttitle."', '".$row->id."', '".$descnohtmlno3."', '".$post_image ."', '".$posturl."', 'par_TV', 2, '1', '4' )";
-
-    $wpdb->query($sql_huge_itgallery_images);
-
-      $wpdb->query($sql_lastposts);
-	  }
+    Html_gallery_video();
 }
-	   	   
-    Html_popup_posts($ord_elem, $count_ord, $images, $row, $cat_row, $rowim, $rowsld, $paramssld, $rowsposts, $rowsposts8, $postsbycat);
-}
+
 
 function removegallery($id)
 {
@@ -573,14 +413,14 @@ function apply_cat($id)
 			   $rowim=$wpdb->get_results($query);
 			   
 			   foreach ($rowim as $key=>$rowimages){
-
+if(isset($_POST["order_by_".$rowimages->id.""])){
 $wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_images SET  ordering = '".$_POST["order_by_".$rowimages->id.""]."'  WHERE ID = %d ", $rowimages->id));
 $wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_images SET  link_target = '".$_POST["sl_link_target".$rowimages->id.""]."'  WHERE ID = %d ", $rowimages->id));
 $wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_images SET  sl_url = '".$_POST["sl_url".$rowimages->id.""]."' WHERE ID = %d ", $rowimages->id));
 $wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_images SET  name = '".$_POST["titleimage".$rowimages->id.""]."'  WHERE ID = %d ", $rowimages->id));
 $wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_images SET  description = '".$_POST["im_description".$rowimages->id.""]."'  WHERE ID = %d ", $rowimages->id));
 $wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_images SET  image_url = '".$_POST["imagess".$rowimages->id.""]."'  WHERE ID = %d ", $rowimages->id));
-
+}
 }
 
 if (isset($_POST['params'])) {
@@ -612,8 +452,8 @@ if (isset($_POST['params'])) {
     $sql_2 = "
 INSERT INTO 
 
-`" . $table_name . "` ( `name`, `gallery_id`, `description`, `image_url`, `sl_url`, `ordering`, `published`, `published_in_sl_width`) VALUES
-( '', '".$row->id."', '', '".$imagesnewupload."', '', 'par_TV', 2, '1' )";
+`" . $table_name . "` ( `name`, `gallery_id`, `description`, `image_url`, `sl_url`, `sl_type`, `link_target`, `ordering`, `published`, `published_in_sl_width`) VALUES
+( '', '".$row->id."', '', '".$imagesnewupload."', '', 'image', 'on', 'par_TV', 2, '1' )";
 
       $wpdb->query($sql_2);
 		}	

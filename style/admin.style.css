@@ -146,14 +146,20 @@
 	margin-right: 0px !important;
 }
 
-#post-body-heading .button.add-post-slide .wp-media-buttons-icon {
-	background: url('../../../../wp-admin/images/post-ats.png') no-repeat top left;
+
+#post-body-heading .button.add-video-slide .wp-media-buttons-icon {
+	background: url('../images/video.icon.png') left top  no-repeat;
 	display: inline-block;
-	width: 16px;
-	height: 16px;
+	width: 0px;
+	height: 19px;
 	vertical-align: text-top;
-	margin: 2px 7px 0px 0px;
+	color: #fff;
+	border: none; 
+	padding-left: 22px;
+	background-position: 0px;
+	margin-right: 0px !important;
 }
+
 
 
 #post-body-footer {
@@ -194,90 +200,12 @@
 }
 
 #images-list .image-container {
+	position:relative;
 	width:24%;
 	padding:0px 0.5% 0px 0.5%;
 	float:left;
 }
 
-#images-list .widget-images-list {
-	list-style:none;
-	display:table;
-}
-
-#images-list .widget-images-list li {
-	position:relative;
-	display:table;
-	float:left;
-	width:61px;
-	height:50px;
-	border-radius:5px;
-	margin:5px 2px 0px 3px;
-	overflow:hidden;
-	clear:none;
-	padding:0px;
-	vertical-align:middel;
-	background-image:none !important;
-}
-
-#images-list .widget-images-list li.first, #images-list .widget-images-list li:first-child {
-	width:100%;
-	clear:both;
-	margin:0px 0px 0px 0px;
-}
-
-#images-list .widget-images-list li  a.edit-image {
-	position:absolute;
-	top:2px;
-	right:20px;
-	width:12px;
-	height:10px;
-	padding:3px;
-	text-indent:-9999px;
-	background:url(../images/edit.png) right center no-repeat #fff;
-	display:none;
-}
-
-#images-list .widget-images-list li  a.remove-image {
-	position:absolute;
-	top:2px;
-	right:2px;
-	width:10px;
-	height:10px;
-	padding:3px;
-	text-indent:-9999px;
-	background:url(../images/remove.jpg) center center no-repeat #fff;
-	display:none;
-}
-
-#images-list .widget-images-list li:hover  a.edit-image,#images-list .widget-images-list li:hover  a.remove-image  {display:block}
-
-#images-list .widget-images-list li a.add-image, #images-list .widget-images-list li a.add-image:link, #images-list .widget-images-list li a.add-image:visited {
-	text-indent:-9999px;
-	display:block;
-	width:61px;
-	height:50px;
-	background:url(../images/plus.png)  center top no-repeat;
-	border:1px dotted #0074a2;
-	border-radius:5px;
-}
-
-
-#images-list .widget-images-list li a.add-image:hover, #images-list .widget-images-list li a.add-image:focus, #images-list .widget-images-list li a.add-image:active {
-	background:url(../images/plus.png)  center bottom no-repeat;
-}
-
-#images-list .widget-images-list li img { 
-	position:relative;
-	display:block;
-	width:61px;
-	height:50px;
-	vertical-align:middel;
-}
-
-#images-list .widget-images-list li.first  img,#images-list .widget-images-list li:first-child  img {
-	width:100%;
-	height:auto;
-}
 
 #images-list .image-options {
 	width:74%;
@@ -287,6 +215,20 @@
 #images-list .image-container img {
 	width: 100%;
 }
+
+
+#images-list  .play-icon {
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;	
+}
+
+#images-list  .play-icon.youtube {background:url(../images/play.youtube.png) center center no-repeat;}
+
+#images-list  .play-icon.vimeo {background:url(../images/play.vimeo.png) center center no-repeat;}
+
 
 #images-list .image-options > div {
 	clear:both;
@@ -769,4 +711,50 @@
 .image-container img {
 	width: 200px;
 }
+
+
+
+
+/*#####ADD VIDEO SLIDE POPUP###*/
+
+#huge_it_add_video_input {
+	width:470px;
+	height:33px;
+}
+
+#add-video-popup-options > div {
+	padding-top:30px;
+}
+
+#add-video-popup-options > div.active {display:block;}
+
+#add-video-popup-options > div > div {
+	width:100%;
+	margin:0px 0px 20px;
+	position:relative;
+}
+
+#add-video-popup-options > div > div label {
+	display: block;
+	float:left;
+	width:100px;
+	padding-top:10px;
+	height:20px;
+}
+
+#add-video-popup-options > div > div input[type='text'],#add-video-popup-options > div > div textarea {
+	width:480px;
+}
+
+#add-video-popup-options > div > div .checkbox {
+	margin-top:7px
+}
+
+#add-video-popup-options > div > div div.slider-container {
+	position:relative;
+	display: inline-block;
+	margin-top:13px;
+}
+
+
 

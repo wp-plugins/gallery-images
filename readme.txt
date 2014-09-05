@@ -4,7 +4,7 @@ Donate link: http://huge-it.com/wordpress-gallery/
 Tags: gallery, image gallery, gallery image, content slider, widget gallery, lightbox gallery, website gallery, gallery lightbox, image, images, post, posts, content gallery, galleries, wordpress gallery, Picture Gallery, nextgen, nextgen gallery, photo gallery, galeria, gallery, best gallery, thumbnail view, content gallery, popup gallery, media gallery, easy gallery, picture, gallery plugin, plugin gallery, add gallery, add image, add picture, add photo, galery, add images, add pictures, gallery wordpress, widget, wp gallery, thumbnail, thumbnails, gallery slider, Galleria, simple gallery, img, admin, wordpress gallery plugin, thumbs, media, free gallery, free images,
 Requires at least: 3.0.1
 Tested up to: 3.9.1
-Stable tag: 1.0.1
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,7 +20,9 @@ Huge-IT Image Gallery is the best plugin to use if you want to be original with 
 
 https://www.youtube.com/watch?v=fNz0hW01k3k
 
-**Huge-IT Image Gallery** is the best plugin to use if you want to be original with your website. Image gallery  has specially made to allow it’s users create a lot of ways to represent their images and information. Just add image, wright descriptions and titles for each view of the Image gallery and choose one from 5 unrepeatable views. Each view has unique customizable options in “ General Options “ section to make them fit your taste. Almost every type of text can be change from the standpoint of text and color. Also there are a lot of features relative as to Image gallery and thumbnails as to it's lightbox. Talking about Lightbox, notice, that Image gallery plugin has separate options page, where you can choose one from 5 lightbox views, and customize it. And that way to create desirable style of your website. Show your image in it's best way! Image gallery plugin offers you, being already easy to use and friendly admin panel, where you can add several images at a time and immediately give them a title, description and link, goes to any page, and set the way it opens. With our Image Gallery you can realize your most original ideas. 5 views of the Image Gallery gives you 5 ways to be the best!
+**Huge-IT Image Gallery** is the best plugin to use if you want to be original with your website. Image Gallery has specially made to allow it’s users create a lot of ways to represent your images, videos and information. Just add image or video wright descriptions and titles for each view of the Image Gallery and choose one from 5 unrepeatable views. Each view has unique customizable options in “ General Options “ section to make them fit your taste. Almost every type of text can be change from the standpoint of text and color. Also there are a lot of features relative as to Image Gallery and thumbnails as to it's lightbox. Talking about Lightbox, notice, that Image Gallery plugin has separate options page, where you can choose one from 5 lightbox views, and customize it. And that way to create desirable style of your website. Show your image and video in it's best way! Image Gallery plugin offers you, being already easy to use and friendly admin panel, where you can add several images and videos at a time and immediately give them a title, description and link, goes to any page, and set the way it opens. Huge-IT Image Gallery and all other plugins of our company have very high quality support so you always can be sure that you will not have any problems, with this plugin. Our experts are always ready to respond any your questions. With our Image Gallery you can realize your most original ideas. 5 views of the Image Gallery gives you 5 ways to be the best! Each view of Image Gallery is original, elegant and will fit to any styles of your images, videos and information. No matter to slide or show your media in thumbnails, or give them a useful information and show both together, whatever you choose will look original, because we worked hard on making Image Gallery irrepetible. So you can always be bold in your ideas with Huge-IT Image Gallery.
+Considering the large number of galleries in WordPress, Huge-IT company day by day will improve and enhance the functionality of Image Gallery, and keep on adhering to the first position among WordPress Gallery plugins. One of our new improvement is the video adding ability, besides images now you can also add any video you’d like from Youtube or Vimeo, just adding the video link you can get to show them in one of  views.  So We are sure our Image Gallery  will always satisfy you. Now just Install & Enjoy. All new information about new features and improvements that we made, you can find on our blog in the main page of Huge-it.com.
+
 
 Considering the large number of galleries in WordPress, Huge-IT company day by day will improve and enhance the functionality of Image gallery, and keep on adhering to the first position among WordPress Gallery plugins. So We are sure our Image gallery will always satisfy you. Now just Install & Enjoy.
 
@@ -77,6 +79,9 @@ Now you can set your Image Gallery options, images and use our Image Gallery.
 
 == Changelog ==
 
+= 1.0.3 =
+*  Bug fixed and added some features.
+
 = 1.0.2 =
 *  Bug fixed.
 
@@ -91,6 +96,14 @@ Add Images. Use the standard WordPress Image uploader to add an image from media
 Title. Add a title to your image
 Description. give some information or describe the topic
 URL. Provide some link of your post. Click to open in new tab or don’t click to open in the same tab
+
+OR
+
+Add videos. Use the standard WordPress video uploader to add a video from Youtube or Vimeo. Just insert a link 
+Title. Add a title to your videos
+Description. Give some information or describe the topic
+URL. Provide some link of your post. Click to open in new tab or don’t click to open in the same tab
+
 
 **Inserting Created Image Gallery** 
 

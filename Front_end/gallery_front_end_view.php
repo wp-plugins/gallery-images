@@ -1,5 +1,14 @@
 <?php
+function get_video_id_from_url($url){
 
+	if(strpos($url,'youtube') !== false){
+		if (stristr($url,'youtu.be/')){ preg_match('/(https:|http:|)(\/\/www\.|\/\/|)(.*?)\/(.{11})/i', $url, $final_ID); return array($final_ID[4],'youtube'); }
+		else{ preg_match('/(https:|http:|):(\/\/www\.|\/\/|)(.*?)\/(embed\/|watch\?v=|(.*?)&v=|v\/|e\/|.+\/|watch.*v=|)([a-z_A-Z0-9]{11})/i', $url, $IDD); return array($IDD[6],'youtube'); }
+	}else {
+		$vimeoid =  end(explode( "/", $url ));
+		return array($vimeoid,'vimeo');
+	}
+}
 function front_end_gallery($images, $paramssld, $gallery)
 {
 
@@ -41,8 +50,8 @@ function front_end_gallery($images, $paramssld, $gallery)
 	var lightbox_close = "<?php echo $paramssld['light_box_close'];?>";
 	var lightbox_html = <?php echo $paramssld['light_box_html'];?>;
 	var lightbox_photo = <?php echo $paramssld['light_box_photo'];?>;
-	var lightbox_width = '<?php if($paramssld['light_box_size_fix'] == 'false'){ echo 'false';} else { echo $paramssld['light_box_width']; } ?>';
-	var lightbox_height = '<?php if($paramssld['light_box_size_fix'] == 'false'){ echo 'false';} else { echo $paramssld['lightbox_height']; } ?>';
+	var lightbox_width = '<?php if($paramssld['light_box_size_fix'] == 'false'){ echo '';} else { echo $paramssld['light_box_width']; } ?>';
+	var lightbox_height = '<?php if($paramssld['light_box_size_fix'] == 'false'){ echo '';} else { echo $paramssld['lightbox_height']; } ?>';
 	var lightbox_innerWidth = '<?php echo $paramssld['light_box_innerwidth'];?>';
 	var lightbox_innerHeight = '<?php echo $paramssld['light_box_innerheight'];?>';
 	var lightbox_initialWidth = '<?php echo $paramssld['light_box_initialwidth'];?>';
@@ -147,7 +156,13 @@ function front_end_gallery($images, $paramssld, $gallery)
 	
 				jQuery(document).ready(function(){
 				jQuery("#huge_it_gallery_content a[href$='.jpg'], #huge_it_gallery_content a[href$='.png'], #huge_it_gallery_content a[href$='.gif']").addClass('group1');
+				
+				
 				jQuery(".group1").colorbox({rel:'group1'});
+				jQuery(".youtube").colorbox({iframe:true, innerWidth:640, innerHeight:390});
+				jQuery(".vimeo").colorbox({iframe:true, innerWidth:640, innerHeight:390});
+				jQuery(".iframe").colorbox({iframe:true, width:"80%", height:"80%"});
+				jQuery(".inline").colorbox({inline:true, width:"50%"});
 				jQuery(".callbacks").colorbox({
 					onOpen:function(){ alert('onOpen: colorbox is about to open'); },
 					onLoad:function(){ alert('onLoad: colorbox has started to load the targeted content'); },
@@ -168,7 +183,7 @@ function front_end_gallery($images, $paramssld, $gallery)
 		
 </script>
 	<!--Huge IT gallery START-->
-
+	<!-- GALLERY CONTENT POPUP -->
 	<?php include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 		if ( !(is_plugin_active( 'lightbox/lightbox.php' ) )) { 
 		?>
@@ -188,16 +203,12 @@ function front_end_gallery($images, $paramssld, $gallery)
 
 	<?php } ?>
 	
-	
-	
-	
-	
 
 	<?php 
 	$i = $gallerychangeview;
 	switch ($i) {
 
-		  case 0:
+	case 0:
 	  ?>
 <script> 
 jQuery(function(){
@@ -326,27 +337,14 @@ jQuery(document).ready(function(){
 		var width=jQuery(window).width();
 		if(width<=767){
 			jQuery('body').scrollTop(0);
-		}
+			jQuery('#huge_it_gallery_popup_list .popup-wrapper .image-block iframe').height(jQuery('body').width()*0.5);
+		}else {jQuery('#huge_it_gallery_popup_list .popup-wrapper .image-block iframe').height(jQuery('body').width()*0.23);}
 		jQuery('#huge_it_gallery_pupup_element_'+strid).addClass('active').css({height:height*0.7});
 		jQuery('#huge_it_gallery_popup_list').addClass('active');
 		
-		jQuery('#huge_it_gallery_pupup_element_'+strid+' ul.thumbs-list li:first-child').addClass('active');
-		var strsrc=jQuery('#huge_it_gallery_pupup_element_'+strid+' ul.thumbs-list li:first-child a img').attr('src');
-		jQuery('#huge_it_gallery_pupup_element_'+strid+' .image-block img').attr('src',strsrc);
-		//alert(strsrc);
 		return false;
 	});
 	
-	jQuery('#huge_it_gallery_popup_list .popup-wrapper .right-block ul.thumbs-list li a').click(function(){
-		var width=jQuery(window).width();
-		if(width<=767){
-			jQuery('body').scrollTop(0);
-		}
-		jQuery(this).parent().parent().find('li.active').removeClass('active');
-		jQuery(this).parent().addClass('active');
-		jQuery(this).parents('.right-block').prev().find('img').attr('src',jQuery(this).find('img').attr('src'));
-		return false;
-	});
 	
 	jQuery('#huge_it_gallery_popup_list .heading-navigation .close').on('click',function(){
 		closePopup();
@@ -360,9 +358,18 @@ jQuery(document).ready(function(){
 	
 	function closePopup() {
 		jQuery('#huge-popup-overlay').remove();
+		var videsrc=jQuery('#huge_it_gallery_popup_list li.active iframe').attr('src');
+		jQuery('#huge_it_gallery_popup_list li.active iframe').attr('src','');
+		jQuery('#huge_it_gallery_popup_list li.active iframe').attr('src',videsrc);
 		jQuery('#huge_it_gallery_popup_list li').removeClass('active');
 		jQuery('#huge_it_gallery_popup_list').removeClass('active');
+		
 	}
+
+	jQuery(window).resize(function(){
+		jQuery('#huge_it_gallery_popup_list .popup-wrapper .image-block iframe').height(jQuery('#huge_it_gallery_popup_list .popup-wrapper .image-block').width()*0.5);
+	});
+
 	
 }); 
 </script>
@@ -485,7 +492,7 @@ jQuery(document).ready(function(){
 	list-style:none;
 	z-index:2000;
 	display:none;
-	height:90%;
+	height:85%;
 }
 
 #huge_it_gallery_popup_list.active {display:table;}
@@ -548,6 +555,13 @@ jQuery(document).ready(function(){
 #huge_it_gallery_popup_list .popup-wrapper .image-block img {
 	width:100% !important;
 	display:block;
+}
+
+#huge_it_gallery_popup_list .popup-wrapper .image-block iframe  {
+	width:100% !important;
+	height:100%;
+	display:block;
+
 }
 
 #huge_it_gallery_popup_list .popup-wrapper .right-block {
@@ -640,7 +654,7 @@ jQuery(document).ready(function(){
 	position:relative;
 }
 
-.pupup-element .button-block a,.pupup-element .button-block a:link,.pupup-element .button-block a:visited{
+.pupup-element .button-block a,.pupup-element .button-block a:link,.pupup-element .button-block a:visited {
 	position:relative;
 	display:inline-block;
 	padding:6px 12px;
@@ -735,13 +749,42 @@ jQuery(document).ready(function(){
 		?>
 		<div class="element" tabindex="0" data-symbol="<?php echo $row->name; ?>" data-category="alkaline-earth">
 			<div class="image-block">
-				<?php $imgurl=explode(";",$row->image_url); ?>
-					<?php 	if($row->image_url != ';'){ ?>
-					<img id="wd-cl-img<?php echo $key; ?>" src="<?php echo $imgurl[0]; ?>" alt="" />
-					<?php } else { ?>
-					<img id="wd-cl-img<?php echo $key; ?>" src="images/noimage.jpg" alt="" />
-					<?php
-					} ?>	
+			<?php 
+					$imagerowstype=$row->sl_type;
+					if($row->sl_type == ''){$imagerowstype='image';}
+					switch($imagerowstype){
+						case 'image':
+				?>									
+							<?php $imgurl=explode(";",$row->image_url); ?>
+							<?php 	if($row->image_url != ';'){ ?>
+							<img id="wd-cl-img<?php echo $key; ?>" src="<?php echo $imgurl[0]; ?>" alt="" />
+							<?php } else { ?>
+							<img id="wd-cl-img<?php echo $key; ?>" src="images/noimage.jpg" alt="" />
+							<?php
+							} ?>
+
+				<?php
+						break;
+						case 'video':
+				?>
+							<?php
+								$videourl=get_video_id_from_url($row->image_url);
+								if($videourl[1]=='youtube'){?>
+										<img src="http://img.youtube.com/vi/<?php echo $videourl[0]; ?>/mqdefault.jpg" alt="" />		
+								<?php
+									}else {
+									$hash = unserialize(file_get_contents("http://vimeo.com/api/v2/video/".$videourl[0].".php"));
+									$imgsrc=$hash[0]['thumbnail_large'];
+								?>
+										<img src="<?php echo $imgsrc; ?>" alt="" />
+								<?php
+								}
+							?>
+				<?php
+						break;
+					}
+				?>
+			
 				<div class="image-overlay"><a href="#<?php echo $row->id; ?>"></a></div>
 			</div>
 			<div class="title-block">
@@ -771,13 +814,40 @@ jQuery(document).ready(function(){
 				<div style="clear:both;"></div>
 			</div>
 			<div class="popup-wrapper">
-				<div class="image-block">
-					<?php 	if($row->image_url != ';'){ ?>
-					<img id="wd-cl-img<?php echo $key; ?>" src="<?php echo $imgurl[0]; ?>" alt="" />
-					<?php } else { ?>
-					<img id="wd-cl-img<?php echo $key; ?>" src="images/noimage.jpg" alt="" />
+				<div class="image-block">					
+					<?php 
+						$imagerowstype=$row->sl_type;
+						if($row->sl_type == ''){$imagerowstype='image';}
+						switch($imagerowstype){
+							case 'image':
+					?>									
+							<?php 	if($row->image_url != ';'){ ?>
+							<img id="wd-cl-img<?php echo $key; ?>" src="<?php echo $imgurl[0]; ?>" alt="" />
+							<?php } else { ?>
+							<img id="wd-cl-img<?php echo $key; ?>" src="images/noimage.jpg" alt="" />
+							<?php
+							} ?>	
+
 					<?php
-					} ?>					
+							break;
+							case 'video':
+					?>
+								<?php
+									$videourl=get_video_id_from_url($row->image_url);
+									if($videourl[1]=='youtube'){?>
+										<iframe src="//www.youtube.com/embed/<?php echo $videourl[0]; ?>" frameborder="0" allowfullscreen></iframe>
+									<?php
+									}else {
+									?>
+										<iframe src="//player.vimeo.com/video/<?php echo $videourl[0]; ?>?title=0&amp;byline=0&amp;portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+									<?php
+									}
+								?>
+					<?php
+							break;
+						}
+					?>
+	
 				</div>
 				<div class="right-block">
 					<?php if($paramssld["ht_view2_show_popup_title"]=='on'){?><h3 class="title"><?php echo $row->name; ?></h3><?php } ?>
@@ -799,16 +869,18 @@ jQuery(document).ready(function(){
   <?php	  
 	break;
 
-/////////////////////////////////// VIEW 1 Slider ////////////////////////////////////
+/////////////////////////////////// VIEW 1 CONTENT SLIDER ////////////////////////////////////
 		case 1;
 ?>
+
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.0.0/animate.min.css">
   <link href="<?php echo plugins_url('../style/liquid-slider.css', __FILE__);?>" rel="stylesheet" type="text/css" />
  
 <style>
-
+* {outline:none;}
 #main-slider {background:#<?php echo $paramssld["ht_view5_slider_background_color"];?>;}
 
 #main-slider div.slider-content {
@@ -841,6 +913,7 @@ jQuery(document).ready(function(){
 }
 
 #main-slider .slider-content-wrapper .image-block {
+	position:relative;
 	width:<?php echo $paramssld["ht_view5_main_image_width"];?>px;
 	display:table-cell;
 	padding:0px 10px 0px 0px;
@@ -854,38 +927,19 @@ jQuery(document).ready(function(){
 	display:block;
 }
 
-#main-slider .slider-content-wrapper .image-block ul.thumbs-list {
-	list-style:none;
-	display:table;
-	position:relative;
-	clear:both;
+
+#main-slider .slider-content-wrapper .image-block .play-icon {
+	position:absolute;
+	top:0px;
+	left:0px;
 	width:100%;
-	margin:10px 0px 0px 0px;
-	padding:0px;
-	clear:both;
+	height:100%;	
 }
+#main-slider .slider-content-wrapper .image-block  .play-icon.youtube-icon {background:url(<?php echo plugin_dir_url( __FILE__ ); ?>../images/play.youtube.png) center center no-repeat;}
+#main-slider .slider-content-wrapper .image-block  .play-icon.vimeo-icon {background:url(<?php echo plugin_dir_url( __FILE__ ); ?>../images/play.vimeo.png) center center no-repeat;}
 
-#main-slider .slider-content-wrapper .image-block ul.thumbs-list li {
-	display:block;
-	float:left;
-	width:<?php echo $paramssld["ht_view5_thumbs_width"];?>px;
-	height:<?php echo $paramssld["ht_view5_thumbs_height"];?>px;
-	margin:0px 2% 5px 1%;
-	opacity:0.45;
-}
 
-#main-slider .slider-content-wrapper .image-block ul.thumbs-list li.active,#main-slider .slider-content-wrapper .image-block ul.thumbs-list li:hover {
-	opacity:1;
-}
 
-#main-slider .slider-content-wrapper .image-block ul.thumbs-list li a {
-	display:block;
-}
-
-#main-slider .slider-content-wrapper .image-block ul.thumbs-list li img {
-	width:<?php echo $paramssld["ht_view5_thumbs_width"];?>px !important;
-	height:<?php echo $paramssld["ht_view5_thumbs_height"];?>px !important;
-}
 
 #main-slider .slider-content-wrapper .right-block {
 	display:table-cell;
@@ -992,22 +1046,49 @@ jQuery(document).ready(function(){
 			
 			<div class="slider-content-wrapper">
 				<div class="image-block">
-					<?php 	if($row->image_url != ';'){ ?>
-					<a class="group1" href="<?php echo $imgurl[0]; ?>"><img class="main-image" src="<?php echo $imgurl[0]; ?>" alt="" /></a>
-					<?php } else { ?>
-					<img class="main-image" src="images/noimage.jpg" alt="" />
-					<?php
-					} ?>
 					
-					<?php if($paramssld["ht_view5_show_thumbs"]){?>
-					<div><ul class="thumbs-list">
-						<?php  
-						array_shift($imgurl);
-								foreach($imgurl as $key=>$img){?>
-									<li><a href="<?php echo $img; ?>"><img src="<?php echo $img; ?>"></a></li>
-								<?php } ?>
-					</ul></div>
-					<?php } ?>					
+
+					<?php 
+						$imagerowstype=$row->sl_type;
+						if($row->sl_type == ''){$imagerowstype='image';}
+						switch($imagerowstype){
+							case 'image':
+					?>									
+							<?php 	if($row->image_url != ';'){ ?>
+							<a class="group1" href="<?php echo $imgurl[0]; ?>"><img class="main-image" src="<?php echo $imgurl[0]; ?>" alt="" /></a>
+							<?php } else { ?>
+							<img class="main-image" src="images/noimage.jpg" alt="" />
+							<?php
+							} ?>
+
+						<?php
+						break;
+						case 'video':
+				?>
+						<?php
+							$videourl=get_video_id_from_url($row->image_url);
+							if($videourl[1]=='youtube'){?>
+								<a class="youtube huge_it_gallery_item"  href="https://www.youtube.com/embed/<?php echo $videourl[0]; ?>">
+									<img src="http://img.youtube.com/vi/<?php echo $videourl[0]; ?>/mqdefault.jpg" alt="" />
+									<div class="play-icon <?php echo $videourl[1]; ?>-icon"></div>
+								</a>								
+							<?php
+								}else {
+								$hash = unserialize(file_get_contents("http://vimeo.com/api/v2/video/".$videourl[0].".php"));
+								$imgsrc=$hash[0]['thumbnail_large'];
+							?>
+								<a class="vimeo huge_it_gallery_item" href="http://player.vimeo.com/video/<?php echo $videourl[0]; ?>">
+									<img src="<?php echo $imgsrc; ?>" alt="" />
+									<div class="play-icon <?php echo $videourl[1]; ?>-icon"></div>
+								</a>
+							<?php
+							}
+						?>
+				<?php
+						break;
+					}
+				?>
+	
 				</div>
 				<div class="right-block">
 					<div><h2 class="title"><?php echo $row->name; ?></h2></div>
@@ -1025,6 +1106,8 @@ jQuery(document).ready(function(){
 </div>
   <script src="<?php echo plugins_url('../js/jquery.liquid-slider.min.js', __FILE__);?>"></script>  
    <script>
+	
+   
     /**
      * If you need to access the internal property or methods, use this:
      * var api = $.data( jQuery('#main-slider')[0], 'liquidSlider');
@@ -1055,6 +1138,8 @@ jQuery(document).ready(function(){
 	width:<?php echo $paramssld['ht_view6_width']; ?>px;
 }
 
+.element .image-block a {display:block;}
+
 .element .image-block img {
 	width:<?php echo $paramssld['ht_view6_width']; ?>px !important;
 	height:auto;
@@ -1066,6 +1151,20 @@ jQuery(document).ready(function(){
 .element .image-block img:hover {
 	cursor: -webkit-zoom-in; cursor: -moz-zoom-in;
 }
+
+.element .image-block .play-icon {
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;	
+	
+}
+
+.element .image-block  .play-icon.youtube-icon {background:url(<?php echo plugin_dir_url( __FILE__ ); ?>../images/play.youtube.png) center center no-repeat;}
+
+.element .image-block  .play-icon.vimeo-icon {background:url(<?php echo plugin_dir_url( __FILE__ ); ?>../images/play.vimeo.png) center center no-repeat;}
+
 
 .element .title-block {
 	position:absolute;
@@ -1123,13 +1222,47 @@ jQuery(document).ready(function(){
 		?>
 		<div class="element" tabindex="0" data-symbol="<?php echo $row->name; ?>" data-category="alkaline-earth">
 			<div class="image-block">
-				<?php $imgurl=explode(";",$row->image_url); ?>
-					<?php 	if($row->image_url != ';'){ ?>
-					<a href="<?php echo $imgurl[0]; ?>"><img id="wd-cl-img<?php echo $key; ?>" src="<?php echo $imgurl[0]; ?>" alt="" /></a>
-					<?php } else { ?>
-					<img id="wd-cl-img<?php echo $key; ?>" src="images/noimage.jpg" alt="" />
-					<?php
-					} ?>	
+				<?php 
+					$imagerowstype=$row->sl_type;
+					if($row->sl_type == ''){$imagerowstype='image';}
+					switch($imagerowstype){
+						case 'image':
+				?>									
+							<?php $imgurl=explode(";",$row->image_url); ?>
+							<?php 	if($row->image_url != ';'){ ?>
+							<a href="<?php echo $imgurl[0]; ?>"><img id="wd-cl-img<?php echo $key; ?>" src="<?php echo $imgurl[0]; ?>" alt="" /></a>
+							<?php } else { ?>
+							<img id="wd-cl-img<?php echo $key; ?>" src="images/noimage.jpg" alt="" />
+							<?php
+							} ?>
+
+				<?php
+						break;
+						case 'video':
+				?>
+						<?php
+							$videourl=get_video_id_from_url($row->image_url);
+							if($videourl[1]=='youtube'){?>
+								<a class="youtube huge_it_gallery_item group1"  href="https://www.youtube.com/embed/<?php echo $videourl[0]; ?>">
+									<img src="http://img.youtube.com/vi/<?php echo $videourl[0]; ?>/mqdefault.jpg" alt="" />
+									<div class="play-icon <?php echo $videourl[1]; ?>-icon"></div>
+								</a>								
+							<?php
+								}else {
+								$hash = unserialize(file_get_contents("http://vimeo.com/api/v2/video/".$videourl[0].".php"));
+								$imgsrc=$hash[0]['thumbnail_large'];
+							?>
+								<a class="vimeo huge_it_gallery_item group1" href="http://player.vimeo.com/video/<?php echo $videourl[0]; ?>">
+									<img src="<?php echo $imgsrc; ?>" alt="" />
+									<div class="play-icon <?php echo $videourl[1]; ?>-icon"></div>
+								</a>
+							<?php
+							}
+						?>
+				<?php
+						break;
+					}
+				?>
 			</div>
 			<?php if($row->name!=""){?>
 			<div class="title-block">
@@ -1287,7 +1420,148 @@ break;
 
 	$slideshow_title_position = explode('-', trim($paramssld['slider_title_position']));
 	$slideshow_description_position = explode('-', trim($paramssld['slider_description_position']));
+	
+	$hasyoutube=false;
+	$hasvimeo=false;
+	foreach ($images as $key => $image_row) {
+		if(strpos($image_row->image_url,'youtube') !== false){$hasyoutube=true;}
+		if(strpos($image_row->image_url,'vimeo') !== false){$hasvimeo=true;}
+	}
+?>
+<script>var video_is_playing_gallery_<?php echo $sliderID; ?>=false;</script>
+<?php if ($hasvimeo==true){?>
+<script src="<?php echo plugins_url( 'js/vimeo.lib.js' , __FILE__ ) ?>"></script>
+<script>
+jQuery(function(){
+	
+	var vimeoPlayer = document.querySelector('iframe');
+		
+	jQuery('iframe').each(function(){
+				Froogaloop(this).addEvent('ready', ready);
+	});
+
+	jQuery(".sidedock,.controls").remove();
+	function ready(player_id) {
+	
+		froogaloop = $f(player_id);
+	
+		function setupEventListeners() {			
+			function onPlay() {
+				froogaloop.addEvent('play',
+				function(){
+					video_is_playing_gallery_<?php echo $sliderID; ?>=true;
+				});
+			}
+			function onPause() {
+				froogaloop.addEvent('pause',
+				function(){
+					video_is_playing_gallery_<?php echo $sliderID; ?>=false;
+				});
+			}					
+			function stopVimeoVideo(player){
+				Froogaloop(player).api('pause');
+			}
+			
+			onPlay();
+			onPause();
+			jQuery('#huge_it_slideshow_left_gallery_<?php echo $sliderID; ?>, #huge_it_slideshow_right_gallery_<?php echo $sliderID; ?>,.huge_it_slideshow_dots_gallery_<?php echo $sliderID; ?>').click(function(){
+				stopVimeoVideo(player_id);
+			});
+		}
+		setupEventListeners();
+	}
+});		
+</script>
+<?php } ?>
+
+<?php if ($hasyoutube==true){?>
+
+<script src="<?php echo plugins_url( 'js/youtube.lib.js' , __FILE__ ) ?>"></script>
+<script> 
+  <?php
+  function get_youtube_id_from_url($url){
+		if (stristr($url,'youtu.be/'))
+			{ preg_match('/(https:|http:|)(\/\/www\.|\/\/|)(.*?)\/(.{11})/i', $url, $final_ID); return $final_ID[4]; }
+		else 
+			{ preg_match('/(https:|http:|):(\/\/www\.|\/\/|)(.*?)\/(embed\/|watch\?v=|(.*?)&v=|v\/|e\/|.+\/|watch.*v=|)([a-z_A-Z0-9]{11})/i', $url, $IDD); return $IDD[6]; }
+	}
+			
+	$i=0;
+	 foreach ($images as $key => $image_row) {
+		if($image_row->sl_type=="video" and strpos($image_row->image_url,'youtube') !== false){	
+  ?> 
+		var player_<?php echo $image_row->id; ?>;
+<?php
+		}else if (strpos($image_row->image_url,'vimeo') !== false){ ?>
+				
+<?php
+		}else{continue;}
+		$i++;
+	}
+?>
+		 video_is_playing_gallery_<?php echo $sliderID; ?>=false;
+		function onYouTubeIframeAPIReady() {
+			<?php
+			foreach ($images as $key => $image_row) {?>
+							
+				<?php if($image_row->sl_type=="video" and strpos($image_row->image_url,'youtube') !== false){
+			?> 
+				player_<?php echo $image_row->id; ?> = new YT.Player('video_id_gallery_<?php echo $sliderID; ?>_<?php echo $key;?>', {
+				  height: '<?php echo $sliderheight; ?>',
+				  width: '<?php echo $sliderwidth; ?>',
+				  videoId: '<?php echo get_youtube_id_from_url($image_row->image_url); ?>',
+				   playerVars: {
+					'controls': <?php if ($images[$key]->sl_url=="on"){ echo 1;}else{echo 0;} ?>,           
+					'showinfo': <?php if ($images[$key]->link_target=="on"){ echo 1;}else{echo 0;} ?>
+				  },
+				  events: {
+					'onStateChange': onPlayerStateChange_<?php echo $image_row->id; ?>,
+					'loop':1
+				  }
+				});
+			<?php
+				}else{continue;}
+			}
+			?>
+		}
+		
+		
+<?php			
+	foreach ($images as $key => $image_row) {
+		if($image_row->sl_type=="video" and strpos($image_row->image_url,'youtube') !== false){
+?>
+		 function onPlayerStateChange_<?php echo $image_row->id; ?>(event) {
+			//(event.data);
+			if (event.data == YT.PlayerState.PLAYING) {
+				event.target.setPlaybackQuality('<?php echo $images[$key]->name; ?>');
+				video_is_playing_gallery_<?php echo $sliderID; ?>=true;
+			}
+			else{
+				video_is_playing_gallery_<?php echo $sliderID; ?>=false;
+			}
+		  }
+<?php 
+	    }else{continue;}
+		
+	}
+?>
+	function stopYoutubeVideo() {
+		<?php 
+		$i=0;
+		foreach ($images as $key => $image_row) {
+			if($image_row->sl_type=="video" and strpos($image_row->image_url,'youtube') !== false){	
 		?>
+			player_<?php echo $image_row->id; ?>.pauseVideo();
+		<?php
+			}else{continue;}
+				$i++;
+			}
+		?>
+	}
+
+</script>
+<?php } ?>
+	
 	
 	<script>
 	var data_gallery_<?php echo $sliderID; ?> = [];      
@@ -1321,6 +1595,25 @@ break;
 						echo 'data_gallery_'.$sliderID.'["'.$i.'"]["alt"]="'.$stralt.'";';
 						$i++;
 					break;
+					
+					case 'video':
+						echo 'data_gallery_'.$sliderID.'["'.$i.'"]=[];';
+						echo 'data_gallery_'.$sliderID.'["'.$i.'"]["id"]="'.$i.'";';
+						echo 'data_gallery_'.$sliderID.'["'.$i.'"]["image_url"]="'.$image->image_url.'";';
+						
+						
+						$strdesription=str_replace('"',"'",$image->description);
+						$strdesription=preg_replace( "/\r|\n/", " ", $strdesription );
+						echo 'data_gallery_'.$sliderID.'["'.$i.'"]["description"]="'.$strdesription.'";';
+
+						
+						$stralt=str_replace('"',"'",$image->name);
+						$stralt=preg_replace( "/\r|\n/", " ", $stralt );
+						echo 'data_gallery_'.$sliderID.'["'.$i.'"]["alt"]="'.$stralt.'";';
+						$i++;
+					break;
+					
+					
 					case 'last_posts':
 					
 					foreach($recent_posts as $keyl => $recentimage){
@@ -1356,10 +1649,10 @@ break;
 
       var huge_it_trans_in_progress_gallery_<?php echo $sliderID; ?> = false;
       var huge_it_transition_duration_gallery_<?php echo $sliderID; ?> = <?php echo $slidechangespeed;?>;
-      var huge_it_playInterval_gallery_<?php echo $sliderID; ?>;
+	  var huge_it_playInterval_gallery_<?php echo $sliderID; ?>;
       // Stop autoplay.
       window.clearInterval(huge_it_playInterval_gallery_<?php echo $sliderID; ?>);
-	  
+	 // alert('huge_it_current_key_gallery_<?php echo $sliderID; ?>');
      var huge_it_current_key_gallery_<?php echo $sliderID; ?> = '<?php echo (isset($current_key) ? $current_key : ''); ?>';
 	 function huge_it_move_dots_gallery_<?php echo $sliderID; ?>() {
         var image_left = jQuery(".huge_it_slideshow_dots_active_gallery_<?php echo $sliderID; ?>").position().left;
@@ -1443,7 +1736,7 @@ break;
           if (typeof event_stack_gallery_<?php echo $sliderID; ?> !== 'undefined' && event_stack_gallery_<?php echo $sliderID; ?>.length > 0) {
             key = event_stack_gallery_<?php echo $sliderID; ?>[0].split("-");
             event_stack_gallery_<?php echo $sliderID; ?>.shift();
-            huge_it_change_image_gallery_<?php echo $sliderID; ?>(key[0], key[1], data_gallery_<?php echo $sliderID; ?>, true);
+            huge_it_change_image_gallery_<?php echo $sliderID; ?>(key[0], key[1], data_gallery_<?php echo $sliderID; ?>, true,false);
           }
         }
       }
@@ -1625,7 +1918,7 @@ break;
           if (typeof event_stack_gallery_<?php echo $sliderID; ?> !== 'undefined' && event_stack_gallery_<?php echo $sliderID; ?>.length > 0) {
             key = event_stack_gallery_<?php echo $sliderID; ?>[0].split("-");
             event_stack_gallery_<?php echo $sliderID; ?>.shift();
-            huge_it_change_image_gallery_<?php echo $sliderID; ?>(key[0], key[1], data_gallery_<?php echo $sliderID; ?>, true);
+            huge_it_change_image_gallery_<?php echo $sliderID; ?>(key[0], key[1], data_gallery_<?php echo $sliderID; ?>, true,false);
           }
         }
       }
@@ -1706,10 +1999,14 @@ break;
         return iterator;
      }
 	 
-     function huge_it_change_image_gallery_<?php echo $sliderID; ?>(current_key, key, data_gallery_<?php echo $sliderID; ?>, from_effect) {
+     function huge_it_change_image_gallery_<?php echo $sliderID; ?>(current_key, key, data_gallery_<?php echo $sliderID; ?>, from_effect,clicked) {
 		
         if (data_gallery_<?php echo $sliderID; ?>[key]) {
-         
+			
+			if(video_is_playing_gallery_<?php echo $sliderID; ?> && !clicked){
+				return false;
+			}
+        
           if (!from_effect) {
 			
             // Change image key.
@@ -1744,13 +2041,20 @@ break;
 		  jQuery(".huge_it_slideshow_title_text_gallery_<?php echo $sliderID; ?>").html(data_gallery_<?php echo $sliderID; ?>[key]["alt"]);
           jQuery(".huge_it_slideshow_description_text_gallery_<?php echo $sliderID; ?>").html(data_gallery_<?php echo $sliderID; ?>[key]["description"]);
         
-		
-		
 		  var current_image_class = "#image_id_gallery_<?php echo $sliderID; ?>_" + data_gallery_<?php echo $sliderID; ?>[current_key]["id"];
           var next_image_class = "#image_id_gallery_<?php echo $sliderID; ?>_" + data_gallery_<?php echo $sliderID; ?>[key]["id"];
           
 		  
-		  huge_it_<?php echo $slidereffect; ?>_gallery_<?php echo $sliderID; ?>(current_image_class, next_image_class, direction);
+		if(jQuery(current_image_class).find('.huge_it_video_frame_gallery_<?php echo $sliderID; ?>').length>0) {
+			var streffect='<?php echo $slidereffect; ?>';
+			if(streffect=="cubeV" || streffect=="cubeH" || streffect=="none" || streffect=="fade"){
+				huge_it_<?php echo $slidereffect; ?>_gallery_<?php echo $sliderID; ?>(current_image_class, next_image_class, direction);
+			}else{	
+				huge_it_fade_gallery_<?php echo $sliderID; ?>(current_image_class, next_image_class, direction);
+			}	
+		}else{	
+				huge_it_<?php echo $slidereffect; ?>_gallery_<?php echo $sliderID; ?>(current_image_class, next_image_class, direction);
+		}	
 		  
 		  
 		jQuery('.huge_it_slideshow_title_text_gallery_<?php echo $sliderID; ?>').removeClass('none');
@@ -1769,6 +2073,7 @@ break;
 		  
 		  //errorlogjQuery(".huge_it_slideshow_image_wrap_gallery_<?php echo $sliderID; ?>").after("--cur-key="+current_key+" --cur-img-class="+current_image_class+" nxt-img-class="+next_image_class+"--");
 			huge_it_move_dots_gallery_<?php echo $sliderID; ?>();
+			<?php if ($hasyoutube==true){?>stopYoutubeVideo(); <?php } ?>
 			window.clearInterval(huge_it_playInterval_gallery_<?php echo $sliderID; ?>);
 			play_gallery_<?php echo $sliderID; ?>();
         }
@@ -1811,6 +2116,11 @@ break;
 			cssText: "max-width: " + sliderwidth + "px !important; max-height: " + (sliderwidth * str) + "px !important;"
 		  });
 		}
+		
+		jQuery('.huge_it_video_frame_gallery_<?php echo $sliderID; ?>').each(function (e) {
+          jQuery(this).width(sliderwidth);
+          jQuery(this).height(sliderwidth * str);
+        });
       }
       
       jQuery(window).load(function () {
@@ -1851,7 +2161,7 @@ break;
         huge_it_playInterval_gallery_<?php echo $sliderID; ?> = setInterval(function () {
 			//errorlogjQuery(".huge_it_slideshow_image_wrap_gallery_<?php echo $sliderID; ?>").after(" -- time left ---- ");
           var iterator = 1;
-          huge_it_change_image_gallery_<?php echo $sliderID; ?>(parseInt(jQuery('#huge_it_current_image_key_gallery_<?php echo $sliderID; ?>').val()), (parseInt(jQuery('#huge_it_current_image_key_gallery_<?php echo $sliderID; ?>').val()) + iterator) % data_gallery_<?php echo $sliderID; ?>.length, data_gallery_<?php echo $sliderID; ?>);
+          huge_it_change_image_gallery_<?php echo $sliderID; ?>(parseInt(jQuery('#huge_it_current_image_key_gallery_<?php echo $sliderID; ?>').val()), (parseInt(jQuery('#huge_it_current_image_key_gallery_<?php echo $sliderID; ?>').val()) + iterator) % data_gallery_<?php echo $sliderID; ?>.length, data_gallery_<?php echo $sliderID; ?>,false,false);
         }, '<?php echo $slidepausetime; ?>');
       }
 	  
@@ -2585,7 +2895,19 @@ break;
 							  }
 							
 							?>
-								<div id="huge_it_dots_<?php echo $stri; ?>_gallery_<?php echo $sliderID; ?>" class="huge_it_slideshow_dots_gallery_<?php echo $sliderID; ?> <?php echo (($key==$current_image_id) ? 'huge_it_slideshow_dots_active_gallery_' . $sliderID : 'huge_it_slideshow_dots_deactive_gallery_' . $sliderID); ?>" onclick="huge_it_change_image_gallery_<?php echo $sliderID; ?>(parseInt(jQuery('#huge_it_current_image_key_gallery_<?php echo $sliderID; ?>').val()), '<?php echo $stri; ?>', data_gallery_<?php echo $sliderID; ?>);return false;" image_id="<?php echo $image_row->id; ?>" image_key="<?php echo $stri; ?>"></div>
+								<div id="huge_it_dots_<?php echo $stri; ?>_gallery_<?php echo $sliderID; ?>" class="huge_it_slideshow_dots_gallery_<?php echo $sliderID; ?> <?php echo (($key==$current_image_id) ? 'huge_it_slideshow_dots_active_gallery_'. $sliderID : 'huge_it_slideshow_dots_deactive_gallery_' . $sliderID); ?>" onclick="huge_it_change_image_gallery_<?php echo $sliderID; ?>(parseInt(jQuery('#huge_it_current_image_key_gallery_<?php echo $sliderID; ?>').val()), '<?php echo $stri; ?>', data_gallery_<?php echo $sliderID; ?>,false,true);return false;" image_id="<?php echo $image_row->id; ?>" image_key="<?php echo $stri; ?>"></div>
+							<?php
+							  $stri++;
+							break;
+							case 'video':
+											
+							  if ($image_row->id == $current_image_id) {
+								$current_pos = $stri;
+								$current_key = $stri;
+							  }
+							
+							?>
+								<div id="huge_it_dots_<?php echo $stri; ?>_gallery_<?php echo $sliderID; ?>" class="huge_it_slideshow_dots_gallery_<?php echo $sliderID; ?> <?php echo (($key==$current_image_id) ? 'huge_it_slideshow_dots_active_gallery_' . $sliderID : 'huge_it_slideshow_dots_deactive_gallery_' . $sliderID); ?>" onclick="huge_it_change_image_gallery_<?php echo $sliderID; ?>(parseInt(jQuery('#huge_it_current_image_key_gallery_<?php echo $sliderID; ?>').val()), '<?php echo $stri; ?>', data_gallery_<?php echo $sliderID; ?>,false,true);return false;" image_id="<?php echo $image_row->id; ?>" image_key="<?php echo $stri; ?>"></div>
 							<?php
 							  $stri++;
 							break;
@@ -2601,7 +2923,7 @@ break;
 								$current_key = $stri;
 							  }
 							?>
-								<div id="huge_it_dots_<?php echo $stri; ?>_gallery_<?php echo $sliderID; ?>" class="huge_it_slideshow_dots_gallery_<?php echo $sliderID; ?> <?php echo (($stri==$current_image_id) ? 'huge_it_slideshow_dots_active_gallery_' . $sliderID : 'huge_it_slideshow_dots_deactive_gallery_' . $sliderID); ?>" onclick="huge_it_change_image_gallery_<?php echo $sliderID; ?>(parseInt(jQuery('#huge_it_current_image_key_gallery_<?php echo $sliderID; ?>').val()), '<?php echo $stri; ?>', data_gallery_<?php echo $sliderID; ?>);return false;" image_id="<?php echo $image_row->id; ?>" image_key="<?php echo $stri; ?>"></div>
+								<div id="huge_it_dots_<?php echo $stri; ?>_gallery_<?php echo $sliderID; ?>" class="huge_it_slideshow_dots_gallery_<?php echo $sliderID; ?> <?php echo (($stri==$current_image_id) ? 'huge_it_slideshow_dots_active_gallery_' . $sliderID : 'huge_it_slideshow_dots_deactive_gallery_' . $sliderID); ?>" onclick="huge_it_change_image_gallery_<?php echo $sliderID; ?>(parseInt(jQuery('#huge_it_current_image_key_gallery_<?php echo $sliderID; ?>').val()), '<?php echo $stri; ?>', data_gallery_<?php echo $sliderID; ?>,false,true);return false;" image_id="<?php echo $image_row->id; ?>" image_key="<?php echo $stri; ?>"></div>
 							<?php
 							  $stri++;
 							}
@@ -2617,12 +2939,12 @@ break;
 			<?php
 			   if ($paramssld['slider_show_arrows']=="on") {
 			 ?>
-				<a id="huge_it_slideshow_left_gallery_<?php echo $sliderID; ?>" href="#" onclick="huge_it_change_image_gallery_<?php echo $sliderID; ?>(parseInt(jQuery('#huge_it_current_image_key_gallery_<?php echo $sliderID; ?>').val()), (parseInt(jQuery('#huge_it_current_image_key_gallery_<?php echo $sliderID; ?>').val()) - iterator_gallery_<?php echo $sliderID; ?>()) >= 0 ? (parseInt(jQuery('#huge_it_current_image_key_gallery_<?php echo $sliderID; ?>').val()) - iterator_gallery_<?php echo $sliderID; ?>()) % data_gallery_<?php echo $sliderID; ?>.length : data_gallery_<?php echo $sliderID; ?>.length - 1, data_gallery_<?php echo $sliderID; ?>);return false;">
+				<a id="huge_it_slideshow_left_gallery_<?php echo $sliderID; ?>" href="#" onclick="huge_it_change_image_gallery_<?php echo $sliderID; ?>(parseInt(jQuery('#huge_it_current_image_key_gallery_<?php echo $sliderID; ?>').val()), (parseInt(jQuery('#huge_it_current_image_key_gallery_<?php echo $sliderID; ?>').val()) - iterator_gallery_<?php echo $sliderID; ?>()) >= 0 ? (parseInt(jQuery('#huge_it_current_image_key_gallery_<?php echo $sliderID; ?>').val()) - iterator_gallery_<?php echo $sliderID; ?>()) % data_gallery_<?php echo $sliderID; ?>.length : data_gallery_<?php echo $sliderID; ?>.length - 1, data_gallery_<?php echo $sliderID; ?>,false,true);return false;">
 					<div id="huge_it_slideshow_left-ico_gallery_<?php echo $sliderID; ?>">
 					<div><i class="huge_it_slideshow_prev_btn_gallery_<?php echo $sliderID; ?> fa"></i></div></div>
 				</a>
 				
-				<a id="huge_it_slideshow_right_gallery_<?php echo $sliderID; ?>" href="#" onclick="huge_it_change_image_gallery_<?php echo $sliderID; ?>(parseInt(jQuery('#huge_it_current_image_key_gallery_<?php echo $sliderID; ?>').val()), (parseInt(jQuery('#huge_it_current_image_key_gallery_<?php echo $sliderID; ?>').val()) + iterator_gallery_<?php echo $sliderID; ?>()) % data_gallery_<?php echo $sliderID; ?>.length, data_gallery_<?php echo $sliderID; ?>);return false;">
+				<a id="huge_it_slideshow_right_gallery_<?php echo $sliderID; ?>" href="#" onclick="huge_it_change_image_gallery_<?php echo $sliderID; ?>(parseInt(jQuery('#huge_it_current_image_key_gallery_<?php echo $sliderID; ?>').val()), (parseInt(jQuery('#huge_it_current_image_key_gallery_<?php echo $sliderID; ?>').val()) + iterator_gallery_<?php echo $sliderID; ?>()) % data_gallery_<?php echo $sliderID; ?>.length, data_gallery_<?php echo $sliderID; ?>,false,true);return false;">
 					<div id="huge_it_slideshow_right-ico_<?php echo $sliderID;?> , data_<?php echo $sliderID;?>">
 					<div><i class="huge_it_slideshow_next_btn_gallery_<?php echo $sliderID; ?> fa"></i></div></div>
 				</a>
@@ -2635,66 +2957,87 @@ break;
         <div class="huge_it_slide_container_gallery_<?php echo $sliderID; ?>">
           <div class="huge_it_slide_bg_gallery_<?php echo $sliderID; ?>">
             <ul class="huge_it_slider_gallery_<?php echo $sliderID; ?>">
-			  <?php
-			  $i=0;
-			  foreach ($images as $key => $image_row) {
-			  	$imagerowstype=$image_row->sl_type;
-				if($image_row->sl_type == ''){
-				$imagerowstype='image';
-				}
-				switch($imagerowstype){
-					case 'image':
-					$target="";
-					?>
-					  <li class="huge_it_slideshow_image<?php if ($i != $current_image_id) {$current_key = $key; echo '_second';} ?>_item_gallery_<?php echo $sliderID; ?>" id="image_id_gallery_<?php echo $sliderID.'_'.$i ?>">      
-						<?php if($image_row->sl_url!=""){ 
-							if ($image_row->link_target=="on"){$target='target="_blank'.$image_row->link_target.'"';}
-							echo '<a href="'.$image_row->sl_url.'" '.$target.'>';
-						} ?>
-						<img id="huge_it_slideshow_image_gallery_<?php echo $sliderID; ?>" class="huge_it_slideshow_image_gallery_<?php echo $sliderID; ?>" src="<?php echo $image_row->image_url; ?>" image_id="<?php echo $image_row->id; ?>" />
-						<?php if($image_row->sl_url!=""){ echo '</a>'; }?>		
-						<div class="huge_it_slideshow_title_text_gallery_<?php echo $sliderID; ?> <?php if(trim($image_row->name)=="") echo "none"; ?>">
-							<?php echo $image_row->name; ?>
-						</div>
-						<div class="huge_it_slideshow_description_text_gallery_<?php echo $sliderID; ?> <?php if(trim($image_row->description)=="") echo "none"; ?>">
-							<?php echo $image_row->description; ?>
-						</div>
-					  </li>
-					  <?php
-					$i++;
-					break;
-					
-					case 'last_posts':
-					foreach($recent_posts as $lkeys => $last_posts){
-					if($lkeys < $image_row->sl_url){
-					$imagethumb = wp_get_attachment_image_src( get_post_thumbnail_id($last_posts["ID"]), 'thumbnail-size', true );
-					if(get_the_post_thumbnail($last_posts["ID"], 'thumbnail') != ''){
-					$target="";
-					?>
-					  <li class="huge_it_slideshow_image<?php if ($i != $current_image_id) {$current_key = $key; echo '_second';} ?>_item_gallery_<?php echo $sliderID; ?>" id="image_id_gallery_<?php echo $sliderID.'_'.$i ?>">      
-						<?php if ($image_row->sl_postlink=="1"){
+			<?php
+				$i=0;
+				foreach ($images as $key => $image_row) {
+					$imagerowstype=$image_row->sl_type;
+					if($image_row->sl_type == ''){
+					$imagerowstype='image';
+					}
+					switch($imagerowstype){
+						case 'image':
+						$target="";
+						?>
+						  <li class="huge_it_slideshow_image<?php if ($i != $current_image_id) {$current_key = $key; echo '_second';} ?>_item_gallery_<?php echo $sliderID; ?>" id="image_id_gallery_<?php echo $sliderID.'_'.$i ?>">      
+							<?php if($image_row->sl_url!=""){ 
 								if ($image_row->link_target=="on"){$target='target="_blank'.$image_row->link_target.'"';}
-								echo '<a href="'.$last_posts["guid"].'" '.$target.'>';
-						} ?>
-						<img id="huge_it_slideshow_image_gallery_<?php echo $sliderID; ?>" class="huge_it_slideshow_image_gallery_<?php echo $sliderID; ?>" src="<?php echo $imagethumb[0]; ?>" image_id="<?php echo $image_row->id; ?>" />
-						<?php if($image_row->sl_postlink=="1"){ echo '</a>'; }?>		
-						<div class="huge_it_slideshow_title_text_gallery_<?php echo $sliderID; ?> <?php if(trim($last_posts["post_title"])=="") echo "none";  if($image_row->sl_stitle!="1") echo " hidden"; ?>">
-								<?php echo $last_posts["post_title"]; ?>
-						</div>
-						<div class="huge_it_slideshow_description_text_gallery_<?php echo $sliderID; ?> <?php if(trim($last_posts["post_content"])=="") echo "none"; if($image_row->sl_sdesc!="1") echo " hidden"; ?>">
-							<?php 
-							echo substr_replace($last_posts["post_content"], "", $image_row->description); ?>
-						</div>
-					 </li>
-					  <?php
-					$i++;
-					}
-					}
-					}
-					break;
+								echo '<a href="'.$image_row->sl_url.'" '.$target.'>';
+							} ?>
+							<img id="huge_it_slideshow_image_gallery_<?php echo $sliderID; ?>" class="huge_it_slideshow_image_gallery_<?php echo $sliderID; ?>" src="<?php echo $image_row->image_url; ?>" image_id="<?php echo $image_row->id; ?>" />
+							<?php if($image_row->sl_url!=""){ echo '</a>'; }?>		
+							<div class="huge_it_slideshow_title_text_gallery_<?php echo $sliderID; ?> <?php if(trim($image_row->name)=="") echo "none"; ?>">
+								<?php echo $image_row->name; ?>
+							</div>
+							<div class="huge_it_slideshow_description_text_gallery_<?php echo $sliderID; ?> <?php if(trim($image_row->description)=="") echo "none"; ?>">
+								<?php echo $image_row->description; ?>
+							</div>
+						  </li>
+						  <?php
+						$i++;
+						break;
+						
+						case 'last_posts':
+						foreach($recent_posts as $lkeys => $last_posts){
+							if($lkeys < $image_row->sl_url){
+								$imagethumb = wp_get_attachment_image_src( get_post_thumbnail_id($last_posts["ID"]), 'thumbnail-size', true );
+								if(get_the_post_thumbnail($last_posts["ID"], 'thumbnail') != ''){
+								$target="";
+								?>
+								  <li class="huge_it_slideshow_image<?php if ($i != $current_image_id) {$current_key = $key; echo '_second';} ?>_item_gallery_<?php echo $sliderID; ?>" id="image_id_gallery_<?php echo $sliderID.'_'.$i ?>">      
+									<?php if ($image_row->sl_postlink=="1"){
+											if ($image_row->link_target=="on"){$target='target="_blank'.$image_row->link_target.'"';}
+											echo '<a href="'.$last_posts["guid"].'" '.$target.'>';
+									} ?>
+									<img id="huge_it_slideshow_image_gallery_<?php echo $sliderID; ?>" class="huge_it_slideshow_image_gallery_<?php echo $sliderID; ?>" src="<?php echo $imagethumb[0]; ?>" image_id="<?php echo $image_row->id; ?>" />
+									<?php if($image_row->sl_postlink=="1"){ echo '</a>'; }?>		
+									<div class="huge_it_slideshow_title_text_gallery_<?php echo $sliderID; ?> <?php if(trim($last_posts["post_title"])=="") echo "none";  if($image_row->sl_stitle!="1") echo " hidden"; ?>">
+											<?php echo $last_posts["post_title"]; ?>
+									</div>
+									<div class="huge_it_slideshow_description_text_gallery_<?php echo $sliderID; ?> <?php if(trim($last_posts["post_content"])=="") echo "none"; if($image_row->sl_sdesc!="1") echo " hidden"; ?>">
+										<?php 
+										echo substr_replace($last_posts["post_content"], "", $image_row->description); ?>
+									</div>
+								 </li>
+								  <?php
+								$i++;
+								}
+							}
+						}
+						break;
+						case 'video':
+
+							?>
+							<li  class="huge_it_slideshow_image<?php if ($i != $current_image_id) {$current_key = $key; echo '_second';} ?>_item_gallery_<?php echo $sliderID; ?>" id="image_id_gallery_<?php echo $sliderID.'_'.$i ?>">      
+								<?php 
+									if(strpos($image_row->image_url,'youtube') !== false){
+										$video_thumb_url=get_youtube_id_from_url($image_row->image_url); 
+									?>
+										
+										<div id="video_id_gallery_<?php echo $sliderID;?>_<?php echo $key ;?>" class="huge_it_video_frame_gallery_<?php echo $sliderID; ?>"></div>
+								<?php }else {
+										$vimeo = $image_row->image_url;
+										$imgid =  end(explode( "/", $vimeo ));
+										
+								?>					
+									<iframe id="player_<?php echo $key ;?>"  class="huge_it_video_frame_gallery_<?php echo $sliderID; ?>" src="//player.vimeo.com/video/<?php echo $imgid; ?>?api=1&player_id=player_<?php echo $key ;?>&showinfo=0&controls=0" frameborder="0" allowfullscreen></iframe>
+								<?php } ?>
+							</li>
+						<?php
+						$i++;
+						break;
+					} 
 				} 
-			 } 
-			  ?>
+			?>
 			   <input type="hidden" id="huge_it_current_image_key_gallery_<?php echo $sliderID; ?>" value="0" />
             </ul>
           </div>
@@ -2705,7 +3048,7 @@ break;
 		<?php
 		break;
 		
-		/* ########## VIEW 4 Thumbnails ##########*/
+		/* ########## VIEW 4 Thumbnails VIEW ##########*/
 		case 4:
 		
 		?>
@@ -2813,11 +3156,41 @@ break;
 			<ul id="huge_it_gallery">
 				<li id="fullPreview"></li>
 				
-				<?php foreach($images as $key=>$row) { 
+				<?php  foreach($images as $key=>$row) { 
 				$imgurl=explode(";",$row->image_url); ?>
 				<li class="huge_it_big_li">
-					<a class="group1" href="<?php echo $imgurl[0]; ?>"></a>
-					<img src="<?php echo $imgurl[0]; ?>" alt="<?php echo $row->name; ?>" />
+				<?php 
+					$imagerowstype=$row->sl_type; 
+					if($row->sl_type == ''){$imagerowstype='image';}
+					
+					switch($imagerowstype){
+						case 'image': 
+					?>									
+						<a class="group1" href="<?php echo $row->image_url; ?>"></a>
+						<img src="<?php echo $row->image_url; ?>" alt="<?php echo $row->name; ?>" />
+					<?php 
+						break;
+						case 'video':
+					?>
+							<?php
+								$videourl=get_video_id_from_url($row->image_url);
+								if($videourl[1]=='youtube'){?>
+									<a class="youtube huge_it_gallery_item group1"  href="https://www.youtube.com/embed/<?php echo $videourl[0]; ?>"></a>
+									<img src="http://img.youtube.com/vi/<?php echo $videourl[0]; ?>/mqdefault.jpg" alt="" />				
+								<?php
+								}else {
+									$hash = unserialize(file_get_contents("http://vimeo.com/api/v2/video/".$videourl[0].".php"));
+									$imgsrc=$hash[0]['thumbnail_large'];
+								?>
+									<a class="vimeo huge_it_gallery_item group1" href="http://player.vimeo.com/video/<?php echo $videourl[0]; ?>"></a>
+									<img src="<?php echo $imgsrc; ?>" alt="" />
+								<?php
+								}
+							?>
+					<?php
+						break;
+					}
+					?>
 					
 					<div class="overLayer"></div>
 					<div class="infoLayer">
@@ -2835,7 +3208,7 @@ break;
 						</ul>
 					</div>
 				</li>
-				<?php } ?>
+				<?php }  ?>
 				
 			</ul>
 		</section>
