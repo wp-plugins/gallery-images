@@ -23,4 +23,3 @@ function showStyles($op_type = "0")
     html_showStyles($param_values, $op_type);
 }
 ?>
-  

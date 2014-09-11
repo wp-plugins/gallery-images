@@ -17,7 +17,6 @@ function front_end_gallery($images, $paramssld, $gallery)
 	$gallerytitle=$gallery[0]->name;
 	$galleryheight=$gallery[0]->sl_height;
 	$gallerywidth=$gallery[0]->sl_width;
-	$galleryurl=$gallery[0]->sl_url;
 	$galleryeffect=$gallery[0]->gallery_list_effects_s;
 	$slidepausetime=($gallery[0]->description+$gallery[0]->param);
 	$gallerypauseonhover=$gallery[0]->pause_on_hover;
@@ -26,7 +25,6 @@ function front_end_gallery($images, $paramssld, $gallery)
 	$gallerychangeview=$gallery[0]->huge_it_sl_effects;
 
 ?>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script>
 	var lightbox_transition = '<?php echo $paramssld['light_box_transition'];?>';
 	var lightbox_speed = <?php echo $paramssld['light_box_speed'];?>;
@@ -595,7 +593,7 @@ jQuery(document).ready(function(){
 	font-weight:normal;
 	text-align:justify;
 	font-size:<?php echo $paramssld["ht_view2_description_font_size"];?>px !important;
-	color:#<?php echo $paramssld["ht_view2_description_font_color"];?>;
+	color:#<?php echo $paramssld["ht_view2_description_color"];?>;
 }
 
 #huge_it_gallery_popup_list .popup-wrapper .right-block .description h1,
@@ -885,7 +883,7 @@ jQuery(document).ready(function(){
 
 #main-slider div.slider-content {
 	position:relative;
-	width:100%;localhost
+	width:100%;
 	padding:0px 0px 0px 0px;
 	position:relative;
 	background:#<?php echo $paramssld["ht_view5_slider_background_color"];?>;
@@ -971,7 +969,7 @@ jQuery(document).ready(function(){
 	text-align:justify;
 	font-size:<?php echo $paramssld["ht_view5_description_font_size"];?>px !important;
 	line-height:<?php echo $paramssld["ht_view5_description_font_size"];?>px !important;
-	color:#<?php echo $paramssld["ht_view5_description_font_color"];?>;
+	color:#<?php echo $paramssld["ht_view5_description_color"];?>;
 }
 
 #main-slider .slider-content-wrapper .right-block .description h1,
@@ -2501,7 +2499,7 @@ jQuery(function(){
 			bottom:0px;
 			<?php }else if($paramssld['slider_dots_position']=="none"){?>
 			display:none;
-			<?
+			<?php
 			}else{ ?>
 			top:0px; <?php } ?>
 		}
@@ -3118,9 +3116,9 @@ jQuery(function(){
 			}
 			
 			#huge_it_gallery li img {
-				width: <?php echo $paramssld["thumb_image_width"]; ?>px;	
+				width: <?php echo $paramssld["thumb_image_width"] - 2*$paramssld["thumb_image_border_width"]; ?>px;	
 			<?php if($paramssld["thumb_image_behavior"]=='on'){?>
-				height: <?php echo $paramssld["thumb_image_height"]; ?>px;
+				height: <?php echo $paramssld["thumb_image_height"] - 2*$paramssld["thumb_image_border_width"]; ?>px;
 			<?php } ?>
 				border: <?php echo $paramssld["thumb_image_border_width"]; ?>px solid #<?php echo $paramssld["thumb_image_border_color"]; ?>;
 				border-radius: <?php echo $paramssld["thumb_image_border_radius"]; ?>px;
@@ -3128,7 +3126,7 @@ jQuery(function(){
 			}
 			
 			
-			section #huge_it_gallery li:hover .overLayer {
+  			section #huge_it_gallery li:hover .overLayer {
 				-webkit-transition: opacity 0.3s linear;
 				-moz-transition: opacity 0.3s linear;
 				-ms-transition: opacity 0.3s linear;
@@ -3137,6 +3135,7 @@ jQuery(function(){
 				opacity: <?php echo ($paramssld["thumb_title_background_transparency"]/100)+0.001; ?>;
 				display: block;
 				background: #<?php echo $paramssld["thumb_title_background_color"]; ?>; 
+                                border-radius: <?php echo $paramssld["thumb_image_border_radius"]; ?>px;
 			}
 			section #huge_it_gallery li:hover .infoLayer {
 				-webkit-transition: opacity 0.3s linear;

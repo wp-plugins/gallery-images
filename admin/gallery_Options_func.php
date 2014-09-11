@@ -6,7 +6,6 @@ if (function_exists('current_user_can'))
 if (!function_exists('current_user_can')) {
     die('Access Denied');
 }
-
 function showStyles($op_type = "0")
 {
     global $wpdb;
@@ -23,4 +22,3 @@ function showStyles($op_type = "0")
     html_showStyles($param_values, $op_type);
 }
 ?>
-  

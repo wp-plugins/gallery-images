@@ -47,7 +47,7 @@ jQuery(document).ready(function () {
 			</a>
 		</div>
 	</div>
-	<div style="clear:both;"></div>
+	<div style="clear: both;"></div>
 <div id="poststuff">
 		<?php $path_site = plugins_url("/../Front_images", __FILE__); ?>
 
@@ -55,7 +55,7 @@ jQuery(document).ready(function () {
 			<div id="post-body-heading">
 				<h3>General Options</h3>
 				
-				<a  class="save-gallery-options button-primary">Save</a>
+				<a class="save-gallery-options button-primary">Save</a>
 		
 			</div>
 		<form action="admin.php?page=Options_gallery_styles" method="post" id="adminForm" name="adminForm">
@@ -186,13 +186,13 @@ jQuery(document).ready(function () {
 					<div>					
 						<h3>Popup Title</h3>
 						<div class="has-background">
-							<label for="ht_view2_element_title_font_size">Popup Title Font Size</label>
-							<input type="text" name="params[ht_view2_element_title_font_size]" id="ht_view2_element_title_font_size" value="<?php echo $param_values['ht_view2_element_title_font_size']; ?>" class="text" />
+							<label for="ht_view2_popup_title_font_size">Popup Title Font Size</label>
+							<input type="text" name="params[ht_view2_popup_title_font_size]" id="ht_view2_element_title_font_size" value="<?php echo $param_values['ht_view2_popup_title_font_size']; ?>" class="text" />
 							<span>px</span>
 						</div>
 						<div>
-							<label for="ht_view2_element_title_font_color">Popup Title Font Color</label>
-							<input name="params[ht_view2_element_title_font_color]" type="text" class="color" id="ht_view2_element_title_font_color" value="#<?php echo $param_values['ht_view2_element_title_font_color']; ?>" size="10" />
+							<label for="ht_view2_popup_title_font_color">Popup Title Font Color</label>
+							<input name="params[ht_view2_popup_title_font_color]" type="text" class="color" id="ht_view2_element_title_font_color" value="#<?php echo $param_values['ht_view2_popup_title_font_color']; ?>" size="10" />
 						</div>
 					</div>
 					<div>
@@ -796,7 +796,7 @@ jQuery(document).ready(function () {
 			</ul>
 
 		<div id="post-body-footer">
-			<a  class="save-gallery-options button-primary">Save</a>
+			<a class="save-gallery-options button-primary">Save</a>
 			<div class="clear"></div>
 		</div>
 		</form>

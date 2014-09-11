@@ -34,7 +34,7 @@ jQuery(document).ready(function () {
 });
 </script>
 	<div class="wrap">
-	<?php $path_site = plugins_url("../images", __FILE__); ?>
+		<?php $path_site = plugins_url("../images", __FILE__); ?>
 	<div class="slider-options-head">
 		<div style="float: left;">
 			<div><a href="http://huge-it.com/wordpress-plugins-gallery-user-manual/" target="_blank">User Manual</a></div>
@@ -47,12 +47,12 @@ jQuery(document).ready(function () {
 			</a>
 		</div>
 	</div>
-	<div style="clear:both;"></div>
+	<div style="clear: both;"></div>
 	<div id="poststuff">
 	<div id="post-body-content" class="gallery-options">
 			<div id="post-body-heading">
 				<h3>Lightbox Options</h3>
-				<a  class="save-gallery-options button-primary">Save</a>
+				<a class="save-gallery-options button-primary">Save</a>
 			</div>
 		<form action="admin.php?page=Options_gallery_lightbox_styles" method="post" id="adminForm" name="adminForm">
 			<div class="lightbox-options-block">

@@ -1,7 +1,7 @@
 jQuery(document).ready(function () {
 	jQuery('.save-gallery-options').click(function(){
 		alert("Image Gallery Settings are disabled in free version. If you need those functionalityes, you need to buy the commercial version.");
-		return false;
+	return false;
 	});
 	jQuery('#arrows-type input[name="params[slider_navigation_type]"]').change(function(){
 		jQuery(this).parents('ul').find('li.active').removeClass('active');

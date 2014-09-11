@@ -60,6 +60,7 @@ function html_showgallerys( $rows,  $pageNav,$sort,$cat_row){
 			</a>
 		</div>
 	</div>
+	<div style="clear: both;"></div>
 	<div id="poststuff">
 		<div id="gallerys-list-page">
 			<form method="post"  onkeypress="doNothing()" action="admin.php?page=gallerys_huge_it_gallery" id="admin_form" name="admin_form">
@@ -256,7 +257,7 @@ jQuery(function() {
 			</a>
 		</div>
 	</div>
-	<div style="clear:both;"></div>
+	<div style="clear: both;"></div>
 <form action="admin.php?page=gallerys_huge_it_gallery&id=<?php echo $row->id; ?>" method="post" name="adminForm" id="adminForm">
 
 	<div id="poststuff" >
@@ -910,14 +911,14 @@ function html_gallery_video(){
 		#TB_window {height:250px !important;}
 	</style>
 	<script type="text/javascript">
-		jQuery(document).ready(function() {		
-
-				jQuery('.huge-it-insert-video-button').click(function(){
+		jQuery(document).ready(function() {			
+		
+		jQuery('.huge-it-insert-video-button').click(function(){
 					alert("Image Gallery Settings are disabled in free version. If you need those functionalityes, you need to buy the commercial version.");
 					return false;
 				});
-
-			jQuery('.huge-it-insert-post-button').on('click', function() {
+				
+					jQuery('.huge-it-insert-post-button').on('click', function() {
 				var ID1 = jQuery('#huge_it_add_video_input').val();
 				if(ID1==""){alert("Please copy and past url form Youtobe or Vimeo to insert into slider.");return false;}
 				
@@ -926,7 +927,7 @@ function html_gallery_video(){
 				tb_remove();
 				$("#save-buttom").click();
 			});
-			
+
 			jQuery('#huge_it_add_video_input').change(function(){
 				
 				if (jQuery(this).val().indexOf("youtube") >= 0){
@@ -939,25 +940,17 @@ function html_gallery_video(){
 					jQuery('#add-video-popup-options > div').removeClass('active');
 					jQuery('#add-video-popup-options  .error-message').addClass('active');
 				}
-			})
-					
+			})	
 			jQuery('.updated').css({"display":"none"});
-		<?php	if($_GET["closepop"] == 1){ ?>
-			$("#closepopup").click();
-			self.parent.location.reload();
-		<?php	} ?>
-		
 		});
-		
 	</script>
 	<a id="closepopup"  onclick=" parent.eval('tb_remove()')" style="display:none;" > [X] </a>
 
 	<div id="huge_it_slider_add_videos">
 		<div id="huge_it_slider_add_videos_wrap">
-			<span class="buy-pro">This feature is disabled in free version. <br>If you need this functionality, you need to <a href="http://huge-it.com/wordpress-gallery/" target="_blank">buy the commercial version</a>.</span>
+		<span class="buy-pro">This feature is disabled in free version. <br>If you need this functionality, you need to <a href="http://huge-it.com/wordpress-gallery/" target="_blank">buy the commercial version</a>.</span>
 			<h2>Add Video URL From Youtobe or Vimeo</h2>
 			<div class="control-panel">
-				<form method="post" action="" >
 					<input type="text" id="huge_it_add_video_input" name="huge_it_add_video_input" />
 					<button class='save-slider-options button-primary huge-it-insert-video-button' id='huge-it-insert-video-button'>Insert Video Slide</button>
 					<div id="add-video-popup-options">
@@ -978,7 +971,6 @@ function html_gallery_video(){
 							</div>
 						</div>
 					</div>
-				</form>
 			</div>
 		</div>	
 	</div>

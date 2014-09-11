@@ -273,9 +273,7 @@ INSERT INTO
 	 }
 	 }
 	
-	$query=$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."gallery_huge_itslider_sliders WHERE id= %d",$id);
-	$rowslider=$wpdb->get_row($query);
-    Html_editgallery($ord_elem, $count_ord, $images, $row, $cat_row, $rowim, $rowsld, $paramssld, $rowsposts, $rowsposts8, $postsbycat, $rowslider);
+    Html_editgallery($ord_elem, $count_ord, $images, $row, $cat_row, $rowim, $rowsld, $paramssld, $rowsposts, $rowsposts8, $postsbycat);
   }
   
 function add_gallery()
@@ -318,17 +316,12 @@ INSERT INTO
 
 function gallery_video($id)
 {
-	  global $wpdb;
-
-
-	 
-    Html_gallery_video();
+   Html_gallery_video();
 }
 
 
 function removegallery($id)
 {
-
 	global $wpdb;
 	 $sql_remov_tag=$wpdb->prepare("DELETE FROM ".$wpdb->prefix."huge_itgallery_gallerys WHERE id = %d", $id);
  if(!$wpdb->query($sql_remov_tag))
@@ -336,39 +329,12 @@ function removegallery($id)
 	  ?>
 	  <div id="message" class="error"><p>gallery Not Deleted</p></div>
       <?php
-	 
  }
  else{
  ?>
  <div class="updated"><p><strong><?php _e('Item Deleted.' ); ?></strong></p></div>
  <?php
  }
-    $row=$wpdb->get_results($wpdb->prepare('UPDATE '.$wpdb->prefix.'huge_itgallery_gallerys SET sl_width="0"   WHERE sl_width= %d', $id));
-	$rows=$wpdb->get_results($wpdb->prepare('SELECT * FROM '.$wpdb->prefix.'huge_itgallery_gallerys  ORDER BY `ordering` ASC '));
-	
-	$count_of_rows=count($rows);
-	$ordering_values=array();
-	$ordering_ids=array();
-	for($i=0;$i<$count_of_rows;$i++)
-	{		
-	
-		$ordering_ids[$i]=$rows[$i]->id;
-		if(isset($_POST["ordering"]))
-		$ordering_values[$i]=$i+1+$_POST["ordering"];
-		else
-		$ordering_values[$i]=$i+1;
-	}
-
-		for($i=0;$i<$count_of_rows;$i++)
-	{	
-			$wpdb->update($wpdb->prefix.'huge_itgallery_gallerys', 
-			  array('ordering'      =>$ordering_values[$i]), 
-              array('id'			=>$ordering_ids[$i]),
-			  array('%s'),
-			  array( '%s' )
-			  );
-	}
-
 }
 
 function apply_cat($id)
@@ -384,7 +350,6 @@ function apply_cat($id)
 			echo '';
 		 }
 		 $cat_row=$wpdb->get_results($wpdb->prepare("SELECT * FROM ".$wpdb->prefix."huge_itgallery_gallerys WHERE id!= %d ", $id));
-		 $corent_ord=$wpdb->get_var($wpdb->prepare('SELECT `ordering` FROM '.$wpdb->prefix.'huge_itgallery_gallerys WHERE id = %d AND sl_width=%d',$id,$_POST['sl_width']));
 		 $max_ord=$wpdb->get_var('SELECT MAX(ordering) FROM '.$wpdb->prefix.'huge_itgallery_gallerys');
 	
             $query=$wpdb->prepare("SELECT sl_width FROM ".$wpdb->prefix."huge_itgallery_gallerys WHERE id = %d", $id);
@@ -393,6 +358,7 @@ function apply_cat($id)
 	if(isset($_POST["content"])){
 	$script_cat = preg_replace('#<script(.*?)>(.*?)</script>#is', '', stripslashes($_POST["content"]));
 	}
+			if(isset($_POST["name"])){
 			if($_POST["name"] != ''){
 			$wpdb->query("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  name = '".$_POST["name"]."'  WHERE id = '".$id."' ");
 			$wpdb->query("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  sl_width = '".$_POST["sl_width"]."'  WHERE id = '".$id."' ");
@@ -404,6 +370,7 @@ function apply_cat($id)
 			$wpdb->query("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  sl_position = '".$_POST["sl_position"]."'  WHERE id = '".$id."' ");
 			$wpdb->query("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  huge_it_sl_effects = '".$_POST["huge_it_sl_effects"]."'  WHERE id = '".$id."' ");
 			$wpdb->query("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  ordering = '1'  WHERE id = '".$id."' ");
+			}
 			}
 		
 	$query=$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."huge_itgallery_gallerys WHERE id = %d", $id);
@@ -437,6 +404,7 @@ if (isset($_POST['params'])) {
 	
 		
 	   
+	   if(isset($_POST["imagess"])){
 	   if($_POST["imagess"] != ''){
 				   		   $query=$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."huge_itgallery_images where gallery_id = %d order by id ASC", $row->id);
 			   $rowim=$wpdb->get_results($query);
@@ -457,6 +425,7 @@ INSERT INTO
 
       $wpdb->query($sql_2);
 		}	
+	   }
 	   }
 	   
 	if(isset($_POST["posthuge-it-description-length"])){

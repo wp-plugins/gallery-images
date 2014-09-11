@@ -4,7 +4,7 @@
 Plugin Name: Huge IT Image Gallery
 Plugin URI: http://huge-it.com/wordpress-gallery/
 Description: Huge-IT Gallery images is perfect for using for creating various portfolios within various views. 
-Version: 1.0.3
+Version: 1.0.4
 Author: Huge-IT
 Author: http://huge-it.com/
 License: GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
@@ -222,12 +222,9 @@ function huge_it_gallery_options_panel()
 
 function huge_it__gallery_featured_plugins()
 {
-	switch ($_GET['task']) {
-	default:
-		include_once("admin/huge_it_featured_plugins.php");
-		break;
-	}
+	include_once("admin/huge_it_featured_plugins.php");
 }
+
 
 function huge_it_imagegallery_Licensing(){
 
@@ -250,8 +247,6 @@ Purchasing a license will add possibility to customize the general options of th
 </div>
 <?php
 	}
-
-//////////////////////////Huge it Slider ///////////////////////////////////////////
 
 function gallery_sliders_huge_it_slider()
 {
