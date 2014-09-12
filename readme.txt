@@ -1,7 +1,7 @@
 === Image Gallery ===
 Contributors: Huge-IT
 Donate link: http://huge-it.com/wordpress-gallery/
-Tags: gallery, image gallery, gallery image, content slider, widget gallery, lightbox gallery, website gallery, gallery lightbox, image, images, post, posts, content gallery, galleries, wordpress gallery, Picture Gallery, nextgen, nextgen gallery, photo gallery, galeria, gallery, best gallery, thumbnail view, content gallery, media gallery, easy gallery, picture, gallery plugin, plugin gallery, add gallery, add image, add picture, add photo, galery, add images, add pictures, gallery wordpress, widget, wp gallery, thumbnail, thumbnails, gallery slider, Galleria, simple gallery, img, admin, wordpress gallery plugin, thumbs, media, free gallery, free images, video gallery, youtube gallery, vimeo gallery, youtube, vimeo, grid gallery, sidebar, responsive, images gallery, video, filterable gallery, grid, iphone gallery, shortcode, videos,
+Tags: gallery, image gallery, gallery image, content slider, widget gallery, lightbox gallery, website gallery, gallery lightbox, image, images, post, posts, content gallery, galleries, wordpress gallery, Picture Gallery, nextgen, nextgen gallery, photo gallery, galeria, gallery, best gallery, thumbnail view, content gallery, media gallery, easy gallery, picture, gallery plugin, plugin gallery, add gallery, add image, add picture, add photo, galery, add images, add pictures, gallery wordpress, widget, wp gallery, thumbnail, thumbnails, gallery slider, Galleria, simple gallery, img, admin, wordpress gallery plugin, thumbs, media, free gallery, free images, video gallery, youtube gallery, vimeo gallery, youtube, vimeo, grid gallery, sidebar, responsive, images gallery, video, filterable gallery, grid, iphone gallery, shortcode, videos, seo,
 Requires at least: 3.0.1
 Tested up to: 4.0
 Stable tag: 1.0.4
@@ -24,7 +24,7 @@ https://www.youtube.com/watch?v=fNz0hW01k3k
 Considering the large number of galleries in WordPress, Huge-IT company day by day will improve and enhance the functionality of Image Gallery, and keep on adhering to the first position among WordPress Gallery plugins. One of our new improvement is the video adding ability, besides images now you can also add any video you’d like from Youtube or Vimeo, just adding the video link you can get to show them in one of  views.  So We are sure our Image Gallery  will always satisfy you. Now just Install & Enjoy. All new information about new features and improvements that we made, you can find on our blog in the main page of Huge-it.com.
 
 
-Considering the large number of galleries in WordPress, Huge-IT company day by day will improve and enhance the functionality of Image gallery, and keep on adhering to the first position among WordPress Gallery plugins. So We are sure our Image gallery will always satisfy you as our other 8,513+ users. Now just Install & Enjoy.
+Considering the large number of galleries in WordPress, Huge-IT company day by day will improve and enhance the functionality of Image gallery, and keep on adhering to the first position among WordPress Gallery plugins. So We are sure our Image gallery will always satisfy you as our other 8,909+ users. Now just Install & Enjoy.
 
 The features of the Image Gallery
 
