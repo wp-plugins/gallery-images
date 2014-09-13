@@ -4,7 +4,7 @@
 Plugin Name: Huge IT Image Gallery
 Plugin URI: http://huge-it.com/wordpress-gallery/
 Description: Huge-IT Gallery images is perfect for using for creating various portfolios within various views. 
-Version: 1.0.4
+Version: 1.0.5
 Author: Huge-IT
 Author: http://huge-it.com/
 License: GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
@@ -330,7 +330,6 @@ function huge_it_gallery_admin_script()
 {
 	wp_enqueue_media();
 	wp_enqueue_style("jquery_ui", "http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css", FALSE);
-	wp_enqueue_script("jquery_new", "http://code.jquery.com/jquery-1.10.2.js", FALSE);
 	wp_enqueue_style("jquery_ui", plugins_url("style/jquery-ui.css", __FILE__), FALSE);
 	wp_enqueue_style("admin_css", plugins_url("style/admin.style.css", __FILE__), FALSE);
 	wp_enqueue_script("admin_js", plugins_url("js/admin.js", __FILE__), FALSE);
@@ -339,7 +338,6 @@ function huge_it_gallery_admin_script()
 
 function huge_it_gallery_option_admin_script()
 {
-	wp_enqueue_media();
 	wp_enqueue_script("jquery_old", "http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js", FALSE);
 	wp_enqueue_script("simple_slider_js",  plugins_url("js/simple-slider.js", __FILE__), FALSE);
 	wp_enqueue_style("simple_slider_css", plugins_url("style/simple-slider_sl.css", __FILE__), FALSE);

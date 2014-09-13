@@ -555,7 +555,7 @@ jQuery(document).ready(function($){
 																window.parent.uploadID.val(imgurl);
 																
 																tb_remove();
-																$("#save-buttom").click();
+																jQuery("#save-buttom").click();
 															};
 														});
 															
@@ -925,7 +925,7 @@ function html_gallery_video(){
 				window.parent.uploadID.val(ID1);
 				
 				tb_remove();
-				$("#save-buttom").click();
+				jQuery("#save-buttom").click();
 			});
 
 			jQuery('#huge_it_add_video_input').change(function(){
