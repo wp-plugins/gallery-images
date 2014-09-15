@@ -193,16 +193,13 @@ function editgallery($id)
 	  
 	  global $wpdb;
 	  
-	  if(isset($_GET["removeslide"])){
-	     if($_GET["removeslide"] != ''){
-	
-
-	  $wpdb->query("DELETE FROM ".$wpdb->prefix."huge_itgallery_images  WHERE id = ".$_GET["removeslide"]." ");
-
-
-	
-	   }
-	   }
+	if(isset($_POST["huge_it_sl_effects"])){
+		if(isset($_GET["removeslide"])){
+			if($_GET["removeslide"] != ''){
+				$wpdb->query("DELETE FROM ".$wpdb->prefix."huge_itgallery_images  WHERE id = ".$_GET["removeslide"]." ");
+			}
+		}
+	}
 
 	   $query=$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."huge_itgallery_gallerys WHERE id= %d",$id);
 	   $row=$wpdb->get_row($query);
@@ -215,10 +212,8 @@ function editgallery($id)
        $cat_row=open_cat_in_tree($cat_row);
 	   	  $query=$wpdb->prepare("SELECT name,ordering FROM ".$wpdb->prefix."huge_itgallery_gallerys WHERE sl_width=%d  ORDER BY `ordering` ",$row->sl_width);
 	   $ord_elem=$wpdb->get_results($query);
-	   
 	    $query=$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."huge_itgallery_images where gallery_id = %d order by ordering ASC  ",$row->id);
 			   $rowim=$wpdb->get_results($query);
-			   
 			   if(isset($_GET["addslide"])){
 			   if($_GET["addslide"] == 1){
 	

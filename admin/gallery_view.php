@@ -415,7 +415,11 @@ jQuery(document).ready(function($){
 
 	});
 });
+
 });
+	function deleteproject<?php echo $rowimages->id; ?>() {
+	   jQuery('#adminForm').attr('action', 'admin.php?page=gallerys_huge_it_gallery&task=edit_cat&id=<?php echo $row->id; ?>&removeslide=<?php echo $rowimages->id; ?>');
+	}
 </script>
 								<input type="hidden" name="imagess<?php echo $rowimages->id; ?>" id="_unique_name<?php echo $rowimages->id; ?>" value="<?php echo $rowimages->image_url; ?>" />
 								<span class="wp-media-buttons-icon"></span>
@@ -446,7 +450,7 @@ jQuery(document).ready(function($){
 							
 								</div>
 								<div class="remove-image-container">
-									<a class="button remove-image" href="admin.php?page=gallerys_huge_it_gallery&task=edit_cat&id=<?php echo $row->id; ?>&removeslide=<?php echo $rowimages->id; ?>">Remove Image</a>
+									<a onclick="deleteproject<?php echo $rowimages->id; ?>(); submitbutton('apply');" id="remove_image<?php echo $rowimages->id; ?>" class="button remove-image">Remove Image</a>
 								</div>
 							</div>
 							
