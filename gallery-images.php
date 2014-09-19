@@ -4,7 +4,7 @@
 Plugin Name: Huge IT Image Gallery
 Plugin URI: http://huge-it.com/wordpress-gallery/
 Description: Huge-IT Gallery images is perfect for using for creating various portfolios within various views. 
-Version: 1.0.6
+Version: 1.0.7
 Author: Huge-IT
 Author: http://huge-it.com/
 License: GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
@@ -369,15 +369,6 @@ function gallerys_huge_it_gallery()
 
         case 'add_cat':
             add_gallery();
-            break;
-
-		case 'popup_posts':
-            if ($id)
-                popup_posts($id);
-            else {
-                $id = $wpdb->get_var("SELECT MAX( id ) FROM " . $wpdb->prefix . "huge_itgallery_gallerys");
-                popup_posts($id);
-            }
             break;
 		case 'gallery_video':
             if ($id)

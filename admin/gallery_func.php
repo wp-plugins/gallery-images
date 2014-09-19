@@ -11,130 +11,28 @@ function showgallery()
   {
 	  
   global $wpdb;
-  
-  if(isset($_POST['search_events_by_title']))
-$_POST['search_events_by_title']=esc_html(stripslashes($_POST['search_events_by_title']));
-if(isset($_POST['asc_or_desc']))
-$_POST['asc_or_desc']=esc_js($_POST['asc_or_desc']);
-if(isset($_POST['order_by']))
-$_POST['order_by']=esc_js($_POST['order_by']);
-  $where='';
-  	$sort["custom_style"] ="manage-column column-autor sortable desc";
-	$sort["default_style"]="manage-column column-autor sortable desc";
-	$sort["sortid_by"]='id';
-	$sort["1_or_2"]=1;
-	$order='';
-	
-	if(isset($_POST['page_number']))
-	{
-			
-			if($_POST['asc_or_desc'])
-			{
-				$sort["sortid_by"]=$_POST['order_by'];
-				if($_POST['asc_or_desc']==1)
-				{
-					$sort["custom_style"]="manage-column column-title sorted asc";
-					$sort["1_or_2"]="2";
-					$order="ORDER BY ".$sort["sortid_by"]." ASC";
-				}
-				else
-				{
-					$sort["custom_style"]="manage-column column-title sorted desc";
-					$sort["1_or_2"]="1";
-					$order="ORDER BY ".$sort["sortid_by"]." DESC";
-				}
-			}
-	if($_POST['page_number'])
-		{
-			$limit=($_POST['page_number']-1)*20; 
-		}
-		else
-		{
-			$limit=0;
-		}
-	}
-	else
-		{
-			$limit=0;
-		}
-	if(isset($_POST['search_events_by_title'])){
-		$search_tag=esc_html(stripslashes($_POST['search_events_by_title']));
-		}
-		
-		else
-		{
-		$search_tag="";
-		}		
-		
-	 if(isset($_GET["catid"])){
-	    $cat_id=$_GET["catid"];	
-		}
-       else
-	   {
-       if(isset($_POST['cat_search'])){
-		$cat_id=$_POST['cat_search'];
-		}else{
-		
-		$cat_id=0;}
-       }
-     
- if ( $search_tag ) {
-		$where= " WHERE name LIKE '%".$search_tag."%' ";
-	}
-if($where){
-	  if($cat_id){
-	  $where.=" AND sl_width=" .$cat_id;
-	  }
-	
-	}
-	else{
-	if($cat_id){
-	  $where.=" WHERE sl_width=" .$cat_id;
-	  }
-	
-	}
-	
-	 $cat_row_query="SELECT id,name FROM ".$wpdb->prefix."huge_itgallery_gallerys WHERE sl_width=0";
+	$limit=0;
+
+	$search_tag=esc_html(stripslashes($_POST['search_events_by_title']));
+	$cat_row_query="SELECT id,name FROM ".$wpdb->prefix."huge_itgallery_gallerys WHERE sl_width=0";
 	$cat_row=$wpdb->get_results($cat_row_query);
 	
-	// get the total number of records
-	$query = "SELECT COUNT(*) FROM ".$wpdb->prefix."huge_itgallery_gallerys". $where;
+
+	$query = $wpdb->prepare("SELECT COUNT(*) FROM ".$wpdb->prefix."huge_itgallery_gallerys WHERE name LIKE '% %s %'" , $search_tag);
 	
 	$total = $wpdb->get_var($query);
-	$pageNav['total'] =$total;
-	$pageNav['limit'] =	 $limit/20+1;
-	
-	if($cat_id){
-	$query ="SELECT  a.* ,  COUNT(b.id) AS count, g.par_name AS par_name FROM ".$wpdb->prefix."huge_itgallery_gallerys  AS a LEFT JOIN ".$wpdb->prefix."huge_itgallery_gallerys AS b ON a.id = b.sl_width LEFT JOIN (SELECT  ".$wpdb->prefix."huge_itgallery_gallerys.ordering as ordering,".$wpdb->prefix."huge_itgallery_gallerys.id AS id, COUNT( ".$wpdb->prefix."huge_itgallery_images.gallery_id ) AS prod_count
-FROM ".$wpdb->prefix."huge_itgallery_images, ".$wpdb->prefix."huge_itgallery_gallerys
-WHERE ".$wpdb->prefix."huge_itgallery_images.gallery_id = ".$wpdb->prefix."huge_itgallery_gallerys.id
-GROUP BY ".$wpdb->prefix."huge_itgallery_images.gallery_id) AS c ON c.id = a.id LEFT JOIN
-(SELECT ".$wpdb->prefix."huge_itgallery_gallerys.name AS par_name,".$wpdb->prefix."huge_itgallery_gallerys.id FROM ".$wpdb->prefix."huge_itgallery_gallerys) AS g
- ON a.sl_width=g.id WHERE  a.name LIKE '%".$search_tag."%' group by a.id ". $order ." "." LIMIT ".$limit.",20" ; 
 
-	 }
-	 else{
+	if(!($cat_id)){
 	 $query ="SELECT  a.* ,  COUNT(b.id) AS count, g.par_name AS par_name FROM ".$wpdb->prefix."huge_itgallery_gallerys  AS a LEFT JOIN ".$wpdb->prefix."huge_itgallery_gallerys AS b ON a.id = b.sl_width LEFT JOIN (SELECT  ".$wpdb->prefix."huge_itgallery_gallerys.ordering as ordering,".$wpdb->prefix."huge_itgallery_gallerys.id AS id, COUNT( ".$wpdb->prefix."huge_itgallery_images.gallery_id ) AS prod_count
 FROM ".$wpdb->prefix."huge_itgallery_images, ".$wpdb->prefix."huge_itgallery_gallerys
 WHERE ".$wpdb->prefix."huge_itgallery_images.gallery_id = ".$wpdb->prefix."huge_itgallery_gallerys.id
 GROUP BY ".$wpdb->prefix."huge_itgallery_images.gallery_id) AS c ON c.id = a.id LEFT JOIN
 (SELECT ".$wpdb->prefix."huge_itgallery_gallerys.name AS par_name,".$wpdb->prefix."huge_itgallery_gallerys.id FROM ".$wpdb->prefix."huge_itgallery_gallerys) AS g
- ON a.sl_width=g.id WHERE a.name LIKE '%".$search_tag."%'  group by a.id ". $order ." "." LIMIT ".$limit.",20" ; 
+ ON a.sl_width=g.id WHERE a.name LIKE '%".$search_tag."%'  group by a.id  "; 
 }
 
 $rows = $wpdb->get_results($query);
- global $glob_ordering_in_cat;
-if(isset($sort["sortid_by"]))
-{
-	if($sort["sortid_by"]=='ordering'){
-	if($_POST['asc_or_desc']==1){
-		$glob_ordering_in_cat=" ORDER BY ordering ASC";
-	}
-	else{
-		$glob_ordering_in_cat=" ORDER BY ordering DESC";
-	}
-	}
-}
+
 $rows=open_cat_in_tree($rows);
 	$query ="SELECT  ".$wpdb->prefix."huge_itgallery_gallerys.ordering,".$wpdb->prefix."huge_itgallery_gallerys.id, COUNT( ".$wpdb->prefix."huge_itgallery_images.gallery_id ) AS prod_count
 FROM ".$wpdb->prefix."huge_itgallery_images, ".$wpdb->prefix."huge_itgallery_gallerys
@@ -149,16 +47,10 @@ foreach($rows as $row)
 		if ($row->id == $row_1->id)
 		{
 			$row->ordering = $row_1->ordering;
-		$row->prod_count = $row_1->prod_count;
-	}
+			$row->prod_count = $row_1->prod_count;
 		}
-	
 	}
-	
-
-	 
-
-	 
+}
 	$cat_row=open_cat_in_tree($cat_row);
 		html_showgallerys( $rows, $pageNav,$sort,$cat_row);
   }
@@ -175,14 +67,6 @@ $trr_cat=array();
 foreach($catt as $local_cat){
 	$local_cat->name=$tree_problem.$local_cat->name;
 	array_push($trr_cat,$local_cat);
-	$new_cat_query=	"SELECT  a.* ,  COUNT(b.id) AS count, g.par_name AS par_name FROM ".$wpdb->prefix."huge_itgallery_gallerys  AS a LEFT JOIN ".$wpdb->prefix."huge_itgallery_gallerys AS b ON a.id = b.sl_width LEFT JOIN (SELECT  ".$wpdb->prefix."huge_itgallery_gallerys.ordering as ordering,".$wpdb->prefix."huge_itgallery_gallerys.id AS id, COUNT( ".$wpdb->prefix."huge_itgallery_images.gallery_id ) AS prod_count
-FROM ".$wpdb->prefix."huge_itgallery_images, ".$wpdb->prefix."huge_itgallery_gallerys
-WHERE ".$wpdb->prefix."huge_itgallery_images.gallery_id = ".$wpdb->prefix."huge_itgallery_gallerys.id
-GROUP BY ".$wpdb->prefix."huge_itgallery_images.gallery_id) AS c ON c.id = a.id LEFT JOIN
-(SELECT ".$wpdb->prefix."huge_itgallery_gallerys.name AS par_name,".$wpdb->prefix."huge_itgallery_gallerys.id FROM ".$wpdb->prefix."huge_itgallery_gallerys) AS g
- ON a.sl_width=g.id WHERE a.name LIKE '%".$search_tag."%' AND a.sl_width=".$local_cat->id." group by a.id  ".$glob_ordering_in_cat; 
- $new_cat=$wpdb->get_results($new_cat_query);
- open_cat_in_tree($new_cat,$tree_problem. "— ",0);
 }
 return $trr_cat;
 
@@ -196,7 +80,8 @@ function editgallery($id)
 	if(isset($_POST["huge_it_sl_effects"])){
 		if(isset($_GET["removeslide"])){
 			if($_GET["removeslide"] != ''){
-				$wpdb->query("DELETE FROM ".$wpdb->prefix."huge_itgallery_images  WHERE id = ".$_GET["removeslide"]." ");
+				$idfordelete = $_GET["removeslide"];
+				$wpdb->query($wpdb->prepare("DELETE FROM ".$wpdb->prefix."huge_itgallery_images  WHERE id = %d ", $idfordelete));
 			}
 		}
 	}
@@ -208,7 +93,7 @@ function editgallery($id)
        $images=explode(";;;",$row->gallery_list_effects_s);
 	   $par=explode('	',$row->param);
 	   $count_ord=count($images);
-	   $cat_row=$wpdb->get_results("SELECT * FROM ".$wpdb->prefix."huge_itgallery_gallerys WHERE id!=" .$id." and sl_width=0");
+	   $cat_row=$wpdb->get_results($wpdb->prepare("SELECT * FROM ".$wpdb->prefix."huge_itgallery_gallerys WHERE id!= %d and sl_width=0", $id));
        $cat_row=open_cat_in_tree($cat_row);
 	   	  $query=$wpdb->prepare("SELECT name,ordering FROM ".$wpdb->prefix."huge_itgallery_gallerys WHERE sl_width=%d  ORDER BY `ordering` ",$row->sl_width);
 	   $ord_elem=$wpdb->get_results($query);
@@ -355,16 +240,17 @@ function apply_cat($id)
 	}
 			if(isset($_POST["name"])){
 			if($_POST["name"] != ''){
-			$wpdb->query("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  name = '".$_POST["name"]."'  WHERE id = '".$id."' ");
-			$wpdb->query("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  sl_width = '".$_POST["sl_width"]."'  WHERE id = '".$id."' ");
-			$wpdb->query("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  sl_height = '".$_POST["sl_height"]."'  WHERE id = '".$id."' ");
-			$wpdb->query("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  pause_on_hover = '".$_POST["pause_on_hover"]."'  WHERE id = '".$id."' ");
-			$wpdb->query("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  gallery_list_effects_s = '".$_POST["gallery_list_effects_s"]."'  WHERE id = '".$id."' ");
-			$wpdb->query("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  description = '".$_POST["sl_pausetime"]."'  WHERE id = '".$id."' ");
-			$wpdb->query("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  param = '".$_POST["sl_changespeed"]."'  WHERE id = '".$id."' ");
-			$wpdb->query("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  sl_position = '".$_POST["sl_position"]."'  WHERE id = '".$id."' ");
-			$wpdb->query("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  huge_it_sl_effects = '".$_POST["huge_it_sl_effects"]."'  WHERE id = '".$id."' ");
-			$wpdb->query("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  ordering = '1'  WHERE id = '".$id."' ");
+			
+	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  name = %s  WHERE id = %d ", $_POST["name"], $id));
+	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  sl_width = %s  WHERE id = %d ", $_POST["name"], $id));
+	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  sl_height = %s  WHERE id = %d ", $_POST["name"], $id));
+	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  pause_on_hover = %s  WHERE id = %d ", $_POST["name"], $id));
+	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  gallery_list_effects_s = %s  WHERE id = %d ", $_POST["name"], $id));
+	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  description = %s  WHERE id = %d ", $_POST["name"], $id));
+	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  param = %s  WHERE id = %d ", $_POST["name"], $id));
+	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  sl_position = %s  WHERE id = %d ", $_POST["name"], $id));
+	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  huge_it_sl_effects = %s  WHERE id = %d ", $_POST["name"], $id));
+	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  ordering = '1'  WHERE id = %d ", $id));
 			}
 			}
 		
