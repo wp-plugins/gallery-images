@@ -24,7 +24,7 @@ https://www.youtube.com/watch?v=fNz0hW01k3k
 Considering the large number of galleries in WordPress, Huge-IT company day by day will improve and enhance the functionality of Image Gallery, and keep on adhering to the first position among WordPress Gallery plugins. One of our new improvement is the video adding ability, besides images now you can also add any video you’d like from Youtube or Vimeo, just adding the video link you can get to show them in one of  views.  So We are sure our Image Gallery  will always satisfy you. Now just Install & Enjoy. All new information about new features and improvements that we made, you can find on our blog in the main page of Huge-it.com.
 
 
-Considering the large number of galleries in WordPress, Huge-IT company day by day will improve and enhance the functionality of Image gallery, and keep on adhering to the first position among WordPress Gallery plugins. So We are sure our Image gallery will always satisfy you as our other 12,816+ users. Now just Install & Enjoy.
+Considering the large number of galleries in WordPress, Huge-IT company day by day will improve and enhance the functionality of Image gallery, and keep on adhering to the first position among WordPress Gallery plugins. So We are sure our Image gallery will always satisfy you as our other 12,817+ users. Now just Install & Enjoy.
 
 The features of the Image Gallery
 
