@@ -243,14 +243,14 @@ function apply_cat($id)
 			if($_POST["name"] != ''){
 			
 	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  name = %s  WHERE id = %d ", $_POST["name"], $id));
-	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  sl_width = %s  WHERE id = %d ", $_POST["name"], $id));
-	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  sl_height = %s  WHERE id = %d ", $_POST["name"], $id));
-	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  pause_on_hover = %s  WHERE id = %d ", $_POST["name"], $id));
-	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  gallery_list_effects_s = %s  WHERE id = %d ", $_POST["name"], $id));
-	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  description = %s  WHERE id = %d ", $_POST["name"], $id));
-	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  param = %s  WHERE id = %d ", $_POST["name"], $id));
-	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  sl_position = %s  WHERE id = %d ", $_POST["name"], $id));
-	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  huge_it_sl_effects = %s  WHERE id = %d ", $_POST["name"], $id));
+	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  sl_width = %s  WHERE id = %d ", $_POST["sl_width"], $id));
+	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  sl_height = %s  WHERE id = %d ", $_POST["sl_height"], $id));
+	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  pause_on_hover = %s  WHERE id = %d ", $_POST["pause_on_hover"], $id));
+	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  gallery_list_effects_s = %s  WHERE id = %d ", $_POST["gallery_list_effects_s"], $id));
+	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  description = %s  WHERE id = %d ", $_POST["sl_pausetime"], $id));
+	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  param = %s  WHERE id = %d ", $_POST["sl_changespeed"], $id));
+	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  sl_position = %s  WHERE id = %d ", $_POST["sl_position"], $id));
+	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  huge_it_sl_effects = %s  WHERE id = %d ", $_POST["huge_it_sl_effects"], $id));
 	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  ordering = '1'  WHERE id = %d ", $id));
 			}
 			}
