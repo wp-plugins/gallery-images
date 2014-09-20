@@ -18,17 +18,18 @@ function showgallery()
 	$cat_row=$wpdb->get_results($cat_row_query);
 	
 
-	$query = $wpdb->prepare("SELECT COUNT(*) FROM ".$wpdb->prefix."huge_itgallery_gallerys WHERE name LIKE '% %s %'" , $search_tag);
+	$query = $wpdb->prepare("SELECT COUNT(*) FROM ".$wpdb->prefix."huge_itgallery_gallerys WHERE name LIKE %s" , "%{$search_tag}}%");
 	
 	$total = $wpdb->get_var($query);
 
 	if(!($cat_id)){
-	 $query ="SELECT  a.* ,  COUNT(b.id) AS count, g.par_name AS par_name FROM ".$wpdb->prefix."huge_itgallery_gallerys  AS a LEFT JOIN ".$wpdb->prefix."huge_itgallery_gallerys AS b ON a.id = b.sl_width LEFT JOIN (SELECT  ".$wpdb->prefix."huge_itgallery_gallerys.ordering as ordering,".$wpdb->prefix."huge_itgallery_gallerys.id AS id, COUNT( ".$wpdb->prefix."huge_itgallery_images.gallery_id ) AS prod_count
+	 $query =$wpdb->prepare("SELECT  a.* ,  COUNT(b.id) AS count, g.par_name AS par_name FROM ".$wpdb->prefix."huge_itgallery_gallerys  AS a LEFT JOIN ".$wpdb->prefix."huge_itgallery_gallerys AS b ON a.id = b.sl_width 
+LEFT JOIN (SELECT  ".$wpdb->prefix."huge_itgallery_gallerys.ordering as ordering,".$wpdb->prefix."huge_itgallery_gallerys.id AS id, COUNT( ".$wpdb->prefix."huge_itgallery_images.gallery_id ) AS prod_count
 FROM ".$wpdb->prefix."huge_itgallery_images, ".$wpdb->prefix."huge_itgallery_gallerys
 WHERE ".$wpdb->prefix."huge_itgallery_images.gallery_id = ".$wpdb->prefix."huge_itgallery_gallerys.id
 GROUP BY ".$wpdb->prefix."huge_itgallery_images.gallery_id) AS c ON c.id = a.id LEFT JOIN
 (SELECT ".$wpdb->prefix."huge_itgallery_gallerys.name AS par_name,".$wpdb->prefix."huge_itgallery_gallerys.id FROM ".$wpdb->prefix."huge_itgallery_gallerys) AS g
- ON a.sl_width=g.id WHERE a.name LIKE '%".$search_tag."%'  group by a.id  "; 
+ ON a.sl_width=g.id WHERE a.name LIKE %s  group by a.id  ","%".$search_tag."%");
 }
 
 $rows = $wpdb->get_results($query);
