@@ -80,7 +80,7 @@ function html_showgallerys( $rows,  $pageNav,$sort,$cat_row){
 				 <input type="button" value="Reset" onclick="window.location.href=\'admin.php?page=gallerys_huge_it_gallery\'" class="button-secondary action">
 			</div>';
 
-			 print_html_nav($pageNav['total'],$pageNav['limit'],$serch_fields);
+		
 			?>
 			<table class="wp-list-table widefat fixed pages" style="width:95%">
 				<thead>

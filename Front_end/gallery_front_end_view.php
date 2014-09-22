@@ -23,7 +23,6 @@ function front_end_gallery($images, $paramssld, $gallery)
 	$galleryposition=$gallery[0]->sl_position;
 	$slidechangespeed=$gallery[0]->param;
 	$gallerychangeview=$gallery[0]->huge_it_sl_effects;
-
 ?>
 <script>
 	var lightbox_transition = '<?php echo $paramssld['light_box_transition'];?>';
@@ -2983,7 +2982,7 @@ jQuery(function(){
 						  <?php
 						$i++;
 						break;
-						
+
 						case 'last_posts':
 						foreach($recent_posts as $lkeys => $last_posts){
 							if($lkeys < $image_row->sl_url){
@@ -3013,7 +3012,6 @@ jQuery(function(){
 						}
 						break;
 						case 'video':
-
 							?>
 							<li  class="huge_it_slideshow_image<?php if ($i != $current_image_id) {$current_key = $key; echo '_second';} ?>_item_gallery_<?php echo $sliderID; ?>" id="image_id_gallery_<?php echo $sliderID.'_'.$i ?>">      
 								<?php 
@@ -3042,15 +3040,11 @@ jQuery(function(){
         </div>
       </div>
 	</div>
-		
 		<?php
-		break;
-		
+		break;	
 		/* ########## VIEW 4 Thumbnails VIEW ##########*/
 		case 4:
-		
 		?>
-		
 		<link href="<?php echo plugins_url('../style/thumb_view.css', __FILE__);?>" rel="stylesheet" type="text/css" />
 		<script src="<?php echo plugins_url('../js/thumb_view.min.js', __FILE__);?>"></script>
 		<script src="<?php echo plugins_url('../js/jquery.lazyload.min.js', __FILE__);?>"></script>
@@ -3149,12 +3143,9 @@ jQuery(function(){
 			
 			section #huge_it_gallery p {text-align:center;}
 		</style>
-		
-		
 		<section>
 			<ul id="huge_it_gallery">
 				<li id="fullPreview"></li>
-				
 				<?php  foreach($images as $key=>$row) { 
 				$imgurl=explode(";",$row->image_url); ?>
 				<li class="huge_it_big_li">
@@ -3190,7 +3181,6 @@ jQuery(function(){
 						break;
 					}
 					?>
-					
 					<div class="overLayer"></div>
 					<div class="infoLayer">
 						<ul>
@@ -3212,12 +3202,9 @@ jQuery(function(){
 			</ul>
 		</section>
 		<?php
-		
 		break;
 }
  ?>
-   
-	
       <?php   
 	return ob_get_clean();
 }  

@@ -12,8 +12,14 @@ function showgallery()
 	  
   global $wpdb;
 	$limit=0;
-
+	
+	if(isset($_POST['search_events_by_title'])){
 	$search_tag=esc_html(stripslashes($_POST['search_events_by_title']));
+	}
+	else
+	{
+	$search_tag = '';
+	}
 	$cat_row_query="SELECT id,name FROM ".$wpdb->prefix."huge_itgallery_gallerys WHERE sl_width=0";
 	$cat_row=$wpdb->get_results($cat_row_query);
 	
@@ -21,8 +27,8 @@ function showgallery()
 	$query = $wpdb->prepare("SELECT COUNT(*) FROM ".$wpdb->prefix."huge_itgallery_gallerys WHERE name LIKE %s" , "%{$search_tag}}%");
 	
 	$total = $wpdb->get_var($query);
-
-	if(!($cat_id)){
+	
+	
 	 $query =$wpdb->prepare("SELECT  a.* ,  COUNT(b.id) AS count, g.par_name AS par_name FROM ".$wpdb->prefix."huge_itgallery_gallerys  AS a LEFT JOIN ".$wpdb->prefix."huge_itgallery_gallerys AS b ON a.id = b.sl_width 
 LEFT JOIN (SELECT  ".$wpdb->prefix."huge_itgallery_gallerys.ordering as ordering,".$wpdb->prefix."huge_itgallery_gallerys.id AS id, COUNT( ".$wpdb->prefix."huge_itgallery_images.gallery_id ) AS prod_count
 FROM ".$wpdb->prefix."huge_itgallery_images, ".$wpdb->prefix."huge_itgallery_gallerys
@@ -30,7 +36,7 @@ WHERE ".$wpdb->prefix."huge_itgallery_images.gallery_id = ".$wpdb->prefix."huge_
 GROUP BY ".$wpdb->prefix."huge_itgallery_images.gallery_id) AS c ON c.id = a.id LEFT JOIN
 (SELECT ".$wpdb->prefix."huge_itgallery_gallerys.name AS par_name,".$wpdb->prefix."huge_itgallery_gallerys.id FROM ".$wpdb->prefix."huge_itgallery_gallerys) AS g
  ON a.sl_width=g.id WHERE a.name LIKE %s  group by a.id  ","%".$search_tag."%");
-}
+
 
 $rows = $wpdb->get_results($query);
 
@@ -52,6 +58,8 @@ foreach($rows as $row)
 		}
 	}
 }
+$pageNav = '';
+$sort = '';
 	$cat_row=open_cat_in_tree($cat_row);
 		html_showgallerys( $rows, $pageNav,$sort,$cat_row);
   }
@@ -208,7 +216,7 @@ function removegallery($id)
  if(!$wpdb->query($sql_remov_tag))
  {
 	  ?>
-	  <div id="message" class="error"><p>gallery Not Deleted</p></div>
+	  <div id="message" class="error"><p>Gallery Deleted</p></div>
       <?php
  }
  else{

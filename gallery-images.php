@@ -4,7 +4,7 @@
 Plugin Name: Huge IT Image Gallery
 Plugin URI: http://huge-it.com/wordpress-gallery/
 Description: Huge-IT Gallery images is perfect for using for creating various portfolios within various views. 
-Version: 1.0.9
+Version: 1.1.0
 Author: Huge-IT
 Author: http://huge-it.com/
 License: GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
@@ -503,14 +503,10 @@ class Huge_it_gallery_Widget extends WP_Widget {
 				$query="SELECT * FROM ".$wpdb->prefix."huge_itgallery_gallerys ";
 				$rowwidget=$wpdb->get_results($query);
 				foreach($rowwidget as $rowwidgetecho){
-				
-				selected
 				?>
 					<option <?php if($rowwidgetecho->id == $instance['gallery_id']){ echo 'selected'; } ?> value="<?php echo $rowwidgetecho->id; ?>"><?php echo $rowwidgetecho->name; ?></option>
-
 					<?php } ?>
 				</select>
-
 		</p>
 		<?php 
 	}
