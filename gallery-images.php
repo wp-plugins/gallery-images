@@ -3,8 +3,8 @@
 /*
 Plugin Name: Huge IT Image Gallery
 Plugin URI: http://huge-it.com/wordpress-gallery/
-Description: Huge-IT Gallery images is perfect for using for creating various portfolios within various views. 
-Version: 1.1.0
+Description: Huge-IT Image Gallery is the best plugin to use if you want to be original with your website.
+Version: 1.1.1
 Author: Huge-IT
 Author: http://huge-it.com/
 License: GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
@@ -224,8 +224,6 @@ function huge_it__gallery_featured_plugins()
 {
 	include_once("admin/huge_it_featured_plugins.php");
 }
-
-
 function huge_it_imagegallery_Licensing(){
 
 	?>
@@ -834,7 +832,36 @@ query1;
 	$update_p1=$wpdb->get_results($query);
 	if(end($update_p1)->name=='thumb_box_has_background'){
 		$wpdb->query($sql_update_g1);
-	}	
+	}
+        
+        $table_name = $wpdb->prefix . "huge_itgallery_params";
+	    $sql_update_g2 = <<<query1
+INSERT INTO `$table_name` (`name`, `title`,`description`, `value`) VALUES
+('ht_view8_element_cssAnimation', 'Image CssAnimation', 'Image CssAnimation', 'false'),
+('ht_view8_element_height', 'Element Hight', 'Element Hight', '120'),
+('ht_view8_element_maxheight', 'Element MaxHight', 'Element MaxHight', '155'),
+('ht_view8_element_show_caption', 'Show Caption', 'Show Caption', 'true'),
+('ht_view8_element_padding', 'Element Padding', 'Element Padding', '0'),
+('ht_view8_element_border_radius', 'Border Radius', 'Border Radius', '5'),
+('ht_view8_icons_style', 'Icons Style', 'Icons Style', 'dark'),
+('ht_view8_element_title_font_size', 'Element Title Font Size', 'Element Title Font Size', '13'),
+('ht_view8_element_title_font_color', 'Element Title Font Color', 'Element Title Font Color', '3AD6FC'),
+('ht_view8_popup_background_color', 'Popup background Color', 'Popup background Color', '000000'),
+('ht_view8_popup_overlay_transparency_color', 'Popup Overlay Transparency Color', 'Popup Overlay Transparency Color', '0'),
+('ht_view8_popup_closebutton_style', 'Popup Closebutton Style', 'Popup Closebutton Style', 'dark'),
+('ht_view8_element_title_overlay_transparency', 'Element Overlay Transparency', 'Element Overlay Transparency', '90'),
+('ht_view8_element_size_fix', 'Element Size Fix', 'Element Size Fix', 'false'),
+('ht_view8_element_title_background_color', 'Element Title Background Color', 'Element Title Background Color', 'FF1C1C'),
+('ht_view8_element_justify', 'Image Justify', 'Image Justify', 'true'),
+('ht_view8_element_randomize', 'Image Randomize', 'Image Randomize', 'false'),
+('ht_view8_element_animation_speed', 'Image Animation Speed', 'Image Animation Speed', '2000');      
+query1;
+            
+            $query="SELECT name FROM ".$wpdb->prefix."huge_itgallery_params";
+	$update_p2=$wpdb->get_results($query);
+	if(end($update_p2)->name=='thumb_view_text'){
+		$wpdb->query($sql_update_g2);
+	}
 }
 
 register_activation_hook(__FILE__, 'huge_it_gallery_activate');

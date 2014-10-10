@@ -205,6 +205,31 @@ INSERT INTO
 
 function gallery_video($id)
 {
+	 global $wpdb;
+
+	  if(isset($_POST["huge_it_add_video_input"])){
+	  if($_POST["huge_it_add_video_input"] != ''){
+	  $table_name = $wpdb->prefix . "huge_itgallery_images";
+	  
+
+	  $sql_video = "INSERT INTO 
+`" . $table_name . "` ( `name`, `gallery_id`, `description`, `image_url`, `sl_url`, `sl_type`, `link_target`, `ordering`, `published`, `published_in_sl_width`) VALUES 
+( '".$_POST["show_title"]."', '".$id."', '".$_POST["show_description"]."', '".$_POST["huge_it_add_video_input"]."', '".$_POST["show_url"]."', 'video', 'on', '0', '1', '1' )";
+	
+
+	  $query=$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."huge_itgallery_gallerys WHERE id= %d",$id);
+	   $row=$wpdb->get_row($query);
+	    $query=$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."huge_itgallery_images where gallery_id = %d order by id ASC", $row->id);
+			   $rowplusorder=$wpdb->get_results($query);
+			   
+			   foreach ($rowplusorder as $key=>$rowplusorders){
+$rowplusorderspl=$rowplusorders->ordering+1;
+$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_images SET ordering = '".$rowplusorderspl."' WHERE id = %d ", $rowplusorders->id));
+}
+	   $wpdb->query($sql_video);
+	  }
+	  }
+
    Html_gallery_video();
 }
 

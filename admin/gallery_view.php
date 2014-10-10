@@ -562,7 +562,9 @@ jQuery(document).ready(function($){
 																jQuery("#save-buttom").click();
 															};
 														});
-															
+			function deleteproject<?php echo $rowimages->id; ?>() {
+			   jQuery('#adminForm').attr('action', 'admin.php?page=gallerys_huge_it_gallery&task=edit_cat&id=<?php echo $row->id; ?>&removeslide=<?php echo $rowimages->id; ?>');
+			}
 											</script>
 											<input type="hidden" name="imagess<?php echo $rowimages->id; ?>" value="<?php echo $rowimages->image_url; ?>" />
 										</div>
@@ -589,7 +591,7 @@ jQuery(document).ready(function($){
 							
 								</div>
 								<div class="remove-image-container">
-									<a class="button remove-image" href="admin.php?page=gallerys_huge_it_gallery&task=edit_cat&id=<?php echo $row->id; ?>&removeslide=<?php echo $rowimages->id; ?>">Remove Image</a>
+									<a onclick="deleteproject<?php echo $rowimages->id; ?>(); submitbutton('apply');" id="remove_image<?php echo $rowimages->id; ?>" class="button remove-image">Remove Image</a>
 								</div>
 							</div>
 							<div class="clear"></div>
@@ -617,6 +619,7 @@ jQuery(document).ready(function($){
 									<option <?php if($row->huge_it_sl_effects == '5'){ echo 'selected'; } ?>  value="5">Lightbox-Gallery</option>
 									<option <?php if($row->huge_it_sl_effects == '3'){ echo 'selected'; } ?>  value="3">Slider</option>
 									<option <?php if($row->huge_it_sl_effects == '4'){ echo 'selected'; } ?>  value="4">Thumbnails View</option>
+                                                                        <option <?php if($row->huge_it_sl_effects == '6'){ echo 'selected'; } ?>  value="6">Justified</option>
 							</select>
 						</li>
 						
@@ -916,13 +919,12 @@ function html_gallery_video(){
 	</style>
 	<script type="text/javascript">
 		jQuery(document).ready(function() {			
-		
 		jQuery('.huge-it-insert-video-button').click(function(){
 					alert("Image Gallery Settings are disabled in free version. If you need those functionalityes, you need to buy the commercial version.");
 					return false;
 				});
-				
-					jQuery('.huge-it-insert-post-button').on('click', function() {
+		jQuery('.huge-it-insert-video-button').click(function(){				
+				jQuery('.huge-it-insert-post-button').on('click', function() {
 				var ID1 = jQuery('#huge_it_add_video_input').val();
 				if(ID1==""){alert("Please copy and past url form Youtobe or Vimeo to insert into slider.");return false;}
 				
@@ -945,10 +947,17 @@ function html_gallery_video(){
 					jQuery('#add-video-popup-options  .error-message').addClass('active');
 				}
 			})	
+				});
+					<?php	
+			if(isset($_GET["closepop"])){
+			if($_GET["closepop"] == 1){ ?>
+					jQuery("#closepopup").click();
+					self.parent.location.reload();
+			<?php	}	} ?>
 			jQuery('.updated').css({"display":"none"});
 		});
 	</script>
-	<a id="closepopup"  onclick=" parent.eval('tb_remove()')" style="display:none;" > [X] </a>
+	<a id="closepopup"  onclick=" parent.eval('tb_remove()')" style="display: none;"> [X] </a>
 
 	<div id="huge_it_slider_add_videos">
 		<div id="huge_it_slider_add_videos_wrap">

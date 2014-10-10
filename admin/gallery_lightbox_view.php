@@ -34,7 +34,7 @@ jQuery(document).ready(function () {
 });
 </script>
 	<div class="wrap">
-		<?php $path_site = plugins_url("../images", __FILE__); ?>
+	<?php $path_site = plugins_url("../images", __FILE__); ?>
 	<div class="slider-options-head">
 		<div style="float: left;">
 			<div><a href="http://huge-it.com/wordpress-plugins-gallery-user-manual/" target="_blank">User Manual</a></div>

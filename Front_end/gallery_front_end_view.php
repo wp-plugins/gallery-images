@@ -5,7 +5,8 @@ function get_video_id_from_url($url){
 		if (stristr($url,'youtu.be/')){ preg_match('/(https:|http:|)(\/\/www\.|\/\/|)(.*?)\/(.{11})/i', $url, $final_ID); return array($final_ID[4],'youtube'); }
 		else{ preg_match('/(https:|http:|):(\/\/www\.|\/\/|)(.*?)\/(embed\/|watch\?v=|(.*?)&v=|v\/|e\/|.+\/|watch.*v=|)([a-z_A-Z0-9]{11})/i', $url, $IDD); return array($IDD[6],'youtube'); }
 	}else {
-		$vimeoid =  end(explode( "/", $url ));
+                $openError = explode( "/", $url );
+		$vimeoid =  end($openError);
 		return array($vimeoid,'vimeo');
 	}
 }
@@ -3022,7 +3023,8 @@ jQuery(function(){
 										<div id="video_id_gallery_<?php echo $sliderID;?>_<?php echo $key ;?>" class="huge_it_video_frame_gallery_<?php echo $sliderID; ?>"></div>
 								<?php }else {
 										$vimeo = $image_row->image_url;
-										$imgid =  end(explode( "/", $vimeo ));
+                                                                                $openError = explode( "/", $vimeo );
+										$imgid =  end($openError);
 										
 								?>					
 									<iframe id="player_<?php echo $key ;?>"  class="huge_it_video_frame_gallery_<?php echo $sliderID; ?>" src="//player.vimeo.com/video/<?php echo $imgid; ?>?api=1&player_id=player_<?php echo $key ;?>&showinfo=0&controls=0" frameborder="0" allowfullscreen></iframe>
@@ -3203,6 +3205,191 @@ jQuery(function(){
 		</section>
 		<?php
 		break;
+                
+                        ///////////////////////////// view 8 justified's view ///////////////////////////////////////
+        
+        case 6:
+    ?>
+        <?php $path_site = plugins_url("", __FILE__); ?>
+        <link rel="stylesheet" href="<?php echo $path_site ; ?>/../style/justifiedGallery.css" />
+		<script>
+			var imagemargin=<?php echo $paramssld["ht_view8_element_padding"]; ?>;
+			var imagerandomize=<?php echo $paramssld["ht_view8_element_randomize"]; ?>;
+			var imagecssAnimation=<?php echo $paramssld["ht_view8_element_cssAnimation"]; ?>;
+			var imagecssAnimationSpeed=<?php echo $paramssld["ht_view8_element_animation_speed"]; ?>;
+			var imageheight= <?php echo $paramssld["ht_view8_element_height"]; ?>;
+			var imagejustify= <?php echo $paramssld["ht_view8_element_justify"]; ?>;
+			var imageshowcaption= <?php echo $paramssld["ht_view8_element_show_caption"]; ?>;
+			//var imagemaxheight=<?php //echo $paramssld["ht_view8_element_maxheight"]; ?>;
+			//var imagefixed=<?php //echo $paramssld["ht_view8_element_size_fix"]; ?>;
+		</script>
+	    <script src="<?php echo $path_site ; ?>/../js/justifiedGallery.js"></script>
+        
+<style>
+	.justified-gallery {
+		width: 100%;
+		position: relative;
+	}
+	.justified-gallery > a,
+	.justified-gallery > div {
+		position: absolute;
+		display: inline-block;
+		opacity: 0;
+		overflow:hidden;
+		filter: alpha(opacity=0);
+		/* IE8 or Earlier */
+	}
+	.justified-gallery > a > img,
+	.justified-gallery > div > img {
+	   /* width: 200px !important;*/
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		padding: 0;
+		//border: <?php// echo $paramssld["ht_view8_element_border_width"]; ?>px solid #<?php// echo $paramssld["ht_view8_element_border_color"]; ?>;
+		//border-radius: <?php// echo $paramssld["ht_view8_element_border_radius"]; ?>px;
+	}
+	.justified-gallery > a > .caption,
+	.justified-gallery > div > .caption {
+		display: none;
+		position: absolute;
+		bottom: 0;
+		padding: 5px;
+		left: 0;
+		right: 0;
+		margin: 0;
+		color: #<?php echo $paramssld["ht_view8_element_title_font_color"]; ?>;
+		font-size: <?php echo $paramssld["ht_view8_element_title_font_size"]; ?>px;
+		font-weight: 300;
+		font-family: sans-serif;
+		//margin-left: <?php //echo $paramssld["ht_view8_element_border_width"]; ?>px;
+		background:<?php 			
+				list($r,$g,$b) = array_map('hexdec',str_split($paramssld['ht_view8_element_title_background_color'],2));
+				$titleopacity=$paramssld["ht_view8_element_title_overlay_transparency"]/100;						
+				echo 'rgba('.$r.','.$g.','.$b.','.$titleopacity.')  !important';	
+		?>;
+		
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space:nowrap;
+	}
+	.justified-gallery > a > .caption.caption-visible,
+	.justified-gallery > div > .caption.caption-visible {
+		display: initial;
+		opacity: 0.7;
+		filter: "alpha(opacity=70)";
+		/* IE8 or Earlier */
+		-webkit-animation: justified-gallery-show-caption-animation 500ms 0 ease;
+		-moz-animation: justified-gallery-show-caption-animation 500ms 0 ease;
+		-ms-animation: justified-gallery-show-caption-animation 500ms 0 ease;
+	}
+	.justified-gallery > .entry-visible {
+		opacity: 1.0;
+		filter: alpha(opacity=100);
+		/* IE8 or Earlier */
+		-webkit-animation: justified-gallery-show-entry-animation 300ms 0 ease;
+		-moz-animation: justified-gallery-show-entry-animation 300ms 0 ease;
+		-ms-animation: justified-gallery-show-entry-animation 300ms 0 ease;
+	}
+	.justified-gallery > .spinner {
+		position: absolute;
+		bottom: 0;
+		margin-left: -24px;
+		padding: 10px 0 10px 0;
+		left: 50%;
+		opacity: initial;
+		filter: initial;
+		overflow: initial;
+	}
+	.justified-gallery > .spinner > span {
+		display: inline-block;
+		opacity: 0;
+		filter: alpha(opacity=0);
+		/* IE8 or Earlier */
+		width: 8px;
+		height: 8px;
+		margin: 0 4px 0 4px;
+		background-color: #000;
+		border-top-left-radius: 6px;
+		border-top-right-radius: 6px;
+		border-bottom-right-radius: 6px;
+		border-bottom-left-radius: 6px;
+	}
+        .play-icon {
+                position:absolute;
+                top:0px;
+                left:0px;
+                width:100%;
+                height:100%;	
+
+        }
+
+        .play-icon.youtube-icon {background:url(<?php echo plugin_dir_url( __FILE__ ); ?>../images/play.youtube.png) center center no-repeat;}
+        .play-icon.vimeo-icon {background:url(<?php echo plugin_dir_url( __FILE__ ); ?>../images/play.vimeo.png) center center no-repeat;}
+</style>
+
+
+<?php
+    $path_site = plugins_url("", __FILE__);
+?>
+	    <div style="clear:both;"></div>
+                <div id="mygallery" class="clearfix">
+                    <?php
+                    foreach($images as $key=>$row)
+                    {
+                        $imgurl=explode(";",$row->image_url);
+                        $link = $row->sl_url;
+                        $descnohtml=strip_tags($row->description);
+                        $result = substr($descnohtml, 0, 50);
+                        $imagerowstype=$row->sl_type;
+                        if($row->sl_type == ''){$imagerowstype='image';}
+                        switch($imagerowstype){
+                            case 'image':
+                    ?>
+                                <?php 	if($row->image_url != ';'){ ?>
+                                <a class="group1" href="<?php echo $imgurl[0]; ?>">
+                                    <img id="wd-cl-img<?php echo $key; ?>" alt="<?php echo $row->name; ?>" src="<?php echo $imgurl[0]; ?>"/>
+                                </a>
+                                <?php } else { ?>
+                                <img id="wd-cl-img<?php echo $key; ?>" src="images/noimage.jpg" alt="" />
+                                <?php
+                                } ?>
+                                <?php break;
+                            
+                            case 'video':
+                            
+                                $videourl=get_video_id_from_url($row->image_url);
+                                if($videourl[1]=='youtube'){?>
+                                        <a class="youtube huge_it_gallery_item group1"  href="https://www.youtube.com/embed/<?php echo $videourl[0]; ?>">
+                                                <img src="http://img.youtube.com/vi/<?php echo $videourl[0]; ?>/mqdefault.jpg" alt="<?php echo $row->name; ?>" />
+                                                <div class="play-icon <?php echo $videourl[1]; ?>-icon"></div>
+                                        </a>
+                                <?php }
+                                else {
+                                        $hash = unserialize(file_get_contents("http://vimeo.com/api/v2/video/".$videourl[0].".php"));
+                                        $imgsrc=$hash[0]['thumbnail_large'];
+                                ?>
+                                        <a class="vimeo huge_it_gallery_item group1" href="http://player.vimeo.com/video/<?php echo $videourl[0]; ?>">
+                                                <img src="<?php echo $imgsrc; ?>" alt="<?php echo $row->name; ?>" />
+                                                <div class="play-icon <?php echo $videourl[1]; ?>-icon"></div>
+                                        </a>
+                                <?php
+                                }
+                        }
+                    }
+                    ?>
+                </div>
+
+
+<script>
+    jQuery(document).ready(function(){
+
+    jQuery("#mygallery").justifiedGallery();
+
+}); 
+</script>
+  <?php	  
+	break;
 }
  ?>
       <?php   

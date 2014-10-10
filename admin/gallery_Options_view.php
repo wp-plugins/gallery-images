@@ -67,6 +67,7 @@ jQuery(document).ready(function () {
 				<li><a href="#gallery-view-options-2">Lightbox-Gallery</a></li>
 				<li><a href="#gallery-view-options-3">Slider</a></li>
 				<li><a href="#gallery-view-options-4">Thumbnails</a></li>
+                                <li><a href="#gallery-view-options-5">Justified</a></li>
 			</ul>
 			
 			<ul class="options-block" id="gallery-view-tabs-contents">				
@@ -793,6 +794,91 @@ jQuery(document).ready(function () {
 						</div>
 					</div>
 				</li>
+                                <li data-id="gallery-view-options-5">
+                                        <div>
+						<h3>Element Styles</h3>
+						
+<!--                                                    <div class="has-background">
+                                                            <label for="ht_view8_element_size_fix">Size fix</label>
+                                                            <input type="hidden" value="false" name="params[ht_view8_element_size_fix]" />
+                                                            <input type="checkbox" id="ht_view8_element_size_fix"  <?php if($param_values['ht_view8_element_size_fix']  == 'true'){ echo 'checked="checked"'; } ?>  name="params[ht_view8_element_size_fix]" value="true" />
+                                                    </div>-->
+                                                        
+                                                    <div class="has-background fixed-size">
+                                                            <label for="ht_view8_element_height">Image height</label>
+                                                            <input type="text" name="params[ht_view8_element_height]" id="ht_view8_element_height" value="<?php echo $param_values['ht_view8_element_height']; ?>" class="text">
+                                                            <span>px</span>
+                                                    </div>
+                                                        
+<!--                                                    <div class="has-background not-fixed-size">
+                                                            <label for="ht_view8_element_maxheight">Popup maxHeight</label>
+                                                            <input type="number" name="params[ht_view8_element_maxheight]" id="ht_view8_element_maxheight" value="<?php echo $param_values['ht_view8_element_maxheight']; ?>" class="text">
+                                                            <span>px</span>
+                                                    </div>-->
+                                                        
+                                                        
+                                                    <div class="">
+                                                            <label for="ht_view8_element_padding">Image margin</label>
+                                                            <input type="text" name="params[ht_view8_element_padding]" id="ht_view8_element_border_radius" value="<?php echo $param_values['ht_view8_element_padding']; ?>" class="text" />
+                                                            <span>px</span>
+                                                    </div>
+
+                                                    
+                                                    <div class="has-background">
+                                                            <label for="ht_view8_element_justify">Image Justify</label>
+                                                            <input type="hidden" value="false" name="params[ht_view8_element_justify]" />
+                                                            <input type="checkbox" id="ht_view8_element_justify"  <?php if($param_values['ht_view8_element_justify']  == 'true'){ echo 'checked="checked"'; } ?>  name="params[ht_view8_element_justify]" value="true" />
+                                                    </div>
+
+                                                    <div class="">
+                                                            <label for="ht_view8_element_randomize">Image Randomize</label>
+                                                            <input type="hidden" value="false" name="params[ht_view8_element_randomize]" />
+                                                            <input type="checkbox" id="ht_view8_element_justify"  <?php if($param_values['ht_view8_element_randomize']  == 'true'){ echo 'checked="checked"'; } ?>  name="params[ht_view8_element_randomize]" value="true" />
+                                                    </div>
+                                                    
+                                                    <div class="has-background">
+                                                            <label for="ht_view8_element_cssAnimation">Opening With Animation</label>
+                                                            <input type="hidden" value="false" name="params[ht_view8_element_cssAnimation]" />
+                                                            <input type="checkbox" id="ht_view8_element_justify"  <?php if($param_values['ht_view8_element_cssAnimation']  == 'true'){ echo 'checked="checked"'; } ?>  name="params[ht_view8_element_cssAnimation]" value="true" />
+                                                    </div>
+                                                    
+                                                    <div class="">
+                                                            <label for="ht_view8_element_animation_speed">Opening Animation Speed</label>
+                                                            <input type="text" name="params[ht_view8_element_animation_speed]" id="ht_view8_element_animation_speed" value="<?php echo $param_values['ht_view8_element_animation_speed']; ?>" class="text" />
+                                                            <span>px</span>
+                                                    </div>
+					</div>
+					<div>					
+						<h3>Element Title</h3>
+						<div class="has-background">
+							<label for="ht_view8_element_title_font_size">Element Title Font Size</label>
+							<input type="text" name="params[ht_view8_element_title_font_size]" id="ht_view8_element_title_font_size" value="<?php echo $param_values['ht_view8_element_title_font_size']; ?>" class="text" />
+							<span>px</span>
+						</div>
+						<div>
+							<label for="ht_view8_element_title_font_color">Element Title Font Color</label>
+							<input name="params[ht_view8_element_title_font_color]" type="text" class="color" id="ht_view8_element_title_font_color" value="#<?php echo $param_values['ht_view8_element_title_font_color']; ?>" size="10" />
+						</div>
+						<div class="has-background">
+							<label for="ht_view8_element_title_background_color">Element Title Background Color</label>
+							<input name="params[ht_view8_element_title_background_color]" type="text" class="color" id="ht_view8_element_title_background_color" value="#<?php echo $param_values['ht_view8_element_title_background_color']; ?>" size="10" />
+						</div>
+                                                
+                                                <div>
+                                                        <label for="ht_view8_zoombutton_style">Element's Title Overlay Transparency</label>
+                                                        <div class="slider-container">
+                                                            <input name="params[ht_view8_element_title_overlay_transparency]" id="ht_view8_element_title_overlay_transparency" data-slider-highlight="true"  data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text" data-slider="true" value="<?php echo $param_values['ht_view8_element_title_overlay_transparency']; ?>" />
+                                                            <span><?php echo $param_values['ht_view8_element_title_overlay_transparency']; ?>%</span>
+                                                        </div>
+						</div>
+                                                
+                                                <div class="has-background">
+                                                        <label for="ht_view8_element_show_caption">Show Title</label>
+                                                        <input type="hidden" value="false" name="params[ht_view8_element_show_caption]" />
+                                                        <input type="checkbox" id="ht_view8_element_show_caption"  <?php if($param_values['ht_view8_element_show_caption']  == 'true'){ echo 'checked="checked"'; } ?>  name="params[ht_view8_element_show_caption]" value="true" />
+                                                </div>
+					</div>
+                               </li>
 			</ul>
 
 		<div id="post-body-footer">
