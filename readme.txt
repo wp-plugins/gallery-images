@@ -4,7 +4,7 @@ Donate link: http://huge-it.com/wordpress-gallery/
 Tags: gallery, image gallery, gallery image, content slider, widget gallery, lightbox gallery, website gallery, gallery lightbox, image, images, post, posts, content gallery, galleries, wordpress gallery, Picture Gallery, nextgen, nextgen gallery, photo gallery, galeria, gallery, best gallery, thumbnail view, content gallery, media gallery, easy gallery, picture, gallery plugin, plugin gallery, add gallery, add image, add picture, add photo, galery, add images, add pictures, gallery wordpress, widget, wp gallery, thumbnail, thumbnails, gallery slider, Galleria, simple gallery, img, admin, wordpress gallery plugin, thumbs, media, free gallery, free images, video gallery, youtube gallery, vimeo gallery, youtube, vimeo, grid gallery, sidebar, responsive, images gallery, video, filterable gallery, grid, iphone gallery, shortcode, videos, seo, photogallery, photoset,
 Requires at least: 3.0.1
 Tested up to: 4.0
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,27 +20,24 @@ Huge-IT Image Gallery is the best plugin to use if you want to be original with 
 
 https://www.youtube.com/watch?v=fNz0hW01k3k
 
-Huge-IT Image Gallery is the best plugin to use if you want to be original with your website. Image Gallery has specially made to allow it’s users create a lot of ways to represent your images, videos and information. Just add image or video wright descriptions and titles for each view of the Image Gallery and choose one from 5 unrepeatable views. 
+Huge-IT Image Gallery is the best plugin to use if you want to be original with your website. Image Gallery has specially made to allow it’s users create a lot of ways to represent your images, videos and information. Just add image or video wright descriptions and titles for each view of the Image Gallery and choose one from 6 unrepeatable views. 
 
 * Gallery / Content-Popup
 * Content Slider 
 * Ligthtbox Gallery
 * Huge-IT Slider 
 * Thumbnail view.
+* Justified.
 
 Each view has unique customizable options in “ General Options “ section to make them fit your taste. Almost every type of text can be change from the standpoint of text and color. Also there are a lot of features relative as to Image Gallery and thumbnails as to it's lightbox. Talking about Lightbox, notice, that Image Gallery plugin has separate options page, where you can choose one from 5 lightbox views, and customize it. And that way to create desirable style of your website. Show your image and video in it's best way!
 
-Image Gallery plugin offers you, being already easy to use and friendly admin panel, where you can add several images and videos at a time and immediately give them a title, description and link, goes to any page, and set the way it opens. Huge-IT Image Gallery and all other plugins of our company have very high quality support so you always can be sure that you will not have any problems, with this plugin. Our experts are always ready to respond any your questions. With our Image Gallery you can realize your most original ideas. 5 views of the Image Gallery gives you 5 ways to be the best! Each view of Image Gallery is original, elegant and will fit to any styles of your images, videos and information. No matter to slide or show your media in thumbnails, or give them a useful information and show both together, whatever you choose will look original, because we worked hard on making Image Gallery irrepetible. So you can always be bold in your ideas with Huge-IT Image Gallery.
+Image Gallery plugin offers you, being already easy to use and friendly admin panel, where you can add several images and videos at a time and immediately give them a title, description and link, goes to any page, and set the way it opens. Huge-IT Image Gallery and all other plugins of our company have very high quality support so you always can be sure that you will not have any problems, with this plugin. Our experts are always ready to respond any your questions. With our Image Gallery you can realize your most original ideas. 5 views of the Image Gallery gives you 6 ways to be the best! Each view of Image Gallery is original, elegant and will fit to any styles of your images, videos and information. No matter to slide or show your media in thumbnails, or give them a useful information and show both together, whatever you choose will look original, because we worked hard on making Image Gallery irrepetible. So you can always be bold in your ideas with Huge-IT Image Gallery.
 
-Considering the large number of galleries in WordPress, Huge-IT company day by day will improve and enhance the functionality of Image Gallery, and keep on adhering to the first position among WordPress Gallery plugins. One of our new improvement is the video adding ability, besides images now you can also add any video you’d like from Youtube or Vimeo, just adding the video link you can get to show them in one of  views.  So We are sure our Image Gallery will always satisfy you.
-
-Now just Install & Enjoy. All new information about new features and improvements that we made, you can find on our blog in the main page of Huge-it.com.
-
-Considering the large number of galleries in WordPress, Huge-IT company day by day will improve and enhance the functionality of Image gallery, and keep on adhering to the first position among WordPress Gallery plugins. So We are sure our Image gallery will always satisfy you as our other 13,569+ users. Now just Install & Enjoy.
+Considering the large number of galleries in WordPress, Huge-IT company day by day will improve and enhance the functionality of Image gallery, and keep on adhering to the first position among WordPress Gallery plugins. One of our new improvement is the video adding ability, besides images now you can also add any video you’d like from Youtube or Vimeo, just adding the video link you can get to show them in one of views. So We are sure our Image gallery will always satisfy you as our other 22,221+ users. Now just Install & Enjoy. All new information about new features and improvements that we made, you can find on our blog in the main page of Huge-it.com.
 
 ### The features of the Image Gallery
 
-### 5 Views Options 
+### 6 Views Options 
 
 **Gallery / content-popup  -  Image Gallery**
 
@@ -61,6 +58,11 @@ If you know Slider and like it, you will be glad to set this view, because it is
 **Thumbnails View  -  Image Gallery**
 
 This view shows your images like thumbnail. As you click  they open in lightbox, and you can scroll them. there is not any text with it, only it’s title.
+
+**Justified  -  Image Gallery**
+
+Justified view allows you to represent your images and videos in a little sizes each next to other like a horizontal line or tape. By hovering on them, appears the title of the image/video. Clicking on the image / video it opens in lightbox, giving a beautiful view to them.
+
 
 ### If you think, that you found a bug in our [WordPress Image Gallery](http://huge-it.com/wordpress-gallery/) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com).
 
@@ -90,6 +92,9 @@ Now you can set your Image Gallery options, images and use our Image Gallery.
 
 
 == Changelog ==
+
+= 1.1.2 =
+*  Bug fixed in Image Gallery.
 
 = 1.1.1 =
 *  New awesome 'Justified' view has been launched in Image Gallery.
@@ -145,7 +150,7 @@ URL. Provide some link of your post. Click to open in new tab or don’t click t
 
 When you finish creating your Image Gallery. Find on the right site 3 blocks
 
-Views. Here, among 5 views, mentioned above, chose the view for your Image Gallery. 
+Views. Here, among 6 views, mentioned above, chose the view for your Image Gallery. 
 
 Usage. Here you can find a shortcode of your Image Gallery. You can Copy&Paste this shortcode wherever you need in your posts or page, where you want your Image Gallery be. Or you can add this code automatically, when posting your Image Gallery there is a button to add Image Gallery, pressing on it the shortcode inserts into your post.
 
@@ -415,3 +420,32 @@ Box background. Set the Color of surrounded box in “ Image Gallery “
 Box Use shadow. Click if you need to have shadows in the box of “ Image Gallery “
 
 Box padding. Set the distance between the box and images in “ Image Gallery “
+
+2.6 **Justified View  -  Image Gallery**
+
+**Element Styles  -  Image Gallery**
+
+Image height. Set the height of the images/videos in tape
+
+Image margin. Set the distance between each image/video in the tape
+
+Image Justify. Select to make the width of all image/video up to 100% in container. So all them together will fit the container of your theme, and tick off to bring each of them with it’s natural size.
+
+Image Randomize. Select to show your images randomly.
+
+Opening With Animation. Choose to see the tape of images/videos appearing animated.
+
+Opening Animation Speed. Select the speed of the animation.
+
+**Element Title  -  Image Gallery**
+
+Show Title. Choose to show the title or not
+
+Element Title Font Size. Choose the font size for the title of the image / video
+
+Element Title Font Color. Select preferable colour for the title of the image / video
+
+Element Title Background Color. Choose the colour of title background 
+
+Element's Title Overlay Transparency. Select the level of transparency for the title overlay
+

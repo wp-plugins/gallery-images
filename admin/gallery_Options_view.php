@@ -850,21 +850,26 @@ jQuery(document).ready(function () {
 					</div>
 					<div>					
 						<h3>Element Title</h3>
-						<div class="has-background">
+                                                <div class="has-background">
+                                                        <label for="ht_view8_element_show_caption">Show Title</label>
+                                                        <input type="hidden" value="false" name="params[ht_view8_element_show_caption]" />
+                                                        <input type="checkbox" id="ht_view8_element_show_caption"  <?php if($param_values['ht_view8_element_show_caption']  == 'true'){ echo 'checked="checked"'; } ?>  name="params[ht_view8_element_show_caption]" value="true" />
+                                                </div>
+						<div class="">
 							<label for="ht_view8_element_title_font_size">Element Title Font Size</label>
 							<input type="text" name="params[ht_view8_element_title_font_size]" id="ht_view8_element_title_font_size" value="<?php echo $param_values['ht_view8_element_title_font_size']; ?>" class="text" />
 							<span>px</span>
 						</div>
-						<div>
+						<div class="has-background">
 							<label for="ht_view8_element_title_font_color">Element Title Font Color</label>
 							<input name="params[ht_view8_element_title_font_color]" type="text" class="color" id="ht_view8_element_title_font_color" value="#<?php echo $param_values['ht_view8_element_title_font_color']; ?>" size="10" />
 						</div>
-						<div class="has-background">
+						<div>
 							<label for="ht_view8_element_title_background_color">Element Title Background Color</label>
 							<input name="params[ht_view8_element_title_background_color]" type="text" class="color" id="ht_view8_element_title_background_color" value="#<?php echo $param_values['ht_view8_element_title_background_color']; ?>" size="10" />
 						</div>
                                                 
-                                                <div>
+                                                <div class="has-background">
                                                         <label for="ht_view8_zoombutton_style">Element's Title Overlay Transparency</label>
                                                         <div class="slider-container">
                                                             <input name="params[ht_view8_element_title_overlay_transparency]" id="ht_view8_element_title_overlay_transparency" data-slider-highlight="true"  data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text" data-slider="true" value="<?php echo $param_values['ht_view8_element_title_overlay_transparency']; ?>" />
@@ -872,11 +877,6 @@ jQuery(document).ready(function () {
                                                         </div>
 						</div>
                                                 
-                                                <div class="has-background">
-                                                        <label for="ht_view8_element_show_caption">Show Title</label>
-                                                        <input type="hidden" value="false" name="params[ht_view8_element_show_caption]" />
-                                                        <input type="checkbox" id="ht_view8_element_show_caption"  <?php if($param_values['ht_view8_element_show_caption']  == 'true'){ echo 'checked="checked"'; } ?>  name="params[ht_view8_element_show_caption]" value="true" />
-                                                </div>
 					</div>
                                </li>
 			</ul>
