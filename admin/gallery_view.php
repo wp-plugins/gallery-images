@@ -360,11 +360,10 @@ jQuery(document).ready(function($){
 					<ul id="images-list">
 					<?php
 					
-					function get_youtube_id_from_url($url){
-						if (stristr($url,'youtu.be/'))
-							{ preg_match('/(https:|http:|)(\/\/www\.|\/\/|)(.*?)\/(.{11})/i', $url, $final_ID); return $final_ID[4]; }
-						else 
-							{ preg_match('/(https:|http:|):(\/\/www\.|\/\/|)(.*?)\/(embed\/|watch\?v=|(.*?)&v=|v\/|e\/|.+\/|watch.*v=|)([a-z_A-Z0-9]{11})/i', $url, $IDD); return $IDD[6]; }
+					function get_youtube_id_from_url($url){						
+						if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match)) {
+							return $match[1];
+						}
 					}
 					
 					$i=2;
@@ -526,7 +525,7 @@ jQuery(document).ready(function($){
 							
 							<li <?php if($i%2==0){echo "class='has-background'";}$i++; ?>  >
 							<input class="order_by" type="hidden" name="order_by_<?php echo $rowimages->id; ?>" value="<?php echo $rowimages->ordering; ?>" />
-								<?php 	if(strpos($rowimages->image_url,'youtube') !== false) {
+								<?php 	if(strpos($rowimages->image_url,'youtube') !== false || strpos($rowimages->image_url,'youtu') !== false) {
 											$liclass="youtube";
 											$video_thumb_url=get_youtube_id_from_url($rowimages->image_url);
 											$thumburl='<img src="http://img.youtube.com/vi/'.$video_thumb_url.'/mqdefault.jpg" alt="" />';

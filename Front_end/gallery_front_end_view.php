@@ -1,12 +1,12 @@
 <?php
 function get_video_id_from_url($url){
-
-	if(strpos($url,'youtube') !== false){
-		if (stristr($url,'youtu.be/')){ preg_match('/(https:|http:|)(\/\/www\.|\/\/|)(.*?)\/(.{11})/i', $url, $final_ID); return array($final_ID[4],'youtube'); }
-		else{ preg_match('/(https:|http:|):(\/\/www\.|\/\/|)(.*?)\/(embed\/|watch\?v=|(.*?)&v=|v\/|e\/|.+\/|watch.*v=|)([a-z_A-Z0-9]{11})/i', $url, $IDD); return array($IDD[6],'youtube'); }
+	if(strpos($url,'youtube') !== false || strpos($url,'youtu') !== false){	
+		if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match)) {
+			return array ($match[1],'youtube');
+		}
 	}else {
-                $openError = explode( "/", $url );
-		$vimeoid =  end($openError);
+		$vimeoid =  explode( "/", $url );
+		$vimeoid =  end($vimeoid);
 		return array($vimeoid,'vimeo');
 	}
 }
@@ -54,8 +54,12 @@ function front_end_gallery($images, $paramssld, $gallery)
 	var lightbox_innerHeight = '<?php echo $paramssld['light_box_innerheight'];?>';
 	var lightbox_initialWidth = '<?php echo $paramssld['light_box_initialwidth'];?>';
 	var lightbox_initialHeight = '<?php echo $paramssld['light_box_initialheight'];?>';
-	var lightbox_maxWidth = <?php if($paramssld['light_box_size_fix'] == 'true'){ echo 'false';} else { echo $paramssld['light_box_maxwidth']; } ?>;
-	var lightbox_maxHeight = <?php if($paramssld['light_box_size_fix'] == 'true'){ echo 'false';} else { echo $paramssld['light_box_maxheight']; } ?>;
+        
+	var maxwidth=jQuery(window).width();
+        if(maxwidth><?php echo $paramssld['light_box_maxwidth'];?>){maxwidth=<?php echo $paramssld['light_box_maxwidth'];?>;}
+        var lightbox_maxWidth = <?php if($paramssld['light_box_size_fix'] == 'true'){ echo '"100%"';} else { echo 'maxwidth'; } ?>;
+        var lightbox_maxHeight = <?php if($paramssld['light_box_size_fix'] == 'true'){ echo '"100%"';} else { echo $paramssld['light_box_maxheight']; } ?>;
+        
 	var lightbox_slideshow = <?php echo $paramssld['light_box_slideshow'];?>;
 	var lightbox_slideshowSpeed = <?php echo $paramssld['light_box_slideshowspeed'];?>;
 	var lightbox_slideshowAuto = <?php echo $paramssld['light_box_slideshowauto'];?>;
