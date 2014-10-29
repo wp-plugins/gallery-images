@@ -4,7 +4,7 @@
 Plugin Name: Huge IT Image Gallery
 Plugin URI: http://huge-it.com/wordpress-gallery/
 Description: Huge-IT Image Gallery is the best plugin to use if you want to be original with your website.
-Version: 1.1.3
+Version: 1.1.4
 Author: Huge-IT
 Author: http://huge-it.com/
 License: GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
@@ -204,6 +204,23 @@ function huge_it_gallery_ShowTinyMCE()
     do_action("admin_print_styles-post-php");
     do_action('admin_print_styles');
 }
+
+function all_frontend_scripts_and_styles() {
+    wp_register_script( 'jquery.colorbox-js', plugins_url('/js/jquery.colorbox.js', __FILE__), array('jquery'),'1.0.0',true  ); 
+    wp_enqueue_script( 'jquery.colorbox-js' );
+    wp_register_script( 'gallery-all-js', plugins_url('/js/gallery-all.js', __FILE__), array('jquery'),'1.0.0',true  ); 
+    wp_enqueue_script( 'gallery-all-js' );
+    wp_register_script( 'hugeitmicro-min-js', plugins_url('/js/jquery.hugeitmicro.min.js', __FILE__), array('jquery'),'1.0.0',true  ); 
+    wp_enqueue_script( 'hugeitmicro-min-js' );
+    
+    wp_register_style( 'gallery-all-css', plugins_url('/style/gallery-all.css', __FILE__) );   
+    wp_enqueue_style( 'gallery-all-css' );
+    wp_register_style( 'style2-os-css', plugins_url('/style/style2-os.css', __FILE__) );   
+    wp_enqueue_style( 'style2-os-css' );
+    wp_register_style( 'lightbox-css', plugins_url('/style/lightbox.css', __FILE__) );   
+    wp_enqueue_style( 'lightbox-css' );
+}
+add_action('wp_enqueue_scripts', 'all_frontend_scripts_and_styles');
 
 
 add_action('admin_menu', 'huge_it_gallery_options_panel');

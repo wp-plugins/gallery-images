@@ -4,7 +4,7 @@ Donate link: http://huge-it.com/wordpress-gallery/
 Tags: gallery, image gallery, gallery image, content slider, widget gallery, lightbox gallery, website gallery, gallery lightbox, image, images, post, posts, content gallery, galleries, wordpress gallery, Picture Gallery, nextgen, nextgen gallery, photo gallery, galeria, gallery, best gallery, thumbnail view, content gallery, media gallery, easy gallery, picture, gallery plugin, plugin gallery, add gallery, add image, add picture, add photo, galery, add images, add pictures, gallery wordpress, widget, wp gallery, thumbnail, thumbnails, gallery slider, Galleria, simple gallery, img, admin, wordpress gallery plugin, thumbs, media, free gallery, free images, video gallery, youtube gallery, vimeo gallery, youtube, vimeo, grid gallery, sidebar, responsive, images gallery, video, filterable gallery, grid, iphone gallery, shortcode, videos, seo, photogallery, photoset, shortcode gallery, fullscreen gallery, justified, demo, lightbox,
 Requires at least: 3.0.1
 Tested up to: 4.0
-Stable tag: 1.1.3
+Stable tag: 1.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -92,6 +92,9 @@ Now you can set your Image Gallery options, images and use our Image Gallery.
 
 
 == Changelog ==
+
+= 1.1.4 =
+*  Two or more galleries on one page already available.
 
 = 1.1.3 =
 *  Bugs have been fixed on Image Gallery's lightbox.
