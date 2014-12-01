@@ -144,8 +144,6 @@ INSERT INTO
 		$rowsposts8=$wpdb->get_results($query);
 
 
-	 
-
 			   foreach($rowsposts8 as $rowsposts13){
 	 $query=$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."posts where post_type = 'post' and post_status = 'publish' and ID = %d  order by ID ASC",$rowsposts13->object_id);
 			   $rowsposts1=$wpdb->get_results($query);
@@ -159,21 +157,13 @@ INSERT INTO
   
 function add_gallery()
 {
-	global $wpdb;
-	
-	$query="SELECT name,ordering FROM ".$wpdb->prefix."huge_itgallery_gallerys WHERE sl_width=0 ORDER BY `ordering`";
-	$ord_elem=$wpdb->get_results($query); ///////ordering elements list
-	$cat_row=$wpdb->get_results("SELECT * FROM ".$wpdb->prefix."huge_itgallery_gallerys where sl_width=0");
-	$cat_row=open_cat_in_tree($cat_row);
-	
+	global $wpdb;	
 	$table_name = $wpdb->prefix . "huge_itgallery_gallerys";
     $sql_2 = "
 INSERT INTO 
 
-`" . $table_name . "` ( `name`, `sl_height`, `sl_width`, `pause_on_hover`, `gallery_list_effects_s`, `description`, `param`, `ordering`, `published`, `huge_it_sl_effects`) VALUES
-( 'New gallery', '375', '600', 'on', 'cubeH', '4000', '1000', '1', '300', '4')";
-
-    $wpdb->query($sql_huge_itgallery_gallerys);
+`" . $table_name . "` ( `name`, `sl_height`, `sl_width`, `pause_on_hover`, `gallery_list_effects_s`, `description`, `param`, `sl_position`, `ordering`, `published`, `huge_it_sl_effects`) VALUES
+( 'New gallery', '375', '600', 'on', 'cubeH', '4000', '1000', 'center', '1', '300', '4')";
 
       $wpdb->query($sql_2);
 
@@ -186,12 +176,8 @@ INSERT INTO
 		if($last_key == $key){
 			header('Location: admin.php?page=gallerys_huge_it_gallery&id='.$rowsldccs->id.'&task=apply');
 		}
-	}
-	
-	html_add_gallery($ord_elem, $cat_row);
-	
+	}	
 }
-
 
 
 
