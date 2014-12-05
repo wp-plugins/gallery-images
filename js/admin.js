@@ -16,8 +16,9 @@ jQuery(document).ready(function () {
 		jQuery('#gallery-view-tabs > li').removeClass('active');
 		jQuery(this).parent().addClass('active');
 		jQuery('#gallery-view-tabs-contents > li').removeClass('active');
-		var liID=jQuery(this).attr('href').replace('#','');
-		jQuery('#gallery-view-tabs-contents > li[data-id="'+liID+'"').addClass('active');
+		var liID=jQuery(this).attr('href').split('#').join('.');//alert(liID);
+		jQuery(liID).addClass('active');
+                liID=liID.replace('.','');
 		jQuery('#adminForm').attr('action',"admin.php?page=Options_gallery_styles&task=save#"+liID);
 	});
 	

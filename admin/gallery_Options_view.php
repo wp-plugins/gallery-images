@@ -12,21 +12,23 @@ function      html_showStyles($param_values, $op_type)
 <script>
 jQuery(document).ready(function () {
 	var strliID=jQuery(location).attr('hash');
-	//alert(strliID);
-	jQuery('#gallery-view-tabs > li').removeClass('active');
-	if(jQuery('#gallery-view-tabs > li > a[href="'+strliID+'"]').length>0){
-		jQuery('#gallery-view-tabs > li > a[href="'+strliID+'"]').parent().addClass('active');
+//	alert(strliID);  //  #gallery-view-options-x
+	jQuery('#gallery-view-tabs li').removeClass('active');
+	if(jQuery('#gallery-view-tabs li a[href="'+strliID+'"]').length>0){
+		jQuery('#gallery-view-tabs li a[href="'+strliID+'"]').parent().addClass('active');
 	}else {
-		jQuery('#gallery-view-tabs > li > a[href="#gallery-view-options-0"]').parent().addClass('active');
+		jQuery('a[href="#gallery-view-options-0"]').parent().addClass('active');
 	}
+        strliID = strliID.split('#').join('.');
 	jQuery('#gallery-view-tabs-contents > li').removeClass('active');
-	strliID=strliID.replace("#","");
+	 //.replace("#","")
 	//alert(strliID);
-	if(jQuery('#gallery-view-tabs-contents > li[data-id="'+strliID+'"]').length>0){
-		jQuery('#gallery-view-tabs-contents > li[data-id="'+strliID+'"]').addClass('active');
+	if(jQuery(strliID).length>0){
+		jQuery(strliID).addClass('active');
 	}else {
-		jQuery('#gallery-view-tabs-contents > li[data-id="gallery-view-options-0"]').addClass('active');
+		jQuery('.gallery-view-options-0').addClass('active');
 	}
+        
 	jQuery('input[data-slider="true"]').bind("slider:changed", function (event, data) {
 		 jQuery(this).parent().find('span').html(parseInt(data.value)+"%");
 		 jQuery(this).val(parseInt(data.value));
@@ -73,7 +75,7 @@ jQuery(document).ready(function () {
 			
 			<ul class="options-block" id="gallery-view-tabs-contents">				
 				<!-- VIEW 2 POPUP -->
-				<li data-id="gallery-view-options-0">
+				<li class="gallery-view-options-0">
 					<div>
 						<h3>Element Styles</h3>
 						<div class="has-background">
@@ -249,7 +251,7 @@ jQuery(document).ready(function () {
 					</div>
 				</li>
 				<!-- View 1 Content Slider -->
-				<li data-id="gallery-view-options-1">
+				<li class="gallery-view-options-1">
 					<div>
 						<h3>Slider Container</h3>			
 							<div class="has-background">
@@ -338,7 +340,7 @@ jQuery(document).ready(function () {
 					</div>
 				</li>
 				<!-- VIEW 2 Gallery  -->
-				<li data-id="gallery-view-options-2">
+				<li class="gallery-view-options-2">
 					<div>
 						<h3>Image</h3>
 						<div class="has-background">
@@ -389,7 +391,7 @@ jQuery(document).ready(function () {
 						</div>
 					</div>
 				</li>
-				<li data-id="gallery-view-options-3">
+				<li class="gallery-view-options-3">
 					<div class="options-block" id="options-block-slider">
 						<h3>Slider</h3>
 						<div class="has-background">
@@ -708,7 +710,7 @@ jQuery(document).ready(function () {
 						</div>
 					</div>
 				</li>
-				<li data-id="gallery-view-options-4">
+				<li class="gallery-view-options-4">
 					<div>
 						<h3>Container Style</h3>
 						<div class="has-background">
@@ -795,7 +797,7 @@ jQuery(document).ready(function () {
 						</div>
 					</div>
 				</li>
-                                <li data-id="gallery-view-options-5">
+                                <li class="gallery-view-options-5">
                                         <div>
 						<h3>Element Styles</h3>
 						
