@@ -268,6 +268,24 @@ jQuery(function(){
     });
     
     
+    <?php if($paramssld['ht_view2_content_in_center'] == 'on') { ?>
+    centersection();
+      jQuery(window).resize(function(){
+          centersection();
+      });
+            function centersection(){
+                var elementwidth=<?php echo $paramssld['ht_view2_element_width']; ?> + 20 + <?php echo $paramssld['ht_view2_element_border_width']*2; ?>;
+                var enterycontent=jQuery("#huge_it_gallery_container_<?php echo $galleryID; ?>").width();
+                var whole=~~(enterycontent/(elementwidth));
+                if(whole==0){ return false; }
+                else { var sectionwidth= whole * elementwidth;}
+                jQuery("#huge_it_gallery_container_moving_<?php echo $galleryID; ?>").width(sectionwidth).css({"margin":"0px auto","overflow":"hidden",});
+//                 alert(elementwidth + " " + enterycontent + " " + whole + " " + sectionwidth);
+      }
+      <?php } ?>
+    
+    
+    
 	var $optionSets = jQuery('#huge_it_gallery_options .option-set'),
 	$optionLinks = $optionSets.find('a');
 
@@ -1364,7 +1382,23 @@ $container.hugeitmicro({
         return false;
       });
 
-
+      
+      <?php if($paramssld['ht_view6_content_in_center'] == 'on') { ?>
+      centersection();
+      jQuery(window).resize(function(){
+          centersection();
+      });
+            function centersection(){
+                var elementwidth=<?php echo $paramssld['ht_view6_width']; ?> + 10 + <?php echo $paramssld['ht_view6_border_width']*2; ?>;
+                var enterycontent=jQuery("#huge_it_gallery_container_<?php echo $galleryID; ?>").width();
+                var whole=~~(enterycontent/(elementwidth));
+                if(whole==0){ return false; }
+                else { var sectionwidth= whole * elementwidth;}
+                jQuery("#huge_it_gallery_container_moving_<?php echo $galleryID; ?>").width(sectionwidth).css({"margin":"0px auto","overflow":"hidden",});
+//                 alert(elementwidth + " " + enterycontent + " " + whole + " " + sectionwidth);
+      }
+      <?php } ?>
+      
     
 
       var isHorizontal = false;

@@ -4,7 +4,7 @@
 Plugin Name: Huge IT Image Gallery
 Plugin URI: http://huge-it.com/wordpress-gallery/
 Description: Huge-IT Image Gallery is the best plugin to use if you want to be original with your website.
-Version: 1.1.8
+Version: 1.1.9
 Author: Huge-IT
 Author: http://huge-it.com/
 License: GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
@@ -878,6 +878,21 @@ query1;
 	$update_p2=$wpdb->get_results($query);
 	if(end($update_p2)->name=='thumb_view_text'){
 		$wpdb->query($sql_update_g2);
+	}
+        
+        $table_name = $wpdb->prefix . "huge_itgallery_params";
+	    $sql_update_g3 = <<<query3
+INSERT INTO `$table_name` (`name`, `title`,`description`, `value`) VALUES
+('ht_view2_content_in_center', 'View2 Content In Center', 'View2 Content In Center', 'off'),
+('ht_view6_content_in_center', 'View6 Content In Center', 'View6 Content In Center', 'off');
+                    
+query3;
+        
+        
+        $query3="SELECT name FROM ".$wpdb->prefix."huge_itgallery_params";
+	$update_p3=$wpdb->get_results($query3);
+	if(end($update_p3)->name=='ht_view8_element_animation_speed'){
+		$wpdb->query($sql_update_g3);
 	}
 }
 

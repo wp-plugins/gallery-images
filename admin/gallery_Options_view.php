@@ -73,10 +73,19 @@ jQuery(document).ready(function () {
                                 <li><a href="#gallery-view-options-5">Justified</a></li>
 			</ul>
 			
-			<ul class="options-block" id="gallery-view-tabs-contents">				
+			<ul class="options-block" id="gallery-view-tabs-contents">
 				<!-- VIEW 2 POPUP -->
 				<li class="gallery-view-options-0">
 					<div>
+                                                <h3>Content Styles</h3>
+                                                <div class="has-background">
+							<label for="ht_view2_content_in_center">Show Content In The Center</label>
+							<input type="hidden" value="off" name="params[ht_view2_content_in_center]" />
+							<input type="checkbox" id="ht_view2_content_in_center"  <?php if($param_values['ht_view2_content_in_center']  == 'on'){ echo 'checked="checked"'; } ?>  name="params[ht_view2_content_in_center]" value="on" />
+						</div>
+                                                <div class="has-background" style="margin-top: 10px !important;height: 35px;">
+							
+						</div>
 						<h3>Element Styles</h3>
 						<div class="has-background">
 							<label for="ht_view2_element_width">Element Width</label>
@@ -116,7 +125,7 @@ jQuery(document).ready(function () {
 							</select>
 						</div>
 					</div>
-					<div>					
+					<div>
 						<h3>Element Title</h3>
 						<div class="has-background">
 							<label for="ht_view2_element_title_font_size">Element Title Font Size</label>
@@ -157,7 +166,7 @@ jQuery(document).ready(function () {
 							<input name="params[ht_view2_element_linkbutton_background_color]" type="text" class="color" id="ht_view2_element_linkbutton_background_color" value="#<?php echo $param_values['ht_view2_element_linkbutton_background_color']; ?>" size="10" />
 						</div>
 					</div>
-					<div style="margin-top:-120px;">
+					<div style="">
 						<h3>Popup Styles</h3>
 						<div class="has-background">
 							<label for="ht_view2_popup_background_color">Popup Background Color</label>
@@ -187,7 +196,7 @@ jQuery(document).ready(function () {
 							<input type="checkbox" id="ht_view2_show_separator_lines"  <?php if($param_values['ht_view2_show_separator_lines']  == 'on'){ echo 'checked="checked"'; } ?>  name="params[ht_view2_show_separator_lines]" value="on" />
 						</div>
 					</div>
-					<div>					
+					<div style="margin-top: -280px;">					
 						<h3>Popup Title</h3>
 						<div class="has-background">
 							<label for="ht_view2_popup_title_font_size">Popup Title Font Size</label>
@@ -199,7 +208,7 @@ jQuery(document).ready(function () {
 							<input name="params[ht_view2_popup_title_font_color]" type="text" class="color" id="ht_view2_element_title_font_color" value="#<?php echo $param_values['ht_view2_popup_title_font_color']; ?>" size="10" />
 						</div>
 					</div>
-					<div>
+                                        <div style="margin-top: -95px;">
 						<h3>Popup Description</h3>
 						<div class="has-background">
 							<label for="ht_view2_show_description">Show Description</label>
@@ -253,7 +262,7 @@ jQuery(document).ready(function () {
 				<!-- View 1 Content Slider -->
 				<li class="gallery-view-options-1">
 					<div>
-						<h3>Slider Container</h3>			
+						<h3>Slider Container</h3>
 							<div class="has-background">
 								<label for="ht_view5_main_image_width">Main Image Width</label>
 								<input type="text" name="params[ht_view5_main_image_width]" id="ht_view5_main_image_width" value="<?php echo $param_values['ht_view5_main_image_width']; ?>" class="text" />
@@ -342,6 +351,15 @@ jQuery(document).ready(function () {
 				<!-- VIEW 2 Gallery  -->
 				<li class="gallery-view-options-2">
 					<div>
+                                                <h3>Content Styles</h3>
+                                                <div class="has-background">
+							<label for="ht_view6_content_in_center">Show Content In The Center</label>
+							<input type="hidden" value="off" name="params[ht_view6_content_in_center]" />
+							<input type="checkbox" id="ht_view6_content_in_center"  <?php if($param_values['ht_view6_content_in_center']  == 'on'){ echo 'checked="checked"'; } ?>  name="params[ht_view6_content_in_center]" value="on" />
+						</div>
+                                                <div class="has-background" style="margin-top: 10px !important;height: 35px;">
+							
+						</div>
 						<h3>Image</h3>
 						<div class="has-background">
 							<label for="ht_view6_width">Image Width</label>
@@ -858,7 +876,7 @@ jQuery(document).ready(function () {
                                                         <input type="hidden" value="false" name="params[ht_view8_element_show_caption]" />
                                                         <input type="checkbox" id="ht_view8_element_show_caption"  <?php if($param_values['ht_view8_element_show_caption']  == 'true'){ echo 'checked="checked"'; } ?>  name="params[ht_view8_element_show_caption]" value="true" />
                                                 </div>
-						<div class="">
+						<div>
 							<label for="ht_view8_element_title_font_size">Element Title Font Size</label>
 							<input type="text" name="params[ht_view8_element_title_font_size]" id="ht_view8_element_title_font_size" value="<?php echo $param_values['ht_view8_element_title_font_size']; ?>" class="text" />
 							<span>px</span>
