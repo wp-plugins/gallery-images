@@ -34,7 +34,7 @@ Each view has unique customizable options in “ General Options “ section to 
 
 Image Gallery plugin offers you, being already easy to use and friendly admin panel, where you can add several images and videos at a time and immediately give them a title, description and link, goes to any page, and set the way it opens. Huge-IT Image Gallery and all other plugins of our company have very high quality support so you always can be sure that you will not have any problems, with this plugin. Our experts are always ready to respond any your questions. With our Image Gallery you can realize your most original ideas. 6 views of the Image Gallery gives you 6 ways to be the best! Each view of Image Gallery is original, elegant and will fit to any styles of your images, videos and information. No matter to slide or show your media in thumbnails, or give them a useful information and show both together, whatever you choose will look original, because we worked hard on making Image Gallery irrepetible. So you can always be bold in your ideas with Huge-IT Image Gallery.
 
-Considering the large number of galleries in WordPress, Huge-IT company day by day will improve and enhance the functionality of Image gallery, and keep on adhering to the first position among WordPress Gallery plugins. One of our new improvement is the video adding ability, besides images now you can also add any video you’d like from Youtube or Vimeo, just adding the video link you can get to show them in one of views. So We are sure our Image gallery will always satisfy you as our other 82,617+ users. Now just Install & Enjoy. All new information about new features and improvements that we made, you can find on our blog in the main page of Huge-it.com.
+Considering the large number of galleries in WordPress, Huge-IT company day by day will improve and enhance the functionality of Image gallery, and keep on adhering to the first position among WordPress Gallery plugins. One of our new improvement is the video adding ability, besides images now you can also add any video you’d like from Youtube or Vimeo, just adding the video link you can get to show them in one of views. So We are sure our Image gallery will always satisfy you as our other 84,495+ users. Now just Install & Enjoy. All new information about new features and improvements that we made, you can find on our blog in the main page of Huge-it.com.
 
 ### The features of the Image Gallery
 
@@ -99,7 +99,7 @@ Now you can set your Image Gallery options, images and use our Image Gallery.
 Pro users can get update versions contacting us by info@huge-it.com.
 Free version  users will find update notification in their wordpress admin panel.
  
-
+ 
 **I have paid for pro version and didn’t get the link or file to update**
 If you made purchase and didn’t get the file, or file was corrupt, contact us by info@huge-it.com and send “order number”, we will check and send you the file as soon as possible
 
@@ -120,6 +120,13 @@ Set “show the title” from Lightbox Options
 **I have already purchased Multi Site version, how do I upgrade it to Developer version, without buying it again?**
 If you have any pro version of our products and want to upgrade it, you do not need to buy the new one again, you only need to pay the difference price.
 For example, if you have personal version and need to upgrade to Multi Site, just buy one more personal, and contact us by info@huge-it.com, send the receipt and we will send Multi Site version, from Multi Site to Developer, just buy one personal, and ask us for Developer version.
+
+**I’ve bought the commercial license,  installed the file but the Plugin seems to be still in free version, what to do? **
+After installation of pro version, in General Options all your changes will be saved!
+If you still see "free version" notification after installation of pro version
+1) try to clean your cache files
+if this will not help
+2) delete, and install the plugin again
 
 ### If you think, that you found a bug in our [WordPress Image Gallery](http://huge-it.com/wordpress-gallery/) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com).
 
