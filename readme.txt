@@ -128,6 +128,13 @@ If you still see "free version" notification after installation of pro version
 if this will not help
 2) delete, and install the plugin again
 
+**I have multy sites, and the plugin works only on one, but not other sites, why?**
+If you use multy site (have number of sites) when you install a plugin in main page, it will not work on other pages. 
+In order it could work there too, you should. 
+1) deactivate the plugin from main page
+2) go to the other pages and activate it there one by one 
+3) after all will be activated, go back to your main page and activate it
+
 ### If you think, that you found a bug in our [WordPress Image Gallery](http://huge-it.com/wordpress-gallery/) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com).
 
 == Changelog ==
