@@ -565,6 +565,7 @@ jQuery(document).ready(function(){
 
 #huge_it_gallery_popup_list_<?php echo $galleryID; ?> .popup-wrapper_<?php echo $galleryID; ?> .image-block_<?php echo $galleryID; ?> {
 	width:60%;
+	<?php if($paramssld['ht_view2_popup_full_width'] == 'off') { echo "height:100%;"; } ?>
 	position:relative;
 	float:left;
 	margin-right:2%;
@@ -573,7 +574,10 @@ jQuery(document).ready(function(){
 }
 
 #huge_it_gallery_popup_list_<?php echo $galleryID; ?> .popup-wrapper_<?php echo $galleryID; ?> .image-block_<?php echo $galleryID; ?> img {
-	width:100% !important;
+	    <?php
+            if($paramssld['ht_view2_popup_full_width'] == 'off') { echo "max-width:100% !important; max-height:100% !important;margin: 0px auto !important; position:relative;"; }
+            else { echo "width:100% !important;"; }
+        ?>
 	display:block;
 }
 
