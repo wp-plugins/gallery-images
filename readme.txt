@@ -4,7 +4,7 @@ Donate link: http://huge-it.com/wordpress-gallery/
 Tags: gallery, image gallery, gallery image, content slider, widget gallery, lightbox gallery, website gallery, gallery lightbox, image, images, post, posts, content gallery, galleries, wordpress gallery, Picture Gallery, nextgen, nextgen gallery, photo gallery, galeria, gallery, best gallery, thumbnail view, content gallery, media gallery, easy gallery, picture, gallery plugin, plugin gallery, wordpress photo gallery plugin, photos, photo, add gallery, add image, add picture, add photo, galery, add images, add pictures, gallery wordpress, widget, wp gallery, thumbnail, thumbnails, gallery slider, Galleria, simple gallery, wordpress gallery plugin, thumbs, media, free gallery, free images, video gallery, youtube gallery, vimeo gallery, youtube, photo albums, vimeo, grid gallery, sidebar, responsive, images gallery, video, filterable gallery, grid, iphone gallery, shortcode, videos, seo, photogallery, photoset, shortcode gallery, fullscreen gallery, justified, demo, lightbox, fullscreen slider, gallery shortcode, free photo gallery, free, best gallery plugin, photo album, image rotator, free slider, banner rotator, album, galeri, galerie, image album, wp gallery plugins, pictures, revolution, image gallery plugin, image slider, slideshow, slide, lightbox slider, slideshow gallery, photography, watermarking, fotogalerie, responsive wordpress photo gallery, responsive gallery, art gallery, drag-and-drop, gallery decription, multiple pictures, portfolio plugin, foto galerie,
 Requires at least: 3.0.1
 Tested up to: 4.1
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -138,6 +138,9 @@ In order it could work there too, you should.
 ### If you think, that you found a bug in our [WordPress Image Gallery](http://huge-it.com/wordpress-gallery/) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com).
 
 == Changelog ==
+
+= 1.2.1 =
+*  Bug fixed in Image Gallery.
 
 = 1.2.0 =
 *  Bug fixed in Image Gallery.
