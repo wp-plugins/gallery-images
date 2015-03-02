@@ -3201,7 +3201,7 @@ jQuery(function(){
 						case 'image': 
 					?>									
 						<a class="group1" href="<?php echo $row->image_url; ?>"></a>
-						<img alt="<?php echo $row->name; ?>" src="<?php echo $row->image_url; ?>" alt="<?php echo $row->name; ?>" />
+						<img alt="<?php echo $row->name; ?>" src="<?php echo $row->image_url; ?>" />
 					<?php 
 						break;
 						case 'video':
@@ -3389,7 +3389,7 @@ jQuery(function(){
                     ?>
                                 <?php 	if($row->image_url != ';'){ ?>
                                 <a class="group1" href="<?php echo $imgurl[0]; ?>">
-                                    <img alt="<?php echo $row->name; ?>" id="wd-cl-img<?php echo $key; ?>" alt="<?php echo $row->name; ?>" src="<?php echo $imgurl[0]; ?>"/>
+                                    <img alt="<?php echo $row->name; ?>" id="wd-cl-img<?php echo $key; ?>" src="<?php echo $imgurl[0]; ?>"/>
                                 </a>
                                 <?php } else { ?>
                                 <img alt="<?php echo $row->name; ?>" id="wd-cl-img<?php echo $key; ?>" src="images/noimage.jpg"  />
@@ -3402,7 +3402,7 @@ jQuery(function(){
                                 $videourl=get_video_id_from_url($row->image_url);
                                 if($videourl[1]=='youtube'){?>
                                         <a class="youtube huge_it_gallery_item group1"  href="https://www.youtube.com/embed/<?php echo $videourl[0]; ?>">
-                                                <img alt="<?php echo $row->name; ?>" src="http://img.youtube.com/vi/<?php echo $videourl[0]; ?>/mqdefault.jpg" alt="<?php echo $row->name; ?>" />
+                                                <img alt="<?php echo $row->name; ?>" src="http://img.youtube.com/vi/<?php echo $videourl[0]; ?>/mqdefault.jpg" />
                                                 <div class="play-icon <?php echo $videourl[1]; ?>-icon"></div>
                                         </a>
                                 <?php }
@@ -3411,7 +3411,7 @@ jQuery(function(){
                                         $imgsrc=$hash[0]['thumbnail_large'];
                                 ?>
                                         <a class="vimeo huge_it_gallery_item group1" href="http://player.vimeo.com/video/<?php echo $videourl[0]; ?>">
-                                                <img alt="<?php echo $row->name; ?>" src="<?php echo $imgsrc; ?>" alt="<?php echo $row->name; ?>" />
+                                                <img alt="<?php echo $row->name; ?>" src="<?php echo $imgsrc; ?>" />
                                                 <div class="play-icon <?php echo $videourl[1]; ?>-icon"></div>
                                         </a>
                                 <?php
