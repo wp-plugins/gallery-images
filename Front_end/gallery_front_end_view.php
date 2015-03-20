@@ -510,7 +510,7 @@ jQuery(document).ready(function(){
 	margin:0px !important;
 	padding:0px !important;
 	list-style:none;
-	z-index:2000;
+	z-index:30000;
 	display:none;
 	height:85%;
 }
