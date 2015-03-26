@@ -1457,9 +1457,10 @@ break;
 	$sliderpauseonhover=$gallery[0]->pause_on_hover;
 	$sliderposition=$gallery[0]->sl_position;
 	$slidechangespeed=$gallery[0]->param;
-
-	$slideshow_title_position = explode('-', trim($paramssld['slider_title_position']));
-	$slideshow_description_position = explode('-', trim($paramssld['slider_description_position']));
+    $trim_slider_title_position = trim($paramssld['slider_title_position']);
+	$slideshow_title_position = explode('-',$trim_slider_title_position );
+	$trim_slider_description_position = trim($paramssld['slider_description_position']);
+	$slideshow_description_position = explode('-', $trim_slider_description_position);
 	
 	$hasyoutube=false;
 	$hasvimeo=false;
