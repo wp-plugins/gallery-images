@@ -24,6 +24,66 @@ function front_end_gallery($images, $paramssld, $gallery)
 	$galleryposition=$gallery[0]->sl_position;
 	$slidechangespeed=$gallery[0]->param;
 	$gallerychangeview=$gallery[0]->huge_it_sl_effects;
+	
+			/***<optimize_images>***/
+							
+			$view2_width = $paramssld['ht_view2_element_width']; 
+			$view3_width = $paramssld['thumb_image_width']; 
+			$view4_width = $paramssld["ht_view5_main_image_width"]; 
+			$view6_width = $paramssld["ht_view6_width"];
+			$cropwidth = max($view2_width ,$view3_width,$view4_width,$view6_width);
+			$image_prefix = "_huge_it_small_gallery";
+		if(!function_exists('huge_it_copy_image_to_small')) {
+			
+		function huge_it_copy_image_to_small($imgurl,$image_prefix,$width1 = "275") { 
+				
+				if($width1 < 32) {
+					$width1 = "32";
+				}
+				
+				$pathinfo = pathinfo($imgurl);
+				$filename = $pathinfo["filename"];//get image's name
+				$extension = $pathinfo["extension"];//get image,s extension
+				$size = getimagesize ($imgurl);
+				$Width = $size[0];//old image's width
+				$Height = $size[1];//old image's height
+				
+				if ($width1 < $Width) {
+					$width = $width1;
+					$height = (int)(($width * $Height)/$Width);//get new height
+				}
+				
+				else {
+					$width = $Width;
+					$height = $Height;
+				}
+				
+				$img = wp_get_image_editor( $imgurl);
+				$upload_dir = wp_upload_dir(); 
+				
+				if ( ! is_wp_error( $img ) ) {
+					$img->resize( $width, $height, true );
+					$url = $upload_dir["path"];//get upload path
+					$copy_image = $url.'/'.$filename.$image_prefix.".".$extension;
+					if(!file_exists($copy_image)) {
+						$img->save($copy_image);//save new image if not exist
+					}
+				}
+			}
+		}
+		if(!function_exists('get_huge_image')) {
+			function get_huge_image($image_url,$img_prefix) {
+				$pathinfo = pathinfo($image_url);
+				$upload_dir = wp_upload_dir();
+				return $upload_dir["url"].'/'.$pathinfo["filename"].$img_prefix.'.'.$pathinfo["extension"];
+			}
+		}
+		foreach($images as $key=>$row) {
+			$imgurl = explode(";",$row->image_url);
+				huge_it_copy_image_to_small($imgurl[0],$image_prefix,$cropwidth);		
+
+		}
+						/***</optimize_images>***/
 ?>
 <script>
 	var lightbox_transition = '<?php echo $paramssld['light_box_transition'];?>';
@@ -781,7 +841,7 @@ jQuery(document).ready(function(){
 				?>									
 							<?php $imgurl=explode(";",$row->image_url); ?>
 							<?php 	if($row->image_url != ';'){ ?>
-							<img alt="<?php echo $row->name; ?>" id="wd-cl-img<?php echo $key; ?>" src="<?php echo $imgurl[0]; ?>"  />
+							<img alt="<?php echo $row->name; ?>" id="wd-cl-img<?php echo $key; ?>" src="<?php echo get_huge_image($imgurl[0],$image_prefix); ?>"  />
 							<?php } else { ?>
 							<img alt="<?php echo $row->name; ?>" id="wd-cl-img<?php echo $key; ?>" src="images/noimage.jpg"  />
 							<?php
@@ -1079,7 +1139,7 @@ jQuery(document).ready(function(){
 							case 'image':
 					?>									
 							<?php 	if($row->image_url != ';'){ ?>
-							<a class="group1" href="<?php echo $imgurl[0]; ?>" title="<?php echo $row->name; ?>"><img alt="<?php echo $row->name; ?>" class="main-image" src="<?php echo $imgurl[0]; ?>"  /></a>
+							<a class="group1" href="<?php echo $imgurl[0]; ?>" title="<?php echo $row->name; ?>"><img alt="<?php echo get_huge_image($row->name,$image_prefix); ?>" class="main-image" src="<?php echo $imgurl[0]; ?>"  /></a>
 							<?php } else { ?>
 							<img alt="<?php echo $row->name; ?>" class="main-image" src="images/noimage.jpg"  />
 							<?php
@@ -1254,7 +1314,7 @@ jQuery(document).ready(function(){
 				?>									
 							<?php $imgurl=explode(";",$row->image_url); ?>
 							<?php 	if($row->image_url != ';'){ ?>
-							<a href="<?php echo $imgurl[0]; ?>" title="<?php echo $row->name; ?>"><img alt="<?php echo $row->name; ?>" id="wd-cl-img<?php echo $key; ?>" src="<?php echo $imgurl[0]; ?>"  /></a>
+							<a href="<?php echo $imgurl[0]; ?>" title="<?php echo $row->name; ?>"><img alt="<?php echo $row->name; ?>" id="wd-cl-img<?php echo $key; ?>" src="<?php echo get_huge_image($imgurl[0],$image_prefix); ?>"  /></a>
 							<?php } else { ?>
 							<img alt="<?php echo $row->name; ?>" id="wd-cl-img<?php echo $key; ?>" src="images/noimage.jpg"  />
 							<?php
@@ -3202,7 +3262,7 @@ jQuery(function(){
 						case 'image': 
 					?>									
 						<a class="group1" href="<?php echo $row->image_url; ?>" title="<?php echo $row->name; ?>"></a>
-						<img alt="<?php echo $row->name; ?>" src="<?php echo $row->image_url; ?>" />
+						<img alt="<?php echo $row->name; ?>" src="<?php echo get_huge_image($row->image_url,$image_prefix); ?>" />
 					<?php 
 						break;
 						case 'video':
@@ -3390,7 +3450,7 @@ jQuery(function(){
                     ?>
                                 <?php 	if($row->image_url != ';'){ ?>
                                 <a class="group1" href="<?php echo $imgurl[0]; ?>" title="<?php echo $row->name; ?>">
-                                    <img alt="<?php echo $row->name; ?>" id="wd-cl-img<?php echo $key; ?>" src="<?php echo $imgurl[0]; ?>"/>
+                                    <img alt="<?php echo $row->name; ?>" id="wd-cl-img<?php echo $key; ?>" src="<?php echo get_huge_image($imgurl[0],$image_prefix); ?>"/>
                                 </a>
                                 <?php } else { ?>
                                 <img alt="<?php echo $row->name; ?>" id="wd-cl-img<?php echo $key; ?>" src="images/noimage.jpg"  />
