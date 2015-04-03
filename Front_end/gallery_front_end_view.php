@@ -45,9 +45,6 @@ function front_end_gallery($images, $paramssld, $gallery)
 				$filename = $pathinfo["filename"];//get image's name
 				$extension = $pathinfo["extension"];//get image,s extension
 				set_time_limit (0);
-				if(!getimagesize($imgurl)) {
-					return;
-				}
 				$size = getimagesize ($imgurl);
 				$Width = $size[0];//old image's width
 				$Height = $size[1];//old image's height
