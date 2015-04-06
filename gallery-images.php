@@ -4,7 +4,7 @@
 Plugin Name: Huge IT Image Gallery
 Plugin URI: http://huge-it.com/wordpress-gallery/
 Description: Huge-IT Image Gallery is the best plugin to use if you want to be original with your website.
-Version: 1.3.0
+Version: 1.3.1
 Author: Huge-IT
 Author: http://huge-it.com/
 License: GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
@@ -549,17 +549,6 @@ function huge_it_gallery_activate()
 
 
 
-    $sql_huge_itgallery_params = "
-CREATE TABLE IF NOT EXISTS `" . $wpdb->prefix . "huge_itgallery_params`(
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) CHARACTER SET utf8 NOT NULL,
-  `title` varchar(200) CHARACTER SET utf8 NOT NULL,
-  `description` text CHARACTER SET utf8 NOT NULL,
-  `value` varchar(200) CHARACTER SET utf8 NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ";
-
-
     $sql_huge_itgallery_images = "
 CREATE TABLE IF NOT EXISTS `" . $wpdb->prefix . "huge_itgallery_images` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -596,207 +585,6 @@ CREATE TABLE IF NOT EXISTS `" . $wpdb->prefix . "huge_itgallery_gallerys` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ";
 
 
-
-    $table_name = $wpdb->prefix . "huge_itgallery_params";
-    $sql_1 = <<<query1
-INSERT INTO `$table_name` (`name`, `title`,`description`, `value`) VALUES
-
-/*############################## VIEW 0 Popup #####################################*/
-
-('ht_view2_element_linkbutton_text', 'Link Button Text', 'Link Button Text', 'View More'),
-('ht_view2_element_show_linkbutton', 'Show Link Button On Element', 'Show Link Button On Element', 'on'),
-('ht_view2_element_linkbutton_color', 'Element Link Button Font Color', 'Element Link Button Font Color', 'ffffff'),
-('ht_view2_element_linkbutton_font_size', 'Element Link Button Font Size', 'Element Link Button Font Size', '14'),
-('ht_view2_element_linkbutton_background_color', 'Element Link Button Background Color', 'Element Link Button Background Color', '2ea2cd'),
-('ht_view2_show_popup_linkbutton', 'Show Link Button On Popup', 'Show Link Button On Popup', 'on'),
-('ht_view2_popup_linkbutton_text', 'Popup Link Button Text', 'Link Button Text', 'View More'),
-('ht_view2_popup_linkbutton_background_hover_color', 'Link Button Background Hover Color', 'Link Button Background Hover Color', '0074a2'),
-('ht_view2_popup_linkbutton_background_color', 'Link Button Background Color', 'Link Button Background Color', '2ea2cd'),
-('ht_view2_popup_linkbutton_font_hover_color', 'Link Button Font Hover Color', 'Link Button Font Hover Color', 'ffffff'),
-('ht_view2_popup_linkbutton_color', 'Element Link Button Font Color', 'Link Button Font Color', 'ffffff'),
-('ht_view2_popup_linkbutton_font_size', 'Element Link Button Font Size', 'Link Button Font Size', '14'),
-('ht_view2_description_color', 'Description Font Color', 'Description Font Color', '222222'),
-('ht_view2_description_font_size', 'Description Font Size', 'Description Font Size', '14'),
-('ht_view2_show_description', 'Show Description', 'Show Description', 'on'),
-('ht_view2_thumbs_width', 'Thumbnails Width', 'Thumbnails Width', '75'),
-('ht_view2_thumbs_height', 'Thumbnails Height', 'Thumbnails Height', '75'),
-('ht_view2_thumbs_position', 'Thumbnails Position', 'Thumbnails Position', 'before'),
-('ht_view2_show_thumbs', 'Show Thumbnails', 'Show Thumbnails', 'on'),
-('ht_view2_popup_background_color', 'Popup Background Color', 'Popup Background Color', 'FFFFFF'),
-('ht_view2_popup_overlay_color', 'Popup Overlay Color', 'Popup Overlay Color', '000000'),
-('ht_view2_popup_overlay_transparency_color', 'Popup Overlay Transparency', 'Popup Overlay Transparency ', '70'),
-('ht_view2_popup_closebutton_style', 'Popup Close Button Style', 'Popup Close Button Style', 'dark'),
-('ht_view2_show_separator_lines', 'Show Separator Lines', 'Show Separator Lines','on'),
-('ht_view2_show_popup_title', 'Show Popup Title', 'Show Popup Title','on'),
-('ht_view2_element_title_font_size', 'Element Title Font Size', 'Element Title Font Size', '18'),
-('ht_view2_element_title_font_color', 'Element Title Font Color', 'Element Title Font Color', '222222'),
-('ht_view2_popup_title_font_size', 'Popup Title Font Size', 'Popup Title Font Size', '18'),
-('ht_view2_popup_title_font_color', 'Popup Title Font Color', 'Popup Title Font Color', '222222'),
-('ht_view2_element_overlay_color', 'Element Overlay Color', 'Element Overlay Color', 'FFFFFF'),
-('ht_view2_element_overlay_transparency', 'Element Overlay Transparency', 'Element Overlay Transparency ', '70'),
-('ht_view2_zoombutton_style', 'Zoom Button Style', 'Zoom Button Style','light'),
-('ht_view2_element_border_width', 'Element Border Width', 'Element Border Width', '1'),
-('ht_view2_element_border_color', 'Element Border Color', 'Element Border Color', 'dedede'),
-('ht_view2_element_background_color', 'Element Background Color', 'Element Background Color', 'f9f9f9'),
-('ht_view2_element_width', 'Block Width', 'Block Width', '275'),
-('ht_view2_element_height', 'Block Height', 'Block Height', '160'),
-
-
-/*############################## VIEW 1 SLIDER #####################################*/
-
-('ht_view5_icons_style', 'Icons Style', 'Icons Style','dark'),
-('ht_view5_show_separator_lines', 'Show Separator Lines', 'Show Separator Lines','on'),
-('ht_view5_linkbutton_text', 'Link Button Text', 'Link Button Text', 'View More'),
-('ht_view5_show_linkbutton', 'Show Link Button', 'Show Link Button', 'on'),
-('ht_view5_linkbutton_background_hover_color', 'Link Button Background Hover Color', 'Link Button Background Hover Color', '0074a2'),
-('ht_view5_linkbutton_background_color', 'Link Button Background Color', 'Link Button Background Color', '2ea2cd'),
-('ht_view5_linkbutton_font_hover_color', 'Link Button Font Hover Color', 'Link Button Font Hover Color', 'ffffff'),
-('ht_view5_linkbutton_color', 'Link Button Font Color', 'Link Button Font Color', 'ffffff'),
-('ht_view5_linkbutton_font_size', 'Link Button Font Size', 'Link Button Font Size', '14'),
-('ht_view5_description_color', 'Description Font Color', 'Description Font Color', '555555'),
-('ht_view5_description_font_size', 'Description Font Size', 'Description Font Size', '14'),
-('ht_view5_show_description', 'Show Description', 'Show Description', 'on'),
-('ht_view5_thumbs_width', 'Thumbnails Width', 'Thumbnails Width', '75'),
-('ht_view5_thumbs_height', 'Thumbnails Height', 'Thumbnails Hight', '75'),
-('ht_view5_show_thumbs', 'Show Thumbnails', 'Show Thumbnails', 'on'),
-('ht_view5_title_font_size', 'Title Font Size', 'Title Font Size', '16'),
-('ht_view5_title_font_color', 'Title Font Color', 'Title Font Color', '0074a2'),
-('ht_view5_main_image_width', 'Main Image Width', 'Main Image Width', '275'),
-('ht_view5_slider_tabs_font_color', 'Slider Tabs Font Color', 'Slider Tabs Font Color', 'd9d99'),
-('ht_view5_slider_tabs_background_color', 'Slider Tabs Background Color', 'Slider Tabs Background Color', '555555'),
-('ht_view5_slider_background_color', 'Slider Background Color', 'Slider Background Color', 'f9f9f9'),
-
-/*############################## VIEW 2 Lightbox-gallery #####################################*/
-
-('ht_view6_title_font_size', 'Title Font Size', 'Title Font Size', '16'),
-('ht_view6_title_font_color', 'Title Font Color', 'Title Font Color', '0074A2'),
-('ht_view6_title_font_hover_color', 'Title Font Hover Color', 'Title Font Hover Color', '2EA2CD'),
-('ht_view6_title_background_color', 'Title Background Color', 'Title Background Color', '000000'),
-('ht_view6_title_background_transparency', 'Title Background Transparency', 'Title Background Transparency', '80'),
-('ht_view6_border_radius', 'Image Border Radius', 'Image Border Radius', '3'),
-('ht_view6_border_width', 'Image Border Width', 'Image Border Width', '0'),
-('ht_view6_border_color', 'Image Border Color', 'Image Border Color', 'eeeeee'),
-('ht_view6_width', 'Image Width', 'Image Width', '275'),
-
-/*############################## Lightbox #####################################*/
-
-('light_box_size', 'Light box size', 'Light box size', '17'),
-('light_box_width', 'Light Box width', 'Light Box width', '500'),
-('light_box_transition', 'Light Box Transition', 'Light Box Transition', 'elastic'),
-('light_box_speed', 'Light box speed', 'Light box speed', '800'),
-('light_box_href', 'Light box href', 'Light box href', 'False'),
-('light_box_title', 'Light box Title', 'Light box Title', 'false'),
-('light_box_scalephotos', 'Light box scalePhotos', 'Light box scalePhotos', 'true'),
-('light_box_rel', 'Light Box rel', 'Light Box rel', 'false'),
-('light_box_scrolling', 'Light box Scrollin', 'Light box Scrollin', 'false'),
-('light_box_opacity', 'Light box Opacity', 'Light box Opacity', '20'),
-('light_box_open', 'Light box Open', 'Light box Open', 'false'),
-('light_box_overlayclose', 'Light box overlayClose', 'Light box overlayClose', 'true'),
-('light_box_esckey', 'Light box escKey', 'Light box escKey', 'false'),
-('light_box_arrowkey', 'Light box arrowKey', 'Light box arrowKey', 'false'),
-('light_box_loop', 'Light box loop', 'Light box loop', 'true'),
-('light_box_data', 'Light box data', 'Light box data', 'false'),
-('light_box_classname', 'Light box className', 'Light box className', 'false'),
-('light_box_fadeout', 'Light box fadeOut', 'Light box fadeOut', '300'),
-('light_box_closebutton', 'Light box closeButton', 'Light box closeButton', 'false'),
-('light_box_current', 'Light box current', 'Light box current', 'image'),
-('light_box_previous', 'Light box previous', 'Light box previous', 'previous'),
-('light_box_next', 'Light box next', 'Light box next', 'next'),
-('light_box_close', 'Light box close', 'Light box close', 'close'),
-('light_box_iframe', 'Light box iframe', 'Light box iframe', 'false'),
-('light_box_inline', 'Light box inline', 'Light box inline', 'false'),
-('light_box_html', 'Light box html', 'Light box html', 'false'),
-('light_box_photo', 'Light box photo', 'Light box photo', 'false'),
-('light_box_height', 'Light box height', 'Light box height', '500'),
-('light_box_innerwidth', 'Light box innerWidth', 'Light box innerWidth', 'false'),
-('light_box_innerheight', 'Light box innerHeight', 'Light box innerHeight', 'false'),
-('light_box_initialwidth', 'Light box initialWidth', 'Light box initialWidth', '300'),
-('light_box_initialheight', 'Light box initialHeight', 'Light box initialHeight', '100'),
-('light_box_maxwidth', 'Light box maxWidth', 'Light box maxWidth', '768'),
-('light_box_maxheight', 'Light box maxHeight', 'Light box maxHeight', '500'),
-('light_box_slideshow', 'Light box slideshow', 'Light box slideshow', 'false'),
-('light_box_slideshowspeed', 'Light box slideshowSpeed', 'Light box slideshowSpeed', '2500'),
-('light_box_slideshowauto', 'Light box slideshowAuto', 'Light box slideshowAuto', 'true'),
-('light_box_slideshowstart', 'Light box slideshowStart', 'Light box slideshowStart', 'start slideshow'),
-('light_box_slideshowstop', 'Light box slideshowStop', 'Light box slideshowStop', 'stop slideshow'),
-('light_box_fixed', 'Light box fixed', 'Light box fixed', 'true'),
-('light_box_top', 'Light box top', 'Light box top', 'false'),
-('light_box_bottom', 'Light box bottom', 'Light box bottom', 'false'),
-('light_box_left', 'Light box left', 'Light box left', 'false'),
-('light_box_right', 'Light box right', 'Light box right', 'false'),
-('light_box_reposition', 'Light box reposition', 'Light box reposition', 'false'),
-('light_box_retinaimage', 'Light box retinaImage', 'Light box retinaImage', 'true'),
-('light_box_retinaurl', 'Light box retinaUrl', 'Light box retinaUrl', 'false'),
-('light_box_retinasuffix', 'Light box retinaSuffix', 'Light box retinaSuffix', '@2x.$1'),
-('light_box_returnfocus', 'Light box returnFocus', 'Light box returnFocus', 'true'),
-('light_box_trapfocus', 'Light box trapFocus', 'Light box trapFocus', 'true'),
-('light_box_fastiframe', 'Light box fastIframe', 'Light box fastIframe', 'true'),
-('light_box_preloading', 'Light box preloading', 'Light box preloading', 'true'),
-('lightbox_open_position', 'Lightbox open position', 'Lightbox open position', '5'),
-('light_box_style', 'Light Box style', 'Light Box style', '1'),
-('light_box_size_fix', 'Light Box size fix style', 'Light Box size fix style', 'false'),
-
-/*############################## Huge IT Slider #####################################*/
-
-('slider_crop_image', 'Slider crop image', 'Slider crop image', 'crop'),
-('slider_title_color', 'Slider title color', 'Slider title color', '000000'),
-('slider_title_font_size', 'Slider title font size', 'Slider title font size', '13'),
-('slider_description_color', 'Slider description color', 'Slider description color', 'ffffff'),
-('slider_description_font_size', 'Slider description font size', 'Slider description font size', '12'),
-('slider_title_position', 'Slider title position', 'Slider title position', 'right-top'),
-('slider_description_position', 'Slider description position', 'Slider description position', 'right-bottom'),
-('slider_title_border_size', 'Slider Title border size', 'Slider Title border size', '0'),
-('slider_title_border_color', 'Slider title border color', 'Slider title border color', 'ffffff'),
-('slider_title_border_radius', 'Slider title border radius', 'Slider title border radius', '4'),
-('slider_description_border_size', 'Slider description border size', 'Slider description border size', '0'),
-('slider_description_border_color', 'Slider description border color', 'Slider description border color', 'ffffff'),
-('slider_description_border_radius', 'Slider description border radius', 'Slider description border radius', '0'),
-('slider_slideshow_border_size', 'Slider border size', 'Slider border size', '0'),
-('slider_slideshow_border_color', 'Slider border color', 'Slider border color', 'ffffff'),
-('slider_slideshow_border_radius', 'Slider border radius', 'Slider border radius', '0'),
-('slider_navigation_type', 'Slider navigation type', 'Slider navigation type', '1'),
-('slider_navigation_position', 'Slider navigation position', 'Slider navigation position', 'bottom'),
-('slider_title_background_color', 'Slider title background color', 'Slider title background color', 'ffffff'),
-('slider_description_background_color', 'Slider description background color', 'Slider description background color', '000000'),
-('slider_title_transparent', 'Slider title has background', 'Slider title has background', 'on'),
-('slider_description_transparent', 'Slider description has background', 'Slider description has background', 'on'),
-('slider_slider_background_color', 'Slider slider background color', 'Slider slider background color', 'ffffff'),
-('slider_dots_position', 'slider dots position', 'slider dots position', 'top'),
-('slider_active_dot_color', 'slider active dot color', '', 'ffffff'),
-('slider_dots_color', 'slider dots color', '', '000000'),
-('slider_description_width', 'Slider description width', 'Slider description width', '70'),
-('slider_description_height', 'Slider description height', 'Slider description height', '50'),
-('slider_description_background_transparency', 'slider description background transparency', 'slider description background transparency', '70'),
-('slider_description_text_align', 'description text-align', 'description text-align', 'justify'),
-('slider_title_width', 'slider title width', 'slider title width', '30'),
-('slider_title_height', 'slider title height', 'slider title height', '50'),
-('slider_title_background_transparency', 'slider title background transparency', 'slider title background transparency', '70'),
-('slider_title_text_align', 'title text-align', 'title text-align', 'right'),
-('slider_title_has_margin', 'title has margin', 'title has margin', 'off'),
-('slider_description_has_margin', 'description has margin', 'description has margin', 'off'),
-('slider_show_arrows', 'Slider show left right arrows', 'Slider show left right arrows', 'on'),
-
-/*############################## Thumbnail view #####################################*/
-
-('thumb_image_behavior', 'Image Behavior', 'Image Behavior', 'on'),
-('thumb_image_width', 'Image widht', 'Image widht', '240'),
-('thumb_image_height', 'Image height', 'Image height', '150'),
-('thumb_image_border_width', 'Image border width', 'Image border width', '1'),
-('thumb_image_border_color', 'Image border color', 'Image border color', '444444'),
-('thumb_image_border_radius', 'Image border Radius', 'Image border Radius', '5'),
-('thumb_margin_image', 'Margin image', 'Margin image', '1'),
-('thumb_title_font_size', 'Title font size', 'Title font size', '16'),
-('thumb_title_font_color', 'Title font color', 'Title font color', 'FFFFFF'),
-('thumb_title_background_color', 'Title background color', 'Title background color', 'CCCCCC'),
-('thumb_title_background_transparency', 'Title Background Transparency', 'Title Background Transparency', '80'),
-('thumb_box_padding', 'Box padding', 'Box padding', '28'),
-('thumb_box_background', 'Box background', 'Box background', '333333'),
-('thumb_box_use_shadow', 'Box use shadow', 'Box use shadow', 'on'),
-('thumb_box_has_background', 'Box has background', 'Box has background', 'on');
-
-
-query1;
-
     $table_name = $wpdb->prefix . "huge_itgallery_images";
     $sql_2 = "
 INSERT INTO 
@@ -823,14 +611,10 @@ INSERT INTO `$table_name` (`id`, `name`, `sl_height`, `sl_width`, `pause_on_hove
 (1, 'My First Gallery', 375, 600, 'on', 'random', '4000', '1000', 'center', 1, '300', '5')";
 
 
-    $wpdb->query($sql_huge_itgallery_params);
     $wpdb->query($sql_huge_itgallery_images);
     $wpdb->query($sql_huge_itgallery_gallerys);
 
 
-    if (!$wpdb->get_var("select count(*) from " . $wpdb->prefix . "huge_itgallery_params")) {
-        $wpdb->query($sql_1);
-    }
     if (!$wpdb->get_var("select count(*) from " . $wpdb->prefix . "huge_itgallery_images")) {
       $wpdb->query($sql_2);
     }
@@ -838,74 +622,6 @@ INSERT INTO `$table_name` (`id`, `name`, `sl_height`, `sl_width`, `pause_on_hove
       $wpdb->query($sql_3);
     }
 	
-	    $table_name = $wpdb->prefix . "huge_itgallery_params";
-	    $sql_update_g1 = <<<query1
-INSERT INTO `$table_name` (`name`, `title`,`description`, `value`) VALUES
-('thumb_view_text', 'View Image Text', 'View Image Text', 'View Picture');
 
-query1;
-	
-	$query="SELECT name FROM ".$wpdb->prefix."huge_itgallery_params";
-	$update_p1=$wpdb->get_results($query);
-	if(end($update_p1)->name=='thumb_box_has_background'){
-		$wpdb->query($sql_update_g1);
-	}
-        
-        $table_name = $wpdb->prefix . "huge_itgallery_params";
-	    $sql_update_g2 = <<<query1
-INSERT INTO `$table_name` (`name`, `title`,`description`, `value`) VALUES
-('ht_view8_element_cssAnimation', 'Image CssAnimation', 'Image CssAnimation', 'false'),
-('ht_view8_element_height', 'Element Hight', 'Element Hight', '120'),
-('ht_view8_element_maxheight', 'Element MaxHight', 'Element MaxHight', '155'),
-('ht_view8_element_show_caption', 'Show Caption', 'Show Caption', 'true'),
-('ht_view8_element_padding', 'Element Padding', 'Element Padding', '0'),
-('ht_view8_element_border_radius', 'Border Radius', 'Border Radius', '5'),
-('ht_view8_icons_style', 'Icons Style', 'Icons Style', 'dark'),
-('ht_view8_element_title_font_size', 'Element Title Font Size', 'Element Title Font Size', '13'),
-('ht_view8_element_title_font_color', 'Element Title Font Color', 'Element Title Font Color', '3AD6FC'),
-('ht_view8_popup_background_color', 'Popup background Color', 'Popup background Color', '000000'),
-('ht_view8_popup_overlay_transparency_color', 'Popup Overlay Transparency Color', 'Popup Overlay Transparency Color', '0'),
-('ht_view8_popup_closebutton_style', 'Popup Closebutton Style', 'Popup Closebutton Style', 'dark'),
-('ht_view8_element_title_overlay_transparency', 'Element Overlay Transparency', 'Element Overlay Transparency', '90'),
-('ht_view8_element_size_fix', 'Element Size Fix', 'Element Size Fix', 'false'),
-('ht_view8_element_title_background_color', 'Element Title Background Color', 'Element Title Background Color', 'FF1C1C'),
-('ht_view8_element_justify', 'Image Justify', 'Image Justify', 'true'),
-('ht_view8_element_randomize', 'Image Randomize', 'Image Randomize', 'false'),
-('ht_view8_element_animation_speed', 'Image Animation Speed', 'Image Animation Speed', '2000');      
-query1;
-            
-            $query="SELECT name FROM ".$wpdb->prefix."huge_itgallery_params";
-	$update_p2=$wpdb->get_results($query);
-	if(end($update_p2)->name=='thumb_view_text'){
-		$wpdb->query($sql_update_g2);
-	}
-        
-        $table_name = $wpdb->prefix . "huge_itgallery_params";
-	    $sql_update_g3 = <<<query3
-INSERT INTO `$table_name` (`name`, `title`,`description`, `value`) VALUES
-('ht_view2_content_in_center', 'View2 Content In Center', 'View2 Content In Center', 'off'),
-('ht_view6_content_in_center', 'View6 Content In Center', 'View6 Content In Center', 'off');
-                    
-query3;
-        
-        
-        $query3="SELECT name FROM ".$wpdb->prefix."huge_itgallery_params";
-	$update_p3=$wpdb->get_results($query3);
-	if(end($update_p3)->name=='ht_view8_element_animation_speed'){
-		$wpdb->query($sql_update_g3);
-	}
-		$table_name = $wpdb->prefix . "huge_itgallery_params";
-	    $sql_update_g4 = <<<query4
-INSERT INTO `$table_name` (`name`, `title`,`description`, `value`) VALUES
-('ht_view2_popup_full_width', 'Popup Image Full Width', 'Popup Image Full Width', 'on');                  
-query4;
-        
-        
-        $query4="SELECT name FROM ".$wpdb->prefix."huge_itgallery_params";
-	$update_p4=$wpdb->get_results($query4);
-	if(end($update_p4)->name=='ht_view6_content_in_center'){
-		$wpdb->query($sql_update_g4);
-	}
 }
-
 register_activation_hook(__FILE__, 'huge_it_gallery_activate');
