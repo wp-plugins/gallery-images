@@ -222,76 +222,28 @@ $paramssld["ht_view2_content_in_center"] = "off";
 $paramssld["ht_view6_content_in_center"] = "off";
 $paramssld["ht_view2_popup_full_width"] = "on";
 	
-			/***<optimize_images>***/
-							
-			$view2_width = $paramssld['ht_view2_element_width']; 
-			$view3_width = $paramssld['thumb_image_width']; 
-			$view4_width = $paramssld["ht_view5_main_image_width"]; 
-			$view6_width = $paramssld["ht_view6_width"];
-			$cropwidth = max($view2_width ,$view3_width,$view4_width,$view6_width);
-			$image_prefix = "_huge_it_small_gallery";
-						if(!function_exists('huge_it_copy_image_to_small')) {
-		function huge_it_copy_image_to_small($imgurl,$image_prefix,$width1 = "275") { 
-		$pathinfo = pathinfo($imgurl);
-		$extension = $pathinfo["extension"];
-		$extension = strtolower($extension);
-		$ext = array("png","jpg","jpeg","gif","psd","swf","bmp","wbmp","tiff_ll","tiff_mm","jpc","iff","ico");
-		if((strlen($imgurl) < 3) || (!in_array($extension,$ext))){ 
-			return false;
-		}		
-		if($width1 < 32) {
-					$width1 = "32";
-				}
-				$pathinfo = pathinfo($imgurl);
-				$filename = $pathinfo["filename"];//get image's name
-				$extension = $pathinfo["extension"];//get image,s extension
-				//set_time_limit (0);
-				$upload_dir = wp_upload_dir(); 
-				$path = parse_url($imgurl, PHP_URL_PATH);
-				//$path = substr($path,1);
-				$imgurl = $_SERVER['DOCUMENT_ROOT'].$path;
-				$size = wp_get_image_editor($imgurl);
-				$old_size = $size ->get_size();
-
-				$Width = $old_size['width'];//old image's width
-				$Height =$old_size['height'];//old image's height
-				if ($width1 < $Width) {
-					$width = $width1;
-					$height = (int)(($width * $Height)/$Width);//get new height
-				}
-				else {
-					$width = $Width;
-					$height = $Height;
-				}
-				$img = wp_get_image_editor( $imgurl);
-				$upload_dir = wp_upload_dir(); 
-				if ( ! is_wp_error( $img ) ) {
-					$img->resize( $width, $height, true );
-					$url = $upload_dir["path"];//get upload path
-					$copy_image = $url.'/'.$filename.$image_prefix.".".$extension;
-					if(!file_exists($copy_image)) {
-						$img->save($copy_image);//save new image if not exist
-					}
-				}
-				return true;
-			}
-		}
+				/***<optimize_images>***/
+	$image_prefix = "_huge_it_small_gallery";
+	$view2_width = $paramssld['ht_view2_element_width']; 
+	$view3_width = $paramssld['thumb_image_width']; 
+	$view4_width = $paramssld["ht_view5_main_image_width"]; 
+	$view6_width = $paramssld["ht_view6_width"];
 	if(!function_exists('get_huge_image')) {
 		function get_huge_image($image_url,$img_prefix) {
-			if(huge_it_copy_image_to_small($image_url,$image_prefix,$cropwidth)) {
+			//if(huge_it_copy_image_to_small($image_url,$image_prefix,$cropwidth)) {
 				$pathinfo = pathinfo($image_url);
 				$upload_dir = wp_upload_dir();
-				return $upload_dir["url"].'/'.$pathinfo["filename"].$img_prefix.'.'.$pathinfo["extension"];
-			}
-			else return $image_url;
+				$url_img_copy = $upload_dir["url"].'/'.$pathinfo["filename"].$img_prefix.'.'.$pathinfo["extension"];
+				$img_abs_path = $url_img_copy;
+				$img_abs_path= parse_url($url_img_copy, PHP_URL_PATH);
+				$img_abs_path =  $_SERVER['DOCUMENT_ROOT'].$img_abs_path;
+				if(file_exists($img_abs_path))
+				return $url_img_copy; else
+			//}
+			 return $image_url;
 		}
 	}
-		foreach($images as $key=>$row) {
-			$imgurl = explode(";",$row->image_url);
-				huge_it_copy_image_to_small($imgurl[0],$image_prefix,$cropwidth);		
-
-		}
-						/***</optimize_images>***/
+			/***</optimize_images>***/
 ?>
 <script>
 	var lightbox_transition = '<?php echo $paramssld['light_box_transition'];?>';
