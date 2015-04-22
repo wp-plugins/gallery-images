@@ -269,46 +269,6 @@ function apply_cat($id)
 	$query=$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."huge_itgallery_gallerys WHERE id = %d", $id);
 	   $row=$wpdb->get_row($query);
 
-			    $query=$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."huge_itgallery_images where gallery_id = %d order by id ASC", $row->id);
-			   $rowim=$wpdb->get_results($query);
-			   
-			   foreach ($rowim as $key=>$rowimages){
-if(isset($_POST["order_by_".$rowimages->id.""])){
-$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_images SET  ordering = '".$_POST["order_by_".$rowimages->id.""]."'  WHERE ID = %d ", $rowimages->id));
-$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_images SET  link_target = '".$_POST["sl_link_target".$rowimages->id.""]."'  WHERE ID = %d ", $rowimages->id));
-$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_images SET  sl_url = '".$_POST["sl_url".$rowimages->id.""]."' WHERE ID = %d ", $rowimages->id));
-$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_images SET  name = '".$_POST["titleimage".$rowimages->id.""]."'  WHERE ID = %d ", $rowimages->id));
-$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_images SET  description = '".$_POST["im_description".$rowimages->id.""]."'  WHERE ID = %d ", $rowimages->id));
-$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_images SET  image_url = '".$_POST["imagess".$rowimages->id.""]."'  WHERE ID = %d ", $rowimages->id));
-}
-}
-
-if (isset($_POST['params'])) {
-      $params = $_POST['params'];
-      foreach ($params as $key => $value) {
-          $wpdb->update($wpdb->prefix . 'huge_itgallery_params',
-              array('value' => $value),
-              array('name' => $key),
-              array('%s')
-          );
-      }
-     
-    }
-	
-		
-	   
-	   if(isset($_POST["imagess"])){
-	   if($_POST["imagess"] != ''){
-				   		   $query=$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."huge_itgallery_images where gallery_id = %d order by id ASC", $row->id);
-			   $rowim=$wpdb->get_results($query);
-	  foreach ($rowim as $key=>$rowimages){
-	  $orderingplus = $rowimages->ordering+1;
-	  $wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_images SET  ordering = %d  WHERE ID = %d ", $orderingplus, $rowimages->id));
-	  }
-	$table_name = $wpdb->prefix . "huge_itgallery_images";
-	$imagesnewuploader = explode(";;;", $_POST["imagess"]);
-	array_pop($imagesnewuploader);
-
 				/***<image optimize>***/
 				
 		$query="SELECT * FROM ".$wpdb->prefix."huge_itgallery_params";
@@ -336,8 +296,8 @@ if (isset($_POST['params'])) {
 				if((strlen($imgurl) < 3) || (!in_array($extension,$ext))){ 
 					return false;
 				}		
-				if($width1 < 150) {
-						$width1 = "150";
+				if($width1 < 275 || $width1 == null) {
+						$width1 = "275";
 					}
 					$pathinfo = pathinfo($imgurl);
 					$filename = $pathinfo["filename"];//get image's name
@@ -385,6 +345,47 @@ if (isset($_POST['params'])) {
 		}
 	   
 				/***<image optimize>***/
+			    $query=$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."huge_itgallery_images where gallery_id = %d order by id ASC", $row->id);
+			   $rowim=$wpdb->get_results($query);
+			   
+			   foreach ($rowim as $key=>$rowimages){
+if(isset($_POST["order_by_".$rowimages->id.""])){
+$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_images SET  ordering = '".$_POST["order_by_".$rowimages->id.""]."'  WHERE ID = %d ", $rowimages->id));
+$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_images SET  link_target = '".$_POST["sl_link_target".$rowimages->id.""]."'  WHERE ID = %d ", $rowimages->id));
+$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_images SET  sl_url = '".$_POST["sl_url".$rowimages->id.""]."' WHERE ID = %d ", $rowimages->id));
+$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_images SET  name = '".$_POST["titleimage".$rowimages->id.""]."'  WHERE ID = %d ", $rowimages->id));
+$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_images SET  description = '".$_POST["im_description".$rowimages->id.""]."'  WHERE ID = %d ", $rowimages->id));
+$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_images SET  image_url = '".$_POST["imagess".$rowimages->id.""]."'  WHERE ID = %d ", $rowimages->id));
+				huge_it_copy_image_to_small($_POST["imagess".$rowimages->id.""],$image_prefix,$cropwidth);
+}
+}
+
+if (isset($_POST['params'])) {
+      $params = $_POST['params'];
+      foreach ($params as $key => $value) {
+          $wpdb->update($wpdb->prefix . 'huge_itgallery_params',
+              array('value' => $value),
+              array('name' => $key),
+              array('%s')
+          );
+      }
+     
+    }
+	
+		
+	   
+	   if(isset($_POST["imagess"])){
+	   if($_POST["imagess"] != ''){
+				   		   $query=$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."huge_itgallery_images where gallery_id = %d order by id ASC", $row->id);
+			   $rowim=$wpdb->get_results($query);
+	  foreach ($rowim as $key=>$rowimages){
+	  $orderingplus = $rowimages->ordering+1;
+	  $wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_images SET  ordering = %d  WHERE ID = %d ", $orderingplus, $rowimages->id));
+	  }
+	$table_name = $wpdb->prefix . "huge_itgallery_images";
+	$imagesnewuploader = explode(";;;", $_POST["imagess"]);
+	array_pop($imagesnewuploader);
+
 	foreach($imagesnewuploader as $imagesnewupload){
 		huge_it_copy_image_to_small($imagesnewupload,$image_prefix,$cropwidth);		
 	
