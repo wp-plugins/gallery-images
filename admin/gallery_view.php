@@ -192,7 +192,7 @@ function html_showgallerys( $rows,  $pageNav,$sort,$cat_row){
     <?php
 
 }
-function Html_editgallery($ord_elem, $count_ord,$images,$row,$cat_row, $rowim, $rowsld, $paramssld, $rowsposts, $rowsposts8, $postsbycat)
+function Html_editgallery($ord_elem, $count_ord,$images,$row,$cat_row, $rowim, $rowsld, $rowsposts, $rowsposts8, $postsbycat)
 
 {
  global $wpdb;
@@ -341,13 +341,13 @@ jQuery(document).ready(function($){
     _custom_media = false;
 	
   });
-	jQuery(".wp-media-buttons-icon").click(function() {
+/*	jQuery(".wp-media-buttons-icon").click(function() {
 		jQuery(".media-menu .media-menu-item").css("display","none");
 		jQuery(".media-menu-item:first").css("display","block");
 		jQuery(".separator").next().css("display","none");
 		jQuery('.attachment-filters').val('image').trigger('change');
 		jQuery(".attachment-filters").css("display","none");
-	});
+	});*/
 });
 </script>
 						<input type="hidden" name="imagess" id="_unique_name" />
@@ -412,14 +412,14 @@ jQuery(document).ready(function($){
 	jQuery(".huge-it-editnewuploader").click(function() {
 	});
 		jQuery(".wp-media-buttons-icon").click(function() {
-		jQuery(".wp-media-buttons-icon").click(function() {
+	/*	jQuery(".wp-media-buttons-icon").click(function() {
 		jQuery(".media-menu .media-menu-item").css("display","none");
 		jQuery(".media-menu-item:first").css("display","block");
 		jQuery(".separator").next().css("display","none");
 		jQuery('.attachment-filters').val('image').trigger('change');
 		jQuery(".attachment-filters").css("display","none");
 
-	});
+	});*/
 });
 
 });
