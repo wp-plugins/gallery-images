@@ -1299,7 +1299,7 @@ jQuery(document).ready(function(){
 							case 'image':
 					?>									
 							<?php 	if($row->image_url != ';'){ ?>
-							<a class="group1" href="<?php echo $imgurl[0]; ?>" title="<?php echo $row->name; ?>"><img alt="<?php echo get_huge_image($row->name,$image_prefix); ?>" class="main-image" src="<?php echo $imgurl[0]; ?>"  /></a>
+							<a class="group1" href="<?php echo $imgurl[0]; ?>" title="<?php echo $row->name; ?>"><img alt="<?php echo $imgurl[0]; ?>" class="main-image" src="<?php echo $imgurl[0]; ?>"  /></a>
 							<?php } else { ?>
 							<img alt="<?php echo $row->name; ?>" class="main-image" src="images/noimage.jpg"  />
 							<?php
@@ -1829,7 +1829,7 @@ jQuery(function(){
 	var event_stack_gallery_<?php echo $sliderID; ?> = [];
 	<?php
 	//	$images=array_reverse($images);
-		$recent_posts = wp_get_recent_posts( $args, ARRAY_A );
+	//	$recent_posts = wp_get_recent_posts( $args, ARRAY_A );
 
 		$i=0;
 		
