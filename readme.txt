@@ -34,7 +34,7 @@ Each view has unique customizable options in “ General Options “ section to 
 
 Image Gallery plugin offers you, being already easy to use and friendly admin panel, where you can add several images and videos at a time and immediately give them a title, description and link, goes to any page, and set the way it opens. Huge-IT Image Gallery and all other plugins of our company have very high quality support so you always can be sure that you will not have any problems, with this plugin. Our experts are always ready to respond any your questions. With our Image Gallery you can realize your most original ideas. 6 views of the Image Gallery gives you 6 ways to be the best! Each view of Image Gallery is original, elegant and will fit to any styles of your images, videos and information. No matter to slide or show your media in thumbnails, or give them a useful information and show both together, whatever you choose will look original, because we worked hard on making Image Gallery irrepetible. So you can always be bold in your ideas with Huge-IT Image Gallery.
 
-Considering the large number of galleries in WordPress, Huge-IT company day by day will improve and enhance the functionality of Image gallery, and keep on adhering to the first position among WordPress Gallery plugins. One of our new improvement is the video adding ability, besides images now you can also add any video you’d like from Youtube or Vimeo, just adding the video link you can get to show them in one of views. So We are sure our Image gallery will always satisfy you as our other 172,027+ users. Now just Install & Enjoy. All new information about new features and improvements that we made, you can find on our blog in the main page of Huge-it.com.
+Considering the large number of galleries in WordPress, Huge-IT company day by day will improve and enhance the functionality of Image gallery, and keep on adhering to the first position among WordPress Gallery plugins. One of our new improvement is the video adding ability, besides images now you can also add any video you’d like from Youtube or Vimeo, just adding the video link you can get to show them in one of views. So We are sure our Image gallery will always satisfy you as our other 173,634+ users. Now just Install & Enjoy. All new information about new features and improvements that we made, you can find on our blog in the main page of Huge-it.com.
 
 ### The features of the Image Gallery
 
@@ -86,6 +86,7 @@ Now you can set your Image Gallery options, images and use our Image Gallery.
 3.  WordPress Image Gallery view 3 - Lightbox Gallery
 4.  WordPress Image Gallery view 4 - Slider
 5.  WordPress Image Gallery view 5 - Thumbnails
+51.  WordPress Image Gallery view 6 - Justified Gallery
 6.  [WordPress Image Gallery](http://wordpress.org/plugins/gallery-images/) - Image Gallery admin page  
 7.  [WordPress Image Gallery](http://wordpress.org/plugins/gallery-images/) - Image Gallery uploader
 8.  [WordPress Image Gallery](http://wordpress.org/plugins/gallery-images/) - Image Gallery General options
