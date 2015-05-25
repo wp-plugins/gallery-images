@@ -260,6 +260,7 @@ function apply_cat($id)
 	   $row=$wpdb->get_row($query);
 
 
+
 				/***<image optimize>***/
 				
 	/*	$query="SELECT * FROM ".$wpdb->prefix."huge_itgallery_params";
@@ -281,7 +282,11 @@ function apply_cat($id)
 		if(!function_exists('huge_it_copy_image_to_small')) {
 			function huge_it_copy_image_to_small($imgurl,$image_prefix,$width1) {
 				$pathinfo = pathinfo($imgurl);
-				$extension = $pathinfo["extension"];
+				if(isset($pathinfo["extension"]))
+					$extension = $pathinfo["extension"];//get image,s extension
+				else 
+					return;
+				//$extension = $pathinfo["extension"];
 				$extension = strtolower($extension);
 				$ext = array("png","jpg","jpeg","gif","psd","swf","bmp","wbmp","tiff_ll","tiff_mm","jpc","iff","ico");
 				if((strlen($imgurl) < 3) || (!in_array($extension,$ext))){ 
@@ -292,9 +297,13 @@ function apply_cat($id)
 					}
 					$pathinfo = pathinfo($imgurl);
 					$filename = $pathinfo["filename"];//get image's name
-					$extension = $pathinfo["extension"];//get image,s extension
-					//set_time_limit (0);
+					set_time_limit (0);
 					$upload_dir = wp_upload_dir(); 
+					$url = $upload_dir["path"];//get upload path
+					$copy_image = $url.'/'.$filename.$image_prefix.".".$extension;
+					if(file_exists($copy_image)) {
+						return;
+					}
 					$path = parse_url($imgurl, PHP_URL_PATH);
 					//$path = substr($path,1);
 					$imgurl = $_SERVER['DOCUMENT_ROOT'].$path;
@@ -336,6 +345,7 @@ function apply_cat($id)
 		}
 	   
 				/***<image optimize>***/				
+				
 			    $query=$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."huge_itgallery_images where gallery_id = %d order by id ASC", $row->id);
 			   $rowim=$wpdb->get_results($query);
 			   

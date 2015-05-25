@@ -539,7 +539,8 @@ jQuery(document).ready(function($){
 										}else if (strpos($rowimages->image_url,'vimeo') !== false) {	
 											$liclass="vimeo";
 											$vimeo = $rowimages->image_url;
-											$imgid =  end(explode( "/", $vimeo ));
+											$vimeo_explode = explode( "/", $vimeo );
+											$imgid =  end($vimeo_explode);
 											$hash = unserialize(file_get_contents("http://vimeo.com/api/v2/video/".$imgid.".php"));
 											$imgsrc=$hash[0]['thumbnail_large'];
 											$thumburl ='<img src="'.$imgsrc.'" alt="" />';
