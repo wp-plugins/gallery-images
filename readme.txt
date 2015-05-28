@@ -1,778 +1,576 @@
-=== Product Catalog ===
+=== Gallery ===
 Contributors: Huge-IT
-Donate link: http://huge-it.com/product-catalog/
-Tags: catalog, product reviews, catalogs, blog catalog, online store, product tabs, catalogue, products, vote, wp catalog, WP Catalogue, directory, product portfolio, product catalog, shopping cart, product catalogue, store, product feed, digital goods, listing, list, collection, product, attributes, display products, inventory, list products, product gallery, products catalog, catalog of goods, e-commerce, commerce, ecommerce, shop, shopping, wordpress ecommerce,
+Donate link: http://huge-it.com/wordpress-gallery/
+Tags: gallery, image gallery, gallery image, content slider, widget gallery, lightbox gallery, website gallery, gallery lightbox, image, images, post, posts, content gallery, galleries, wordpress gallery, Picture Gallery, photo gallery, galeria, gallery, best gallery, thumbnail view, content gallery, media gallery, easy gallery, gallery plugin, plugin gallery, wordpress photo gallery plugin, add gallery, add image, add picture, add photo, galery, add images, add pictures, gallery wordpress, wp gallery, gallery slider, Galleria, simple gallery, wordpress gallery plugin, thumbs, free gallery, free images, video gallery, youtube gallery, vimeo gallery, photo albums, grid gallery, responsive, images gallery, filterable gallery, grid, iphone gallery,  photogallery, photoset, shortcode gallery, fullscreen gallery, justified, fullscreen slider, gallery shortcode, free photo gallery, best gallery plugin, photo album, image rotator, free slider, banner rotator, album, galeri, galerie, image album, wp gallery plugins, revolution, image gallery plugin, image slider, slideshow, slide, lightbox slider, slideshow gallery, photography, watermarking, fotogalerie, responsive wordpress photo gallery, responsive gallery, art gallery, gallery decription, multiple pictures, gelary, foto, fotoalbum, responsive galleries, photoalbum, jquery gallery, justified gallery,
 Requires at least: 3.0.1
 Tested up to: 4.2.2
-Stable tag: 1.0.7
+Stable tag: 1.3.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Let us introduce our Huge-IT Product Catalog incomparable plugin. To begin with, why do we need this plugin and what are the advantages.
+Huge-IT Image Gallery is the best plugin to use if you want to be original with your website.
 
 == Description ==
 
-### Wordpress Product Catalog
+### Wordpress Image Gallery
 
-* [Wordpress Product Catalog](http://huge-it.com/product-catalog/)
-* [Demo Product Catalog](http://huge-it.com/wordpress-plugins-product-catalog-demo/)
+* [Wordpress Image Gallery](http://huge-it.com/wordpress-gallery/)
+* [Demo Image Gallery](http://huge-it.com/wordpress-plugins-gallery-demo/)
+* [Demo Image Gallery Admin](http://huge-it.com/wordpress-plugins-gallery-demo-admin/)
+* [User Image Gallery Manual](http://huge-it.com/wordpress-plugins-gallery-user-manual/)
 
-Let us introduce our Huge-IT Product Catalog incomparable plugin. To begin with, why do we need this plugin and what are the advantages.
-The plugin is made for demonstration, sale, advertisements for your products. Imagine a stand with a variety of catalogs with a specific product category. To imagine is not difficult, to use is even easier.
+https://www.youtube.com/watch?v=fNz0hW01k3k
 
-You have the possibility to add an unlimited number of products, every product can be customized in detail to your preference. Collect all products in certain categories and add them catalog. Catalog may also be customized according to your taste, to allow a detailed understanding of the product in the catalog. In addition, each product may be associated with the image. Customers are provided with the ability of rate the products, and writing feedback about products shown in the catalog, as well as writing reviews which will show up for each product. 
+Huge-IT Image Gallery is the best plugin to use if you want to be original with your website. Image Gallery has specially made to allow it’s users create a lot of ways to represent your images, videos and information. Just add image or video wright descriptions and titles for each view of the Image Gallery and choose one from 6 unrepeatable views. 
 
-Huge-IT Product Catalog license provides you with a high level of customization in relation to almost all aspects of the catalog: from the background color and size of the text inside the cell of the product to the number of products in the series and the number of comments on the product page. Order of the products can be changed with easy drug&drop function. In admin page you can find custom fields containing certain product characteristics, such as price or color, moreover,  you can add more fields. The whole catalog where all your products are collected, can be demonstrated with 5 beautiful views, they are:
+* Gallery / Content-Popup
+* Content Slider 
+* Ligthtbox Gallery
+* Huge-IT Slider 
+* Thumbnail view.
+* Justified.
 
-*   Block Toggle Up-Down - Product Catalog
-*   Full-Height Blocks - Product Catalog
-*   Content Popup - Product Catalog
-*   Full-With Blocks - Product Catalog
-*   Content Slide - Product Catalog
+Each view has unique customizable options in “ General Options “ section to make them fit your taste. Almost every type of text can be change from the standpoint of text and color. Also there are a lot of features relative as to Image Gallery and thumbnails as to it's lightbox. Talking about Lightbox, notice, that Image Gallery plugin has separate options page, where you can choose one from 5 lightbox views, and customize it. And that way to create desirable style of your website. Show your image and video in it's best way!
 
-Choose a cover image for your catalog and it’s done.
-General Options for pro users you can find on the left panel under catalog plugin. There are:
+Image Gallery plugin offers you, being already easy to use and friendly admin panel, where you can add several images and videos at a time and immediately give them a title, description and link, goes to any page, and set the way it opens. Huge-IT Image Gallery and all other plugins of our company have very high quality support so you always can be sure that you will not have any problems, with this plugin. Our experts are always ready to respond any your questions. With our Image Gallery you can realize your most original ideas. 6 views of the Image Gallery gives you 6 ways to be the best! Each view of Image Gallery is original, elegant and will fit to any styles of your images, videos and information. No matter to slide or show your media in thumbnails, or give them a useful information and show both together, whatever you choose will look original, because we worked hard on making Image Gallery irrepetible. So you can always be bold in your ideas with Huge-IT Image Gallery.
 
-### Catalogs: from here you can add products into catalog. Admin page includes:
+Considering the large number of galleries in WordPress, Huge-IT company day by day will improve and enhance the functionality of Image gallery, and keep on adhering to the first position among WordPress Gallery plugins. One of our new improvement is the video adding ability, besides images now you can also add any video you’d like from Youtube or Vimeo, just adding the video link you can get to show them in one of views. So We are sure our Image gallery will always satisfy you as our other 173,634+ users. Now just Install & Enjoy. All new information about new features and improvements that we made, you can find on our blog in the main page of Huge-it.com.
 
-*   Main image of the product Catalog
-*   Additional images (thumbnails)
-*   Title on product catalog
-*   Description
-*   Price
-*   Discount Price
-*   Other parameters
+### The features of the Image Gallery
 
-Ratings Manager: from here you can manage ratings
-Review Manager: from here you can manage reviews 
-Plugin includes two kind of shortcodes. The short one is for posts&pages, the longer one is php-shortcode for template, plugin also can be used as widget. Simply copy/past the shortcode into your preferable location, or press the button and automatically add it from edit post/page section
+### 6 Views Options 
 
-### The features of the Product Catalog
+**Gallery / content-popup  -  Image Gallery**
 
-### 5 View Options - Product Catalog
+This type of view Image Gallery view shows each post with it’s picture, title under text open in popup and make them larger. The button “View More” is under the text also inside the popup, it opens more information about the content. to close the popup press “cross” button and get back to the tape.
 
-Block Toggle Up-Down. This view will demonstrate the product catalog main image in similar boxes with title, and little arrow next to it, as you press the arrow opens vertical tape, which consists of additional images, description and other parameters about product, and “View Product” button. Pressing on that button you will get to product catalog main page. All images open with Lightbox.
+**Content slider  -  Image Gallery** 
 
-Full-Height Blocks. Opened vertical tape, with large main image, additional images, text, information about product catalog and “View Product” button. Pressing on that button you will get to product catalog main page.  All images open with Lightbox.
+In this view you can see your images with it’s text it’s title and “View More” button inside the slider. Just click on the arrows on the corners and move to the next.
 
-Catalog / Content Popup. In closed position it is fixed boxes with cover/mail image and title, as you click on image, opens popup with larger main and additional images in it, title, description and other information about the product next to it, also “View Product” button. Pressing on that button you will get to product catalog main page.
+**Ligthtbox gallery  -  Image Gallery**
 
-Full-With Blocks. Main image with tiny additional images under it, all of them can be opened with Lightbox. Next to the images you can find title, description, product information and  “View Product” button. Pressing on that button you will get to product catalog main page.
+This view of Image Gallery allows you to add your images without text. The title comes up in the bottom of the image as you hover on it. Images make larger with the lightbox and you can slide to watch them.
 
-Content Slider. Slider with main image with tiny additional images under it, all of them can be opened with Lightbox. Next to the images you can find title, description, product information and  “View Product” button. Pressing on that button you will get to product catalog main page. Slide the content manually by pressing on arrows.
+**Slider  -  Image Gallery**
 
-Upgrade to [WordPress Product Catalog Pro](http://huge-it.com/product-catalog) to Customizable Styles and Colors.
+If you know Slider and like it, you will be glad to set this view, because it is almost the same. Your picture with its title and description on the image, moves with many wonderful effects as you click on arrows.
+
+**Thumbnails View  -  Image Gallery**
+
+This view shows your images like thumbnail. As you click  they open in lightbox, and you can scroll them. there is not any text with it, only it’s title.
+
+**Justified  -  Image Gallery**
+
+Justified view allows you to represent your images and videos in a little sizes each next to other like a horizontal line or tape. By hovering on them, appears the title of the image/video. Clicking on the image / video it opens in lightbox, giving a beautiful view to them.
 
 
-### If you think, that you found a bug in our [WordPress Product Catalog](http://huge-it.com/product-catalog) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com).
+If you think, that you found a bug in our [WordPress Image Gallery](http://huge-it.com/wordpress-gallery/) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com).
 
 == Installation ==
-
-###Thank you for your interest in Product Catalog.
-
-Minimum requirements Product Catalog.
-WordPress 3.0+
-PHP 5.x
-MySQL 5.x
 
 ### First download the ZIP file ,
 
 1. Log in to your website administrator panel.   
 2. Go to Plugins page, and add new plugin.    
-3. Upload [WordPress Product Catalog](http://wordpress.org/plugins/product-catalog). 
+3. Upload [WordPress Image Gallery](http://wordpress.org/plugins/gallery-images). 
 4. Click `Install Now` button.     
 5. Then click `Activate Plugin` button. 
 
-Now you can set your Product Catalog options, images and use our Product Catalog.
-
-### If you think, that you found a bug in our [WordPress Product Catalog](http://huge-it.com/product-catalog) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com).
+Now you can set your Image Gallery options, images and use our Image Gallery.
 
 == Screenshots ==
+    
+1.  WordPress Image Gallery view 1 - Gallery / Content Popup
+2.  WordPress Image Gallery view 2 - Content Slider
+3.  WordPress Image Gallery view 3 - Lightbox Gallery
+4.  WordPress Image Gallery view 4 - Slider
+5.  WordPress Image Gallery view 5 - Thumbnails
+51.  WordPress Image Gallery view 6 - Justified Gallery
+6.  [WordPress Image Gallery](http://wordpress.org/plugins/gallery-images/) - Image Gallery admin page  
+7.  [WordPress Image Gallery](http://wordpress.org/plugins/gallery-images/) - Image Gallery uploader
+8.  [WordPress Image Gallery](http://wordpress.org/plugins/gallery-images/) - Image Gallery General options
+9.  [WordPress Image Gallery](http://wordpress.org/plugins/gallery-images/) - Image Gallery add widget
 
-1.  [WordPress Product Catalog](http://huge-it.com/product-catalog/) - Blocks Toggle Up/Down
-12.  [WordPress Product Catalog](http://huge-it.com/product-catalog/) - Catalog / Content Popup
-13.  [WordPress Product Catalog](http://huge-it.com/product-catalog/) - Full-Width Block
-13.  [WordPress Product Catalog](http://huge-it.com/product-catalog/) - Content Slider
-3.  [WordPress Product Catalog](http://huge-it.com/product-catalog/) - Product Catalog admin page 
-32.  [WordPress Product Catalog](http://huge-it.com/product-catalog/) - Product Catalog admin page 
-33.  [WordPress Product Catalog](http://huge-it.com/product-catalog/) - Product Catalog admin page 
+== Frequently Asked Questions ==
+
+### Image Gallery
+
+**How to get a copy of most recent version ?**
+Pro users can get update versions contacting us by info@huge-it.com.
+Free version  users will find update notification in their wordpress admin panel.
+ 
+ 
+**I have paid for pro version and didn’t get the link or file to update**
+If you made purchase and didn’t get the file, or file was corrupt, contact us by info@huge-it.com and send “order number”, we will check and send you the file as soon as possible
+
+**Have purchased pro version still get the announcement to buy the commercial version to change settings. What to do ?**
+This can happen because of your browser’s cache files. Press ctrl+f5 (Chrome, FF) in order to clean them, if you use safari, etc., clean from browser settings
+
+**Will I lose all my changes that I made in free version, if I update to pro version? **
+All kind of changes made in free version will remain, even if you delete the plugin
+
+**How to change “New Gallery” name?**
+In order to change Image Gallery name just double click on it’s name (on top tabs)
+
+**How to see the title of the image in lightbox?**
+In order to add name to your image and see it in lightbox. 
+Add attribute title=”X” in <a> tag of image code, where X is the name, 
+Set “show the title” from Lightbox Options
+
+**I have already purchased Multi Site version, how do I upgrade it to Developer version, without buying it again?**
+If you have any pro version of our products and want to upgrade it, you do not need to buy the new one again, you only need to pay the difference price.
+For example, if you have personal version and need to upgrade to Multi Site, just buy one more personal, and contact us by info@huge-it.com, send the receipt and we will send Multi Site version, from Multi Site to Developer, just buy one personal, and ask us for Developer version.
+
+**I’ve bought the commercial license,  installed the file but the Plugin seems to be still in free version, what to do? **
+After installation of pro version, in General Options all your changes will be saved!
+If you still see "free version" notification after installation of pro version
+1) try to clean your cache files
+if this will not help
+2) delete, and install the plugin again
+
+**I have multy sites, and the plugin works only on one, but not other sites, why?**
+If you use multy site (have number of sites) when you install a plugin in main page, it will not work on other pages. 
+In order it could work there too, you should. 
+1) deactivate the plugin from main page
+2) go to the other pages and activate it there one by one 
+3) after all will be activated, go back to your main page and activate it
+
+### If you think, that you found a bug in our [WordPress Image Gallery](http://huge-it.com/wordpress-gallery/) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com).
 
 == Changelog ==
 
+= 1.3.8 =
+*  Bug fixed in Image Gallery.
+
+= 1.3.7 =
+*  Widget Bug fixed in Image Gallery.
+
+= 1.3.6 =
+*  Bug fixed in Image Gallery.
+
+= 1.3.5 =
+*  Bug fixed in Image Gallery.
+
+= 1.3.4 =
+*  Bug fixed in Image Gallery.
+
+= 1.3.3 =
+*  Bug fixed in Image Gallery.
+
+= 1.3.2 =
+*  Bug fixed in Image Gallery.
+
+= 1.3.1 =
+*  Bug fixed in Image Gallery.
+
+= 1.3.0 =
+*  Front end Bug fixed in Image Gallery.
+
+= 1.2.9 =
+*  Bug fixed in Image Gallery.
+
+= 1.2.8 =
+*  Bug fixed in Image Gallery.
+
+= 1.2.7 =
+*  Bug fixed in Image Gallery.
+
+= 1.2.6 =
+*  Bug fixed in Image Gallery.
+
+= 1.2.5 =
+*  Bug fixed in Image Gallery.
+
+= 1.2.4 =
+*  Bug fixed in Image Gallery.
+
+= 1.2.3 =
+*  Bug fixed in Image Gallery.
+
+= 1.2.2 =
+*  Double alt Bug fixed in Image Gallery.
+
+= 1.2.1 =
+*  Bug fixed in Image Gallery.
+
+= 1.2.0 =
+*  Bug fixed in Image Gallery.
+
+= 1.1.9 =
+*  Added new option.
+
+= 1.1.8 =
+*  Alt tag added in images.
+
+= 1.1.7 =
+*  Bug fixed in Image Gallery.
+
+= 1.1.6 =
+*  Bug fixed in Image Gallery.
+
+= 1.1.5 =
+*  Bug fixed in Image Gallery.
+
+= 1.1.4 =
+*  Two or more galleries on one page already available.
+
+= 1.1.3 =
+*  Bugs have been fixed on Image Gallery's lightbox.
+
+= 1.1.2 =
+*  Bug fixed in Image Gallery.
+
+= 1.1.1 =
+*  New awesome 'Justified' view has been launched in Image Gallery.
+
+= 1.1.0 =
+*  Notices errors has been fixed in Image Gallery.
+
+= 1.0.8 =
+*  Change view admin Bug fixed in Image Gallery.
+
+= 1.0.8 =
+*  Bug fixed in Image Gallery.
+
 = 1.0.7 =
-*  Bag fixed product catalog.
+*  SQL Injection bag has been fixed in Image Gallery.
 
 = 1.0.6 =
-*  Bag fixed product catalog.
+*  Bug fixed in Image Gallery.
 
 = 1.0.5 =
-*  Bag fixed product catalog.
+*  Add image Bug fixed Image Gallery.
 
 = 1.0.4 =
-*  Bag fixed product catalog.
+*  Bug fixed Image Gallery.
 
 = 1.0.3 =
-*  Bag fixed product catalog.
+*  Bug fixed and added some features Image Gallery.
 
 = 1.0.2 =
-*  Add Plugin product catalog.
+*  Bug fixed Image Gallery.
+
+= 1.0.1 =
+*  Bug fixed Image Gallery.
+
+==Step 1. Adding a Image Gallery==
+
+Huge-IT Image Gallery > Add New Image Gallery
+
+Add Images. Use the standard WordPress Image uploader to add an image from media library or upload from computer.
+Title. Add a title to your image
+Description. give some information or describe the topic
+URL. Provide some link of your post. Click to open in new tab or don’t click to open in the same tab
+
+OR
+
+Add videos. Use the standard WordPress video uploader to add a video from Youtube or Vimeo. Just insert a link 
+Title. Add a title to your videos
+Description. Give some information or describe the topic
+URL. Provide some link of your post. Click to open in new tab or don’t click to open in the same tab
 
 
-==Wordpress Adding a Product Catalog==
+**Inserting Created Image Gallery** 
 
-**Stage 1 Creation process of Product Catalog **
+When you finish creating your Image Gallery. Find on the right site 3 blocks
 
-### Catalogs > Add New Catalog - Product Catalog
+Views. Here, among 6 views, mentioned above, chose the view for your Image Gallery. 
 
-Add product. Use standard WordPress uploader to add product image. Press “Add New product”. (+) add additional images of the product 
+Usage. Here you can find a shortcode of your Image Gallery. You can Copy&Paste this shortcode wherever you need in your posts or page, where you want your Image Gallery be. Or you can add this code automatically, when posting your Image Gallery there is a button to add Image Gallery, pressing on it the shortcode inserts into your post.
 
-**Title. Add product name - Product Catalog**
+Template Include. This code made to be inserted into your template, it makes the inserting Image Gallery easy for using in custom location within theme.
 
-Price. Give product price - Product Catalog
+### Upgrade to [WordPress Image Gallery Pro](http://huge-it.com/wordpress-gallery/) to add some features:
 
-Discount Price. Write discount price 
+### Step 2. General Options of Image Gallery
 
-Description. Give description about the product 
+In this section you can modify your Image Gallery in more details. That will change the features of each view you choose.
 
-Other Parameter. You can also add other additional parameters 
+2.1 **Gallery / content-popup  -  Image Gallery**
 
-View Reviews. This button will open a window with product reviews’ list 
+**Element Styles of Image Gallery**
 
-View Ratings. This button will open a window with ratings of the product 
+Element Width. Sets the width of posted image in “ Image Gallery “
 
-Select The Catalog Theme. Choose one of the views from 5 available catalog views 
+Element Height. Sets the high of posted image in “ Image Gallery “
 
-Parameters. This area is made to add or change the additional parameters of the product 
+Element Border Width. Set the border with of the element in “ Image Gallery “
 
-Catalog Thumbnail. You can upload cover image for catalog. 
+Element Border Color. Choose the color for the border in “ Image Gallery “
 
-Usage. This section includes two kind of shortcodes, First one need to be inserted into post/page, the second one is for template. 
+Element's Image Overlay Color. Choose a color for the overlay on the image while hovering on it in Image Gallery
 
-**Stage 2 Catalog Options - Product Catalog **
+Element's Image Overlay Transparency. Set the level of transparency of the image overlay in “ Image Gallery “
 
-From this section you can make design customization on catalog view. Catalog consists of all products, so catalog view is mostly product initial view. It includes 5 sections. The relevant changes will affect an all catalogs using that specific view option. 
+Zoom Image Style. Changes the color of zoom icon in Image Gallery
 
-**2.1 Block Toggle Up-Down - Product Catalog **
+**Popup Styles of Image Gallery**
 
-View Types 
+Popup Background Color. Change the background color of popup in your “ Image Gallery “
 
-Allow Lightbox. Select to enable viewing images with lightbox
+Popup Overlay Color.Choose the color for popup overlay in your “ Image Gallery “
+
+Popup Overlay Transparency. Set the level of background transparency in your “ Image Gallery “
+
+Popup Close Button Style. Change the color of “X” icon. Image Gallery				
+
+Show Separator Lines. Tick to show separation lines between title and text in popup of “ Image Gallery “
+
+**Popup Description of Image Gallery**
+
+Show Description. Tick to show the description of the image in your “ Image Gallery “
+
+Description Font Size. Choose the size of description font in your “ Image Gallery “
+
+Description Font Color. Change the color of description text in your “ Image Gallery “
+
+**Element Title of Image Gallery**
+
+Element Title Font Size. Change the size of title font in “ Image Gallery “
+
+Element Title Background Color. Choose the color of title background in “ Image Gallery “
+
+Element Title Font Color. Change the color of title in “ Image Gallery “
+
+**Element Link Button of Image Gallery**
+
+Show Link Button On Element. Tick to show “View More” button on the image. Image Gallery
+
+Link Button Text. Change content of the “View More” text in “ Image Gallery “
+
+Link Button Font Size. Change the size of link button in “ Image Gallery “
+
+Link Button Font Color. Change the color of link font in “ Image Gallery “
+
+Link Button Background Color. choose color for link background in “ Image Gallery “
+
+
+**Popup Title of Image Gallery**
+
+Popup Title Font Size. Choose title font size in your “ Image Gallery “ popup
+
+Popup Title Font Color. Choose Title font color in popup. Image Gallery
+
+**Popup Link Button of Image Gallery**
+
+Show Link Button. Tick to show link button in popup of “ Image Gallery “
+
+Link Button Text. Change the text of link button in popup of “ Image Gallery “
+
+Link Button Font Size. Change font size of link button in popup of “ Image Gallery “
+
+Link Button Font Color. Change color of link button in popup. Image Gallery
+
+Link Button Font Hover Color. Choose color of link button when hover on it of “ Image Gallery “
+
+Link Button Background Color. Set background color of the link button in popup of “ Image Gallery “
+
+Link Button Background Hover Color. Set background color of the link as you hover on it. Image Gallery
+
+
+2.2 **Content slider  -  Image Gallery**
+
+**Slider of Image Gallery**
+
+Slider Background Color. Set the color of background in “ Image Gallery “
+
+Arrow Icons Style. Set black or white color of arrows in slider of “ Image Gallery “	
+ 		
+Show Separator Lines. Click to show the lines between text, title, and link in “ Image Gallery “
+
+**Title  -  Image Gallery**
+
+Title Font Size. Set the font size of the title in “ Image Gallery “
+
+Title Font Color. Set the color of the font in “ Image Gallery “
+
+**Link Button  -  Image Gallery**
+
+Show Link Button. Click to show the link button in “ Image Gallery “
+
+Link Button Text. Change the text on link button in “ Image Gallery “
+
+Link Button Font Size. Change the font size of the link text in “ Image Gallery “
+
+Link Button Font Color. Change the color or the link text in “Image Gallery “
+
+Link Button Font Hover Color. Change the color of the link text while hovering on it. Image Gallery
+
+Link Button Background Color. Choose the color of link background in “ Image Gallery “
+
+Link Button Background Hover Color. Choose the color of link background while hovering on it. Image Gallery
+
+**Images  -  Image Gallery**
+
+Main Image Width. Set the size of the image in “ Image Gallery “
+
+**Description  -  Image Gallery**
+
+Show Description. Click to show the description of the text in “ Image Gallery “
+
+Description Font Size. Set the font size of description in “ Image Gallery “
+
+Description Font Color. Set the color of font in description of “ Image Gallery “
+
+
+2.3 **Ligthtbox gallery  -  Image Gallery**
+
+**Image  -  Image Gallery**
+
+Image Width. Set the size of the image in “ Image Gallery “
+
+Image Border Width. Set the width of borders  in “ Image Gallery “
+
+Image Border Color. Choose the color for border in “ Image Gallery “
+
+Border Radius. Choose the radius of border corners in “ Image Gallery “
+
+**Title  -  Image Gallery**
+
+Title Font Size. Set the font size of the title in “ Image Gallery “
+
+Title Font Color. Set the color of the title in “ Image Gallery “
+
+Title Font Hover Color. Set the color of the title while hovering on it . Image Gallery
+
+Title Background Color. Choose title background color in “ Image Gallery “
+
+Title Background Transparency. Choose the level of title background transparency in “ Image Gallery “ 
  
-Allow Zooming. Select to enable zooming on images 
+2.4 **Slider  -  Image Gallery**
 
-**Element Styles - Product Catalog **
+**Title  -  Image Gallery**
 
-Element Background Color. Pick up a color for element background 
+Title Width. Choose the width for title box in “ Image Gallery “
 
-Element Border Width. Write some width number and you can have border on element 
+Title Has Margin. Click if you need the title to have margin in your “ Image Gallery “
 
-Element Border Color. Choose color for border on element 
+Title Font Size. Set the font size of the title in “ Image Gallery “
 
-Toggle Button Style. Choose white or black color for toggle button
+Title Text Color. Set the color of the title in “ Image Gallery “
 
-Show Separator Lines. Select to see or do not see separation lines 
+Title Text Align. Set the location of the title in the box in “ Image Gallery “			
 
-**Thumbnails - Product Catalog**
+Title Background Transparency. Set the level of background transparency in “ Image Gallery “
 
-Show Thumbnails. Select to see additional images or not 
+Title Background Color. Choose the color of title background in “ Image Gallery “
 
-Thumbnails Position. Choose where to display additional images 
+Title Border Size. Set the size of the title border in “ Image Gallery “
 
-Thumbnails Width. Give width size for additional images 
+Title Border Color. Choose the color for the title border in “ Image Gallery “
 
-Thumbnails Height. Give height size for additional images 
+Title Border Radius. Set the radius for border corners in “ Image Gallery “
 
-**Product Button - Product Catalog**
+Title Position. Choose the position for the title in “ Image Gallery “
 
-Show Product Button. Select to see product button or not. 
+**Slideshow  -  Image Gallery**
 
-Product Button Text. You can change the text inside product button 
+Image Behaviour. Choose resized if you need your images have the size of the slider in “ Image Gallery “
 
-Product Button Font Size. Select font size for button text 
+Slider Background Color. Choose the color of background while images has its natural size. Image Gallery
 
-Product Button Font Color. Pick up a color for product button text 
+Slideshow Border Size. Set the size of the slider border in “ Image Gallery “
 
-Product Button Font Hover Color. Pick up color for product button text while hove a mouse on it 
+Slideshow Border Color. Choose the color for the slider border in “ Image Gallery “
 
-Product Button Background Color. Pick up color for product button background 
+Slideshow Border radius Choose the radius for slider border in “ Image Gallery “
 
-Product Button Background Hover Color. Pick up color for product button background while hove a mouse on it 
+**Description  -  Image Gallery**
 
-**Main Image - Product Catalog**
+Description Has Margin. Choose if description need to have margin  “ Image Gallery “
 
-Main Image Width. Set width level for main images of the products within catalog. 
+Description Font Size. Set the font size for description in “ Image Gallery “
 
-Main Image Height. Set height level for main image of the products within catalog 
+Description Text Color. Set text color for description in “ Image Gallery “
 
-**Title **
+Description Text Align. Set the location of the description in the box	 of “ Image Gallery “	
 
-Title Font Size. Choose size for title 
+Description Background Transparency. Set the level of transparency for background of description. Image Gallery
 
-Title Font Color. Select title color 
+Description Background Color. Choose the color for description background in “ Image Gallery “
 
-Description 
+Description Border Size. Set the size for the border in description of “ Image Gallery “
 
-Show Description. Select to show the description of the catalog or not 
+Description Border Color. Set the color of description border in “ Image Gallery “
 
-Description Font Size. Choose size of description 
+Description Border Radius . Set the radius of the description box corners in “ Image Gallery “
 
-Description Font Color. Choose color for description font 
+Description Position. Set the position of description on image. Image Gallery
 
-Price Options 
+**Navigation  -  Image Gallery**
 
-Show Price. Select to demonstrate the price for the products 
+Show Navigation Arrows. Click to show navigation arrows in “ Image Gallery “ slider
 
-Price Text. Change the name of price block 
+Navigation Dots Position / Hide Dots. Choose the location for dots, or choose to remove them. Image Gallery
 
-Discount Price Text. Write the name of discount price block 
+Navigation Dots Color. choose the color for navigation dots in “ Image Gallery “ slider
 
-Price Block Font Size. Select font size of the price and discount price 
+Navigation Active Dot Color. Choose the color of moving dots in “ Image Gallery “ slider
 
-Price Block Font Color. Pick up a color on price text and discount price font
+2.5 **Thumbnails View  -  Image Gallery**
 
-**2.2 Full-Height Blocks - Product Catalog **
+**Image  -  Image Gallery**
 
-View Types 
+Image Behavior. Click to give your images a behavior in your “ Image Gallery “
 
-Allow Lightbox. Tick to activate viewing images with lightbox 
+Image Width. Set the width of thumbs in “ Image Gallery “
 
-Allow Zooming. Tick to activate zoom for images 
+Image Height. Set the height of thumbs in “ Image Gallery “
 
-**Element Styles - Product Catalog**
+Image Border Width. Set the width of the border between thumbs in “ Image Gallery “
 
-Block Width. Select width size for element 
+Image Border Color. Set the color of the border between thumbs in “ Image Gallery “
 
-Element Background Color. Pick up color for element background 
+Border Radius. Set the radius of the border in “ Image Gallery “
 
-Element Border Width. Write some width number and you can have element border 
+Margin Image. Set the distance between each thumb in “ Image Gallery “
 
-Element Border Color. Pick up color for border on element 
+**Title  -  Image Gallery**
 
-Show Separator Lines. Tick to see or don't see separation lines. 
+Title Font Size. Set the size of the text font in “ Image Gallery “
 
-**Product Button **
+Title Font Color. Choose the color of text in “ Image Gallery “
 
-Show Product Button. Tick to see product button or not 
+Overlay Background Color. Choose the overlay color of the title in “ Image Gallery “
 
-Product Button Text. You can Amend the text in product button 
+Title Background Transparency. Set the level of background transparency in “ Image Gallery “
 
-Product Button Font Size. Elect font size on button text 
+**Box style  -  Image Gallery**
 
-Product Button Font Color. Take color on product button text 
+Box Has background. Click to have background for thumbs in “ Image Gallery “
 
-Product Button Font Hover Color. Take on product button text while hove a mouse on it. 
+Box background. Set the Color of surrounded box in “ Image Gallery “
 
-Product Button Background Color. Take color on product button background 
+Box Use shadow. Click if you need to have shadows in the box of “ Image Gallery “
 
-Product Button Background Hover Color. Take color on product button background when you hover a mouse 
+Box padding. Set the distance between the box and images in “ Image Gallery “
 
-**Main Image - Product Catalog**
+2.6 **Justified View  -  Image Gallery**
 
-Main Image Width. Choose width level for main images of the products within catalog 
+**Element Styles  -  Image Gallery**
 
-Main Image Height. Choose height level for main image of the products within catalog 
+Image height. Set the height of the images/videos in tape
 
-Title 
+Image margin. Set the distance between each image/video in the tape
 
-Title Font Size. Choose size for title 
+Image Justify. Select to make the width of all image/video up to 100% in container. So all them together will fit the container of your theme, and tick off to bring each of them with it’s natural size.
 
-Title Font Color. Pick up title color 
+Image Randomize. Select to show your images randomly.
 
-**Thumbnails **
+Opening With Animation. Choose to see the tape of images/videos appearing animated.
 
-Show Thumbnails. Select to see additional images or not 
+Opening Animation Speed. Select the speed of the animation.
 
-Thumbnails Position. Choose where to display additional images 
+**Element Title  -  Image Gallery**
 
-Thumbnails Width. Give width size for additional images 
+Show Title. Choose to show the title or not
 
-Thumbnails Height. Give height size for additional images 
+Element Title Font Size. Choose the font size for the title of the image / video
 
-**Description **
+Element Title Font Color. Select preferable colour for the title of the image / video
 
-Show Description. Tick to show the description of the catalog or not 
+Element Title Background Color. Choose the colour of title background 
 
-Description Font Size. Choose size of description 
+Element's Title Overlay Transparency. Select the level of transparency for the title overlay
 
-Description Font Color. Take color for description font 
-
-**Price Options **
-
-Show Price. Tick to demonstrate the price for the products 
-
-Price Text. Amend the name of price block 
-
-Discount Price Text. Amend the name of discount price block 
-
-Price Block Font Size. Elect font size of the price and discount price 
-
-Price Block Font Color. Take color for price and discount price font
-
-**Element Title**
-		  					
-Element Title Font Size. Choose size for title on element
-
-Element Title Font Color. Select title color on the element
-
-**Element Product Button**
-
-Show Product Button On Element. Select to have “view product” button on element
-
-Product Button Text. Change the text on product details button 
-
-Product Button Font Size. Choose font size of button text
-
-Product Button Font Color. Choose font color of button text
-
-Product Button Background Color. Choose color for product button background 
-
-**Popup Title**
-
-Element Title Font Size. Choose size for title in popup
-
-Element Title Font Color. Select title color in popup
-
-**Popup Thumbnails**
-
-Show Thumbnails. Select to see additional images in popup or not
-
-Thumbnails Position. Choose where to display additional images in popup	 	
-	
-Thumbnails Width. Give width size for additional images in popup	
-
-Thumbnails Height. Give height size for additional images in popup	
-
-**Popup Product Button**
-
-Show Product Buttons. Select to see product button in popup or not
-
-Product Button Text. You can change the text inside product button
-
-Product Button Font Size. Select font size for button text
-
-Product Button Font Color. Choose color for product button text
-
-Product Button Font Hover Color. Choose color for product button text while hove a mouse on it.
-
-Product Button Background Color. Choose color for product button background
-
-Product Button Background Hover Color. Choose color for product button background while hove a mouse on it
-
-**2.4 Full-With Blocks - Product Catalog **
-
-View Types - Product Catalog
-
-Allow Lightbox. Tick to activate viewing images with lightbox 
-
-Allow Zooming. Tick to activate zoom for images 
-
-**Element Styles - Product Catalog**
-
-Block Width. Select width size for element 
-
-Element Background Color. Pick up color for element background 
-
-Element Border Width. Write some width number and you can have element border 
-
-Element Border Color. Pick up color for border on element 
-
-Show Separator Lines. Tick to see or don't see separation lines. 
-
-**Product Button - Product Catalog**
-
-Show Product Button. Tick to see product button or not 
-
-Product Button Text. You can Amend the text in product button 
-
-Product Button Font Size. Elect font size on button text 
-
-Product Button Font Color. Take color on product button text 
-
-Product Button Font Hover Color. Take on product button text while hove a mouse on it.
- 
-Product Button Background Color. Take color on product button background 
-
-Product Button Background Hover Color. Take color on product button background when you hover a mouse 
-
-Title - Product Catalog
-
-Title Font Size. Choose size for title 
-
-Title Font Color. Pick up title color 
-
-Thumbnails - Product Catalog 
-
-Show Thumbnails. Select to see additional images or not 
-
-Thumbnails Position. Choose where to display additional images
-
-Thumbnails Width. Give width size for additional images 
-
-Thumbnails Height. Give height size for additional images 
-
-**Price Options - Product Catalog**
-
-Show Price. Select to demonstrate the price for the products in catalog
-
-Price Text. Change the name of price block
-
-Discount Price Text. Change the name of discount price block 
-
-Price Block Font Size. Choose font size of the price and discount price 
-
-Price Block Font Color. Choose color for price and discount price font
-
-**2.5 Content Slider - Product Catalog**
-
-View Types
-
-Allow Lightbox. Select to enable viewing images with lightbox
-
-Allow Zooming. Select to enable zooming on images
-
-**Images - Product Catalog**
-
-Main Image Width. Choose width size for main image
-
-Show Thumbs. Select to see thumbnail images or not
-
-Thumbs Width. Change the width of thumbnail images
-
-Thumbs Height. Change the height of thumbnail images
-
-**Product Button - Product Catalog**
-
-Show Product Button. Select to see product button or not
-
-Product Button Text. You can change the text inside product button
-
-Product Button Font Size. Select font size for button text
-
-Product Button Font Color. Choose color for product button text
-
-Product Button Font Hover Color. Choose color for product button text while hove a mouse on it
-
-Product Button Background Color. Choose color for product button background
-
-Product Button Background Hover Color. Choose color for product button background while hove a mouse on it
-
-**Slider - Product Catalog**
-
-Slider Background Color. Choose color for content background
-
-Icons Style. Choose dark or with arrows on slider
-
-Show Separator Lines. Select to see separator lines between texts
-
-**Title - Product Catalog**
-
-Title Font Size. Choose size for title
-
-Title Font Color. Select title color
-
-**Description - Product Catalog**
-
-Show Description. Select to show the description of the catalog or not
-
-Description Font Size. Choose size of description
-
-Description Font Color. Choose color for description font
-
-**Price Options - Product Catalog**
-
-Show Price. Select to demonstrate the price for the products in catalog
-
-Price Text. Change the name of price block
-
-Discount Price Text. Change the name of discount price block 
-
-Price Block Font Size. Choose font size of the price and discount price 
-
-Price Block Font Color. Choose color for price and discount price font
-
-Stage 3 Products Options
-
-**Image Options - Product Catalog**
-
-Allow Lightbox. Select to have lightbox feature on images or not
-
-Allow Zooming. select to have zooming feature on images or not
-
-Main Image Width. Choose width size for main image 
-
-Show Thumbnails. Select to see the thumbnail images with main one
-
-Thumbnails Width. Choose width size for thumbnail images 
-
-Thumbnails Height. Choose height size for thumbnail images 
-
-Comments Box Options
-
-Show Comments. Select to see comments or not
-
-Commentator Name Color. Choose color for commentator name
-
-Comment Text Color. Choose color for comment text
-
-Comment Box Background Color. Choose color for comments’ container
-
-Submit Button Text. Change the text on “submit” button
-
-Submit Button Text Size. Decide text size for “submit” button text
-
-Submit Button Text Color. Choose color for “submit” text
-
-Submit Button Text Hover Color. Choose other color for “submit” button text while hover a mouse on it
-
-Submit Button Background Color. Choose color for “submit” button background
-
-Submit Button Background Hover Color. Choose other color for “submit” button background while hover a mouse on it
-
-**Text Option - Product Catalog**
-
-Price Block Text. Change the text for “price”
-
-Discount Price Block Text. Change the text for “discount price”
-
-Share Block Text. Choose text for Share Buttons block
-
-Rating Block Text. Change the text of rating block
-
-Parameters Tab Title Text. Change the text on “parameter” tab
-
-Comments Tab Title Text. Change the text on “comment” tab
-
-Name Label Text. Change text on “name” label
-
-Comment Label Text. Change text on “comment” label
-
-Captcha Label Text. Change text on “captcha” label
-
-Captcha Error Message Text. Change text on captcha error message
-
-Order Popup Title. Decide title for order popup window
-
-E-mail Input Text. Choose text for E-mail input
-
-Phone Input Text. Choose text for phone number input
-
-Message Input Text. Change text for message input
-
-**Product Options - Product Catalog**
-
-Product Block Background Color.
-
-Title Font Size. Decide font size for product title
-
-Title Font Color. Decide font color for title
-
-Show Price. Select to show the price or not
-
-Price Font Size. Give size to price text
-
-Price Font Color. Choose color for price text 
-
-Show Description. Select to show description or not
-
-Description Font Size. Decide font size for description text
-
-Description Font Color. Choose color for description text
-
-Show Rating. Select to show rating for the product or not
-
-Show Share Buttons. Select to show share buttons or not
-
-Rating's / Share Button's Label Font Size. Choose font size for rating/share buttons label
-
-Rating's / Share Button's Label Font Color. Choose font color for rating/share buttons label
-
-Show Separator Lines. Select t see separator lines in product box between texts
-
-**Tabs Options - Product Catalog**
-
-Tabs Titles Font Color. Choose color for text in tabs
-
-Tabs Titles Font Hover Color. Choose color for text in tabs while hover mouse on it
-
-Tabs Border Color. Choose tab’s border color
-
-Parameters Box Options
-
-Show Parameters. Select to see parameters tab
-
-Parameter Name Color. Choose color for parameters name
-
-Parameter Value Color. Choose color for parameters value
-
-**Stage 4 Image View Options Product Catalog**
-
-**4.1 Lightbox Options - Product Catalog**
-
-**Internationalization - Product Catalog**
-
-Lightbox style. Pick up one of designed styles of ligtbox 
-
-Transition type. Choose the effect of lightbox performance
-
-Opening speed. From here, configure speed of opening for lightbox
-
-Closing speed. Configure the speed of closing for lightbox
-
-Show the title. Tick to display the title of image. 
-
-Overlay transparency. In opened position of lightbox, you can adjust the background overlay transparency level
-
-Auto open. Tick for automatically opening the first image after reloading. 
-
-Overlay close. Tick to close the lightbox by clicking on the background overlay. 
-
-ESC close. Tick to close the image with esc button on keyboard. 
-
-Keyboard navigation. Tick to slide images in lightbox with left and right buttons
-. 
-Loop content. Selection of this option can allow to get to the first image after last image
-
-Show close button. Choose to display close button or not 
-
-**Positioning - Product Catalog**
-
-Fixed position. Tick to fix the ligtbox position while scrolling the page
-
-Popup position. You are given 9 ways to posit the ligtbox within page. 
-
-**Dimensions - Product Catalog**
-
-Popup size fix. Selection of this options will fix the popup width and height 
-
-Popup height. Give the height size to the lightbox
-
-Popup width. Give width size to the lightbox
-
-Popup max width. In case of size - unfixed, choose image max width 
-
-Popup max height. n case of size - unfixed, choose image max height 
-
-Popup initial height. Decide the inceptive height of opening 
-
-Popup initial width. Decide the inceptive width of opening 
-
-**Slideshow - Product Catalog**
-
-Slideshow. Tick to enable slideshow 
-
-Slideshow interval. Decide period between slides 
-
-Slideshow auto start. Selection of this option will start slideshow automatically as you open a lightbox. Also there will be “play” and “stop” button for slideshow 
-
-Slideshow start button text. Enter some new text on start button 
-
-Slideshow stop button text. Enter some new text of stop button 
-
-**4.2 Zoom Options - Product Catalog**
-
-Zoom Window Options 
-
-Window. Window type of zoom icon 
-
-Zoom Window Width. Give width size for zoom window 
-
-Zoom Window Height. Give height size for zoom window 
-
-X-Asis Offset. Choose the position of window by x-asis 
-
-Y-Asis Offset. choose position of window by y-asis 
-
-Zoom Window Position. zoom window position by sides 
-
-Zoom Window Border Size. Give border to zoom window and decide the size of it 
-
-Zoom Window Border Color. Pick up color for zoom window border 
-
-Zoom Window Border Radius. Set the radius level of window corners 
-
-Allow Zoom On Thumbnails. Select to allow zooming the thumbnail images Tint Options 
-
-Enable Tint.Select to have transparent overlay out of zoom window Tint Colour. Choose a color for tint overlay 
-
-Tint Opacity. Chose transparency level for overlay,which is out of zoom window 
-
-Tint FadeIn Speed. Set fade-in speed for tint 
-
-Tint FadeOut Speed. Set fade-out speed for tint 
-
-**Window Options - Product Catalog**
-
-Window Fade In Speed. Set fade-in speed for window overlay 
-
-Window Fade Out Speed. Set fade-out speed for window overlay 
-
-Zoom Window. Select to have zoom window 
-
-Window Shape. Choose window type
-
- Window Color. Pick up color overlay inside zoom window 
- 
-Window Opacity. Choose opacity level for overlay inside zoom window 
-
-Cursor. The default cursor is usually the arrow, then set the cursor is a pointer and cross icon
-
- Easing. Select for smoothly movement in window view. 
- 
-Window Size Fix. Select to fix the size of the window 
-
-Window Zoom Scroll. Select to be able to scroll the zoom 
-
-Inner. Inner type of zoom icon 
-
-**Inner Options - Product Catalog**
-
-Inner Fade In Speed. Set fade-in speed for inner overlay 
-
-Inner Fade Out Speed. Set fade-out speed for inner overlay 
-
-Zoom Inner. Select to have zoom inner Pick up color overlay inside zoom inner 
-
-Inner Opacity. Choose opacity level for overlay inside zoom inner 
-
-Cursor. The default cursor is usually the arrow, then set the cursor is a pointer and cross icon
-
-Easing. Select for smoothly movement in inner view. 
-
-Inner Size Fix. Select to fix the size of the inner 
-
-Inner Zoom Scroll. Select to be able to scroll the zoom 
-
-Lens. Lens type of zoom icon 
-
-**Lens Options - Product Catalog**
-
-Lens Fade In Speed. Set fade-in speed for lens overlay 
-
-Lens Fade Out Speed. Set fade-out speed for lens overlay 
-
-Zoom Lens. Select to have zoom lens 
-
-Lens Shape. Choose lens type Lens Color. Choose color overlay inside zoom lens 
-
-Lens Opacity. Choose opacity level for overlay inside zoom lens 
-
-Cursor. The default cursor is usually the arrow, then set the cursor is a pointer and cross icon
-
-Easing. Select for smoothly movement in lens view. 
-
-Lens Size Fix. Select to fix the size of the lens 
-
-Lens Zoom Scroll. Select to be able to scroll the zoom 
-
-**Stage 5 Rating Reviews Manager - Product Catalog**
-
-Rating Manager. From this section you can manage product ratings. Edit or Remove 
-
-Reviews Manager. From this section you can manage reviews. Edit or Remove
-
-The shortcode can be easily inserted into a template/theme which corresponds to the WordPress standards.
-To do so you should insert the following shorcode:
-
-    <?php echo do_shortcode([huge_it_catalog id=N]); ?>
-
-Where N is the number ID of the created Product Catalog.
