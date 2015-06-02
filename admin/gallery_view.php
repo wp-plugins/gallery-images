@@ -1,7 +1,9 @@
 <?php	
 if(function_exists('current_user_can'))
-if(!current_user_can('manage_options')) {
-die('Access Denied');
+//if(!current_user_can('manage_options')) {
+    
+if(!current_user_can('delete_pages')) {
+    die('Access Denied');
 }	
 if(!function_exists('current_user_can')){
 	die('Access Denied');

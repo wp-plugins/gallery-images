@@ -4,7 +4,7 @@
 Plugin Name: Huge IT Image Gallery
 Plugin URI: http://huge-it.com/wordpress-gallery/
 Description: Huge-IT Image Gallery is the best plugin to use if you want to be original with your website.
-Version: 1.3.8
+Version: 1.3.9
 Author: Huge-IT
 Author: http://huge-it.com/
 License: GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
@@ -226,13 +226,13 @@ add_action('wp_enqueue_scripts', 'all_frontend_scripts_and_styles');
 add_action('admin_menu', 'huge_it_gallery_options_panel');
 function huge_it_gallery_options_panel()
 {
-    $page_cat = add_menu_page('Theme page title', 'Huge IT Gallery', 'manage_options', 'gallerys_huge_it_gallery', 'gallerys_huge_it_gallery', plugins_url('images/huge_it_galleryLogoHover -for_menu.png', __FILE__));
+    $page_cat = add_menu_page('Theme page title', 'Huge IT Gallery', 'delete_pages', 'gallerys_huge_it_gallery', 'gallerys_huge_it_gallery', plugins_url('images/huge_it_galleryLogoHover -for_menu.png', __FILE__));
     $page_option = add_submenu_page('gallerys_huge_it_gallery', 'General Options', 'General Options', 'manage_options', 'Options_gallery_styles', 'Options_gallery_styles');
     $lightbox_options = add_submenu_page('gallerys_huge_it_gallery', 'Lightbox Options', 'Lightbox Options', 'manage_options', 'Options_gallery_lightbox_styles', 'Options_gallery_lightbox_styles');
-	add_submenu_page('gallerys_huge_it_gallery', 'Licensing', 'Licensing', 'manage_options', 'huge_it_imagegallery_Licensing', 'huge_it_imagegallery_Licensing');
-	add_submenu_page('gallerys_huge_it_gallery', 'Featured Plugins', 'Featured Plugins', 'manage_options', 'huge_it__gallery_featured_plugins', 'huge_it__gallery_featured_plugins');
+    add_submenu_page('gallerys_huge_it_gallery', 'Licensing', 'Licensing', 'manage_options', 'huge_it_imagegallery_Licensing', 'huge_it_imagegallery_Licensing');
+    add_submenu_page('gallerys_huge_it_gallery', 'Featured Plugins', 'Featured Plugins', 'manage_options', 'huge_it__gallery_featured_plugins', 'huge_it__gallery_featured_plugins');
 
-	add_action('admin_print_styles-' . $page_cat, 'huge_it_gallery_admin_script');
+    add_action('admin_print_styles-' . $page_cat, 'huge_it_gallery_admin_script');
     add_action('admin_print_styles-' . $page_option, 'huge_it_gallery_option_admin_script');
     add_action('admin_print_styles-' . $lightbox_options, 'huge_it_gallery_option_admin_script');
 }
