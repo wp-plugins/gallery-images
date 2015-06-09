@@ -87,10 +87,13 @@ Now you can set your Image Gallery options, images and use our Image Gallery.
 4.  WordPress Image Gallery view 4 - Slider
 5.  WordPress Image Gallery view 5 - Thumbnails
 51.  WordPress Image Gallery view 6 - Justified Gallery
-6.  [WordPress Image Gallery](http://wordpress.org/plugins/gallery-images/) - Image Gallery admin page  
-7.  [WordPress Image Gallery](http://wordpress.org/plugins/gallery-images/) - Image Gallery uploader
-8.  [WordPress Image Gallery](http://wordpress.org/plugins/gallery-images/) - Image Gallery General options
-9.  [WordPress Image Gallery](http://wordpress.org/plugins/gallery-images/) - Image Gallery add widget
+7.  [WordPress Image Gallery](http://wordpress.org/plugins/gallery-images/) - Image Gallery admin page  
+72.  [WordPress Image Gallery](http://wordpress.org/plugins/gallery-images/) - Image Gallery uploader
+73.  [WordPress Image Gallery](http://wordpress.org/plugins/gallery-images/) - Image Gallery General options
+74.  [WordPress Image Gallery](http://wordpress.org/plugins/gallery-images/) - Image Gallery add widget
+75.  [WordPress Image Gallery](http://wordpress.org/plugins/gallery-images/) - Image Gallery
+76.  [WordPress Image Gallery](http://wordpress.org/plugins/gallery-images/) - Image Gallery
+77.  [WordPress Image Gallery](http://wordpress.org/plugins/gallery-images/) - Image Gallery
 
 == Frequently Asked Questions ==
 
