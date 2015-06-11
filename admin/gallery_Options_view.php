@@ -35,6 +35,7 @@ jQuery(document).ready(function () {
 	});	
 });
 </script>
+
 <div class="wrap">
 	<?php $path_site = plugins_url("../images", __FILE__); ?>
 	<div class="slider-options-head">
