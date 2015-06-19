@@ -615,9 +615,9 @@ jQuery(document).ready(function(){
 </script>
 
 <style type="text/css">
-
 .element_<?php echo $galleryID; ?> {
-	width:<?php echo $paramssld['ht_view2_element_width']; ?>px;
+	width:100%;
+	max-width:<?php echo $paramssld['ht_view2_element_width']; ?>px;
 	height:<?php echo $paramssld['ht_view2_element_height']+45; ?>px;
 	margin:0px 0px 10px 0px;
 	background:#<?php echo $paramssld['ht_view2_element_background_color']; ?>;
@@ -631,7 +631,8 @@ jQuery(document).ready(function(){
 }
 
 .element_<?php echo $galleryID; ?> .image-block_<?php echo $galleryID; ?> img {
-	width:<?php echo $paramssld['ht_view2_element_width']; ?>px !important;
+	width:100% !important;
+	max-width:<?php echo $paramssld['ht_view2_element_width']; ?>px !important;
 	height:<?php echo $paramssld['ht_view2_element_height']; ?>px !important;
 	display:block;
 	border-radius: 0px !important;
@@ -718,7 +719,6 @@ jQuery(document).ready(function(){
 	color:#<?php echo $paramssld["ht_view2_element_linkbutton_color"];?>;
 	text-decoration:none;
 }
-
 /*#####POPUP#####*/
 
 #huge_it_gallery_popup_list_<?php echo $galleryID; ?> {
@@ -1369,7 +1369,8 @@ jQuery(document).ready(function(){
 <style type="text/css"> 
 
 .element_<?php echo $galleryID; ?> {
-	width:<?php echo $paramssld['ht_view6_width']; ?>px;
+	width: 100%;
+	max-width:<?php echo $paramssld['ht_view6_width']; ?>px;
 	margin:0px 0px 10px 0px;
 	border:<?php echo $paramssld['ht_view6_border_width']; ?>px solid #<?php echo $paramssld['ht_view6_border_color']; ?>;
 	border-radius:<?php echo $paramssld['ht_view6_border_radius']; ?>px;
@@ -1379,13 +1380,15 @@ jQuery(document).ready(function(){
 
 .element_<?php echo $galleryID; ?> .image-block_<?php echo $galleryID; ?> {
 	position:relative;
-	width:<?php echo $paramssld['ht_view6_width']; ?>px;
+	width: 100%;
+	max-width:<?php echo $paramssld['ht_view6_width']; ?>px;
 }
 
 .element_<?php echo $galleryID; ?> .image-block_<?php echo $galleryID; ?> a {display:block;}
 
 .element_<?php echo $galleryID; ?> .image-block_<?php echo $galleryID; ?> img {
-	width:<?php echo $paramssld['ht_view6_width']; ?>px !important;
+	width: 100%;
+	max-width:<?php echo $paramssld['ht_view6_width']; ?>px !important;
 	height:auto;
 	display:block;
 	border-radius: 0px !important;
@@ -1452,7 +1455,6 @@ jQuery(document).ready(function(){
 	color:#<?php echo $paramssld["ht_view6_title_font_hover_color"];?>;
 	text-decoration:none;
 }
-
 </style>
 <section id="huge_it_gallery_content_<?php echo $galleryID; ?>">
   <div id="huge_it_gallery_container_<?php echo $galleryID; ?>" class="super-list variable-sizes clearfix">
@@ -1522,7 +1524,9 @@ jQuery(document).ready(function(){
 
 <script> 
  jQuery(function(){
-	var defaultBlockWidth=<?php echo $paramssld['ht_view6_width']; ?>+20+<?php echo $paramssld['ht_view6_width']*2; ?>;
+	 var $paramssld = []; //<add> for lighbox container correctly viewing in small sizes 
+	$paramssld['ht_view6_width'] = <?php echo $paramssld['ht_view6_width']; ?>;	
+	var defaultBlockWidth=$paramssld['ht_view6_width']+20+$paramssld['ht_view6_width']*2;
     var $container = jQuery('#huge_it_gallery_container_<?php echo $galleryID; ?>');
     
     
@@ -1538,41 +1542,44 @@ jQuery(document).ready(function(){
           $this.addClass('height2');
         }
       });
-    
-$container.hugeitmicro({
-  itemSelector : '.element_<?php echo $galleryID; ?>',
-  masonry : {
-	columnWidth : <?php echo $paramssld['ht_view6_width']; ?>+10+<?php echo $paramssld['ht_view6_border_width']*2; ?>
-  },
-  masonryHorizontal : {
-	rowHeight: 'auto'
-  },
-  cellsByRow : {
-	columnWidth : <?php echo $paramssld['ht_view6_width']; ?>,
-	rowHeight : 'auto'
-  },
-  cellsByColumn : {
-	columnWidth : <?php echo $paramssld['ht_view6_width']; ?>,
-	rowHeight : 'auto'
-  },
-  getSortData : {
-	symbol : function( $elem ) {
-	  return $elem.attr('data-symbol');
-	},
-	category : function( $elem ) {
-	  return $elem.attr('data-category');
-	},
-	number : function( $elem ) {
-	  return parseInt( $elem.find('.number').text(), 10 );
-	},
-	weight : function( $elem ) {
-	  return parseFloat( $elem.find('.weight').text().replace( /[\(\)]/g, '') );
-	},
-	name : function ( $elem ) {
-	  return $elem.find('.name').text();
+	  reSortImages();
+	  function reSortImages() {//<add> for lighbox container correctly viewing in small sizes
+		$paramssld['ht_view6_width'] = (<?php echo $paramssld['ht_view6_width'];?> > jQuery(window).width())?jQuery(window).width():<?php echo $paramssld['ht_view6_width'];?>;   
+		$container.hugeitmicro({
+		  itemSelector : '.element_<?php echo $galleryID; ?>',
+		  masonry : {
+			columnWidth :  $paramssld['ht_view6_width']+10
+		  },
+		  masonryHorizontal : {
+			rowHeight: 'auto'
+		  },
+		  cellsByRow : {
+			columnWidth :  $paramssld['ht_view6_width'],
+			rowHeight : 'auto'
+		  },
+		  cellsByColumn : {
+			columnWidth : $paramssld['ht_view6_width'],
+			rowHeight : 'auto'
+		  },
+		  getSortData : {
+			symbol : function( $elem ) {
+			  return $elem.attr('data-symbol');
+			},
+			category : function( $elem ) {
+			  return $elem.attr('data-category');
+			},
+			number : function( $elem ) {
+			  return parseInt( $elem.find('.number').text(), 10 );
+			},
+			weight : function( $elem ) {
+			  return parseFloat( $elem.find('.weight').text().replace( /[\(\)]/g, '') );
+			},
+			name : function ( $elem ) {
+			  return $elem.find('.name').text();
+			}
+		  }
+		});
 	}
-  }
-});
     
     
       var $optionSets = jQuery('#huge_it_gallery_options .option-set'),
@@ -1606,21 +1613,30 @@ $container.hugeitmicro({
         return false;
       });
 
-      
-      <?php if($paramssld['ht_view6_content_in_center'] == 'on') { ?>
-      centersection();
+      jQuery(window).resize(function(){
+		reSortImages();
+      });   
+      <?php if(isset($paramssld['ht_view6_content_in_center']) && $paramssld['ht_view6_content_in_center'] == 'on') { ?>
+		centersection();
+		reSortImages();
       jQuery(window).resize(function(){
           centersection();
+		  reSortImages();
+
       });
             function centersection(){
-                var elementwidth=<?php echo $paramssld['ht_view6_width']; ?> + 10 + <?php echo $paramssld['ht_view6_border_width']*2; ?>;
+                var elementwidth=$paramssld['ht_view6_width'] + 10 + <?php echo $paramssld['ht_view6_border_width']*2; ?>;
                 var enterycontent=jQuery("#huge_it_gallery_container_<?php echo $galleryID; ?>").width();
                 var whole=~~(enterycontent/(elementwidth));
-                if(whole==0){ return false; }
-                else { var sectionwidth= whole * elementwidth;}
-                jQuery("#huge_it_gallery_container_moving_<?php echo $galleryID; ?>").width(sectionwidth).css({"margin":"0px auto","overflow":"hidden",});
-//                 alert(elementwidth + " " + enterycontent + " " + whole + " " + sectionwidth);
-      }
+                if(whole==0){ 
+					jQuery("#huge_it_gallery_container_moving_<?php echo $galleryID; ?>").width('100%');
+					reSortImages();
+					return false;
+				}
+                else { var sectionwidth= whole * elementwidth;}	
+				jQuery("#huge_it_gallery_container_moving_<?php echo $galleryID; ?>").width(sectionwidth).css({"margin":"0px auto","overflow":"hidden",});
+//                 console.log(elementwidth + " " + enterycontent + " " + whole + " " + sectionwidth);
+			}
       <?php } ?>
       
     
@@ -3321,6 +3337,7 @@ jQuery(function(){
 				width: 100%;
 				min-height: 100%;
 				text-align: center;
+				margin: 0;
 				margin-bottom: 30px;
 				<?php if($paramssld["thumb_box_has_background"] == 'on'){ ?>  background-color: #<?php echo $paramssld["thumb_box_background"]; ?>; <?php } ?>
 				<?php if($paramssld["thumb_box_use_shadow"] == 'on'){ echo 'box-shadow: 0 0 10px;'; } ?>
@@ -3329,7 +3346,8 @@ jQuery(function(){
 
 			#huge_it_gallery .huge_it_big_li {
 				overflow:hidden;
-				width: <?php echo $paramssld["thumb_image_width"]; ?>px;	
+				width: 100%;	
+				max-width: <?php echo $paramssld["thumb_image_width"]; ?>px;	
 				height: <?php echo $paramssld["thumb_image_height"]; ?>px;
 				margin: <?php echo $paramssld["thumb_margin_image"]; ?>px !important;
 				border-radius: <?php echo $paramssld["thumb_image_border_radius"]; ?>px;
@@ -3353,7 +3371,8 @@ jQuery(function(){
 				-ms-transition: opacity 0.3s linear;
 				-o-transition: opacity 0.3s linear;
 				transition: opacity 0.3s linear;
-				width: <?php echo $paramssld["thumb_image_width"]; ?>px;
+				width: 100%;
+				max-width: <?php echo $paramssld["thumb_image_width"]; ?>px;
 				height: <?php echo $paramssld["thumb_image_height"]; ?>px;
 				position: absolute;
 				text-align: center;
@@ -3366,7 +3385,8 @@ jQuery(function(){
 			section #huge_it_gallery li a {
 				position: absolute;
 				display: block;
-				width: <?php echo $paramssld["thumb_image_width"]; ?>px;
+				width: 100%;
+				max-width: <?php echo $paramssld["thumb_image_width"]; ?>px;
 				height: <?php echo $paramssld["thumb_image_height"]; ?>px;
 				top: 0px;
 				left: 0px;
@@ -3375,7 +3395,8 @@ jQuery(function(){
 			}
 			
 			#huge_it_gallery li img {
-				width: <?php echo $paramssld["thumb_image_width"] - 2*$paramssld["thumb_image_border_width"]; ?>px;	
+				width: 100%;	
+				max-width: <?php echo $paramssld["thumb_image_width"] - 2*$paramssld["thumb_image_border_width"]; ?>px;	
 			<?php if($paramssld["thumb_image_behavior"]=='on'){?>
 				height: <?php echo $paramssld["thumb_image_height"] - 2*$paramssld["thumb_image_border_width"]; ?>px;
 			<?php } ?>
