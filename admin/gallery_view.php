@@ -34,7 +34,6 @@ function html_showgallerys( $rows,  $pageNav,$sort,$cat_row){
 			var keyCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
 			if( keyCode == 13 ) {
 
-
 				if(!e) var e = window.event;
 
 				e.cancelBubble = true;
@@ -87,7 +86,6 @@ function html_showgallerys( $rows,  $pageNav,$sort,$cat_row){
 				 <input type="button" value="Reset" onclick="window.location.href=\'admin.php?page=gallerys_huge_it_gallery\'" class="button-secondary action">
 			</div>';
 
-		
 			?>
 			<table class="wp-list-table widefat fixed pages" style="width:95%">
 				<thead>
@@ -133,8 +131,7 @@ function html_showgallerys( $rows,  $pageNav,$sort,$cat_row){
 							$move_up="";
 						  }
 					}else{$move_up="";}
-					
-					
+
 					if(isset($rows[$i+1]->id)){
 						
 						if($rows[$i]->sl_width==$rows[$i+1]->sl_width){
