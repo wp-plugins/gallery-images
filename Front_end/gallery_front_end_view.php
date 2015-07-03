@@ -1032,7 +1032,9 @@ jQuery(document).ready(function(){
 				<div class="image-overlay"><a href="#<?php echo $row->id; ?>"></a></div>
 			</div>
 			<div class="title-block_<?php echo $galleryID; ?>">
-				<h3><?php echo $row->name; ?></h3>
+				<?php if( $row->name != '' &&  $row->name != null) { ?>
+					<h3><?php echo $row->name; ?></h3>
+				<?php }?>
 				<?php if($paramssld["ht_view2_element_show_linkbutton"]=='on'){?>
 					<div class="button-block"><a href="<?php echo $row->sl_url; ?>" <?php if ($row->link_target=="on"){echo 'target="_blank"';}?> ><?php echo $paramssld["ht_view2_element_linkbutton_text"]; ?></a></div>
 				<?php } ?>
@@ -1066,9 +1068,9 @@ jQuery(document).ready(function(){
 							case 'image':
 					?>									
 							<?php 	if($row->image_url != ';'){ ?>
-							<img alt="<?php echo $row->name; ?>" id="wd-cl-img<?php echo $key; ?>" src="<?php echo $imgurl[0]; ?>"  />
+							<img alt="<?php echo $row->name; ?>" id="wd-cl-img-big-<?php echo $key; ?>" src="<?php echo $imgurl[0]; ?>"  />
 							<?php } else { ?>
-							<img alt="<?php echo $row->name; ?>" id="wd-cl-img<?php echo $key; ?>" src="images/noimage.jpg"  />
+							<img alt="<?php echo $row->name; ?>" id="wd-cl-img-big-<?php echo $key; ?>" src="images/noimage.jpg"  />
 							<?php
 							} ?>	
 
@@ -1094,7 +1096,7 @@ jQuery(document).ready(function(){
 	
 				</div>
 				<div class="right-block">
-					<?php if($paramssld["ht_view2_show_popup_title"]=='on'){?><h3 class="title"><?php echo $row->name; ?></h3><?php } ?>
+					<?php if($paramssld["ht_view2_show_popup_title"]=='on' && $row->name != '' &&  $row->name != null){?><h3 class="title"><?php echo $row->name; ?></h3><?php } ?>
 					<?php if($paramssld["ht_view2_show_description"]=='on'){?><div class="description"><?php echo $row->description; ?></div><?php } ?>
 					<?php if($paramssld["ht_view2_show_popup_linkbutton"]=='on'){?>
 						<div class="button-block">
@@ -1335,7 +1337,7 @@ jQuery(document).ready(function(){
 	
 				</div>
 				<div class="right-block">
-					<div><h2 class="title"><?php echo $row->name; ?></h2></div>
+					<div><?php if( $row->name !='' &&  $row->name !=null){ ?><h2 class="title"><?php echo $row->name; ?></h2><?php }?></div>
 					<?php if($paramssld["ht_view5_show_description"]=='on'){?><div class="description"><?php echo $row->description; ?></div><?php } ?>
 					<?php if($paramssld["ht_view5_show_linkbutton"]=='on'){?>
 						<div class="button-block">
@@ -2289,7 +2291,7 @@ jQuery(function(){
             // Change image key.
             jQuery("#huge_it_current_image_key_gallery_<?php echo $sliderID; ?>").val(key);
              // if (current_key == '-2') { /* Dots.*/
-				current_key = jQuery(".huge_it_slideshow_dots_active_gallery_<?php echo $sliderID; ?>").attr("image_key");
+				current_key = jQuery(".huge_it_slideshow_dots_active_gallery_<?php echo $sliderID; ?>").attr("data-image_key");
 			//  }
           }
 
@@ -2312,7 +2314,7 @@ jQuery(function(){
       
           huge_it_current_key_gallery_<?php echo $sliderID; ?> = key;
           //Change image id, title, description.
-          jQuery("#huge_it_slideshow_image_gallery_<?php echo $sliderID; ?>").attr('image_id', data_gallery_<?php echo $sliderID; ?>[key]["id"]);
+          jQuery(".huge_it_slideshow_image_gallery_<?php echo $sliderID; ?>").attr('data-image_id', data_gallery_<?php echo $sliderID; ?>[key]["id"]);
 		  
 		  
 		  jQuery(".huge_it_slideshow_title_text_gallery_<?php echo $sliderID; ?>").html(data_gallery_<?php echo $sliderID; ?>[key]["alt"]);
@@ -3172,7 +3174,7 @@ jQuery(function(){
 							  }
 							
 							?>
-								<div id="huge_it_dots_<?php echo $stri; ?>_gallery_<?php echo $sliderID; ?>" class="huge_it_slideshow_dots_gallery_<?php echo $sliderID; ?> <?php echo (($key==$current_image_id) ? 'huge_it_slideshow_dots_active_gallery_'. $sliderID : 'huge_it_slideshow_dots_deactive_gallery_' . $sliderID); ?>" onclick="huge_it_change_image_gallery_<?php echo $sliderID; ?>(parseInt(jQuery('#huge_it_current_image_key_gallery_<?php echo $sliderID; ?>').val()), '<?php echo $stri; ?>', data_gallery_<?php echo $sliderID; ?>,false,true);return false;" image_id="<?php echo $image_row->id; ?>" image_key="<?php echo $stri; ?>"></div>
+								<div id="huge_it_dots_<?php echo $stri; ?>_gallery_<?php echo $sliderID; ?>" class="huge_it_slideshow_dots_gallery_<?php echo $sliderID; ?> <?php echo (($key==$current_image_id) ? 'huge_it_slideshow_dots_active_gallery_'. $sliderID : 'huge_it_slideshow_dots_deactive_gallery_' . $sliderID); ?>" onclick="huge_it_change_image_gallery_<?php echo $sliderID; ?>(parseInt(jQuery('#huge_it_current_image_key_gallery_<?php echo $sliderID; ?>').val()), '<?php echo $stri; ?>', data_gallery_<?php echo $sliderID; ?>,false,true);return false;" data-image_id="<?php echo $image_row->id; ?>" data-image_key="<?php echo $stri; ?>"></div>
 							<?php
 							  $stri++;
 							break;
@@ -3184,7 +3186,7 @@ jQuery(function(){
 							  }
 							
 							?>
-								<div id="huge_it_dots_<?php echo $stri; ?>_gallery_<?php echo $sliderID; ?>" class="huge_it_slideshow_dots_gallery_<?php echo $sliderID; ?> <?php echo (($key==$current_image_id) ? 'huge_it_slideshow_dots_active_gallery_' . $sliderID : 'huge_it_slideshow_dots_deactive_gallery_' . $sliderID); ?>" onclick="huge_it_change_image_gallery_<?php echo $sliderID; ?>(parseInt(jQuery('#huge_it_current_image_key_gallery_<?php echo $sliderID; ?>').val()), '<?php echo $stri; ?>', data_gallery_<?php echo $sliderID; ?>,false,true);return false;" image_id="<?php echo $image_row->id; ?>" image_key="<?php echo $stri; ?>"></div>
+								<div id="huge_it_dots_<?php echo $stri; ?>_gallery_<?php echo $sliderID; ?>" class="huge_it_slideshow_dots_gallery_<?php echo $sliderID; ?> <?php echo (($key==$current_image_id) ? 'huge_it_slideshow_dots_active_gallery_' . $sliderID : 'huge_it_slideshow_dots_deactive_gallery_' . $sliderID); ?>" onclick="huge_it_change_image_gallery_<?php echo $sliderID; ?>(parseInt(jQuery('#huge_it_current_image_key_gallery_<?php echo $sliderID; ?>').val()), '<?php echo $stri; ?>', data_gallery_<?php echo $sliderID; ?>,false,true);return false;" data-image_id="<?php echo $image_row->id; ?>" data-image_key="<?php echo $stri; ?>"></div>
 							<?php
 							  $stri++;
 							break;
@@ -3200,7 +3202,7 @@ jQuery(function(){
 								$current_key = $stri;
 							  }
 							?>
-								<div id="huge_it_dots_<?php echo $stri; ?>_gallery_<?php echo $sliderID; ?>" class="huge_it_slideshow_dots_gallery_<?php echo $sliderID; ?> <?php echo (($stri==$current_image_id) ? 'huge_it_slideshow_dots_active_gallery_' . $sliderID : 'huge_it_slideshow_dots_deactive_gallery_' . $sliderID); ?>" onclick="huge_it_change_image_gallery_<?php echo $sliderID; ?>(parseInt(jQuery('#huge_it_current_image_key_gallery_<?php echo $sliderID; ?>').val()), '<?php echo $stri; ?>', data_gallery_<?php echo $sliderID; ?>,false,true);return false;" image_id="<?php echo $image_row->id; ?>" image_key="<?php echo $stri; ?>"></div>
+								<div id="huge_it_dots_<?php echo $stri; ?>_gallery_<?php echo $sliderID; ?>" class="huge_it_slideshow_dots_gallery_<?php echo $sliderID; ?> <?php echo (($stri==$current_image_id) ? 'huge_it_slideshow_dots_active_gallery_' . $sliderID : 'huge_it_slideshow_dots_deactive_gallery_' . $sliderID); ?>" onclick="huge_it_change_image_gallery_<?php echo $sliderID; ?>(parseInt(jQuery('#huge_it_current_image_key_gallery_<?php echo $sliderID; ?>').val()), '<?php echo $stri; ?>', data_gallery_<?php echo $sliderID; ?>,false,true);return false;" data-image_id="<?php echo $image_row->id; ?>" data-image_key="<?php echo $stri; ?>"></div>
 							<?php
 							  $stri++;
 							}
@@ -3222,7 +3224,7 @@ jQuery(function(){
 				</a>
 				
 				<a id="huge_it_slideshow_right_gallery_<?php echo $sliderID; ?>" href="#" onclick="huge_it_change_image_gallery_<?php echo $sliderID; ?>(parseInt(jQuery('#huge_it_current_image_key_gallery_<?php echo $sliderID; ?>').val()), (parseInt(jQuery('#huge_it_current_image_key_gallery_<?php echo $sliderID; ?>').val()) + iterator_gallery_<?php echo $sliderID; ?>()) % data_gallery_<?php echo $sliderID; ?>.length, data_gallery_<?php echo $sliderID; ?>,false,true);return false;">
-					<div id="huge_it_slideshow_right-ico_<?php echo $sliderID;?> , data_<?php echo $sliderID;?>">
+					<div id="huge_it_slideshow_right-ico_<?php echo $sliderID;?>">
 					<div><i class="huge_it_slideshow_next_btn_gallery_<?php echo $sliderID; ?> fa"></i></div></div>
 				</a>
 			<?php
@@ -3247,10 +3249,10 @@ jQuery(function(){
 						?>
 						  <li class="huge_it_slideshow_image<?php if ($i != $current_image_id) {$current_key = $key; echo '_second';} ?>_item_gallery_<?php echo $sliderID; ?>" id="image_id_gallery_<?php echo $sliderID.'_'.$i ?>">      
 							<?php if($image_row->sl_url!=""){ 
-								if ($image_row->link_target=="on"){$target='target="_blank'.$image_row->link_target.'"';}
+								if ($image_row->link_target=="on"){$target='target="_blank"';}
 								echo '<a href="'.$image_row->sl_url.'" '.$target.'>';
 							} ?>
-							<img alt="<?php echo $image_row->name; ?>" id="huge_it_slideshow_image_gallery_<?php echo $sliderID; ?>" class="huge_it_slideshow_image_gallery_<?php echo $sliderID; ?>" src="<?php echo $image_row->image_url; ?>" image_id="<?php echo $image_row->id; ?>" />
+							<img alt="<?php echo $image_row->name; ?>" id="huge_it_slideshow_image_gallery_<?php echo $sliderID; ?>_<?php echo $key;?>" class="huge_it_slideshow_image_gallery_<?php echo $sliderID; ?>" src="<?php echo $image_row->image_url; ?>" data-image_id="<?php echo $image_row->id; ?>" />
 							<?php if($image_row->sl_url!=""){ echo '</a>'; }?>		
 							<div class="huge_it_slideshow_title_text_gallery_<?php echo $sliderID; ?> <?php if(trim($image_row->name)=="") echo "none"; ?>">
 								<?php echo $image_row->name; ?>
@@ -3272,10 +3274,10 @@ jQuery(function(){
 								?>
 								  <li class="huge_it_slideshow_image<?php if ($i != $current_image_id) {$current_key = $key; echo '_second';} ?>_item_gallery_<?php echo $sliderID; ?>" id="image_id_gallery_<?php echo $sliderID.'_'.$i ?>">      
 									<?php if ($image_row->sl_postlink=="1"){
-											if ($image_row->link_target=="on"){$target='target="_blank'.$image_row->link_target.'"';}
+											if ($image_row->link_target=="on"){$target='target="_blank"';}
 											echo '<a href="'.$last_posts["guid"].'" '.$target.'>';
 									} ?>
-									<img alt="<?php echo $image_row->name; ?>" id="huge_it_slideshow_image_gallery_<?php echo $sliderID; ?>" class="huge_it_slideshow_image_gallery_<?php echo $sliderID; ?>" src="<?php echo $imagethumb[0]; ?>" image_id="<?php echo $image_row->id; ?>" />
+									<img alt="<?php echo $image_row->name; ?>" id="huge_it_slideshow_image_gallery_<?php echo $sliderID; ?>" class="huge_it_slideshow_image_gallery_<?php echo $sliderID; ?>" src="<?php echo $imagethumb[0]; ?>" data-image_id="<?php echo $image_row->id; ?>" />
 									<?php if($image_row->sl_postlink=="1"){ echo '</a>'; }?>		
 									<div class="huge_it_slideshow_title_text_gallery_<?php echo $sliderID; ?> <?php if(trim($last_posts["post_title"])=="") echo "none";  if($image_row->sl_stitle!="1") echo " hidden"; ?>">
 											<?php echo $last_posts["post_title"]; ?>
@@ -3315,8 +3317,8 @@ jQuery(function(){
 					} 
 				} 
 			?>
-			   <input type="hidden" id="huge_it_current_image_key_gallery_<?php echo $sliderID; ?>" value="0" />
             </ul>
+			<input type="hidden" id="huge_it_current_image_key_gallery_<?php echo $sliderID; ?>" value="0" />
           </div>
         </div>
       </div>
@@ -3471,9 +3473,11 @@ jQuery(function(){
 					<div class="infoLayer">
 						<ul>
 							<li>
+							<?php if($row->name !='' && $row->name != null){?>
 								<h2>
 									<?php echo $row->name; ?>
 								</h2>
+							<?php }?> 
 							</li>
 							<li>
 								<p>
