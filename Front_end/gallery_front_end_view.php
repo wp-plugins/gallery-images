@@ -221,6 +221,36 @@ $paramssld["ht_view8_element_animation_speed"] = "2000";
 $paramssld["ht_view2_content_in_center"] = "off";
 $paramssld["ht_view6_content_in_center"] = "off";
 $paramssld["ht_view2_popup_full_width"] = "on";
+////////////////////////////////////////////////////
+$paramssld["ht_view9_title_fontsize"] = "18";
+$paramssld["ht_view9_title_color"] = "FFFFFF";
+$paramssld["ht_view9_desc_color"] = "000000";
+$paramssld["ht_view9_desc_fontsize"] = "14";
+$paramssld["ht_view9_element_title_show"] = "true";
+$paramssld["ht_view9_element_desc_show"] = "true";
+$paramssld["ht_view9_general_width"] = "100";
+$paramssld["view9_general_position"] = "center";
+$paramssld["view9_title_textalign"] = "left";
+$paramssld["view9_desc_textalign"] = "justify";
+$paramssld["view9_image_position"] = "2";
+$paramssld["ht_view9_title_back_color"] = "000000";
+$paramssld["ht_view9_title_opacity"] = "70";
+$paramssld["ht_view9_desc_opacity"] = "100";
+$paramssld["ht_view9_desc_back_color"] = "FFFFFF";
+$paramssld["ht_view9_general_space"] = "0";
+$paramssld["ht_view9_general_separator_size"] = "0";
+$paramssld["ht_view9_general_separator_color"] = "010457";
+$paramssld["view9_general_separator_style"] = "dotted";
+$paramssld["ht_view9_general_content_count"] = "5";
+$paramssld["ht_view9_paginator_fontsize"] = "22";
+$paramssld["ht_view9_paginator_color"] = "1046B3";
+$paramssld["ht_view9_paginator_icon_color"] = "1046B3";
+$paramssld["ht_view9_paginator_icon_size"] = "18";
+$paramssld["view9_paginator_position"] = "center";
+
+
+
+
 	
 				/***<optimize_images>***/
 	$image_prefix = "_huge_it_small_gallery";
@@ -3677,6 +3707,188 @@ jQuery(function(){
 </script>
   <?php	  
 	break;
+
+case 7:
+?>
+<style>
+	.view9_container:nth-last-child(3){
+		margin-bottom: 0px !important;
+		padding-bottom: 0px !important;
+		border:none !important;
+
+	}
+	.view9_container{
+		width: <?php echo $paramssld['ht_view9_general_width']; ?>%;
+		float:<?php if($paramssld['view9_general_position'] == 'left' || $paramssld['view9_general_position'] == 'center') { echo 'none'; }
+					elseif($paramssld['view9_general_position'] == 'right') { echo 'right'; }?>;
+		<?php if($paramssld['view9_general_position'] == 'center') { echo 'margin:0 auto;'; }?>;
+		margin-bottom: <?php echo $paramssld['ht_view9_general_space']; ?>px !important;
+		padding-bottom: <?php echo $paramssld['ht_view9_general_space']; ?>px !important;
+		border-bottom:  <?php echo $paramssld['ht_view9_general_separator_size']; ?>px 
+
+		<?php if($paramssld['view9_general_separator_style'] == 'none') { echo 'none'; }
+		      elseif($paramssld['view9_general_separator_style'] == 'solid') { echo 'solid'; }
+		      elseif($paramssld['view9_general_separator_style'] == 'dashed') { echo 'dashed'; }
+		      elseif($paramssld['view9_general_separator_style'] == 'dotted') { echo 'dotted'; }
+		      elseif($paramssld['view9_general_separator_style'] == 'groove') { echo 'groove'; }
+		      elseif($paramssld['view9_general_separator_style'] == 'double') { echo 'double'; }?> #<?php echo $paramssld['ht_view9_general_separator_color']; ?>;
+	}
+	.view9_img{
+		display:block;
+		margin: 0 auto;
+	}
+	.new_view_title{
+		font-size:<?php echo $paramssld['ht_view9_title_fontsize']; ?>px !important;
+		color:<?php echo '#'.$paramssld['ht_view9_title_color']; ?> !important;
+		<?php if($paramssld['ht_view9_element_title_show'] == 'false') { echo 'display:none;'; }?>;
+		<?php if($paramssld['view9_title_textalign'] == 'left') { echo 'text-align:left;'; }
+		      elseif($paramssld['view9_title_textalign'] == 'right') { echo 'text-align:right;'; }
+		      elseif($paramssld['view9_title_textalign'] == 'center') { echo 'text-align:center;'; }
+		      elseif($paramssld['view9_title_textalign'] == 'justify') { echo 'text-align:justify;'; }?>;
+		background-color:<?php echo '#'.$paramssld['ht_view9_title_back_color']; ?> !important;  
+		<?php if($paramssld['ht_view9_title_opacity'] != 100) { echo 'opacity:'.($paramssld['ht_view9_title_opacity']/100).';'; }?>;    
+	}
+	.new_view_desc ul{
+		list-style-type: none;
+	}
+	.new_view_desc{
+		margin-top: 15px;
+		font-size:<?php echo $paramssld['ht_view9_desc_fontsize']; ?>px !important;
+		color:<?php echo '#'.$paramssld['ht_view9_desc_color']; ?> !important;
+		<?php if($paramssld['ht_view9_element_desc_show'] == 'false') { echo 'display:none;'; }?>;
+		<?php if($paramssld['view9_desc_textalign'] == 'left') { echo 'text-align:left;'; }
+	      elseif($paramssld['view9_desc_textalign'] == 'right') { echo 'text-align:right;'; }
+	      elseif($paramssld['view9_desc_textalign'] == 'center') { echo 'text-align:center;'; }
+	      elseif($paramssld['view9_desc_textalign'] == 'justify') { echo 'text-align:justify;'; }?>;
+	      background-color:<?php echo '#'.$paramssld['ht_view9_desc_back_color']; ?> !important;  
+		<?php if($paramssld['ht_view9_desc_opacity'] != 100) { echo 'opacity:'.($paramssld['ht_view9_desc_opacity']/100).';'; }?>; 
+	}
+	.paginate{
+		font-size:<?php echo $paramssld['ht_view9_paginator_fontsize']; ?>px !important;
+		color:<?php echo '#'.$paramssld['ht_view9_paginator_color']; ?> !important;
+		text-align: <?php echo $paramssld['view9_paginator_position']; ?>;
+	}
+	.paginate a{
+		border-bottom: none !important;
+	}
+	.icon-style{
+		font-size: <?php echo $paramssld['ht_view9_paginator_icon_size']; ?>px !important;
+		color:<?php echo '#'.$paramssld['ht_view9_paginator_icon_color']; ?> !important;;
+	}
+	.clear{
+		clear:both;
+	}
+</style>
+<div class="view9_cont_wrapper">
+<?php
+foreach($images as $image){
+	$idofgallery=$image->gallery_id ;
+}
+	
+global $wpdb;
+$num=5;
+//$total = count($images) ; 
+$total = intval(((count($images) - 1) / $num) + 1);
+//$total_img=count($images);
+if(isset($_GET['page-img'])){
+	$page = $_GET['page-img'];
+}
+else
+{
+	$page = '';
+}
+
+$page = intval($page);
+if(empty($page) or $page < 0) $page = 1;  
+  if($page > $total) $page = $total; 
+$start = $page * $num - $num; 
+//var_dump($start);
+//var_dump($total);
+$query=$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."huge_itgallery_images where gallery_id = '%d' order by ordering ASC LIMIT ".$start.",".$num."",$idofgallery);
+	$page_images=$wpdb->get_results($query);
+	foreach($page_images as $key=>$row)
+	{
+		
+		$img_src=$row->image_url;
+		$img_name=$row->name;
+		$img_desc=$row->description;
+		if($paramssld['view9_image_position'] == 1) :
+		?>
+
+		<div class="view9_container">
+			<img class="view9_img" src="<?php echo $img_src;?>">
+			<h1 class="new_view_title"><?php echo $img_name;?></h1>
+			<div class="new_view_desc"><?php echo $img_desc;?></div>
+
+		</div>
+
+		<div class="clear"></div>
+		<?php 
+		elseif($paramssld['view9_image_position'] == 2) :
+		?>
+		<div class="view9_container">
+			<h1 class="new_view_title"><?php echo $img_name;?></h1>
+			<img class="view9_img" src="<?php echo $img_src;?>">
+			<div class="new_view_desc"><?php echo $img_desc;?></div>
+		</div>
+		<div class="clear"></div>
+		<?php
+		elseif($paramssld['view9_image_position'] == 3) :
+		?>
+		<div class="view9_container">
+			<h1 class="new_view_title"><?php echo $img_name;?></h1>
+			<div class="new_view_desc"><?php echo $img_desc;?></div>
+			<img class="view9_img" src="<?php echo $img_src;?>">
+		</div>
+		<div class="clear"></div>
+		
+		<?php
+		endif;
+		
+	}
+
+	
+		?>
+		<div class="paginate">
+				<?php
+				$actual_link = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']."";
+				$checkREQ='';
+				$pattern="/\?p=/";
+				//$res=preg_match($pattern, $actual_link);
+				if(preg_match($pattern, $actual_link)){
+					$checkREQ='./?p=1&page-img';
+					
+				}else{
+					$checkREQ='?page-img';
+					
+				}
+				//var_dump($res);  
+				
+				// Проверяем нужны ли стрелки назад 
+				 $pervpage='';
+				if ($page != 1) $pervpage = '<a href= '.$checkREQ.'=1><i class="icon-style hugeiticons-fast-backward" ></i></a>  
+				                               <a href= '.$checkREQ.'='. ($page - 1) .'><i class="icon-style hugeiticons-chevron-left"></i></a> ';  
+				// Проверяем нужны ли стрелки вперед 
+				$nextpage=''; 
+				if ($page != $total) $nextpage = ' <a href= '.$checkREQ.'='. ($page + 1) .'><i class="icon-style hugeiticons-chevron-right"></i></a>  
+				                                   <a href= '.$checkREQ.'=' .$total. '><i class="icon-style hugeiticons-fast-forward" ></i></a>'; 
+
+				// Находим две ближайшие станицы с обоих краев, если они есть  
+				/*if($page - 2 > 0) $page2left = ' <a href= ./?page='. ($page - 2) .'>'. ($page - 2) .'</a> | ';  
+				if($page - 1 > 0) $page1left = '<a href= ./?page='. ($page - 1) .'>'. ($page - 1) .'</a> | ';  
+				if($page + 2 <= $total) $page2right = ' | <a href= ./?page='. ($page + 2) .'>'. ($page + 2) .'</a>';  
+				if($page + 1 <= $total) $page1right = ' | <a href= ./?page='. ($page + 1) .'>'. ($page + 1) .'</a>'; */
+
+				// Вывод меню  
+				echo $pervpage.$page.'/'.$total.$nextpage;  
+
+				?>
+				</div>
+</div>
+
+		<?php
+	break;
+
 }
  ?>
       <?php   

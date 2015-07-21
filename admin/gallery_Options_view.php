@@ -52,6 +52,9 @@ jQuery(document).ready(function () {
 		</div>
 	</div>
 	<div style="clear: both;"></div>
+	<div style="color: #a00;" >Dear user. Thank you for your interest in our product.
+Please be known, that this page is for commercial users, and in order to use options from there, you should have pro license.
+We please you to be understanding. The money we get for pro license is expended on constantly improvements of our plugins, making them more professional useful and effective, as well as for keeping fast support for every user. </div>
 <div id="poststuff">
 		<?php $path_site = plugins_url("/../Front_images", __FILE__); ?>
 		<?php $path_site2 = plugins_url("/../images", __FILE__); ?>
@@ -63,9 +66,7 @@ jQuery(document).ready(function () {
 				<a class="save-gallery-options button-primary">Save</a>
 		
 			</div>
-			<div style="color: #a00;" >Dear user. Thank you for your interest in our product.
-Please be known, that this page is for commercial users, and in order to use options from there, you should have pro license.
-We please you to be understanding. The money we get for pro license is expended on constantly improvements of our plugins, making them more professional useful and effective, as well as for keeping fast support for every user. </div>
+			
 <div style="clear: both;"></div>
 		<div>
 			<img style="width: 100%;" src="<?php echo $path_site2; ?>/general_opt.png">
