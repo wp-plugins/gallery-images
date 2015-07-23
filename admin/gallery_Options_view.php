@@ -68,8 +68,40 @@ We please you to be understanding. The money we get for pro license is expended 
 			</div>
 			
 <div style="clear: both;"></div>
-		<div>
-			<img style="width: 100%;" src="<?php echo $path_site2; ?>/general_opt.png">
+<div id="gallery-options-list">
+			
+			<ul id="gallery-view-tabs">
+				<li><a href="#gallery-view-options-0">Gallery/Content-Popup</a></li>
+				<li><a href="#gallery-view-options-1">Content Slider</a></li>
+				<li><a href="#gallery-view-options-2">Lightbox-Gallery</a></li>
+				<li><a href="#gallery-view-options-3">Slider</a></li>
+				<li><a href="#gallery-view-options-4">Thumbnails</a></li>
+                 <li><a href="#gallery-view-options-5">Justified</a></li>
+                 <li><a href="#gallery-view-options-6">Block Style Gallery</a></li>
+			</ul>
+			<ul class="options-block" id="gallery-view-tabs-contents">
+				<li class="gallery-view-options-0">
+					<img style="width: 100%;" src='<?php echo $path_site2; ?>/popup-tab-1.png' >		
+				</li>
+				<li class="gallery-view-options-1">
+					<img style="width: 100%;" src='<?php echo $path_site2; ?>/content-slider-tab-2.png' >	
+				</li>
+				<li class="gallery-view-options-2">
+					<img style="width: 100%;" src='<?php echo $path_site2; ?>/lightbox-tab3.png' >		
+				</li>
+				<li class="gallery-view-options-3">
+					<img style="width: 100%;" src='<?php echo $path_site2; ?>/slider-tab4.png' >	
+				</li>
+				<li class="gallery-view-options-4">
+					<img style="width: 100%;" src='<?php echo $path_site2; ?>/thumbnails-tab-5.png' >
+				</li>
+				<li class="gallery-view-options-5">
+					<img style="width: 100%;" src='<?php echo $path_site2; ?>/justified-tab-6.png' >
+				</li>
+				<li class="gallery-view-options-6">
+					<img style="width: 100%;" src='<?php echo $path_site2; ?>/block-tab-7.png' >
+				</li>
+			</ul>
 		</div>
 		</div>
 	</div>
