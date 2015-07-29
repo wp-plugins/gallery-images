@@ -3,7 +3,7 @@ Contributors: Huge-IT
 Donate link: http://huge-it.com/wordpress-gallery/
 Tags: gallery, image gallery, gallery image, content slider, widget gallery, lightbox gallery, website gallery, gallery lightbox, image, images, content gallery, galleries, wordpress gallery, Picture Gallery, photo gallery, galeria, gallery, best gallery, thumbnail view, content gallery, media gallery, easy gallery, gallery plugin, plugin gallery, wordpress photo gallery plugin, add gallery, add image, add picture, add photo, galery, add images, add pictures, gallery wordpress, wp gallery, gallery slider, Galleria, simple gallery, wordpress gallery plugin, free gallery, free images, video gallery, youtube gallery, vimeo gallery, photo albums, grid gallery, images gallery, filterable gallery, grid, iphone gallery, photogallery, photoset, shortcode gallery, fullscreen gallery, justified, fullscreen slider, gallery shortcode, free photo gallery, best gallery plugin, photo album, image rotator, free slider, banner rotator, album, galeri, galerie, image album, wp gallery plugins, image gallery plugin, image slider, slideshow, slide, lightbox slider, slideshow gallery, watermarking, fotogalerie, responsive wordpress photo gallery, responsive gallery, art gallery, gallery, multiple pictures, fotoalbum, responsive galleries, photoalbum, jquery gallery, justified gallery, pictures, picture, photos, responsive,
 Requires at least: 3.0.1
-Tested up to: 4.2.2
+Tested up to: 4.2.3
 Stable tag: 1.4.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
