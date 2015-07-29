@@ -1,4 +1,4 @@
-=== Gallery ===
+=== Image Gallery ===
 Contributors: Huge-IT
 Donate link: http://huge-it.com/wordpress-gallery/
 Tags: gallery, image gallery, gallery image, content slider, widget gallery, lightbox gallery, website gallery, gallery lightbox, image, images, content gallery, galleries, wordpress gallery, Picture Gallery, photo gallery, galeria, gallery, best gallery, thumbnail view, content gallery, media gallery, easy gallery, gallery plugin, plugin gallery, wordpress photo gallery plugin, add gallery, add image, add picture, add photo, galery, add images, add pictures, gallery wordpress, wp gallery, gallery slider, Galleria, simple gallery, wordpress gallery plugin, free gallery, free images, video gallery, youtube gallery, vimeo gallery, photo albums, grid gallery, images gallery, filterable gallery, grid, iphone gallery, photogallery, photoset, shortcode gallery, fullscreen gallery, justified, fullscreen slider, gallery shortcode, free photo gallery, best gallery plugin, photo album, image rotator, free slider, banner rotator, album, galeri, galerie, image album, wp gallery plugins, image gallery plugin, image slider, slideshow, slide, lightbox slider, slideshow gallery, watermarking, fotogalerie, responsive wordpress photo gallery, responsive gallery, art gallery, gallery, multiple pictures, fotoalbum, responsive galleries, photoalbum, jquery gallery, justified gallery, pictures, picture, photos, responsive,
@@ -23,12 +23,12 @@ https://www.youtube.com/watch?v=fNz0hW01k3k
 
 Huge-IT Image Gallery is the best plugin to use if you want to be original with your website. Image Gallery has specially made to allow it’s users create a lot of ways to represent your images, videos and information. Just add image or video wright descriptions and titles for each view of the Image Gallery and choose one from 6 unrepeatable views.
 
-* Gallery / Content-Popup
-* Content Slider 
-* Ligthtbox Gallery
-* Huge-IT Slider 
-* Thumbnail view.
-* Justified.
+* Gallery / Content-Popup - Image Gallery
+* Content Slider - Image Gallery
+* Ligthtbox Gallery - Image Gallery
+* Huge-IT Slider - Image Gallery
+* Thumbnail view - Image Gallery
+* Justified - Image Gallery
 
 Each view has unique customizable options in “ General Options “ section to make them fit your taste. Almost every type of text can be change from the standpoint of text and color. Also there are a lot of features relative as to Image Gallery and thumbnails as to it's lightbox. Talking about Lightbox, notice, that Image Gallery plugin has separate options page, where you can choose one from 5 lightbox views, and customize it. And that way to create desirable style of your website. Show your image and video in it's best way!
 
@@ -63,6 +63,20 @@ This view shows your images like thumbnail. As you click  they open in lightbox,
 **Justified  -  Image Gallery**
 
 Justified view allows you to represent your images and videos in a little sizes each next to other like a horizontal line or tape. By hovering on them, appears the title of the image/video. Clicking on the image / video it opens in lightbox, giving a beautiful view to them.
+
+Image Gallery Demos
+
+* [Gallery /Content Popup - Gallery](http://huge-it.com/wordpress-plugins-gallery-demo/)
+
+* [Content Slider - Gallery](http://huge-it.com/wordpress-gallery-demo-2-content-slider/)
+
+* [Lightbox Gallery - Gallery](http://huge-it.com/wordpress-gallery-demo-3-lightbox-gallery/)
+
+* [Slider - Gallery](http://huge-it.com/joomla-extansions-demo-4-slider-2/)
+
+* [Thumbnails - Gallery](http://huge-it.com/wordpress-gallery-demo-5-thumbnails/)
+
+* [Justified Gallery - Gallery](http://huge-it.com/wordpress-plugins-gallery-user-manual/)
 
 
 If you think, that you found a bug in our [WordPress Image Gallery](http://huge-it.com/wordpress-gallery/) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com).
