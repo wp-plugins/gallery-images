@@ -251,6 +251,23 @@ function apply_cat($id)
 	if(isset($_POST["content"])){
 	$script_cat = preg_replace('#<script(.*?)>(.*?)</script>#is', '', stripslashes($_POST["content"]));
 	}
+			if(isset($_POST["name"]) && isset($_POST["display_type"]) && isset($_POST["content_per_page"])){
+			if($_POST["name"] != ''){
+			
+	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  name = %s  WHERE id = %d ", $_POST["name"], $id));
+	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  sl_width = %s  WHERE id = %d ", $_POST["sl_width"], $id));
+	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  sl_height = %s  WHERE id = %d ", $_POST["sl_height"], $id));
+	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  pause_on_hover = %s  WHERE id = %d ", $_POST["pause_on_hover"], $id));
+	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  gallery_list_effects_s = %s  WHERE id = %d ", $_POST["gallery_list_effects_s"], $id));
+	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  description = %s  WHERE id = %d ", $_POST["sl_pausetime"], $id));
+	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  param = %s  WHERE id = %d ", $_POST["sl_changespeed"], $id));
+	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  sl_position = %s  WHERE id = %d ", $_POST["sl_position"], $id));
+	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  huge_it_sl_effects = %s  WHERE id = %d ", $_POST["huge_it_sl_effects"], $id));
+	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  display_type = %s  WHERE id = %d ", $_POST["display_type"], $id));
+	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  content_per_page = %s  WHERE id = %d ", $_POST["content_per_page"], $id));
+	$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itgallery_gallerys SET  ordering = '1'  WHERE id = %d ", $id));
+			}
+			}	
 			if(isset($_POST["name"])){
 			if($_POST["name"] != ''){
 			

@@ -77,7 +77,7 @@ We please you to be understanding. The money we get for pro license is expended 
 				<li><a href="#gallery-view-options-3">Slider</a></li>
 				<li><a href="#gallery-view-options-4">Thumbnails</a></li>
                  <li><a href="#gallery-view-options-5">Justified</a></li>
-                 <li><a href="#gallery-view-options-6">Block Style Gallery</a></li>
+                 <li><a href="#gallery-view-options-6">Blog Style Gallery</a></li>
 			</ul>
 			<ul class="options-block" id="gallery-view-tabs-contents">
 				<li class="gallery-view-options-0">

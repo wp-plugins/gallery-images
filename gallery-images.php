@@ -4,7 +4,7 @@
 Plugin Name: Huge IT Image Gallery
 Plugin URI: http://huge-it.com/wordpress-gallery/
 Description: Huge-IT Image Gallery is the best plugin to use if you want to be original with your website.
-Version: 1.4.7
+Version: 1.4.8
 Author: Huge-IT
 Author: http://huge-it.com/
 License: GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
@@ -17,6 +17,507 @@ add_action('media_buttons_context', 'add_gallery_my_custom_button');
 
 
 add_action('admin_footer', 'add_gallery_inline_popup_content');
+add_action( 'wp_ajax_huge_it_video_gallery_ajax', 'huge_it_video_gallery_ajax_callback' );
+add_action( 'wp_ajax_nopriv_huge_it_video_gallery_ajax', 'huge_it_video_gallery_ajax_callback' );
+
+
+
+
+function huge_it_video_gallery_ajax_callback(){
+
+    function get_video_gallery_id_from_url($url){
+    if(strpos($url,'youtube') !== false || strpos($url,'youtu') !== false){ 
+        if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match)) {
+            return array ($match[1],'youtube');
+        }
+    }else {
+        $vimeoid =  explode( "/", $url );
+        $vimeoid =  end($vimeoid);
+        return array($vimeoid,'vimeo');
+    }
+}
+        function youtube_or_vimeo($videourl){
+    if(strpos($videourl,'youtube') !== false || strpos($videourl,'youtu') !== false){   
+        if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $videourl, $match)) {
+            return 'youtube';
+        }
+    }
+    elseif(strpos($videourl,'vimeo') !== false && strpos($videourl,'video') !== false) {
+        $explode = explode("/",$videourl);
+        $end = end($explode);
+        if(strlen($end) == 8)
+            return 'vimeo';
+    }
+    return 'image';
+}
+if(!function_exists('get_huge_image')) {
+        function get_huge_image($image_url,$img_prefix) {
+            //if(huge_it_copy_image_to_small($image_url,$image_prefix,$cropwidth)) {
+                $pathinfo = pathinfo($image_url);
+                $upload_dir = wp_upload_dir();
+                $url_img_copy = $upload_dir["url"].'/'.$pathinfo["filename"].$img_prefix.'.'.$pathinfo["extension"];
+                $img_abs_path = $url_img_copy;
+                $img_abs_path= parse_url($url_img_copy, PHP_URL_PATH);
+                $img_abs_path =  $_SERVER['DOCUMENT_ROOT'].$img_abs_path;
+                if(file_exists($img_abs_path))
+                return $url_img_copy; else
+            //}
+             return $image_url;
+        }
+    }
+////////////////////////////////////////////////////////////////////////////////////////////
+if(isset($_POST['task']) && $_POST['task']=="load_images_content"){
+        global $wpdb;
+    $page = 1;
+    if(!empty($_POST["page"]) && is_numeric($_POST['page']) && $_POST['page']>0){
+        $page = $_POST["page"];
+        $num=$_POST['perpage'];
+        $start = $page * $num - $num; 
+        $idofgallery=$_POST['galleryid'];
+         $query=$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."huge_itgallery_images where gallery_id = '%d' order by ordering ASC LIMIT %d,%d",$idofgallery,$start,$num);
+       $page_images=$wpdb->get_results($query);
+        $output = '';
+        foreach($page_images as $key=>$row)
+    {
+        $link = $row->sl_url;
+        $video_name=$row->name;
+        $id=$row->id;
+        $descnohtml=strip_tags($row->description);
+        $result = substr($descnohtml, 0, 50);
+        ?>
+        
+            
+                <?php 
+                    $imagerowstype=$row->sl_type;
+                    if($row->sl_type == ''){$imagerowstype='image';}
+                    switch($imagerowstype){
+                        case 'image':
+                ?>                                  
+                            <?php $imgurl=explode(";",$row->image_url); ?>
+                           <?php    if($row->image_url != ';'){ 
+                            $video='<img id="wd-cl-img'.$key.'" src="'.$imgurl[0].'" alt="" />';
+                             } else {
+                            $video='<img id="wd-cl-img'.$key.'" src="images/noimage.jpg" alt="" />';
+                            
+                            } ?>
+
+                <?php
+                        break;
+                        case 'video':
+                ?>
+                        <?php
+                            $videourl=get_video_gallery_id_from_url($row->image_url);
+                            if($videourl[1]=='youtube'){
+                                    if(empty($row->thumb_url)){
+                                            $thumb_pic='http://img.youtube.com/vi/'.$videourl[0].'/mqdefault.jpg';
+                                        }else{
+                                            $thumb_pic=$row->thumb_url;
+                                        }
+                                
+                                $video='<img src="'.$thumb_pic.'" alt="" />';                             
+                            
+                                }else {
+                                $hash = unserialize(file_get_contents("http://vimeo.com/api/v2/video/".$videourl[0].".php"));
+                                if(empty($row->thumb_url)){
+                                        $imgsrc=$hash[0]['thumbnail_large'];
+                                    }else{
+                                        $imgsrc=$row->thumb_url;
+                                    }
+                            
+                                $video='<img src="'.$imgsrc.'" alt="" />';
+                            
+                            }
+                        ?>
+                <?php
+                        break;
+                    }
+                ?>
+           
+                
+                <?php if($_POST['showbutton']=='on'){
+                    if ($row->link_target=="on"){
+                        $target='target="_blank"';
+                    }else{
+                        $target='';
+                    }
+                        
+                    
+                    $button='<div class="button-block"><a href="'.$row->sl_url.'"'.$target.' >'.$_POST['linkbutton'].'</a></div>';
+                }else{
+                   $button=''; 
+                } ?>
+            
+          
+       
+      
+    
+    <?php
+            
+
+            $output.='<div class="element_'.$idofgallery.' " tabindex="0" data-symbol="'.$video_name.'"  data-category="alkaline-earth">';
+            $output.='<input type="hidden" class="pagenum" value="'.$page.'" />';
+            $output.='<div class="image-block_'.$idofgallery.'">';
+            $output.=$video;
+            $output.='<div class="gallery-image-overlay"><a href="#'.$id.'"></a></div>';
+            //$output.='<div style="clear:both;"></div>';
+            $output.='</div>';
+            $output.='<div class="title-block_'.$idofgallery.'">';
+            $output.='<h3>'.$video_name.'</h3>';
+            $output.=$button;
+            $output.='</div>';
+            $output.='</div>';
+                
+            
+        
+     }
+        echo json_encode(array("success"=>$output));
+        die();
+    }
+}
+///////////////////////////////////////////////////////////////////////////////////////////////
+if(isset($_POST['task']) && $_POST['task']=="load_images_lightbox"){
+        global $wpdb;
+    $page = 1;
+    if(!empty($_POST["page"]) && is_numeric($_POST['page']) && $_POST['page']>0){
+        $page = $_POST["page"];
+        $num=$_POST['perpage'];
+        $start = $page * $num - $num; 
+        $idofgallery=$_POST['galleryid'];
+         $query=$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."huge_itgallery_images where gallery_id = '%d' order by ordering ASC LIMIT %d,%d",$idofgallery,$start,$num);
+       $page_images=$wpdb->get_results($query);
+        $output = '';
+        foreach($page_images as $key=>$row)
+    {
+        $link = $row->sl_url;
+        $video_name=$row->name;
+        $descnohtml=strip_tags($row->description);
+        $result = substr($descnohtml, 0, 50);
+        ?>
+        
+            
+                <?php 
+                    $imagerowstype=$row->sl_type;
+                    if($row->sl_type == ''){$imagerowstype='image';}
+                    switch($imagerowstype){
+                        case 'image':
+                ?>                                  
+                            <?php $imgurl=explode(";",$row->image_url); ?>
+                            <?php  
+                             if($row->image_url != ';'){ 
+                            $video='<a href="'.$imgurl[0].'" title="'.$video_name.'"><img id="wd-cl-img'.$key.'" src="'.$imgurl[0].'" alt="'.$video_name.'" /></a>';
+                            } 
+                            else { 
+                            $video='<img id="wd-cl-img'.$key.'" src="images/noimage.jpg" alt="" />';
+                           
+                            } ?>
+
+                <?php
+                        break;
+                        case 'video':
+                ?>
+                        <?php
+                            $videourl=get_video_gallery_id_from_url($row->image_url);
+                            if($videourl[1]=='youtube'){
+                                    if(empty($row->thumb_url)){
+                                            $thumb_pic='http://img.youtube.com/vi/'.$videourl[0].'/mqdefault.jpg';
+                                        }else{
+                                            $thumb_pic=$row->thumb_url;
+                                        }
+                                
+                                $video='<a class="youtube huge_it_videogallery_item group1"  href="https://www.youtube.com/embed/'.$videourl[0].'" title="'.$video_name.'">
+                                            <img src="'.$thumb_pic.'" alt="'.$video_name.'" />
+                                            <div class="play-icon '.$videourl[1].'-icon"></div>
+                                        </a>';                             
+                            
+                                }else {
+                                $hash = unserialize(file_get_contents("http://vimeo.com/api/v2/video/".$videourl[0].".php"));
+                                if(empty($row->thumb_url)){
+                                        $imgsrc=$hash[0]['thumbnail_large'];
+                                    }else{
+                                        $imgsrc=$row->thumb_url;
+                                    }
+                            
+                                $video='<a class="vimeo huge_it_videogallery_item group1" href="http://player.vimeo.com/video/'.$videourl[0].'" title="'.$video_name.'">
+                                    <img src="'.$imgsrc.'" alt="" />
+                                    <div class="play-icon '.$videourl[1].'-icon"></div>
+                                </a>';
+                            
+                            }
+                        ?>
+                <?php
+                        break;
+                    }
+                ?>
+            
+          
+         <?php if($row->name!=""){
+                if ($row->link_target=="on"){
+                   $target= 'target="_blank"';
+                }else{
+                    $target= '';
+                }
+               $linkimg='<a href="'.$link.'"'.$target.'>'.$video_name.'</a>';
+            
+            } ?>
+      
+    
+    <?php
+            
+            
+            $output.='<div class="element_'.$idofgallery.'" tabindex="0" data-symbol="'.$video_name.'"  data-category="alkaline-earth">';
+            $output.='<input type="hidden" class="pagenum" value="'.$page.'" />';
+            $output.='<div class="image-block_'.$idofgallery.'">';
+            $output.=$video;
+            $output.='<div class="title-block_'.$idofgallery.'">';
+            $output.=$linkimg;
+            $output.='</div>';
+            //$output.='<div style="clear:both;"></div>';
+            $output.='</div>';
+            $output.='</div>';
+           
+    
+            
+        
+     }
+        echo json_encode(array("success"=>$output));
+        die();
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////
+if(isset($_POST['task']) && $_POST['task']=="load_image_justified"){
+        global $wpdb;
+    $page = 1;
+    if(!empty($_POST["page"]) && is_numeric($_POST['page']) && $_POST['page']>0){
+        $page = $_POST["page"];
+        $num=$_POST['perpage'];
+        $start = $page * $num - $num; 
+        $idofgallery=$_POST['galleryid'];
+         $query=$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."huge_itgallery_images where gallery_id = '%d' order by ordering ASC LIMIT %d,%d",$idofgallery,$start,$num);
+       
+        $output = '';
+        $page_images=$wpdb->get_results($query);
+        foreach($page_images as $key=>$row){
+            //var_dump($icon);
+            $video_name=$row->name;
+           
+         $videourl=get_video_gallery_id_from_url($row->image_url);
+         $imgurl=explode(";",$row->image_url);
+         $image_prefix = "_huge_it_small_gallery";
+
+         $imagerowstype=$row->sl_type; 
+                    if($row->sl_type == ''){$imagerowstype='image';}
+                    
+                    switch($imagerowstype){
+                        case 'image': 
+                                 if($row->image_url != ';'){ 
+                                    $imgperfix=get_huge_image($imgurl[0],$image_prefix);
+                                       $video= '<a class="group1" href="'.$imgurl[0].'" title="'.$video_name.'">
+                                            <img  id="wd-cl-img'.$key.'" alt="'.$video_name.'" src="'.$imgperfix.'"/>
+                                        </a>
+                                        <input type="hidden" class="pagenum" value="'.$page.'" />';?>
+                                <?php } else { 
+                                       $video= '<img alt="'.$video_name.'" id="wd-cl-img'.$key.'" src="images/noimage.jpg"  />
+                                        <input type="hidden" class="pagenum" value="'.$page.'" />';
+                                
+                                } ?>
+                        
+                                                      
+                         
+                    <?php 
+                        break;
+                        case 'video':
+
+            if($videourl[1]=='youtube'){
+                if(empty($row->thumb_url)){
+                                            $thumb_pic='http://img.youtube.com/vi/'.$videourl[0].'/mqdefault.jpg';
+                                        }else{
+                                            $thumb_pic=$row->thumb_url;
+                                        }
+                $video = '<a class="youtube huge_it_videogallery_item group1"  href="https://www.youtube.com/embed/'.$videourl[0].'" title="'.$video_name.'">
+                                                <img  src="'.$thumb_pic.'" alt="'.$video_name.'" />
+                                                <div class="play-icon '.$videourl[1].'-icon"></div>
+                                        </a>';
+            }else {
+
+                $hash = unserialize(file_get_contents("http://vimeo.com/api/v2/video/".$videourl[0].".php"));
+                                    
+                                    if(empty($row->thumb_url)){
+                                        $imgsrc=$hash[0]['thumbnail_large'];
+                                    }else{
+                                        $imgsrc=$row->thumb_url;
+                                    }
+                $video = '<a class="vimeo huge_it_videogallery_item group1" href="http://player.vimeo.com/video/'.$videourl[0].'" title="'.$video_name.'">
+                                                <img alt="'.$video_name.'" src="'.$imgsrc.'"/>
+                                                <div class="play-icon '.$videourl[1].'-icon"></div>
+                                        </a>';
+            }
+                break;
+            }
+            
+            
+
+
+            $output .=$video.'<input type="hidden" class="pagenum" value="'.$page.'" />';
+                
+            
+        
+        }
+        echo json_encode(array("success"=>$output));
+        die();
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////////////
+if(isset($_POST['task']) && $_POST['task']=="load_image_thumbnail"){
+        global $wpdb;
+    $page = 1;
+    if(!empty($_POST["page"]) && is_numeric($_POST['page']) && $_POST['page']>0){
+        $page = $_POST["page"];
+        $num=$_POST['perpage'];
+        $start = $page * $num - $num; 
+        $idofgallery=$_POST['galleryid'];
+         $query=$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."huge_itgallery_images where gallery_id = '%d' order by ordering ASC LIMIT %d,%d",$idofgallery,$start,$num);
+       
+        $output = '';
+        $page_images=$wpdb->get_results($query);
+        foreach($page_images as $key=>$row){
+            //var_dump($icon);
+            $video_name=$row->name;
+            $imgurl=explode(";",$row->image_url); 
+            $image_prefix = "_huge_it_small_gallery";
+            $videourl=get_video_gallery_id_from_url($row->image_url);
+
+
+         $imagerowstype=$row->sl_type; 
+                    if($row->sl_type == ''){$imagerowstype='image';}
+                    
+                    switch($imagerowstype){
+                        case 'image': 
+                        $imgperfix=get_huge_image($imgurl[0],$image_prefix);
+                                                      
+                         $video='<a class="group1" href="'.$row->image_url.'" title="'.$video_name.'"></a>
+                            <img  src="'.$imgperfix.'" alt="'.$video_name.'" />';
+                     
+                        break;
+                        case 'video':
+                    
+                            
+                                
+                                if($videourl[1]=='youtube'){?>
+                                    <a class="youtube huge_it_gallery_item group1"  href="https://www.youtube.com/embed/<?php echo $videourl[0]; ?>" title="<?php echo $row->name; ?>"></a>
+                                    <img alt="<?php echo $row->name; ?>" src="http://img.youtube.com/vi/<?php echo $videourl[0]; ?>/mqdefault.jpg"  />              
+                                <?php
+                                }else {
+                                    $hash = unserialize(file_get_contents("http://vimeo.com/api/v2/video/".$videourl[0].".php"));
+                                    $imgsrc=$hash[0]['thumbnail_large'];
+                                ?>
+                                    <a class="vimeo huge_it_gallery_item group1" href="http://player.vimeo.com/video/<?php echo $videourl[0]; ?>" title="<?php echo $row->name; ?>"></a>
+                                    <img alt="<?php echo $row->name; ?>" src="<?php echo $imgsrc; ?>"  />
+                                <?php
+                                }
+                            ?>
+                    <?php
+                        break;
+                    }
+                    ?>
+            
+<?php
+
+            $output .='
+                <li class="huge_it_big_li">
+                    <input type="hidden" class="pagenum" value="'.$page.'" />
+                        '.$video.'
+
+                    <div class="overLayer"></div>
+                    <div class="infoLayer">
+                        <ul>
+                            <li>
+                                <h2>
+                                    '.$video_name.'
+                                </h2>
+                            </li>
+                            <li>
+                                <p>
+                                    '.$_POST['thumbtext'].'
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </li>
+            ';
+        
+        }
+        echo json_encode(array("success"=>$output));
+        die();
+    }
+}
+///////////////////////////////////////////////////////////////////////////////////////////
+    if(isset($_POST['task']) && $_POST['task']=="load_blog_view"){
+        global $wpdb;
+    $page = 1;
+    if(!empty($_POST["page"]) && is_numeric($_POST['page']) && $_POST['page']>0){
+        $page = $_POST["page"];
+        $num=$_POST['perpage'];
+        $start = $page * $num - $num; 
+        $idofgallery=$_POST['galleryid'];
+         $query=$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."huge_itgallery_images where gallery_id = '%d' order by ordering ASC LIMIT %d,%d",$idofgallery,$start,$num);
+       
+        $output = '';
+        $page_images=$wpdb->get_results($query);
+       foreach($page_images as $key=>$row)
+    {
+        
+        $img_src=$row->image_url;
+        $img_name=$row->name;
+        $img_desc=$row->description;
+    
+            if($_POST['position']==1){
+
+
+            $output .='
+               <div class="view9_container">
+                        <input type="hidden" class="pagenum" value="'.$page.'" />
+                        <img class="view9_img" src="'.$img_src.'">
+                        <h1 class="new_view_title">'.$img_name.'</h1>
+                        <div class="new_view_desc">'.$img_desc.'</div>
+                </div>
+
+        <div class="clear"></div>
+            ';
+        }elseif($_POST['position']==2){
+
+
+            $output .='
+                <div class="view9_container">
+            <input type="hidden" class="pagenum" value="'.$page.'" />
+            <h1 class="new_view_title">'.$img_name.'</h1>
+            <img class="view9_img" src="'.$img_src.'">
+            <div class="new_view_desc">'.$img_desc.'</div>
+        </div>
+        <div class="clear"></div>
+            ';
+            }elseif($_POST['position']==3){
+
+
+            $output .='
+                <div class="view9_container">
+                    <input type="hidden" class="pagenum" value="'.$page.'" />
+                    <h1 class="new_view_title">'.$img_name.'</h1>
+                    <div class="new_view_desc">'.$img_desc.'</div>
+                    <img class="view9_img" src="'.$img_src.'">
+                </div>
+                <div class="clear"></div>
+            ';
+            }
+            }
+        }
+        echo json_encode(array("success"=>$output));
+        die();
+    }
+}
+
+
 
 
 function add_gallery_my_custom_button($context) {
@@ -628,6 +1129,18 @@ INSERT INTO `$table_name` (`id`, `name`, `sl_height`, `sl_width`, `pause_on_hove
       $wpdb->query($sql_3);
     }
 	
+    ////////////////////////////////////////
+  $imagesAllFieldsInArray2 = $wpdb->get_results("DESCRIBE " . $wpdb->prefix . "huge_itgallery_gallerys", ARRAY_A);
+        $fornewUpdate = 0;
+        foreach ($imagesAllFieldsInArray2 as $portfoliosField2) {
+            if ($portfoliosField2['Field'] == 'display_type') {
+                $fornewUpdate = 1;
+            }
+        }
+        if($fornewUpdate != 1){
+            $wpdb->query("ALTER TABLE ".$wpdb->prefix."huge_itgallery_gallerys ADD display_type integer DEFAULT '2' ");
+            $wpdb->query("ALTER TABLE ".$wpdb->prefix."huge_itgallery_gallerys ADD content_per_page integer DEFAULT '5' ");
+        }   
 
 }
 register_activation_hook(__FILE__, 'huge_it_gallery_activate');

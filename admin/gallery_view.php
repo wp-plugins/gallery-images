@@ -363,7 +363,7 @@ jQuery(document).ready(function($){
 						</div>
 						<?php $_GET['id'] = esc_html($_GET['id']); ?>					
 						<a href="admin.php?page=gallerys_huge_it_gallery&task=gallery_video&id=<?php echo $_GET['id']; ?>&TB_iframe=1" class="button button-primary add-video-slide thickbox"  id="slideup3s" value="iframepop">
-							<span class="wp-media-buttons-icon"></span>Add Video Slide
+							<span class="wp-media-buttons-icon"></span>Add Video
 						</a>
 
 
@@ -634,9 +634,41 @@ jQuery(document).ready(function($){
 									<option <?php if($row->huge_it_sl_effects == '3'){ echo 'selected'; } ?>  value="3">Slider</option>
 									<option <?php if($row->huge_it_sl_effects == '4'){ echo 'selected'; } ?>  value="4">Thumbnails View</option>
                                     <option <?php if($row->huge_it_sl_effects == '6'){ echo 'selected'; } ?>  value="6">Justified</option>
-                                    <option <?php if($row->huge_it_sl_effects == '7'){ echo 'selected'; } ?>  value="7">Block Style Gallery</option>
+                                    <option <?php if($row->huge_it_sl_effects == '7'){ echo 'selected'; } ?>  value="7">Blog Style Gallery</option>
 							</select>
 						</li>
+						<script>
+						jQuery(document).ready(function ($){
+							//alert('hi');
+							//$('div[id^="list_"]')
+								if($('select[name="display_type"]').val()== 2){
+								$('li[id="content_per_page"]').hide();
+							}else{
+								$('li[id="content_per_page"]').show();
+							}
+							$('select[name="display_type"]').on('change' ,function(){
+								if($(this).val()== 2){
+								$('li[id="content_per_page"]').hide();
+							}else{
+								$('li[id="content_per_page"]').show();
+							}
+							})
+							
+
+							$('#videogallery-unique-options').on('change',function(){
+								$( 'div[id^="videogallery-current-options"]').each(function(){
+								if(!$(this).hasClass( "active" )){
+									$(this).find('ul li input[name="content_per_page"]').attr('name', '');
+									$(this).find('ul li select[name="display_type"]').attr('name', '');
+									//$(this).find('ul li select').attr('name', '');
+								}else{
+									//alert('no');
+								}
+							})
+							})
+							
+						})
+					</script>
 						<li>
 							<label for="huge_it_gallery_name">Gallery name</label>
 							<input type = "text" name="name" id="huge_it_gallery_name" value="<?php echo esc_html(stripslashes($row->name));?>" onkeyup = "name_changeRight(this)">
@@ -694,6 +726,28 @@ jQuery(document).ready(function($){
 									<option <?php if($row->sl_position == 'center'){ echo 'selected'; } ?>  value="center">Center</option>
 							</select>
 						</li>
+					</ul>
+					</div>
+						<div id="videogallery-current-options-7" class="videogallery-current-options <?php if($row->huge_it_sl_effects == 7){ echo ' active'; }  ?>">
+					<ul id="view7">
+						
+						  <li>
+							<label for="display_type">Displaying Content</label>
+							<select id="display_type" name="display_type">
+
+								  <option <?php if($row->display_type == 0){ echo 'selected'; } ?>  value="0">Pagination</option>
+									<option <?php if($row->display_type == 1){ echo 'selected'; } ?>   value="1">Load More</option>
+									<option <?php if($row->display_type == 2){ echo 'selected'; } ?>   value="2">Show All</option>
+						
+							</select>
+							</li>
+						<li id="content_per_page">
+							<label for="content_per_page">Content Per Page</label>
+							<input type="text" name="content_per_page" id="content_per_page" value="<?php echo $row->content_per_page; ?>" class="text_area" />
+						</li>
+						
+
+					
 					</ul>
 					</div>
 
@@ -983,7 +1037,7 @@ function html_gallery_video(){
 			<h2>Add Video URL From Youtobe or Vimeo</h2>
 			<div class="control-panel">
 					<input type="text" id="huge_it_add_video_input" name="huge_it_add_video_input" />
-					<button class='save-slider-options button-primary huge-it-insert-video-button' id='huge-it-insert-video-button'>Insert Video Slide</button>
+					<button class='save-slider-options button-primary huge-it-insert-video-button' id='huge-it-insert-video-button'>Insert Video</button>
 					<div id="add-video-popup-options">
 						<div>
 							<div>
