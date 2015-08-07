@@ -4,7 +4,7 @@
 Plugin Name: Huge IT Image Gallery
 Plugin URI: http://huge-it.com/wordpress-gallery/
 Description: Huge-IT Image Gallery is the best plugin to use if you want to be original with your website.
-Version: 1.4.9
+Version: 1.5.0
 Author: Huge-IT
 Author: http://huge-it.com/
 License: GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
@@ -17,14 +17,14 @@ add_action('media_buttons_context', 'add_gallery_my_custom_button');
 
 
 add_action('admin_footer', 'add_gallery_inline_popup_content');
-add_action( 'wp_ajax_huge_it_video_gallery_ajax', 'huge_it_image_gallery_ajax_callback' );
-add_action( 'wp_ajax_nopriv_huge_it_video_gallery_ajax', 'huge_it_image_gallery_ajax_callback' );
+add_action( 'wp_ajax_huge_it_video_gallery_ajax', 'huge_it_video_gallery_ajax_callback' );
+add_action( 'wp_ajax_nopriv_huge_it_video_gallery_ajax', 'huge_it_video_gallery_ajax_callback' );
 
 
 
 
-function huge_it_image_gallery_ajax_callback(){
-	if(!function_exists('get_video_gallery_id_from_url')) {
+function huge_it_video_gallery_ajax_callback(){
+
     function get_video_gallery_id_from_url($url){
     if(strpos($url,'youtube') !== false || strpos($url,'youtu') !== false){ 
         if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match)) {
@@ -36,8 +36,6 @@ function huge_it_image_gallery_ajax_callback(){
         return array($vimeoid,'vimeo');
     }
 }
-	}
-if(!function_exists('youtube_or_vimeo')) {	
         function youtube_or_vimeo($videourl){
     if(strpos($videourl,'youtube') !== false || strpos($videourl,'youtu') !== false){   
         if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $videourl, $match)) {
@@ -51,7 +49,6 @@ if(!function_exists('youtube_or_vimeo')) {
             return 'vimeo';
     }
     return 'image';
-}
 }
 if(!function_exists('get_huge_image')) {
         function get_huge_image($image_url,$img_prefix) {
@@ -1144,6 +1141,20 @@ INSERT INTO `$table_name` (`id`, `name`, `sl_height`, `sl_width`, `pause_on_hove
             $wpdb->query("ALTER TABLE ".$wpdb->prefix."huge_itgallery_gallerys ADD display_type integer DEFAULT '2' ");
             $wpdb->query("ALTER TABLE ".$wpdb->prefix."huge_itgallery_gallerys ADD content_per_page integer DEFAULT '5' ");
         }   
+
+        //////////////////////////////////////////////
+        $imagesAllFieldsInArray3 = $wpdb->get_results("DESCRIBE " . $wpdb->prefix . "huge_itgallery_images", ARRAY_A);
+        $fornewUpdate2 = 0;
+        foreach ($imagesAllFieldsInArray3 as $portfoliosField3) {
+
+            if ($portfoliosField3['Field'] == 'sl_url'  &&  $portfoliosField3['Type'] == 'text') {
+               $fornewUpdate2=1;
+            }
+        }
+        if($fornewUpdate2 != 1){
+            $wpdb->query("ALTER TABLE ".$wpdb->prefix."huge_itgallery_images CHANGE sl_url sl_url TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL");
+           
+        } 
 
 }
 register_activation_hook(__FILE__, 'huge_it_gallery_activate');
