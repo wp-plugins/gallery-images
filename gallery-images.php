@@ -4,7 +4,7 @@
 Plugin Name: Huge IT Image Gallery
 Plugin URI: http://huge-it.com/wordpress-gallery/
 Description: Huge-IT Image Gallery is the best plugin to use if you want to be original with your website.
-Version: 1.5.0
+Version: 1.5.1
 Author: Huge-IT
 Author: http://huge-it.com/
 License: GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
@@ -17,14 +17,14 @@ add_action('media_buttons_context', 'add_gallery_my_custom_button');
 
 
 add_action('admin_footer', 'add_gallery_inline_popup_content');
-add_action( 'wp_ajax_huge_it_video_gallery_ajax', 'huge_it_video_gallery_ajax_callback' );
-add_action( 'wp_ajax_nopriv_huge_it_video_gallery_ajax', 'huge_it_video_gallery_ajax_callback' );
+add_action( 'wp_ajax_huge_it_video_gallery_ajax', 'huge_it_image_gallery_ajax_callback' );
+add_action( 'wp_ajax_nopriv_huge_it_video_gallery_ajax', 'huge_it_image_gallery_ajax_callback' );
 
 
 
 
-function huge_it_video_gallery_ajax_callback(){
-
+function huge_it_image_gallery_ajax_callback(){
+if(!function_exists('get_video_gallery_id_from_url')) {
     function get_video_gallery_id_from_url($url){
     if(strpos($url,'youtube') !== false || strpos($url,'youtu') !== false){ 
         if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match)) {
@@ -36,6 +36,8 @@ function huge_it_video_gallery_ajax_callback(){
         return array($vimeoid,'vimeo');
     }
 }
+}
+if(!function_exists('youtube_or_vimeo')) {
         function youtube_or_vimeo($videourl){
     if(strpos($videourl,'youtube') !== false || strpos($videourl,'youtu') !== false){   
         if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $videourl, $match)) {
@@ -49,6 +51,7 @@ function huge_it_video_gallery_ajax_callback(){
             return 'vimeo';
     }
     return 'image';
+}
 }
 if(!function_exists('get_huge_image')) {
         function get_huge_image($image_url,$img_prefix) {
